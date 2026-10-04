@@ -20,7 +20,7 @@ const SHORT: Record<string, string> = {
   anaemia: "Anaemia",
   "care-for-older-adults": "Older adults",
   "preventive-check-ups": "Check-ups",
-  "diabetes-and-prediabetes": "Prediabetes",
+  "diabetes-and-prediabetes": "Diabetes",
 };
 
 function Pill({ slug, icon, label }: { slug: string; icon: string; label: string }) {
@@ -38,10 +38,11 @@ function Pill({ slug, icon, label }: { slug: string; icon: string; label: string
  * single row on mobile.
  */
 export function ConditionsMarquee() {
-  const items = [
-    { slug: "diabetes-and-prediabetes", icon: "drop", label: "Diabetes" },
-    ...allConditions.map((c) => ({ slug: c.slug, icon: c.icon, label: SHORT[c.slug] ?? c.short })),
-  ];
+  const items = allConditions.map((c) => ({
+    slug: c.slug,
+    icon: c.icon,
+    label: SHORT[c.slug] ?? c.short,
+  }));
   const half = Math.ceil(items.length / 2);
   const rows = [items.slice(0, half), items.slice(half)];
 

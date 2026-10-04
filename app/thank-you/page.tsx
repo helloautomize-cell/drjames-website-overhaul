@@ -3,6 +3,7 @@ import { site } from "@/lib/site-config";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { Icon } from "@/lib/icons";
 import { Confirm } from "@/components/Confirm";
+import { ThankYouTrack } from "@/components/analytics/ThankYouTrack";
 
 export const metadata: Metadata = {
   title: "Thank you",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
 /** Confirmation shown after the booking form posts (wired in Phase 5). */
 export default function ThankYou() {
   return (
-    <div className="container">
+    <main id="main" className="container">
+      <ThankYouTrack />
       <div className="empty-page">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Thank you" }]} />
         <div className="thx-card">
@@ -33,6 +35,6 @@ export default function ThankYou() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

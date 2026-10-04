@@ -2738,7 +2738,7 @@ table.ct {
 .bform .f {
   display: grid;
   gap: 6px;
-  grid-column: span 2;
+  grid-column: 1 / -1;
   min-width: 0;
 }
 .bform .f.half {
@@ -2783,7 +2783,7 @@ table.ct {
   max-width: 130px;
 }
 .bform .chk {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   display: flex;
   gap: 10px;
   align-items: flex-start;
@@ -2803,7 +2803,7 @@ table.ct {
   color: var(--primary-500);
 }
 .fnote {
-  grid-column: span 2;
+  grid-column: 1 / -1;
   margin: 0;
   font-size: 14px;
   color: var(--ink-2);
@@ -4594,4 +4594,59 @@ table.ct {
   .doc img {
     aspect-ratio: 4/2.9;
   }
+}
+
+/* ---------- Phase 5: booking form action states ---------- */
+/* Honeypot: present in the DOM for bots, invisible and untabbable. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+/* Guardian block: always rendered for no-JS, revealed by :has(). */
+.bform .g-block {
+  display: none;
+  grid-column: 1 / -1;
+}
+.bform:has(#b-u18:checked) .g-block {
+  display: grid;
+}
+.bform-errors {
+  grid-column: 1 / -1;
+  border: 1px solid var(--em-b);
+  background: var(--em-bg);
+  border-radius: 14px;
+  padding: 16px 20px;
+  color: var(--alert);
+  font-size: 15.5px;
+  outline: none;
+}
+.bform-errors b {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--alert);
+}
+.bform-errors ul {
+  margin: 0 0 8px;
+  padding-left: 18px;
+}
+.bform-errors a {
+  color: var(--alert);
+}
+.bform-errors .btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.tslot {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+.bform .em-line {
+  grid-column: 1 / -1;
+  margin: 0;
 }

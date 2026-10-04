@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { site } from "@/lib/site-config";
 import { Icon } from "@/lib/icons";
+import { track } from "@/lib/analytics";
 
 const MAPS_EMBED =
   "https://www.google.com/maps?q=Badr%20Al%20Samaa%20Royal%20Hospital%20Al%20Ghubrah%20Muscat&output=embed";
@@ -35,7 +36,14 @@ export function MapLoader() {
           />
           <figcaption>
             <span>{site.address.hospital}</span>
-            <button type="button" className="btn btn-s" onClick={() => setShow(true)}>
+            <button
+              type="button"
+              className="btn btn-s"
+              onClick={() => {
+                track("map_load");
+                setShow(true);
+              }}
+            >
               <Icon name="pin" size={16} /> Show map
             </button>
           </figcaption>

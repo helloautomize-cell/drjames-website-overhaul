@@ -4,6 +4,7 @@ import { BookingForm } from "@/components/BookingForm";
 import { MapLoader } from "@/components/MapLoader";
 import { Confirm } from "@/components/Confirm";
 import { site } from "@/lib/site-config";
+import { reasonFromParam } from "@/lib/booking-context";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/lib/icons";
 import {
@@ -23,7 +24,14 @@ export const metadata: Metadata = pageMeta(
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "Contact" }];
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const sp = await searchParams;
+  const reason = reasonFromParam(typeof sp.reason === "string" ? sp.reason : undefined);
+  const sourcePage = reason ? `/contact/?reason=${encodeURIComponent(reason)}` : "/contact/";
   return (
     <main id="main">
       <JsonLd
@@ -54,7 +62,7 @@ export default function ContactPage() {
                 Tell us the basics and we will confirm your slot by WhatsApp or phone. No
                 account needed, and please do not include medical details in the form.
               </p>
-              <BookingForm />
+              <BookingForm defaultReason={reason} sourcePage={sourcePage} />
               <p className="em-line" style={{ marginTop: 18 }}>
                 Medical emergency? Call {site.emergency}
               </p>

@@ -10,6 +10,7 @@ import { RelatedConditions } from "@/components/page/RelatedConditions";
 import { CtaBand } from "@/components/page/CtaBand";
 import { conditionDoc, conditionMeta, withHeadingIds } from "@/lib/content";
 import { allConditions } from "@/lib/conditions";
+import { reasonForSlug } from "@/lib/booking-context";
 import {
   pageMeta,
   JsonLd,
@@ -77,6 +78,7 @@ export default async function ConditionPage({
         title={doc.heading}
         intro={doc.intro}
         badge={cond?.icon}
+        reason={reasonForSlug(slug)}
       />
       <div className="container">
         <div className="pg-grid">

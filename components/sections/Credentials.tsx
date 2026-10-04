@@ -74,7 +74,7 @@ export function Credentials() {
     <>
       <div className="creds">
         {SEALS.map((s) => (
-          <div className="seal" key={s.title}>
+          <div className="seal" key={`${s.ring}-${s.title}`}>
             <span className="ring">{s.ring}</span>
             <b>{s.title}</b>
             <small>{s.note}</small>

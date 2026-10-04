@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Instrument_Serif } from "next/font/google";
 import { SiteChrome } from "@/components/shell/SiteChrome";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -42,6 +43,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SiteChrome>{children}</SiteChrome>
+        {/* Speed Insights only exists on Vercel — skip elsewhere so
+            local/preview serves no 404 script. */}
+        {process.env.VERCEL ? <SpeedInsights /> : null}
       </body>
     </html>
   );

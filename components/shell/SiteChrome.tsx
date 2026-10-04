@@ -8,6 +8,7 @@ import { SiteFooter } from "@/components/sections/SiteFooter";
 import { MobileActionBar } from "@/components/shell/MobileActionBar";
 import { FloatingWhatsApp } from "@/components/shell/FloatingWhatsApp";
 import { CookieBanner } from "@/components/shell/CookieBanner";
+import { Analytics } from "@/components/analytics/Analytics";
 
 /**
  * Production site chrome: utility bar, sticky header, main landmark,
@@ -23,7 +24,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     <>
       <UtilityBar />
       <SiteHeader />
-      <main id="main">{children}</main>
+      {children}
       <div className="container" style={{ paddingBottom: 32 }}>
         <SiteFooter />
       </div>
@@ -31,6 +32,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <MobileActionBar />
       <FloatingWhatsApp />
       <CookieBanner />
+      <Analytics />
     </>
   );
 }

@@ -6,7 +6,7 @@ import { ConditionSearch } from "@/components/ConditionSearch";
 
 export default function NotFound() {
   return (
-    <div className="container">
+    <main id="main" className="container">
       <div className="empty-page">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Page not found" }]} />
         <h1>Page not found</h1>
@@ -28,6 +28,6 @@ export default function NotFound() {
           </a>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
