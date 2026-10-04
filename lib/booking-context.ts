@@ -24,9 +24,15 @@ export function bookingUrl(reason?: BookingReason): string {
   return `${base}${r}#book`;
 }
 
-/** Validate a ?reason= param against the neutral list. */
+const PARAM_ALIAS: Record<string, BookingReason> = {
+  "medicines-review": "Medicines review",
+};
+
+/** Validate a ?reason= param against the neutral list (kebab aliases allowed). */
 export function reasonFromParam(param: string | undefined): BookingReason | undefined {
-  return (BOOKING_REASONS as readonly string[]).includes(param ?? "")
+  if (!param) return undefined;
+  if (param in PARAM_ALIAS) return PARAM_ALIAS[param];
+  return (BOOKING_REASONS as readonly string[]).includes(param)
     ? (param as BookingReason)
     : undefined;
 }
