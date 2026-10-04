@@ -37,6 +37,7 @@ export type IconName =
   | "menu"
   | "pause"
   | "play"
+  | "chevron"
   | "close";
 
 export const iconPaths: Record<IconName, ReactNode> = {
@@ -214,6 +215,7 @@ export const iconPaths: Record<IconName, ReactNode> = {
   pause: <path d="M9 5v14M15 5v14" strokeWidth="2.4" />,
   play: <path d="M9 5l10 7-10 7z" strokeLinejoin="round" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,
+  chevron: <path d="M6 9l6 6 6-6" />,
 };
 
 export function Icon({

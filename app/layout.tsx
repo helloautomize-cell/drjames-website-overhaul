@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Instrument_Serif } from "next/font/google";
+import { SiteChrome } from "@/components/shell/SiteChrome";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only">
           Skip to content
         </a>
-        {children}
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

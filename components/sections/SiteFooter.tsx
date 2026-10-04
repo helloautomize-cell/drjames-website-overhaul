@@ -2,8 +2,7 @@ import { site } from "@/lib/site-config";
 import { footerNav } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
 import { Confirm } from "@/components/Confirm";
-
-const COOKIE_LINK = { label: "Cookie settings", href: "#" };
+import { CookieSettingsLink } from "@/components/shell/CookieSettingsLink";
 
 export function SiteFooter() {
   return (
@@ -47,7 +46,7 @@ export function SiteFooter() {
             {l.label}
           </a>
         ))}
-        <a href={COOKIE_LINK.href}>{COOKIE_LINK.label}</a>
+        <CookieSettingsLink />
       </div>
       <div className="fbase">
         © {new Date().getFullYear()} {site.name}. Health information on this site is for
