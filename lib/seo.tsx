@@ -141,7 +141,7 @@ export const medicalWebPageNode = (
   about: about ?? { "@id": `${SITE_URL}/#dr-james` },
   reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
   // omit rather than ship a "[CONFIRM]" marker into structured data
-  ...(lastReviewed.includes("[CONFIRM]") ? {} : { lastReviewed }),
+  ...(lastReviewed.includes("[CONFIRM") ? {} : { lastReviewed }),
 });
 
 export const medicalConditionNode = (url: string, name: string, description: string) => ({
@@ -156,11 +156,13 @@ export const faqPageNode = (url: string, faqs: { q: string; a: string }[]) => ({
   "@type": "FAQPage" as const,
   "@id": `${SITE_URL}${url}#faq`,
   isPartOf: { "@id": `${SITE_URL}${url}#webpage` },
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question" as const,
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer" as const, text: f.a },
-  })),
+  mainEntity: faqs
+    .filter((f) => !f.q.includes("[CONFIRM") && !f.a.includes("[CONFIRM"))
+    .map((f) => ({
+      "@type": "Question" as const,
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer" as const, text: f.a },
+    })),
 });
 
 export const blogPostingNode = (
@@ -174,7 +176,7 @@ export const blogPostingNode = (
   headline: heading,
   description,
   url: `${SITE_URL}${url}`,
-  ...(date.includes("[CONFIRM]") ? {} : { datePublished: date }),
+  ...(date.includes("[CONFIRM") ? {} : { datePublished: date }),
   author: { "@id": `${SITE_URL}/#dr-james` },
   publisher: { "@id": `${SITE_URL}/#dr-james` },
   isPartOf: { "@id": `${SITE_URL}/#website` },
