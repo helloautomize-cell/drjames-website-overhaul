@@ -1,9 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Confirm } from "@/components/Confirm";
+import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site-config";
 
 const LEDGER: { abbr: string; subject: string; inst: ReactNode }[] = [
@@ -48,27 +47,6 @@ const MILESTONES: { yr: string; now?: boolean; title: string; line: string }[] =
 
 /** Night section: lobby portrait, bio, hairline ledger, animated milestone rail, contact row. */
 export function MeetDrJames() {
-  const rail = useRef<HTMLOListElement>(null);
-
-  useEffect(() => {
-    const el = rail.current;
-    if (!el || !("IntersectionObserver" in window)) {
-      el?.classList.add("on");
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          el.classList.add("on");
-          io.disconnect();
-        }
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <section className="sec mj-sec x-night" data-header="dark" aria-labelledby="mj-h">
       <div className="container">
@@ -109,7 +87,7 @@ export function MeetDrJames() {
           </div>
         </div>
 
-        <ol className="mj-rail" ref={rail}>
+        <Reveal as="ol" className="mj-rail" threshold={0.4}>
           <span className="mj-track" aria-hidden="true" />
           <span className="mj-fill" aria-hidden="true" />
           {MILESTONES.map((m, i) => (
@@ -123,7 +101,7 @@ export function MeetDrJames() {
               <span className="mj-line">{m.line}</span>
             </li>
           ))}
-        </ol>
+        </Reveal>
 
         <div className="mj-foot">
           <ul className="mj-chips" aria-label="Languages and licence">

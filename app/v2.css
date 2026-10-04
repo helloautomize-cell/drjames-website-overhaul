@@ -410,7 +410,7 @@
   color: var(--ink);
 }
 .x-in {
-  opacity: 0;
+  opacity: .01;
   transform: translateY(16px);
   animation: x-up .9s var(--ease) forwards;
 }
@@ -463,10 +463,10 @@
   height: 440px;
   border-radius: 50%;
   background: radial-gradient(closest-side, rgba(124, 192, 188, .24), rgba(124, 192, 188, 0));
-  left: var(--fx, 20%);
-  top: var(--fy, 22%);
-  transform: translate(-50%, -50%);
-  transition: left 1.2s var(--ease), top 1.2s var(--ease);
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%) translate(var(--fpx, 120px), var(--fpy, 120px));
+  transition: transform 1.2s var(--ease);
   z-index: 1;
   pointer-events: none;
 }
@@ -1971,6 +1971,13 @@ body {
   }
 }
 
+/* defer offscreen section rendering (long home page) — hero and the
+   300vh sticky conditions track stay eager */
+main > section ~ section:not(#conditions) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
 /* training: credential ledger, certificate in a gold mount, timeline that fills as you read */
 .cl {
   --yc: 96px;
@@ -3197,4 +3204,11 @@ body {
 }
 .cta-emg b {
   font-weight: 600;
+}
+
+/* skip layout/paint for below-fold sections until they near the viewport
+   (not .foot — an unrendered footer makes Lighthouse misread its bg) */
+main > .sec:not(.x-night) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
 }

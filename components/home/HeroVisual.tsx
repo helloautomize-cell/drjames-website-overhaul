@@ -43,6 +43,24 @@ export function HeroVisual() {
   const reduced = useSyncExternalStore(subscribeRM, () => matchMedia(RM).matches, () => false);
   const [run, setRun] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [focusPx, setFocusPx] = useState<[number, number] | null>(null);
+
+  // % focus points resolved to px so the glow can move with transform
+  // (layout-affecting left/top transitions would count as CLS).
+  useEffect(() => {
+    const p = panelRef.current;
+    if (!p) return;
+    const update = () =>
+      setFocusPx([
+        (p.clientWidth * PILLARS[cur].focus[0]) / 100,
+        (p.clientHeight * PILLARS[cur].focus[1]) / 100,
+      ]);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(p);
+    return () => ro.disconnect();
+  }, [cur]);
 
   useEffect(() => {
     if (reduced || paused) return;
@@ -59,7 +77,7 @@ export function HeroVisual() {
 
   return (
     <div className="x-vis">
-      <div className="x-panel x-in" style={{ animationDelay: ".2s" }}>
+      <div ref={panelRef} className="x-panel x-in" style={{ animationDelay: ".2s" }}>
         <svg className="x-contours" viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           {CONTOURS.map((c) => (
             <path key={c.delay} pathLength={1} d={c.d} style={{ animationDelay: `${c.delay + 0.9}s` }} />
@@ -67,7 +85,11 @@ export function HeroVisual() {
         </svg>
         <div
           className="x-focus"
-          style={{ ["--fx" as string]: `${fx}%`, ["--fy" as string]: `${fy}%` }}
+          style={
+            focusPx
+              ? { ["--fpx" as string]: `${focusPx[0]}px`, ["--fpy" as string]: `${focusPx[1]}px` }
+              : { ["--fpx" as string]: `${(440 * fx) / 100}px`, ["--fpy" as string]: `${(440 * fy) / 100}px` }
+          }
           aria-hidden="true"
         />
         <div className="x-plate">

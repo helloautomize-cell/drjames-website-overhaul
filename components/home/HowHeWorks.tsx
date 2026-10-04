@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { Reveal } from "@/components/site/Reveal";
 import { Confirm } from "@/components/Confirm";
 
 const ROMAN = ["i", "ii", "iii", "iv"];
@@ -26,27 +24,6 @@ const PRINCIPLES: { title: string; line: string }[] = [
 
 /** Desk photo + his own words + four practice principles with a draw-in rule. */
 export function HowHeWorks() {
-  const prin = useRef<HTMLOListElement>(null);
-
-  useEffect(() => {
-    const el = prin.current;
-    if (!el || !("IntersectionObserver" in window)) {
-      el?.classList.add("on");
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          el.classList.add("on");
-          io.disconnect();
-        }
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <section className="sec hw-sec" aria-labelledby="hw-h">
       <div className="container">
@@ -82,7 +59,7 @@ export function HowHeWorks() {
             </div>
           </div>
         </div>
-        <ol className="hw-prin" ref={prin}>
+        <Reveal as="ol" className="hw-prin" threshold={0.35}>
           {PRINCIPLES.map((p, i) => (
             <li key={p.title} style={{ ["--d" as string]: `${i * 150}ms` }}>
               <span className="hw-dia" aria-hidden="true" />
@@ -91,7 +68,7 @@ export function HowHeWorks() {
               <p>{p.line}</p>
             </li>
           ))}
-        </ol>
+        </Reveal>
         {process.env.NEXT_PUBLIC_SHOW_CONFIRM !== "0" ? (
           <p className="hw-confirm">
             <Confirm>[CONFIRM: Dr. James approves the four principles in his own words]</Confirm>

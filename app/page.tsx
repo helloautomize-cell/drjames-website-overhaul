@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
-import { ConditionsMosaic } from "@/components/home/ConditionsMosaic";
 import { RightDoctor } from "@/components/home/RightDoctor";
 import { HowHeWorks } from "@/components/home/HowHeWorks";
-import { StepTracker } from "@/components/StepTracker";
 import { MeetDrJames } from "@/components/home/MeetDrJames";
 import { VisitBand } from "@/components/home/VisitBand";
 import { CtaBand } from "@/components/home/CtaBand";
-import { LibraryCarousel } from "@/components/LibraryCarousel";
+
+const ConditionsMosaic = dynamic(() =>
+  import("@/components/home/ConditionsMosaic").then((m) => m.ConditionsMosaic),
+);
+const StepTracker = dynamic(() =>
+  import("@/components/StepTracker").then((m) => m.StepTracker),
+);
+const LibraryCarousel = dynamic(() =>
+  import("@/components/LibraryCarousel").then((m) => m.LibraryCarousel),
+);
 import { Faq, HOME_FAQS } from "@/components/sections/Faq";
 import { site } from "@/lib/site-config";
 import { libraryArticles } from "@/lib/library-articles";
