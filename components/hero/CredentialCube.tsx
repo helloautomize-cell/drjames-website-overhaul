@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { LogoMark } from "@/components/brand/Logo";
+import { site } from "@/lib/site-config";
 
 const TABS = ["Portrait", "Training", "Experience", "Leadership"] as const;
 const BASE = -28;
@@ -194,12 +195,12 @@ export function CredentialCube() {
           <div className="face f2 cface">
             <span className="k">Experience</span>
             <div className="big">
-              23<sup>+</sup>
+              {site.yearsInMedicine}<sup>+</sup>
             </div>
             <p className="lead">
               years in medicine
               <br />
-              <small>since 2002</small>
+              <small>since {site.sinceYear}</small>
             </p>
             <ul>
               <li>
@@ -209,7 +210,7 @@ export function CredentialCube() {
                 <b>ICU</b> and ER lead, MBBM Hospital, Kerala
               </li>
               <li>
-                <b>COVID-19</b> ICU operations lead, Muscat
+                <b>COVID‑19</b> ICU operations lead, Muscat
               </li>
             </ul>
           </div>

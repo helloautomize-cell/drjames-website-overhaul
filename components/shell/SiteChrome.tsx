@@ -2,37 +2,40 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { UtilityBar } from "@/components/shell/Shell";
-import { SiteHeader } from "@/components/shell/SiteHeader";
+import { Header } from "@/components/site/Header";
+import { Dock } from "@/components/site/Dock";
+import { FinderProvider } from "@/components/site/SymptomFinder";
 import { SiteFooter } from "@/components/sections/SiteFooter";
-import { MobileActionBar } from "@/components/shell/MobileActionBar";
-import { FloatingWhatsApp } from "@/components/shell/FloatingWhatsApp";
 import { CookieBanner } from "@/components/shell/CookieBanner";
 import { Analytics } from "@/components/analytics/Analytics";
+import type { ReadNext } from "@/lib/read-next";
 
 /**
- * Production site chrome: utility bar, sticky header, main landmark,
- * footer, mobile action bar, floating WhatsApp, cookie banner.
+ * Production site chrome: concierge rail + floating header, main landmark,
+ * footer, mobile dock, symptom finder, cookie banner.
  * `/styleguide` renders bare — it is the component showcase.
  */
-export function SiteChrome({ children }: { children: ReactNode }) {
+export function SiteChrome({
+  children,
+  readNext,
+}: {
+  children: ReactNode;
+  readNext: Record<string, ReadNext>;
+}) {
   const pathname = usePathname();
   if (pathname === "/styleguide" || pathname === "/styleguide/") {
     return <>{children}</>;
   }
   return (
-    <>
-      <UtilityBar />
-      <SiteHeader />
+    <FinderProvider>
+      <Header readNext={readNext} />
       {children}
       <div className="container" style={{ paddingBottom: 32 }}>
         <SiteFooter />
       </div>
-      <div className="abar-pad" aria-hidden="true" />
-      <MobileActionBar />
-      <FloatingWhatsApp />
+      <Dock />
       <CookieBanner />
       <Analytics />
-    </>
+    </FinderProvider>
   );
 }

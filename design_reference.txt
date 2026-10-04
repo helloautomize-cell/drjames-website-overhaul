@@ -1,0 +1,176 @@
+# Home page redesign v2: colours, type, layout, header, hero and conditions
+
+Read this whole prompt before you change anything. It replaces parts of DEVIN-MASTER-PROMPT.md. Where the two disagree, THIS prompt wins.
+Branch: redesign/home-v2. Commit in the order of the sections below (one commit per section). Open one PR with a Vercel preview, post the screenshots listed under "Acceptance", then STOP. Do not touch sections of the home page that this prompt does not name, except to apply the new tokens.
+
+## 0. What is removed from the current build
+- Hero "credential cube" (master prompt 4.2) and the headline "Many conditions. One clear plan."
+- "Find care by concern" pill row under the hero (4.3). The symptom finder in the header replaces it.
+- "How Dr. James can help" tabs + ServiceGlassCards carousel on the home page (4.6). The new Conditions mosaic (section 7) replaces it. Keep the components for the /conditions/ hub if they are used there.
+- Conditions marquee (4.9).
+- All gradients on buttons, tabs and bars: --grad-brand, --grad-btn, --grad-bar. Petrol is a flat colour now.
+- White page ground. The page ground is pearl; cards stay white.
+- Sand tokens (#C9A46A and friends). Gold replaces them.
+- The Omani arch as a photo frame and any rotating ring around the portrait. Do not frame the hero portrait in an arch or a circle.
+
+## 1. Positioning and copy rules (all pages)
+- Core identity: Specialist Internist. Never "Diabetes Specialist" as the identity, never "treats everything", never "longevity doctor".
+- Promise: "A physician who sees the whole picture."
+- Line under it: "Comprehensive internal medicine for long-term health."
+- Four pillars, always in this order and wording: Diabetes and metabolic health · Complex adult medicine · Preventive care · Critical care experience.
+  "Critical care experience" is a credential (he led ICU and COVID-19 operations), not a bookable service. Never link it to a booking reason.
+- Specialties he does not hold (cardiology, neurology, rheumatology, haematology and so on) appear only as conditions he manages.
+- No testimonials, ratings, patient numbers, "best", "leading", cure or guarantee claims, and no comparison with other doctors.
+- Emergency line 9999 wherever symptoms are discussed. No em dashes or en dashes anywhere in copy.
+
+## 2. Colour tokens (replace the old values in app/globals.css and the Tailwind theme)
+--night:#0A1C2E      header rail, menus, the Conditions section, footer, the hero portrait panel
+--night-2:#10283F    raised surfaces on night (tiles, cards)
+--petrol:#1D6B72     the ONLY action colour: Book, links, active states. Flat, never a gradient
+--lagoon:#7CC0BC     on night only: live dot, icons, focus ring
+--gold:#C29A5B       hairlines, the 8-point star, big numerals, the connecting lines. Never a fill
+--gold-lt:#D9B77E    gold text on night (9.05:1)
+--gold-dk:#8C6A33    gold text on pearl (4.53:1)
+--pearl:#F3F5F1      page ground (replaces white); cards stay #FFFFFF
+--ink:#0F2236        body text (14.7:1 on pearl)
+--ink-2:#4A5F72      secondary text on pearl
+--mist:#B8C7CF       secondary text on night (9.94:1)
+--line:#DCE3E1       hairlines on pearl
+--line-n:rgba(217,183,126,.28)  hairlines on night
+--alert:#B8322B      emergency text on light; --alert-n:#F2A49B on night
+Proportions across the home page: pearl and white about 58%, night 28%, petrol 8%, ink 4%, gold 2%.
+Rules: night opens and closes the page and holds the Conditions section; reading sections sit on pearl with white cards; gold is jewellery (lines, numerals, star), never a background.
+
+## 3. Typography
+- Headings: Instrument Serif 400 for the WHOLE heading (not one word); the accent phrase in Instrument Serif italic. Body and UI: Figtree. Self-host both with next/font.
+- Scale: hero H1 clamp(48px, 6.4vw, 100px) / 0.95, letter-spacing -0.015em. H2 clamp(36px, 4.4vw, 60px) / 1.02. H3 26px / 1.15. Lede 19px / 1.6. Body 17px / 1.6. Small 13.5px.
+- Accent colour: --gold-dk italic on pearl, --gold-lt italic on night.
+- Eyebrow: Figtree 600, 12px, letter-spacing .18em, uppercase, --gold-dk (on night --gold-lt), preceded by a 28px x 1px --gold line and a 10px gap.
+- Big numerals (proof strip): Instrument Serif 44px, --gold-dk.
+
+## 4. Layout system
+- Container max-width 1280px, side padding clamp(16px, 4vw, 40px). Section padding clamp(72px, 9vw, 128px) top and bottom.
+- Radii: buttons and pills 999px; cards 22px; large panels 32px; tiles 18px.
+- Shadow for floating cards: 0 30px 60px -30px rgba(10,28,46,.45). Hairlines are 1px --line on pearl and --line-n on night. No other borders.
+- Book button: 52px pill (48px in the header), --petrol, white 15px/600 label + a 34px round arrow chip (rgba(255,255,255,.14)). Hover: lift 1px, one light sheen sweep, arrow rotates -45deg and the chip turns --gold. Secondary button: 52px pill, 1px --line border on white, ink label.
+- Motion: ease cubic-bezier(.22,1,.36,1). Everything respects prefers-reduced-motion (no autoplay, no scroll choreography, final states shown).
+
+## 5. Header (components/site/Header.tsx)
+A. Concierge rail, 34px, background --night, 12.5px --mist text, bottom hairline --line-n:
+   left: 8-point gold star + "Badr Al Samaa Royal Hospital · Al Ghubrah, Muscat";
+   centre: live status, a 7px --lagoon dot with a soft pulse + text computed in Asia/Muscat time from lib/site-config.ts hours:
+     open now "Consulting today until 9 pm"; before opening "Consulting today from 8:30 am"; otherwise "Next consultations tomorrow|<Day> from 8:30 am" (dot turns --gold-lt, no pulse).
+     Render after hydration and reserve the width so nothing shifts. Hours are a placeholder until the client confirms them.
+   right: "Medical emergency? Call 9999" in --alert-n, 600, tel:9999.
+B. Main bar, 84px. TWO top states:
+   "light" (the home page, because the new hero is on pearl): transparent bar, colour logo mark, wordmark --ink, tagline --gold-dk, nav --ink-2 (hover --ink), finder and WhatsApp on white with a --line border.
+   "dark" (pages with a night hero): transparent bar, white mark and wordmark, tagline --gold-lt, nav white 88%, finder and WhatsApp with rgba(255,255,255,.22) borders.
+   Content: logo (mark + "DR. JAMES PALLIVATHUKKAL" 15px/700/.09em + "INTERNAL MEDICINE · DIABETES" 9.5px/600/.26em),
+   nav (Conditions with chevron, Your visit, About Dr. James, Health Library) 15px/500,
+   tools: symptom finder trigger (46px pill, search icon, "What brings you in?", kbd "/"), WhatsApp 46px circle, Book button.
+   Nav hover/active marker: a 7px gold diamond (rotated square) that scales in under the item. No underlines.
+C. Scrolled (window.scrollY > 40), transition 500ms: the rail collapses to 0; the bar becomes a floating capsule:
+   max-width 1180px, centred, margin-top 12px, height 64px, radius 999px, background rgba(246,248,245,.84) + backdrop-filter blur(18px) saturate(150%),
+   1px rgba(255,255,255,.7) border, shadow 0 18px 40px -22px rgba(10,28,46,.45). Colour logo, ink wordmark, tagline hidden, the finder becomes a 46px icon-only circle.
+   A 1px gold reading-progress line runs along the bottom edge of the capsule (scaleX = page scroll progress).
+D. Conditions menu = "night curtain": opens on click or 120ms hover intent, closes 220ms after the pointer leaves, Esc closes.
+   Panel --night with a clip-path reveal from the top (500ms); in the scrolled state it aligns to the capsule width with radius 24px.
+   Grid 260px | 1fr | 300px: left the 5 groups as tabs (Instrument Serif 25px --mist, gold "01".."05", selected white, shifted 6px, last word italic --gold-lt);
+   middle that group's conditions in 2 columns (title 15.5px/600 white + one line 13.5px --mist, hairlines, gold arrow slides in on hover, 45ms stagger);
+   right a preview card (--night-2, gold radial glow top right, --line-n border) with badge, group name, one line, "See all n conditions".
+   Footer strip: "Not sure which page fits? Describe what you feel instead." + a button that opens the symptom finder.
+   Radix NavigationMenu, explicit panel width.
+E. Symptom finder (components/site/SymptomFinder.tsx), Radix Dialog. Opens from the header trigger, the curtain footer, the mobile dock and the "/" key (not while typing).
+   White panel 620px, radius 22, over a rgba(10,28,46,.42) blurred scrim. Input Instrument Serif 26px, placeholder "Tired all the time, high sugar…".
+   Up to 7 results: "symptom phrase" + "Condition name →" in --petrol; arrow keys and Enter work. Data in lib/symptoms.ts. Plain words, no diagnosis claims.
+   Always show: "Chest pain, sudden breathlessness or weakness on one side? Call 9999 now."
+F. Mobile (< 1024px): top shows the colour mark (30px), "DR. JAMES" over "PALLIVATHUKKAL" and a 40px "Menu" pill. The live status moves into the hero above the eyebrow.
+   Bottom dock (replaces the old action bar): fixed, 12px from the sides, 14px + safe-area from the bottom, radius 24, rgba(16,40,63,.72) + blur(16px), gold hairline border;
+   Book (flex 1, --petrol, calendar icon + "Book"), Call, WhatsApp, Finder (52px squares). Hidden while a form field has focus and on /thank-you/. main gets 96px bottom padding.
+   Menu: full-screen --night sheet revealed with clip-path circle() from the Menu button (600ms); links in Instrument Serif 34px with small gold labels, 50ms stagger; hours, phone and 9999 at the bottom.
+
+## 6. Hero (components/home/Hero.tsx), pearl ground
+Desktop grid inside the container: minmax(0,1.05fr) minmax(0,.95fr), gap 64px, padding-top 118px (rail + bar) + 56px, align-items center, min-height min(100svh, 940px).
+LEFT column:
+  eyebrow "Specialist Internist · Muscat, Oman"
+  H1 "A physician who sees the <em>whole picture.</em>" (the em phrase italic --gold-dk)
+  lede (max 46ch, --ink-2): "Comprehensive internal medicine for long-term health. Diabetes, heart and kidney risk, lungs and complex adult conditions, looked after together by one senior specialist."
+  buttons (margin-top 36px, gap 12px): Book a consultation (primary) + "Message on WhatsApp" (secondary, WhatsApp glyph in #1F9D55).
+  small line under the buttons, 13.5px --ink-2: "At Badr Al Samaa Royal Hospital, Al Ghubrah" with a map-pin icon, linked to Google Maps.
+RIGHT column, the portrait panel (NO arch, NO ring, NO circle):
+  wrapper position relative. Panel: height clamp(520px, 70vh, 660px), radius 32px, overflow hidden,
+    background radial-gradient(90% 70% at 70% 20%, #1B4660 0%, #10283F 45%, #0A1C2E 100%).
+  Inside the panel:
+    1. "Contour field": an inline SVG of ~18 concentric, softly irregular closed contour lines (like a topographic map), centred at 62% / 34%, stroke --gold at 16% opacity, 1px. It reads as "the whole map". Generate the paths once at build time (lib/contours.ts), not at runtime.
+    2. A soft focus glow (a 420px radial gradient of rgba(124,192,188,.22)) that glides (1.2s ease) to a different spot of the panel each time the active pillar changes: 01 top left, 02 top right, 03 bottom left, 04 bottom right.
+    3. The white-coat cutout (dr-james-hero.png, transparent), bottom aligned, height 94% of the panel, right -2%, drop-shadow 0 30px 40px rgba(0,0,0,.45). next/image with priority; the only preloaded image.
+    4. Name plate, top left 28px: "Dr. James Kumar Pallivathukkal" Instrument Serif 24px white + "Head of Internal Medicine and Head of Quality, Badr Al Samaa Royal Hospital" 13px --mist, max-width 230px.
+  "The whole picture" pillar card, OUTSIDE the panel's overflow so it can overlap: position absolute, left -64px, bottom 40px, width 360px, white, radius 22, 1px --line border, floating shadow.
+    Header row (no wrapping): eyebrow-style label "The whole picture" (--gold-dk, no line) + "Four areas, one physician" 12.5px --ink-2 (hidden on mobile).
+    Four rows (buttons), each: numeral "01".."04" Instrument Serif italic 22px --gold-dk, pillar name 16px/600 --ink, a hairline between rows.
+    The active row expands (grid-template-rows 0fr to 1fr, 400ms) to show one line 14px --ink-2, and a 2px --gold progress line along its bottom fills over 5.2s; then the next row becomes active.
+    Hover or focus anywhere in the card pauses the cycle; clicking a row selects it. Reduced motion: no auto cycle, row 01 open.
+    Lines:
+      01 Diabetes and metabolic health: "From a first high sugar report to steady long-term control, with weight, cholesterol and thyroid in the same plan."
+      02 Complex adult medicine: "Several conditions at once, unclear symptoms, and medicines that need to work together."
+      03 Preventive care: "Check-ups planned around your own risks after a consultation, so no test is wasted."
+      04 Critical care experience: "Years of leading intensive care and COVID-19 operations across three hospitals."
+PROOF STRIP, the last row of the hero (full container width, margin-top 72px, top hairline --line, 4 equal columns divided by 1px --line, padding 28px 28px 0):
+  "23" years in medicine, 15 of them in Oman
+  "MD" Internal Medicine, Manipal, 2007
+  "MSc" Diabetes, plus a Postgraduate Diploma in Diabetes, UK   [CONFIRM: MSc university; certificate says University of South Wales]
+  "ICU" Led intensive care and COVID-19 operations across three hospitals
+  Numeral Instrument Serif 44px --gold-dk, text 14.5px --ink-2 max 24ch.
+Entrance (once, on load): eyebrow, H1 lines, lede and buttons fade up 16px with a 90ms stagger; the panel rises 24px and the contour lines draw (stroke-dashoffset, 1.6s); the pillar card arrives 300ms after the panel. Reduced motion: no entrance.
+Tablet (760 to 1099px): one column; panel full width, height 520px, pillar card static below the panel overlapping it by -56px, centred, width min(560px, 100% - 32px).
+Mobile (< 760px): status line, eyebrow, H1 44px/0.98, lede 17px, NO buttons (the dock carries them), panel height 420px with the portrait at 96%, pillar card full width overlapping the panel by -48px, proof strip as a 2 x 2 grid. H1, lede and the top of the panel must be visible at 390 x 844 without scrolling.
+
+## 7. Conditions: "One system" (components/home/ConditionsMosaic.tsx), night ground
+Idea: eight areas of the body start apart, gold lines show how they connect, then they join into one panel: one physician sees the whole.
+Structure: <section id="conditions"> height 300vh (desktop and mobile); inside it a sticky stage, top 0, height 100svh, padding-top 96px (clears the capsule).
+Stage grid in the container: minmax(0,.8fr) minmax(0,1.2fr), gap 72px, align-items center.
+LEFT:
+  eyebrow (--gold-lt) "Conditions he looks after"
+  H2 white "Your body is one system. Your <em>care</em> should be too." (em italic --gold-lt)
+  a 3-step caption with a step index (three 28px x 2px bars, active bar --gold-lt, others rgba(255,255,255,.18)), the text crossfades (300ms) at each step, 17px --mist, min-height reserved so nothing jumps:
+    01 "Blood sugar, the heart, kidneys, lungs, liver, thyroid, sleep and joints. Any one of them can be the reason you come in."
+    02 "They are rarely separate. Diabetes affects the heart and kidneys, sleep apnea can raise blood pressure, and the thyroid can shift weight and sugar."
+    03 "So Dr. James looks at them together, with one plan that is reviewed over time."
+  link "See all 18 conditions →" (--gold-lt, 600, 1px gold underline offset 6px) to /conditions/.
+RIGHT, the mosaic: CSS grid 4 columns x 2 rows, tile min-height 196px, gap var(--gap).
+  Tile (an <a> to the condition page or group): background --night-2, 1px --line-n border, radius var(--r), padding 22px; top row: a 28px line icon in --lagoon and a small tag (11px/600/.12em, --gold-lt) on the right; name Instrument Serif 26px white; conditions 13.5px --mist.
+  The four outer corners of the mosaic keep a 22px radius at all times; every inner corner uses var(--r).
+  Tiles:
+    1 Blood sugar · HbA1c · Diabetes, prediabetes, weight · /conditions/diabetes-and-prediabetes/
+    2 Heart and blood pressure · BP · High blood pressure, cholesterol, heart risk · /conditions/high-blood-pressure/
+    3 Kidneys · eGFR · Kidney problems, kidney protection in diabetes · /conditions/kidney-problems/
+    4 Lungs and breathing · SpO₂ · Asthma, chest infections, pneumonia · /conditions/asthma-and-breathing/
+    5 Liver and gut · ALT · Fatty liver, acidity, bowel changes · /conditions/fatty-liver/
+    6 Thyroid · TSH · Under and overactive thyroid · /conditions/thyroid-disorders/
+    7 Sleep and energy · Hb · Sleep apnea, tiredness, anaemia · /conditions/sleep-apnea/
+    8 Joints and later life · Check-up · Joint pain, care for older adults, check-ups · /conditions/care-for-older-adults/
+  Connection lines: an absolutely positioned SVG over the mosaic, 1.25px --gold-lt curves (quadratic, slight bow) from icon centre to icon centre, with 4px gold dots at the ends:
+    1-2, 1-3, 2-3, 1-5, 6-1, 7-2, 4-7, 8-2. Recompute endpoints from the tiles' bounding boxes every frame of the choreography.
+  Join plate (the ninth piece): a full-width strip under the mosaic, --night-2 with a gold hairline top, radius 0 0 22px 22px, 72px tall:
+    his 44px round avatar with a 1px gold ring + "Looked after together by one specialist internist" white 15px/600 + the "See all 18 conditions →" link on the right.
+Scroll choreography, p = progress through the section (0 to 1), computed in one rAF-throttled scroll listener, writes only transforms, opacity and two CSS variables:
+  0.00 to 0.35  gather: each tile starts offset (about 40 to 140px) and rotated (-7 to 7deg) at 55% opacity and 0.92 scale, and eases into its grid cell. --gap 22px.
+  0.30 to 0.58  connect: the 8 lines draw in (stroke-dashoffset 1 to 0, pathLength 1), staggered 40ms. While the lines show, tile names and condition lines dim to 40% opacity (back to 100% by 0.68) so the lines read clearly.
+  0.60 to 0.88  join: --gap 22px to 0, --r 18px to 0, the lines fade out, the tiles' borders merge into single hairlines.
+  0.86 to 1.00  the join plate slides up from 24px below and fades in; caption step 03.
+  Caption steps: p < 0.30 step 01, p < 0.60 step 02, otherwise step 03.
+  After the join, tiles behave as normal links: hover lifts the background to #14304A and slides a gold arrow in next to the name.
+Mobile (< 760px): stage padding-top 84px; one column; H2 34px; caption step text 15px; mosaic 2 columns x 4 rows, tile min-height 92px, tile shows icon, tag and name only (conditions hidden); join plate 64px. Everything must fit 390 x 844 above the dock.
+No JS or prefers-reduced-motion: section height auto, no sticky, the joined final state with the plate visible, caption shows all three lines as a short paragraph.
+Accessibility: the mosaic is a list of 8 links in DOM order 1 to 8; the SVG lines are aria-hidden; the choreography never moves focus; tiles are reachable and readable at any p.
+
+## 8. Home page order after this step
+Header · Hero (with proof strip) · [Credentials: placeholder, redesigned next round] · Conditions "One system" · First visit · Meet Dr. James · Visit us · Health Library · Questions · Footer.
+Sections not named in this prompt keep their layout for now but take the new tokens (pearl ground, flat petrol, gold instead of sand, Instrument Serif headings).
+
+## 9. Acceptance
+- Screenshots: desktop 1440 x 900 at the top, at 40% through the Conditions section and at 100%; tablet 1024; mobile 390 x 844 at the top, Conditions at 40% and at 100%, menu sheet open.
+- Compare side by side with the approved preview page (Hero and Conditions). Same spacing, sizes and colours.
+- Lighthouse mobile: Accessibility 100, Performance at least 90, CLS 0 on the home page. Only the hero portrait is preloaded.
+- Keyboard: every control reachable with a visible focus ring (2px --petrol on light, 2px --lagoon on night).
+- No em or en dashes in any copy. Report and STOP.

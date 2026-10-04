@@ -140,7 +140,8 @@ export const medicalWebPageNode = (
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: about ?? { "@id": `${SITE_URL}/#dr-james` },
   reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
-  lastReviewed,
+  // omit rather than ship a "[CONFIRM]" marker into structured data
+  ...(lastReviewed.includes("[CONFIRM]") ? {} : { lastReviewed }),
 });
 
 export const medicalConditionNode = (url: string, name: string, description: string) => ({
@@ -173,7 +174,7 @@ export const blogPostingNode = (
   headline: heading,
   description,
   url: `${SITE_URL}${url}`,
-  datePublished: date,
+  ...(date.includes("[CONFIRM]") ? {} : { datePublished: date }),
   author: { "@id": `${SITE_URL}/#dr-james` },
   publisher: { "@id": `${SITE_URL}/#dr-james` },
   isPartOf: { "@id": `${SITE_URL}/#website` },

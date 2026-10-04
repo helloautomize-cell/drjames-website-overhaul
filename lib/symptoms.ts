@@ -1,0 +1,22 @@
+/** Plain-word symptom phrases mapped to condition pages. No diagnosis claims. */
+export const symptoms: { phrase: string; slug: string }[] = [
+  { phrase: "Always thirsty, passing urine often", slug: "diabetes-and-prediabetes" },
+  { phrase: "High sugar in a blood test", slug: "diabetes-and-prediabetes" },
+  { phrase: "Tired all the time", slug: "anaemia" },
+  { phrase: "High blood pressure reading", slug: "high-blood-pressure" },
+  { phrase: "Family history of heart disease", slug: "heart-risk-assessment" },
+  { phrase: "Weight gain I cannot explain", slug: "thyroid-disorders" },
+  { phrase: "Want to lose weight with medical help", slug: "weight-management" },
+  { phrase: "Wheezing or a tight chest", slug: "asthma-and-breathing" },
+  { phrase: "Cough with fever", slug: "chest-infections-and-pneumonia" },
+  { phrase: "Loud snoring, sleepy in the day", slug: "sleep-apnea" },
+  { phrase: "Sneezing, itchy eyes, rashes", slug: "allergies" },
+  { phrase: "Fever that will not settle", slug: "fevers-and-infections" },
+  { phrase: "Swollen feet, creatinine high", slug: "kidney-problems" },
+  { phrase: "Told I have a fatty liver", slug: "fatty-liver" },
+  { phrase: "Acidity, bloating, heartburn", slug: "digestive-problems" },
+  { phrase: "Looking after an elderly parent", slug: "care-for-older-adults" },
+  { phrase: "A full body check-up", slug: "preventive-check-ups" },
+  { phrase: "Painful, stiff joints", slug: "joint-pain-and-arthritis" },
+  { phrase: "High cholesterol in a report", slug: "high-cholesterol" },
+];

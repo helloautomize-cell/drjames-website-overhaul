@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/page/CtaBand";
 import { Confirm } from "@/components/Confirm";
 import { Credentials } from "@/components/sections/Credentials";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { site } from "@/lib/site-config";
+import { site, experience } from "@/lib/site-config";
 import { conditionGroups, conditionUrl } from "@/lib/conditions";
 import Link from "next/link";
 import {
@@ -17,9 +17,11 @@ import {
   websiteNode,
 } from "@/lib/seo";
 
+const exp = experience();
+
 export const metadata: Metadata = pageMeta(
   "About Dr. James",
-  "Specialist in Internal Medicine and Diabetes, Head of Internal Medicine and Head of Quality Control at Badr Al Samaa Royal Hospital, Muscat. 23 years in medicine, 15 in Oman.",
+  `Specialist in Internal Medicine and Diabetes, Head of Internal Medicine and Head of Quality Control at Badr Al Samaa Royal Hospital, Muscat. ${exp.inMedicine} years in medicine, ${exp.inOman} in Oman.`,
   "/about-dr-james/",
 );
 
@@ -108,8 +110,8 @@ export default function AboutPage() {
         <section className="page-sec">
           <h2>Education and career</h2>
           <p className="sec-sub">
-            Qualification seals and the dated career timeline. Unconfirmed years stay
-            marked until the client confirms them.
+            Every line is a checkable fact, from medical school in 2002 to head of
+            department today.
           </p>
           <Credentials />
         </section>

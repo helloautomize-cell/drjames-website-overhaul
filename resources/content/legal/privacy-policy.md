@@ -62,4 +62,4 @@ If this policy changes, the updated version is posted on this page with a new "l
 
 ## Contact
 
-Privacy contact: Dr. James Kumar Pallivathukkal — omanjamesp@gmail.com. You can also reach the practice on +968 9751 0975 or via WhatsApp.
+Privacy contact: Dr. James Kumar Pallivathukkal, omanjamesp@gmail.com. You can also reach the practice on +968 9751 0975 or via WhatsApp.

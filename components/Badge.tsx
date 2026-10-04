@@ -50,7 +50,7 @@ export function Badge({
       </defs>
       <circle cx="68" cy="68" r="62" fill="#FFFFFF" />
       <circle cx="68" cy="68" r="61" fill="none" stroke={`url(#${g})`} strokeWidth="1.5" />
-      <g stroke="#C9A46A" strokeWidth="1.2" strokeLinecap="round">
+      <g stroke="#C29A5B" strokeWidth="1.2" strokeLinecap="round">
         {TICKS.map((t, i) => (
           <line
             key={i}

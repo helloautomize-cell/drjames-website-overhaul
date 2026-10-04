@@ -26,7 +26,7 @@ export function DoctorCard() {
           committees. Oman MOH licence <Confirm>[CONFIRM: number]</Confirm>
         </div>
         <div className="chips">
-          <span className="chip xp">23+ years</span>
+          <span className="chip xp">{site.yearsInMedicine}+ years</span>
           <span className="chip">English</span>
           <span className="chip">
             Malayalam <Confirm>?</Confirm>

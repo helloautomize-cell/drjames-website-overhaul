@@ -36,7 +36,7 @@ export function Hero() {
           className="ecg"
           d="M0 600H520l16-30 20 62 22-104 24 132 18-60h100l12-18 14 18H1200"
           fill="none"
-          stroke="#C9A46A"
+          stroke="#C29A5B"
           strokeWidth="1.6"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -83,10 +83,10 @@ export function Hero() {
         </div>
         <div className="hx-facts">
           <span>
-            <b>23+</b>years in medicine
+            <b>{site.yearsInMedicine}+</b>years in medicine
           </span>
           <span>
-            <b>15</b>years in Oman
+            <b>{site.yearsInOman}</b>years in Oman
           </span>
           <span>
             <b>2</b>UK diabetes qualifications

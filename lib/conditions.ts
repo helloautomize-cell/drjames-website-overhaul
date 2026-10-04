@@ -13,6 +13,8 @@ export interface ConditionGroup {
   id: string;
   label: string;
   intro: string;
+  /** Badge that stands for the whole group in menus and previews. */
+  icon: IconName;
   blobVariant: 0 | 1 | 2 | 3 | 4;
   conditions: Condition[];
 }
@@ -23,6 +25,7 @@ export const conditionGroups: ConditionGroup[] = [
     label: "Diabetes and metabolism",
     intro:
       "From a first high sugar report to long-term care, with checks that protect your heart, kidneys and eyes.",
+    icon: "drop",
     blobVariant: 0,
     conditions: [
       {
@@ -63,6 +66,7 @@ export const conditionGroups: ConditionGroup[] = [
     id: "heart-blood-pressure",
     label: "Heart and blood pressure",
     intro: "For high blood pressure and for people who want to know their heart risk.",
+    icon: "heart",
     blobVariant: 1,
     conditions: [
       {
@@ -88,6 +92,7 @@ export const conditionGroups: ConditionGroup[] = [
     label: "Lungs, sleep and infections",
     intro:
       "Breathing problems, chest infections, fevers and sleep, assessed and treated by a physician.",
+    icon: "lungs",
     blobVariant: 2,
     conditions: [
       {
@@ -136,6 +141,7 @@ export const conditionGroups: ConditionGroup[] = [
     id: "kidney-liver-gut",
     label: "Kidney, liver and gut",
     intro: "Common problems of the kidneys, liver and gut, found early and managed well.",
+    icon: "kidney",
     blobVariant: 3,
     conditions: [
       {
@@ -168,6 +174,7 @@ export const conditionGroups: ConditionGroup[] = [
     id: "whole-person",
     label: "Whole-person care",
     intro: "Care for older adults with several conditions, and check-ups planned by the doctor.",
+    icon: "check",
     blobVariant: 4,
     conditions: [
       {

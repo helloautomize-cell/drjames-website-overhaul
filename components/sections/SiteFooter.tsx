@@ -5,7 +5,7 @@ import { CookieSettingsLink } from "@/components/shell/CookieSettingsLink";
 
 export function SiteFooter() {
   return (
-    <footer className="foot">
+    <footer className="foot" data-header="dark">
       <div className="fcol main">
         <LogoHorizontal white />
         <p>

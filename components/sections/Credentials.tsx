@@ -1,40 +1,33 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { Confirm } from "@/components/Confirm";
+import { TimelineFill } from "@/components/sections/TimelineFill";
 
-const SEALS: { ring: string; title: string; note: ReactNode }[] = [
-  { ring: "MD", title: "Internal Medicine", note: "Manipal, 2007" },
+const LEDGER: { abbr: string; subject: string; inst: ReactNode }[] = [
+  { abbr: "MD", subject: "Internal Medicine", inst: "Manipal, 2007" },
   {
-    ring: "MSc",
-    title: "Diabetes",
-    note: (
+    abbr: "MSc",
+    subject: "Diabetes",
+    inst: (
       <>
         University of South Wales <Confirm>[year]</Confirm>
       </>
     ),
   },
+  { abbr: "PG Dip", subject: "Diabetes", inst: "Cardiff University, 2012" },
   {
-    ring: "PG Dip",
-    title: "Diabetes",
-    note: (
-      <>
-        Cardiff University, 2012
-      </>
-    ),
-  },
-  {
-    ring: "MBA",
-    title: "Hospital management",
-    note: (
+    abbr: "MBA",
+    subject: "Hospital management",
+    inst: (
       <>
         Vinayaka Missions University <Confirm>[year]</Confirm>
       </>
     ),
   },
   {
-    ring: "DBA",
-    title: "Business administration",
-    note: <Confirm>[CONFIRM: university, year]</Confirm>,
+    abbr: "DBA",
+    subject: "Business administration",
+    inst: <Confirm>[CONFIRM: university, year]</Confirm>,
   },
 ];
 
@@ -53,7 +46,7 @@ const TIMELINE: { yr: string; now?: boolean; title: string; body: string }[] = [
   {
     yr: "2012",
     title: "Internal Medicine Specialist, Atlas-NMC Hospital",
-    body: "Muscat, 2012 to 2022. Led intensive care operations and COVID-19 operations across three hospitals in Muscat during the pandemic.",
+    body: "Muscat, 2012 to 2022. Led intensive care operations and COVID\u201119 operations across three hospitals in Muscat during the pandemic.",
   },
   {
     yr: "2022",
@@ -68,42 +61,45 @@ const TIMELINE: { yr: string; now?: boolean; title: string; body: string }[] = [
   },
 ];
 
-/** Qualification seals, dated career timeline and the certificate photo card. */
+/** Credential ledger, dated career timeline and the certificate photo in a gold mount. */
 export function Credentials() {
   return (
-    <>
-      <div className="creds">
-        {SEALS.map((s) => (
-          <div className="seal" key={`${s.ring}-${s.title}`}>
-            <span className="ring">{s.ring}</span>
-            <b>{s.title}</b>
-            <small>{s.note}</small>
-          </div>
+    <div className="cl">
+      <ul className="cl-ledger" aria-label="Qualifications">
+        {LEDGER.map((r) => (
+          <li className="cl-row" key={r.abbr}>
+            <span className="cl-abbr">{r.abbr}</span>
+            <b className="cl-sub">{r.subject}</b>
+            <span className="cl-inst">{r.inst}</span>
+          </li>
         ))}
-      </div>
-      <div className="journey">
-        <ol className="tl">
-          {TIMELINE.map((t) => (
-            <li key={t.title} className={t.now ? "now" : ""}>
-              <span className="yr">{t.yr}</span>
-              <span className="dot" />
-              <div>
-                <h3>{t.title}</h3>
-                <p>{t.body}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <figure className="photo-card">
-          <Image
-            src="/images/doctor/dr-james-certificate.jpg"
-            alt="Dr. James holding a framed certificate in his office"
-            width={1037}
-            height={767}
-          />
-          <figcaption>Certificate photo · real, keep</figcaption>
-        </figure>
-      </div>
-    </>
+      </ul>
+
+      <TimelineFill>
+        {TIMELINE.map((t) => (
+          <li key={t.title} className={`hit${t.now ? " now" : ""}`}>
+            <span className="yr">
+              {t.yr}
+              {t.now ? <em>Now</em> : null}
+            </span>
+            <span className="dot" />
+            <div>
+              <h3>{t.title}</h3>
+              <p>{t.body}</p>
+            </div>
+          </li>
+        ))}
+      </TimelineFill>
+
+      <figure className="cl-mount">
+        <Image
+          src="/images/doctor/dr-james-certificate.jpg"
+          alt="Dr. James holding a framed certificate in his office"
+          width={1037}
+          height={767}
+          sizes="(max-width: 900px) 92vw, 380px"
+        />
+      </figure>
+    </div>
   );
 }
