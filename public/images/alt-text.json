@@ -1,0 +1,37 @@
+{
+  "doctor/dr-james-hero.png": {
+    "w": 419,
+    "h": 716,
+    "alt": "Dr. James Kumar Pallivathukkal in a white coat"
+  },
+  "doctor/dr-james-avatar.jpg": {
+    "w": 419,
+    "h": 419,
+    "alt": "Portrait of Dr. James Kumar Pallivathukkal"
+  },
+  "doctor/dr-james-portrait.jpg": {
+    "w": 717,
+    "h": 896,
+    "alt": "Dr. James standing in the lobby of Badr Al Samaa Royal Hospital"
+  },
+  "doctor/dr-james-certificate.jpg": {
+    "w": 1037,
+    "h": 767,
+    "alt": "Dr. James holding his Guinness World Records certificate"
+  },
+  "clinic/dr-james-consultation.jpg": {
+    "w": 760,
+    "h": 496,
+    "alt": "Dr. James at his desk during a consultation"
+  },
+  "awards/guinness-world-records-2025.jpg": {
+    "w": 720,
+    "h": 900,
+    "alt": "Dr. James at the Guinness World Records diabetes screening event, 2025"
+  },
+  "doctor/dr-james-alt.png": {
+    "w": 365,
+    "h": 712,
+    "alt": "Dr. James Kumar Pallivathukkal"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "drjames-website",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "process-images": "node scripts/process-images.mjs",
+    "launch-check": "node scripts/launch-check.mjs",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@vercel/speed-insights": "^2.0.0",
+    "embla-carousel-react": "8.6.0",
+    "gray-matter": "^4.0.3",
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "resend": "^6.30.0",
+    "unified": "^11.0.5",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "playwright": "1.63.0",
+    "prettier": "^3",
+    "prettier-plugin-tailwindcss": "^0.6",
+    "sharp": "0.35.4",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5"
+  }
+}
