@@ -27,4 +27,4 @@ For access at the clinic itself (parking, lifts, wheelchair access at Badr Al Sa
 
 ## Feedback
 
-If something on this site is hard to use, tell us and we will fix it or offer the information another way. Reach us on +968 9751 0975, WhatsApp, or [CONFIRM: privacy contact email]. Please include the page address and what went wrong.
+If something on this site is hard to use, tell us and we will fix it or offer the information another way. Reach us on +968 9751 0975, WhatsApp, or omanjamesp@gmail.com. Please include the page address and what went wrong.

@@ -13,7 +13,7 @@ Submitting a request is not a confirmed booking. The practice replies to confirm
 
 ## Consultation hours
 
-Saturday to Thursday, 8:30 am to 9 pm [CONFIRM: hours]. The clinic is closed on Fridays [CONFIRM: Friday closed]. Public holiday timings may differ [CONFIRM: holiday rule].
+Saturday to Thursday, 8:30 am to 9 pm. The clinic is closed on Fridays. Public holiday timings may differ [CONFIRM: holiday rule].
 
 ## Before your visit
 

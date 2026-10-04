@@ -4650,3 +4650,45 @@ table.ct {
   grid-column: 1 / -1;
   margin: 0;
 }
+
+/* patient quotes (migrated from old site, client-approved override) */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 26px 0 0;
+}
+.testi-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px 22px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  margin: 0;
+  background: var(--bg);
+}
+.testi-mark {
+  font-family: var(--serif);
+  font-size: 44px;
+  line-height: 0.6;
+  color: var(--sand);
+}
+.testi-card blockquote {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.testi-card figcaption {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-600);
+}
+@media (max-width: 560px) {
+  .testi-grid {
+    grid-template-columns: 1fr;
+  }
+}

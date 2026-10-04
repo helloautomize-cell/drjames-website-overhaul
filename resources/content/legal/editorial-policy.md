@@ -35,7 +35,7 @@ Content is based on established clinical knowledge and standard references rathe
 
 ## Corrections
 
-If a clinical or factual error is found, the page is corrected promptly and the change reflected in the last-reviewed date. To flag an error, contact us at [CONFIRM: privacy contact email] or call +968 9751 0975.
+If a clinical or factual error is found, the page is corrected promptly and the change reflected in the last-reviewed date. To flag an error, contact us at omanjamesp@gmail.com or call +968 9751 0975.
 
 ## Independence
 

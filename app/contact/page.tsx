@@ -104,9 +104,9 @@ export default async function ContactPage({
                 </span>
                 <b>Consultation hours</b>
                 <p>
-                  {site.hours} <Confirm />
+                  {site.hours}
                   <br />
-                  {site.hoursClosed} <Confirm />
+                  {site.hoursClosed}
                 </p>
               </div>
             </div>

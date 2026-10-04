@@ -46,7 +46,7 @@ Under Omani data protection law you can ask us to:
 - Delete information where the law allows.
 - Withdraw consent for analytics at any time, through the cookie settings link in the footer.
 
-To use any of these rights, contact the privacy contact at [CONFIRM: privacy contact email] or call +968 9751 0975.
+To use any of these rights, contact the privacy contact at omanjamesp@gmail.com or call +968 9751 0975.
 
 ## Cookies
 
@@ -62,4 +62,4 @@ If this policy changes, the updated version is posted on this page with a new "l
 
 ## Contact
 
-Privacy contact: [CONFIRM: privacy contact name and email]. You can also reach the practice on +968 9751 0975 or via WhatsApp.
+Privacy contact: Dr. James Kumar Pallivathukkal — omanjamesp@gmail.com. You can also reach the practice on +968 9751 0975 or via WhatsApp.

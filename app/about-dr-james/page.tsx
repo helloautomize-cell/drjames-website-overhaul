@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page/PageHero";
 import { CtaBand } from "@/components/page/CtaBand";
 import { Confirm } from "@/components/Confirm";
 import { Credentials } from "@/components/sections/Credentials";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { site } from "@/lib/site-config";
 import { conditionGroups, conditionUrl } from "@/lib/conditions";
 import Link from "next/link";
@@ -136,7 +137,9 @@ export default function AboutPage() {
         <section className="page-sec">
           <h2>How Dr. James works</h2>
           <p className="sec-sub">
-            <Confirm>[CONFIRM: 3 to 5 principles in his own words]</Confirm>
+            His own summary is short: &ldquo;empower patients through knowledge,
+            prevention, and personalized care.&rdquo; In practice, that looks like
+            three habits:
           </p>
           <div className="info-cards">
             <div className="info-card">
@@ -161,6 +164,14 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="page-sec">
+          <h2>What patients say</h2>
+          <p className="sec-sub">
+            Comments shared by patients after their visits.
+          </p>
+          <Testimonials />
         </section>
 
         <section className="page-sec">
