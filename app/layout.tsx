@@ -24,7 +24,10 @@ export const metadata: Metadata = {
   },
   description:
     "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Al Ghubrah Street, Muscat, Oman. Book by WhatsApp or phone on +968 9751 0975.",
-  robots: { index: false, follow: false },
+  robots:
+    process.env.SITE_INDEXABLE === "true"
+      ? { index: true, follow: true }
+      : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
