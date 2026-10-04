@@ -13,7 +13,7 @@ const STEPS: [string, ReactNode][] = [
   ],
   [
     "Arrive and register",
-    "Come to Badr Al Samaa Royal Hospital, Al Ghubrah Street, Muscat. Bring old prescriptions, reports and the medicines you take, and your sugar diary or meter if you have diabetes.",
+    "Come to the hospital in Al Ghubrah. Bring old prescriptions, reports and the medicines you take, and your sugar diary or meter if you have diabetes.",
   ],
   [
     "Consultation",
