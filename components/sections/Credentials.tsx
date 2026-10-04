@@ -91,15 +91,26 @@ export function Credentials() {
         ))}
       </TimelineFill>
 
-      <figure className="cl-mount">
-        <Image
-          src="/images/doctor/dr-james-certificate.jpg"
-          alt="Dr. James holding a framed certificate in his office"
-          width={1037}
-          height={767}
-          sizes="(max-width: 900px) 92vw, 380px"
-        />
-      </figure>
+      <div className="cl-photos">
+        <figure className="cl-mount">
+          <Image
+            src="/images/doctor/dr-james-certificate.jpg"
+            alt="Dr. James holding his Guinness World Records certificate"
+            width={1037}
+            height={767}
+            sizes="(max-width: 900px) 92vw, 380px"
+          />
+        </figure>
+        <figure className="cl-mount">
+          <Image
+            src="/images/awards/guinness-world-records-2025.jpg"
+            alt="Dr. James at the Guinness World Records diabetes screening event, 2025"
+            width={720}
+            height={900}
+            sizes="(max-width: 900px) 92vw, 380px"
+          />
+        </figure>
+      </div>
     </div>
   );
 }
