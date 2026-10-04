@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Figtree, Instrument_Serif } from "next/font/google";
 import { SiteChrome } from "@/components/shell/SiteChrome";
+import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
+import "./v2.css";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -15,7 +17,7 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-serif",
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B2340",
+  themeColor: "#0A1C2E",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -42,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only">
           Skip to content
         </a>
-        <SiteChrome>{children}</SiteChrome>
+        <SiteChrome readNext={readNextByGroup()}>{children}</SiteChrome>
         {/* Speed Insights only exists on Vercel — skip elsewhere so
             local/preview serves no 404 script. */}
         {process.env.VERCEL ? <SpeedInsights /> : null}

@@ -21,7 +21,7 @@ export default function ThankYou() {
           <span className="thx-ic">
             <Icon name="check" size={30} strokeWidth={2} />
           </span>
-          <h1>Thank you — request received</h1>
+          <h1>Thank you, request received</h1>
           <p>
             Dr. James&apos;s team will confirm your appointment by message.
             Reply time: <Confirm />.

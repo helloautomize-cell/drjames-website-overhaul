@@ -24,6 +24,8 @@ const csp = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  // [CONFIRM] chips render in dev and preview builds only; inlined so client components see it too
+  env: { NEXT_PUBLIC_SHOW_CONFIRM: process.env.VERCEL_ENV === "production" ? "0" : "1" },
   trailingSlash: true,
   poweredByHeader: false,
   images: {

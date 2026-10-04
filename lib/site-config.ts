@@ -4,9 +4,19 @@
  * Items still open with the client are marked via `confirm`.
  */
 
-const startYear = 2002;
-const omanStartYear = 2011;
-const now = new Date().getFullYear();
+const graduationYear = 2002;
+const omanSince = 2012;
+
+/**
+ * Years in medicine and in Oman, computed once from the two source years so every
+ * surface (hero strip, About, structured data) always shows the same pair.
+ * [CONFIRM with client: show computed years, or the fixed 23 / 15 the old site used]
+ */
+export function experience(year = new Date().getFullYear()) {
+  return { inMedicine: year - graduationYear, inOman: year - omanSince };
+}
+
+const exp = experience();
 
 export const site = {
   name: "Dr. James Kumar Pallivathukkal",
@@ -17,9 +27,11 @@ export const site = {
   roleShort: "Head of Internal Medicine",
   hospital: "Badr Al Samaa Royal Hospital",
   committees: ["Ethics Committee", "Infection Control Committee", "Pharmacy Council"],
-  yearsInMedicine: now - startYear,
-  sinceYear: startYear,
-  yearsInOman: now - omanStartYear,
+  graduationYear,
+  omanSince,
+  yearsInMedicine: exp.inMedicine,
+  sinceYear: graduationYear,
+  yearsInOman: exp.inOman,
   award:
     "Associated with a Guinness World Records achievement for maximum diabetes patient screening at Badr Al Samaa Royal Hospital, 2025.",
   quote:
@@ -41,6 +53,7 @@ export const site = {
   hours: "Saturday to Thursday, 8:30 am to 9 pm",
   hoursShort: "Sat to Thu, 8:30 am to 9 pm",
   hoursClosed: "Friday closed",
+  schedule: { open: [8, 30], close: [21, 0], closedDays: [5] },
   timeZone: "Asia/Muscat",
   bookUrl: "/contact/#book",
   profileUrl: "/about-dr-james/",

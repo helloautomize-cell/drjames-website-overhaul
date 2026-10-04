@@ -2,12 +2,13 @@ import type { ReactNode } from "react";
 import { Icon, type IconName } from "@/lib/icons";
 import { Confirm } from "@/components/Confirm";
 import { AutoRow } from "@/components/AutoRow";
+import { site } from "@/lib/site-config";
 
 const CARDS: { icon: IconName; title: string; body: ReactNode }[] = [
   {
     icon: "clock",
-    title: "23 years as a physician",
-    body: "In practice since 2002, including 15 years caring for patients in Oman.",
+    title: `${site.yearsInMedicine} years as a physician`,
+    body: `In practice since ${site.sinceYear}, including ${site.yearsInOman} years caring for patients in Oman.`,
   },
   {
     icon: "drop",

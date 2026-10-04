@@ -78,7 +78,7 @@ export async function requestAppointment(
 
   if (!resend) {
     // No keys configured (local dev): log the request instead of sending.
-    console.warn("[booking] RESEND_API_KEY not set — request not emailed.\n" + mail.text);
+    console.warn("[booking] RESEND_API_KEY not set, request not emailed.\n" + mail.text);
   } else {
     try {
       const { error } = await resend.emails.send({

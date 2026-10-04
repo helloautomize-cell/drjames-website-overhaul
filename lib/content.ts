@@ -88,7 +88,7 @@ async function doc<T>(
   const { data, content } = split(file.raw);
   const html = String(await md.process(content)).replace(
     /\[CONFIRM[^\]]*\]/g,
-    (m) => `<span class="confirm">${m}</span>`,
+    (m) => (process.env.VERCEL_ENV === "production" ? "" : `<span class="confirm">${m}</span>`),
   );
   return { ...schema.parse(data), slug: file.slug, html };
 }

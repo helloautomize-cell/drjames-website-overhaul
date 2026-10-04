@@ -12,20 +12,20 @@
   --color-primary-700: #14545a;
   --color-primary-100: #dcedee;
   --color-primary-50: #f2f8f8;
-  --color-mist: #a3bbbf;
-  --color-sand: #c9a46a;
-  --color-sand-50: #fbf7f0;
-  --color-sand-light: #e3c994;
-  --color-ink: #10243a;
+  --color-mist: #b8c7cf;
+  --color-sand: #c29a5b;
+  --color-sand-50: #f7f1e6;
+  --color-sand-light: #d9b77e;
+  --color-ink: #0f2236;
   --color-ink-2: #4a5f72;
-  --color-line: #dfe8ea;
+  --color-line: #dce3e1;
   --color-bg: #ffffff;
   --color-alert: #b8322b;
   --color-success: #2f7d5b;
   --color-wa: #1f8f55;
-  --color-night: #0b2340;
+  --color-night: #0a1c2e;
   --color-on-dark: #ffffff;
-  --color-on-dark-2: #c8d6de;
+  --color-on-dark-2: #b8c7cf;
   --color-confirm-bg: #fff3b0;
   --color-confirm-fg: #5c4a00;
   --color-confirm-b: #c9a800;
@@ -44,14 +44,23 @@
   --primary-700: #14545a; /* Pressed state. 8.59:1 */
   --primary-100: #dcedee; /* Tabs, chips, icon tiles */
   --primary-50: #f2f8f8; /* Card washes, section tints, info callouts */
-  --mist: #a3bbbf; /* Logo silver. DECORATIVE ONLY: rings, hairlines, blobs. Never text */
-  --sand: #c9a46a; /* Frankincense sand. DECORATIVE ONLY: arch hairline, seal rings, sparkles. Never text */
-  --sand-50: #fbf7f0; /* Warm wash behind credentials only */
+  --mist: #b8c7cf; /* Secondary text on night. 9.94:1 */
+  --sand: #c29a5b; /* Gold. Hairlines, 8-point star, numerals, connecting lines. Never a fill */
+  --gold: #c29a5b;
+  --gold-lt: #d9b77e; /* Gold text on night. 9.05:1 */
+  --gold-dk: #8c6a33; /* Gold text on pearl. 4.53:1 */
+  --pearl: #f3f5f1; /* Page ground. Cards stay #fff */
+  --night-2: #10283f; /* Raised surfaces on night */
+  --petrol: #1d6b72;
+  --lagoon: #7cc0bc; /* On night only: live dot, icons, focus ring */
+  --line-n: rgba(217, 183, 126, 0.28);
+  --alert-n: #f2a49b;
+  --sand-50: #f7f1e6; /* Warm wash behind credentials only */
   /* Neutrals */
-  --ink: #10243a; /* Headings and body. 15.72:1. Never pure black */
+  --ink: #0f2236; /* Headings and body. 14.7:1 on pearl. Never pure black */
   --ink-2: #4a5f72; /* Secondary text, captions. 6.62:1 */
-  --line: #dfe8ea; /* Hairlines, borders, inactive dots */
-  --bg: #ffffff; /* Page background, always white */
+  --line: #dce3e1; /* Hairlines on pearl, borders, inactive dots */
+  --bg: #ffffff; /* Card surface, always white. The page ground is --pearl */
   /* Status */
   --alert: #b8322b; /* Emergency notices only. 5.95:1 */
   --success: #2f7d5b; /* Form success. 4.99:1 */
@@ -65,17 +74,18 @@
   --warn-bg: #fff8ec;
   --warn-b: #f1ddb5;
   --warn-fg: #8a5a00;
-  --night: #0b2340; /* Hero ground only. White text 15.81:1 */
-  --sand-light: #e3c994; /* Accent word and name line on --night only. 9.82:1 */
-  --on-dark-2: #c8d6de; /* Body text on --night. 10.63:1 */
+  --night: #0a1c2e; /* Header rail, menus, Conditions, footer, hero portrait panel */
+  --sand-light: #d9b77e; /* Gold text on night only */
+  --on-dark-2: #b8c7cf; /* Body text on night */
   --phone: #0b1e33;
   --on-dark: #ffffff;
   --prompt-fg: #e3eef0;
   /* Gradients and effects */
-  --grad-brand: linear-gradient(90deg, #1d6b72 0%, #0e2f52 100%);
-  --grad-btn: linear-gradient(90deg, #1d6b72, #0e2f52, #1d6b72);
-  --grad-bar: linear-gradient(90deg, rgba(29, 107, 114, 0.92), rgba(14, 47, 82, 0.92));
-  --shadow-card: 0 1px 2px rgba(16, 36, 58, 0.04), 0 12px 32px -12px rgba(14, 47, 82, 0.18);
+  --grad-brand: linear-gradient(#1d6b72, #1d6b72); /* flat petrol, no gradients */
+  --grad-btn: linear-gradient(#1d6b72, #1d6b72);
+  --grad-bar: linear-gradient(#1d6b72, #1d6b72);
+  --shadow-card: 0 1px 2px rgba(15, 34, 54, 0.04), 0 12px 32px -12px rgba(10, 28, 46, 0.18);
+  --float: 0 30px 60px -30px rgba(10, 28, 46, 0.45);
   --shadow-hover: 0 20px 48px -16px rgba(14, 47, 82, 0.28);
   --glass: rgba(255, 255, 255, 0.62);
   --glass-b: rgba(255, 255, 255, 0.6);
@@ -93,7 +103,7 @@ html {
 }
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--pearl);
   color: var(--ink);
   font: 400 17px/1.65 var(--sans);
   -webkit-font-smoothing: antialiased;
@@ -102,8 +112,10 @@ h1,
 h2,
 h3 {
   margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
   text-wrap: balance;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
 }
 p {
   text-wrap: pretty;
@@ -121,15 +133,26 @@ em.accent {
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0;
+  color: var(--gold-dk);
 }
 .eyebrow {
-  font: 600 12.5px/1.3 var(--sans);
-  letter-spacing: 0.14em;
+  font: 600 12px/1.3 var(--sans);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--primary-500);
+  color: var(--gold-dk);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  flex: none;
 }
 :focus-visible {
-  outline: 3px solid var(--primary-500);
+  outline: 2px solid var(--petrol);
   outline-offset: 3px;
 }
 h1,
@@ -149,9 +172,9 @@ h3 {
   border: 0;
 }
 .container {
-  max-width: 1240px;
+  max-width: 1280px;
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: clamp(16px, 4vw, 40px);
 }
 @media (max-width: 400px) {
   .container {
@@ -179,7 +202,6 @@ h3 {
 .sec-h h2 {
   font-size: clamp(28px, 4vw, 40px);
   line-height: 1.15;
-  font-weight: 700;
 }
 .sec-h p {
   margin: 0;
@@ -685,7 +707,7 @@ table.ct {
   right: -60px;
   bottom: -130px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(201, 164, 106, 0.32), transparent);
+  background: radial-gradient(closest-side, rgba(194, 154, 91, 0.32), transparent);
   z-index: -1;
 }
 .bgsoft::after {
@@ -739,7 +761,6 @@ table.ct {
 }
 .gcard h3 {
   font-size: 19px;
-  font-weight: 650;
 }
 .gcard p {
   margin: 0;
@@ -780,7 +801,7 @@ table.ct {
   box-shadow:
     0 0 0 1.5px var(--sand),
     0 0 0 6px var(--sand-50),
-    0 0 0 7px rgba(201, 164, 106, 0.45);
+    0 0 0 7px rgba(194, 154, 91, 0.45);
   font: 700 17px/1 var(--sans);
   color: var(--secondary);
   letter-spacing: -0.01em;
@@ -846,7 +867,6 @@ table.ct {
 }
 .tl h3 {
   font-size: 18px;
-  font-weight: 650;
   line-height: 1.35;
 }
 .tl p {
@@ -952,7 +972,7 @@ table.ct {
   left: 12%;
 }
 .sgc .blob.b {
-  background: rgba(201, 164, 106, 0.34);
+  background: rgba(194, 154, 91, 0.34);
   bottom: 12%;
   right: 12%;
   animation-direction: alternate-reverse;
@@ -967,7 +987,7 @@ table.ct {
   background: rgba(44, 138, 144, 0.28);
 }
 .g2 .blob.b {
-  background: rgba(201, 164, 106, 0.3);
+  background: rgba(194, 154, 91, 0.3);
 }
 .g3 .blob.a {
   background: rgba(29, 107, 114, 0.2);
@@ -979,7 +999,7 @@ table.ct {
   background: rgba(14, 47, 82, 0.18);
 }
 .g4 .blob.b {
-  background: rgba(201, 164, 106, 0.38);
+  background: rgba(194, 154, 91, 0.38);
 }
 @keyframes drift {
   to {
@@ -1143,7 +1163,7 @@ table.ct {
   right: -80px;
   top: -120px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(201, 164, 106, 0.26), transparent);
+  background: radial-gradient(closest-side, rgba(194, 154, 91, 0.26), transparent);
   z-index: -1;
 }
 .ctrl {
@@ -1288,7 +1308,6 @@ table.ct {
 }
 .step h3 {
   font-size: 24px;
-  font-weight: 650;
   margin-block: 6px;
 }
 .step p {
@@ -1350,7 +1369,6 @@ table.ct {
 }
 .cc h3 {
   font-size: 21px;
-  font-weight: 650;
   margin-top: 10px;
 }
 .cc .meta {
@@ -1625,7 +1643,7 @@ table.ct {
 }
 .phone .mhero {
   background:
-    radial-gradient(80% 90% at 100% 0%, rgba(201, 164, 106, 0.28), transparent),
+    radial-gradient(80% 90% at 100% 0%, rgba(194, 154, 91, 0.28), transparent),
     var(--bg);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -1951,8 +1969,7 @@ table.ct {
 .hx h1 {
   font-size: clamp(40px, 5vw, 72px);
   line-height: 1.02;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
   margin: 4px 0 2px;
 }
 .hx h1 em {
@@ -2866,7 +2883,7 @@ main p a:not([class]) {
 }
 .foot {
   border-radius: 24px;
-  background: var(--secondary);
+  background: var(--night);
   color: var(--on-dark-2);
   padding: clamp(24px, 4vw, 44px);
   display: grid;
@@ -3588,7 +3605,7 @@ main p a:not([class]) {
 .empty-page h1 {
   margin: 0;
   font-size: 40px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
 }
 .empty-page p {
   margin: 0;
@@ -3651,8 +3668,7 @@ main p a:not([class]) {
 }
 .pg-hero h1 {
   font-size: clamp(32px, 4.6vw, 46px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.012em;
   line-height: 1.1;
 }
 .pg-hero .intro {
@@ -3775,8 +3791,7 @@ main p a:not([class]) {
 }
 .prose h2 {
   font-size: 26px;
-  font-weight: 750;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
   margin: 44px 0 14px;
   scroll-margin-top: 100px;
 }
@@ -3920,7 +3935,7 @@ main p a:not([class]) {
 }
 .cond-group h2 {
   font-size: 26px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
 }
 .cond-group > p {
   margin: 8px 0 22px;
@@ -4006,7 +4021,7 @@ main p a:not([class]) {
 .lcard .cov {
   aspect-ratio: 16/8.5;
   background:
-    radial-gradient(420px 160px at 20% 0%, rgba(201, 164, 106, 0.25), transparent 60%),
+    radial-gradient(420px 160px at 20% 0%, rgba(194, 154, 91, 0.25), transparent 60%),
     var(--night);
   display: grid;
   place-items: center;
@@ -4268,7 +4283,7 @@ main p a:not([class]) {
 }
 .page-sec h2 {
   font-size: 30px;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.012em;
   margin-bottom: 8px;
 }
 .page-sec .sec-sub {
@@ -4397,7 +4412,7 @@ main p a:not([class]) {
   z-index: -1;
   background:
     radial-gradient(40% 55% at 15% 20%, rgba(29, 107, 114, 0.14), transparent 70%),
-    radial-gradient(45% 60% at 85% 80%, rgba(201, 164, 106, 0.22), transparent 70%);
+    radial-gradient(45% 60% at 85% 80%, rgba(194, 154, 91, 0.22), transparent 70%);
   pointer-events: none;
 }
 .vband-card h3 {

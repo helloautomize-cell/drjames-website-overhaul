@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Hero } from "@/components/hero/Hero";
-import { ConcernPills } from "@/components/sections/ConcernPills";
-import { WhyCards } from "@/components/sections/WhyCards";
+import { Hero } from "@/components/home/Hero";
+import { ConditionsMosaic } from "@/components/home/ConditionsMosaic";
 import { Credentials } from "@/components/sections/Credentials";
-import { ServiceTabs } from "@/components/ServiceTabs";
 import { StepTracker } from "@/components/StepTracker";
 import { VisitBand } from "@/components/home/VisitBand";
 import { DoctorCard } from "@/components/sections/DoctorCard";
-import { ConditionsMarquee } from "@/components/sections/Marquee";
 import { LibraryCarousel } from "@/components/LibraryCarousel";
 import { Faq } from "@/components/sections/Faq";
-import { ContactBlock } from "@/components/sections/ContactBlock";
 import { site } from "@/lib/site-config";
 import { libraryArticles } from "@/lib/library-articles";
 import {
@@ -76,28 +72,10 @@ export default function Home() {
       />
       <Hero />
 
-      <section className="sec concern-sec" aria-label="Find care by concern">
-        <div className="container">
-          <ConcernPills />
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="container">
-          <SecHead
-            eyebrow="01 / Why Dr. James"
-            sub="Facts you can verify, in plain words."
-          >
-            Experience you can <em className="acc">check</em>
-          </SecHead>
-          <WhyCards />
-        </div>
-      </section>
-
       <section className="sec cred-sec">
         <div className="container">
           <SecHead
-            eyebrow="02 / Training and career"
+            eyebrow="01 / Training and career"
             sub="Every line is a checkable fact, from medical school in 2002 to head of department today."
           >
             A career built in hospital <em className="acc">medicine</em>
@@ -106,27 +84,29 @@ export default function Home() {
         </div>
       </section>
 
+      <ConditionsMosaic />
+
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="03 / How Dr. James can help"
-            sub="Pick the area closest to your concern. Each page explains what to expect at a visit."
+            eyebrow="02 / Your first visit"
+            sub="From booking to follow-up, here is exactly what happens."
           >
-            Conditions he looks <em className="acc">after</em>
+            Your first visit, step by <em className="acc">step</em>
           </SecHead>
-          <ServiceTabs />
+          <StepTracker />
         </div>
       </section>
 
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="04 / Your first visit"
-            sub="From booking to follow-up, here is exactly what happens."
+            eyebrow="03 / Meet your doctor"
+            sub="One physician for the whole picture, photographed at his hospital."
           >
-            Your first visit, step by <em className="acc">step</em>
+            Meet <em className="acc">Dr. James</em>
           </SecHead>
-          <StepTracker />
+          <DoctorCard />
         </div>
       </section>
 
@@ -139,31 +119,7 @@ export default function Home() {
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="05 / Meet your doctor"
-            sub="One physician for the whole picture, photographed at his hospital."
-          >
-            Meet <em className="acc">Dr. James</em>
-          </SecHead>
-          <DoctorCard />
-        </div>
-      </section>
-
-      <section className="sec mq-sec">
-        <div className="container">
-          <SecHead
-            eyebrow="07 / Conditions"
-            sub="Linked below, each condition page explains who should book and what to expect."
-          >
-            Conditions Dr. James looks <em className="acc">after</em>
-          </SecHead>
-        </div>
-        <ConditionsMarquee />
-      </section>
-
-      <section className="sec">
-        <div className="container">
-          <SecHead
-            eyebrow="08 / Health Library"
+            eyebrow="04 / Health Library"
             sub="Plain-words articles written and reviewed by Dr. James."
           >
             From the Health <em className="acc">Library</em>
@@ -175,24 +131,12 @@ export default function Home() {
       <section className="sec">
         <div className="container">
           <SecHead
-            eyebrow="09 / Quick answers"
+            eyebrow="05 / Quick answers"
             sub="The questions patients ask most before a first visit."
           >
             Questions patients <em className="acc">ask</em>
           </SecHead>
           <Faq />
-        </div>
-      </section>
-
-      <section className="sec contact-sec">
-        <div className="container">
-          <SecHead
-            eyebrow="Contact"
-            sub="One address, one phone number, answered by the clinic."
-          >
-            Find the clinic and <em className="acc">book</em>
-          </SecHead>
-          <ContactBlock />
         </div>
       </section>
     </main>
