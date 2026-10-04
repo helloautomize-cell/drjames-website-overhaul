@@ -40,7 +40,7 @@ export function VisitBand() {
           <li>
             <Icon name="clock" size={18} strokeWidth={1.75} />
             <span>
-              {site.hours} <Confirm />
+              {site.hours}
             </span>
           </li>
           <li>

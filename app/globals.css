@@ -132,6 +132,11 @@ em.accent {
   outline: 3px solid var(--primary-500);
   outline-offset: 3px;
 }
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -276,6 +281,9 @@ em.accent {
   color: var(--ink);
   text-decoration: none;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 .ubar .em {
   color: var(--alert);
@@ -578,6 +586,13 @@ table.ct {
 }
 .btn-p:active {
   background: var(--primary-700);
+}
+.btn:disabled,
+.btn:disabled:hover {
+  opacity: 0.62;
+  cursor: wait;
+  transform: none;
+  box-shadow: var(--shadow-card);
 }
 .btn-s {
   background: var(--glass);
@@ -1373,18 +1388,33 @@ table.ct {
   gap: 8px;
 }
 .dots button {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.dots button::after {
+  content: "";
+  display: block;
   width: 8px;
   height: 8px;
   border-radius: 99px;
-  border: 0;
   background: var(--line);
-  padding: 0;
-  cursor: pointer;
   transition:
     width 0.3s var(--ease),
     background 0.3s;
 }
+.dots button:hover::after {
+  background: var(--primary-100);
+}
 .dots button.on {
+  width: 34px;
+  padding-inline: 4px;
+}
+.dots button.on::after,
+.dots button.on:hover::after {
   width: 26px;
   background: var(--primary);
 }
@@ -2496,6 +2526,7 @@ table.ct {
   color: var(--primary-500);
   text-decoration: none;
   font-weight: 500;
+  padding-block: 8px;
 }
 .crumbs b {
   color: var(--ink);
@@ -2616,6 +2647,9 @@ table.ct {
 }
 .faq summary::-webkit-details-marker {
   display: none;
+}
+.faq summary::marker {
+  content: "";
 }
 .faq summary::after {
   content: "+";
@@ -2801,6 +2835,10 @@ table.ct {
 }
 .bform .chk a {
   color: var(--primary-500);
+  padding-block: 4px;
+}
+main p a:not([class]) {
+  padding-block: 5px;
 }
 .fnote {
   grid-column: 1 / -1;
@@ -2858,6 +2896,7 @@ table.ct {
 .fcol a {
   color: var(--on-dark-2);
   text-decoration: none;
+  padding-block: 4px;
 }
 .fcol a:hover {
   color: var(--on-dark);
@@ -2998,6 +3037,9 @@ table.ct {
 .acc-g summary::-webkit-details-marker {
   display: none;
 }
+.acc-g summary::marker {
+  content: "";
+}
 .acc-g summary::after {
   content: "▾";
   color: var(--primary-500);
@@ -3135,10 +3177,10 @@ table.ct {
     padding: 6px 8px;
   }
   .f0 .plate b {
-    font-size: 11px;
+    font-size: 12.5px;
   }
   .f0 .plate span {
-    font-size: 10.5px;
+    font-size: 12px;
   }
   .face::before {
     inset: 8px;
@@ -3823,6 +3865,9 @@ table.ct {
 }
 .revbox .link {
   font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 
 /* related conditions */
@@ -4498,6 +4543,16 @@ table.ct {
   }
   .seal small {
     font-size: 12px;
+  }
+  .pg-hero-row {
+    gap: 16px;
+  }
+  .pg-hero .badge-col svg {
+    width: 56px;
+    height: 56px;
+  }
+  .pg-hero h1 {
+    font-size: 30px;
   }
   .tl li {
     padding-block: 9px;

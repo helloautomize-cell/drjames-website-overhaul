@@ -18,7 +18,7 @@ const SEALS: { ring: string; title: string; note: ReactNode }[] = [
     title: "Diabetes",
     note: (
       <>
-        Cardiff University, 2012 <Confirm />
+        Cardiff University, 2012
       </>
     ),
   },

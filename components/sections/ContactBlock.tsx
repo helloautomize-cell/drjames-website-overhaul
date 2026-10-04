@@ -1,7 +1,6 @@
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/lib/icons";
-import { Confirm } from "@/components/Confirm";
 import { BookButton } from "@/components/BookButton";
 import { MapLoader } from "@/components/MapLoader";
 
@@ -26,7 +25,7 @@ export function ContactBlock() {
             <div>
               <b>Consultations</b>
               <span>
-                {site.hoursShort} <Confirm />
+                {site.hoursShort}
               </span>
             </div>
           </div>

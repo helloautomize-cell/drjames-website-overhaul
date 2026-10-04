@@ -1,7 +1,6 @@
 import { site } from "@/lib/site-config";
 import { footerNav } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
-import { Confirm } from "@/components/Confirm";
 import { CookieSettingsLink } from "@/components/shell/CookieSettingsLink";
 
 export function SiteFooter() {
@@ -15,7 +14,7 @@ export function SiteFooter() {
         </p>
         <p className="fh">
           <span>Consultations</span>
-          {site.hoursShort} <Confirm />
+          {site.hoursShort}
         </p>
         <p className="fh">
           <span>Phone and WhatsApp</span>

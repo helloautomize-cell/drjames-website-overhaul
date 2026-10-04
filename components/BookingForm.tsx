@@ -13,7 +13,6 @@ import {
   dateLimits,
 } from "@/lib/booking";
 import { site } from "@/lib/site-config";
-import { Confirm } from "@/components/Confirm";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/lib/icons";
 
@@ -171,7 +170,7 @@ export function BookingForm({
         <label htmlFor="b-date">Preferred date</label>
         <input id="b-date" name="pref_date" type="date" ref={dateRef} defaultValue={v.prefDate} />
         <small className="fnote">
-          {site.hoursClosed} <Confirm />
+          {site.hoursClosed}
         </small>
       </div>
       <div className="f half">

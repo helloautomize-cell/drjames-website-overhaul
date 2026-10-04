@@ -5,7 +5,6 @@ import { utilityLinks } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
 import { Icon } from "@/lib/icons";
 import { BookButton } from "@/components/BookButton";
-import { Confirm } from "@/components/Confirm";
 
 /** Thin white utility bar: hours, emergency line, quick links. */
 export function UtilityBar() {
@@ -21,7 +20,7 @@ export function UtilityBar() {
       </span>
       <span>
         <Icon name="clock" size={16} />
-        {site.hoursShort} <Confirm />
+        {site.hoursShort}
       </span>
       <span>
         <a href={site.phoneTel}>{site.phoneDisplay}</a>
