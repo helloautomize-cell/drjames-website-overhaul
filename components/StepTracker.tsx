@@ -40,9 +40,13 @@ export function StepTracker() {
     if (!el || !("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       (entries) => {
+        let best: IntersectionObserverEntry | null = null;
         for (const en of entries) {
-          if (en.isIntersecting) setCur(Number((en.target as HTMLElement).dataset.i));
+          if (en.isIntersecting && (!best || en.intersectionRatio > best.intersectionRatio)) {
+            best = en;
+          }
         }
+        if (best) setCur(Number((best.target as HTMLElement).dataset.i));
       },
       { rootMargin: "-45% 0px -45% 0px" },
     );

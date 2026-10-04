@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { site } from "@/lib/site-config";
+
 const FAQS: [string, string][] = [
   [
     "Where does Dr. James see patients?",
@@ -27,6 +30,9 @@ export function Faq() {
           <p>{a}</p>
         </details>
       ))}
+      <Link className="faq-all" href={site.faqsUrl}>
+        See all FAQs
+      </Link>
     </div>
   );
 }

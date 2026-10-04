@@ -17,7 +17,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "About Dr. James Kumar Pallivathukkal",
+  "About Dr. James",
   "Specialist in Internal Medicine and Diabetes, Head of Internal Medicine and Head of Quality Control at Badr Al Samaa Royal Hospital, Muscat. 23 years in medicine, 15 in Oman.",
   "/about-dr-james/",
 );

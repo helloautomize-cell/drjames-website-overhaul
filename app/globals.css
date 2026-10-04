@@ -1137,7 +1137,8 @@ table.ct {
   gap: 12px;
   margin-top: 6px;
 }
-.ctrl .pp {
+.ctrl .pp,
+.carnav .pp {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -4256,3 +4257,341 @@ table.ct {
   color: var(--primary-500);
 }
 
+
+/* ---------- Phase 4: home page section rhythm ---------- */
+.sec {
+  padding-block: 96px;
+}
+.sec .sec-h {
+  margin-bottom: 40px;
+}
+.concern-sec {
+  padding-block: 28px 40px;
+  border-bottom: 1px solid var(--line);
+}
+.cred-sec {
+  background: var(--sand-50);
+}
+.mq-sec {
+  overflow: hidden;
+}
+.contact-sec {
+  padding-bottom: 120px;
+}
+
+/* Library carousel: whole card is a link */
+.cc-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.cc-link:focus-visible {
+  outline: 3px solid var(--primary-500);
+  outline-offset: -3px;
+}
+
+/* Home FAQ "see all" link */
+.faq-all {
+  display: inline-block;
+  margin-top: 18px;
+  font-weight: 600;
+  color: var(--primary-500);
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary-100);
+  padding-bottom: 2px;
+}
+.faq-all:hover {
+  color: var(--primary-700);
+  border-bottom-color: var(--primary-500);
+}
+
+/* ---------- Visit band (04.5): sticky arch photo + frosted card ---------- */
+.vband-sec {
+  padding-block: 0;
+  overflow: clip;
+}
+.vband {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 64px;
+  align-items: center;
+  padding-block: 72px;
+  border-block: 1px solid var(--line);
+}
+.vband-photo {
+  position: sticky;
+  top: 110px;
+  border-radius: 999px 999px 24px 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  align-self: start;
+}
+.vband-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.vband-card {
+  position: relative;
+  padding: 44px 48px;
+  border-radius: 24px;
+  background: var(--glass);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-b);
+  box-shadow:
+    var(--shadow-card),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.vband-card::before {
+  content: "";
+  position: absolute;
+  inset: -60px -40px;
+  z-index: -1;
+  background:
+    radial-gradient(40% 55% at 15% 20%, rgba(29, 107, 114, 0.14), transparent 70%),
+    radial-gradient(45% 60% at 85% 80%, rgba(201, 164, 106, 0.22), transparent 70%);
+  pointer-events: none;
+}
+.vband-card h3 {
+  font-size: clamp(26px, 3vw, 34px);
+  margin: 10px 0 12px;
+}
+.vband-card > p {
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+.vband-facts {
+  list-style: none;
+  margin: 24px 0 30px;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.vband-facts li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--ink-2);
+  font-size: 16px;
+}
+.vband-facts svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--primary-500);
+}
+.vband-card .btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .vband-card {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+@media (max-width: 1023px) {
+  .vband {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 56px;
+  }
+  .vband-photo {
+    display: none;
+  }
+  .vband-card {
+    padding: 32px 28px;
+  }
+}
+@media (max-width: 767px) {
+  .sec {
+    padding-block: 56px;
+  }
+  .sec .sec-h {
+    margin-bottom: 28px;
+  }
+  .concern-sec {
+    padding-block: 20px 32px;
+  }
+  .contact-sec {
+    padding-bottom: 88px;
+  }
+}
+
+/* Phase 4 mobile: swipe-slide tracker + density (spec 4.7 + 9.4 length) */
+@media (max-width: 900px) {
+  .tracker > div:last-child {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+  }
+  .step {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    border-bottom: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    background: var(--bg);
+  }
+  .trk-side {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .trk-num {
+    font-size: 40px;
+  }
+  .trk-lab {
+    min-height: 0;
+    margin-top: 0;
+  }
+  .rail {
+    margin-top: 0;
+    margin-left: auto;
+    align-items: center;
+  }
+}
+@media (max-width: 767px) {
+  .sec {
+    padding-block: 48px;
+  }
+  .sec .sec-h {
+    margin-bottom: 24px;
+  }
+  .vband {
+    padding-block: 40px;
+  }
+  .vband-card {
+    padding: 26px 22px;
+  }
+  .vband-facts {
+    margin: 18px 0 24px;
+    gap: 10px;
+  }
+  .cmap {
+    min-height: 230px;
+  }
+  .photo-card img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+}
+
+/* Phase 4 mobile density pass 2 */
+@media (max-width: 767px) {
+  .seal {
+    padding: 14px 10px;
+    gap: 6px;
+  }
+  .seal .ring {
+    width: 54px;
+    height: 54px;
+    font-size: 14px;
+  }
+  .seal small {
+    font-size: 12px;
+  }
+  .tl li {
+    padding-block: 9px;
+  }
+  .tl p {
+    font-size: 15px;
+  }
+  .doc .b {
+    padding: 24px;
+  }
+  .doc img {
+    aspect-ratio: 4/3.1;
+  }
+  .ctaband {
+    padding: 24px 20px;
+  }
+  .sec {
+    padding-block: 44px;
+  }
+  .concern-sec {
+    padding-block: 18px 28px;
+  }
+  .journey {
+    gap: 28px;
+  }
+}
+
+/* Phase 4 mobile density pass 3: seals swipe row, tighter blocks */
+@media (max-width: 767px) {
+  .creds {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+  .creds .seal {
+    flex: 0 0 58%;
+    scroll-snap-align: start;
+    min-height: 0;
+  }
+  .vband-card {
+    padding: 22px 20px;
+  }
+  .vband-card > p {
+    font-size: 16px;
+  }
+  .vband-facts {
+    margin: 14px 0 20px;
+    gap: 8px;
+    font-size: 15px;
+  }
+  .cc .cover {
+    height: 128px;
+  }
+  .sec {
+    padding-block: 40px;
+  }
+  .sec .sec-h {
+    margin-bottom: 20px;
+  }
+  .doc .b {
+    padding: 20px;
+    gap: 8px;
+  }
+  .doc .chips {
+    margin-top: 4px;
+  }
+  .cmap {
+    min-height: 200px;
+  }
+}
+@media (max-width: 560px) {
+  .photo-card {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec {
+    padding-block: 36px;
+  }
+  .faq summary {
+    min-height: 52px;
+  }
+  .contact-sec {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec {
+    padding-block: 32px;
+  }
+  .doc img {
+    aspect-ratio: 4/2.9;
+  }
+}

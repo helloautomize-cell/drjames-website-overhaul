@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { conditionGroups } from "@/lib/conditions";
+import Link from "next/link";
+import { conditionGroups, conditionUrl } from "@/lib/conditions";
 import { Icon } from "@/lib/icons";
 import { Badge } from "@/components/Badge";
 import { AutoRow } from "@/components/AutoRow";
@@ -34,8 +35,7 @@ export function ServiceTabs() {
       <div className="washsvc">
         <AutoRow id="arches" className="sgrow">
           {group.conditions.map((c) => (
-            <a className={`sgc g${group.blobVariant}`} href="#" key={c.slug}
-               onClick={(e) => e.preventDefault()}>
+            <Link className={`sgc g${group.blobVariant}`} href={conditionUrl(c.slug)} key={c.slug}>
               <div className="halo">
                 <span className="blob a" />
                 <span className="blob b" />
@@ -50,7 +50,7 @@ export function ServiceTabs() {
               <span className="more">
                 Learn more <Icon name="arrow" size={16} strokeWidth={2.2} />
               </span>
-            </a>
+            </Link>
           ))}
         </AutoRow>
       </div>

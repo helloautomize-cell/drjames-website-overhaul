@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/lib/icons";
 import { Confirm } from "@/components/Confirm";
 import { BookButton } from "@/components/BookButton";
+import { MapLoader } from "@/components/MapLoader";
 
 /** Contact block: one address everywhere, hours, click-to-load map, CTA band. */
 export function ContactBlock() {
@@ -55,20 +55,7 @@ export function ContactBlock() {
             </a>
           </div>
         </div>
-        <figure className="cmap">
-          <Image
-            src="/images/doctor/dr-james-portrait.jpg"
-            alt="Badr Al Samaa Royal Hospital lobby"
-            fill
-            sizes="(max-width: 640px) 100vw, 50vw"
-          />
-          <figcaption>
-            <span>{site.address.hospital}</span>
-            <button type="button" className="btn btn-s">
-              Show map
-            </button>
-          </figcaption>
-        </figure>
+        <MapLoader />
       </div>
       <div className="ctaband">
         <h3>

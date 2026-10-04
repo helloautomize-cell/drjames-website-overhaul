@@ -28,6 +28,7 @@ import { StepTracker } from "@/components/StepTracker";
 import { DoctorCard } from "@/components/sections/DoctorCard";
 import { ConditionsMarquee } from "@/components/sections/Marquee";
 import { LibraryCarousel } from "@/components/LibraryCarousel";
+import { libraryArticles } from "@/lib/library-articles";
 import { Faq } from "@/components/sections/Faq";
 import { ContactBlock } from "@/components/sections/ContactBlock";
 import { BookingFormDemo } from "@/components/sections/BookingForm";
@@ -571,7 +572,7 @@ export default function Styleguide() {
           >
             From the Health <em className="acc">Library</em>
           </SecHead>
-          <LibraryCarousel />
+          <LibraryCarousel articles={libraryArticles()} />
         </section>
 
         {/* FAQ */}
