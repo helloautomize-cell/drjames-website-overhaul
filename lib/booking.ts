@@ -12,6 +12,7 @@ export const BOOKING_REASONS = [
   "Follow-up",
   "Check-up",
   "Second opinion",
+  "Medicines review",
   "Other",
 ] as const;
 

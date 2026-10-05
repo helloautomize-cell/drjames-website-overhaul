@@ -9,7 +9,7 @@ import "./v2.css";
 const figtree = Figtree({
   subsets: ["latin"],
   variable: "--font-figtree",
-  display: "swap",
+  display: "optional",
 });
 
 const instrumentSerif = Instrument_Serif({

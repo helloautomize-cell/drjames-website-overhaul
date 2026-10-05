@@ -68,12 +68,8 @@ export function Hero() {
             <span>Internal Medicine, Manipal, 2007</span>
           </div>
           <div>
-            <b>MSc</b>
-            <span>Diabetes, University of South Wales, and PG Diploma, Cardiff University</span>
-          </div>
-          <div>
-            <b>ICU</b>
-            <span>Led intensive care and COVID‑19 operations across three hospitals</span>
+            <b>UK</b>
+            <span>Diabetes training: MSc, University of South Wales, and PG Diploma, Cardiff University</span>
           </div>
         </div>
       </div>
