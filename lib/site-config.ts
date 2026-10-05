@@ -43,7 +43,7 @@ export const site = {
     country: "Oman",
     plusCode: "HCP6+M8F",
   },
-  mapsUrl: "https://maps.app.goo.gl/buQWhCo2fTABnAGT9",
+  mapsUrl: "https://maps.app.goo.gl/pud75RVoC8PLH8ap7",
   phoneDisplay: "+968 9751 0975",
   phoneTel: "tel:+96897510975",
   whatsapp: "https://wa.me/96897510975",

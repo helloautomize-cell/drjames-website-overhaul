@@ -6,7 +6,6 @@ import { RightDoctor } from "@/components/home/RightDoctor";
 import { HowHeWorks } from "@/components/home/HowHeWorks";
 import { MeetDrJames } from "@/components/home/MeetDrJames";
 import { VisitBand } from "@/components/home/VisitBand";
-import { CtaBand } from "@/components/home/CtaBand";
 
 const ConditionsMosaic = dynamic(() =>
   import("@/components/home/ConditionsMosaic").then((m) => m.ConditionsMosaic),
@@ -114,8 +113,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <CtaBand />
     </main>
   );
 }
