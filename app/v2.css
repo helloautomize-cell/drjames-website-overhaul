@@ -2902,109 +2902,6 @@ main > section ~ section:not(#conditions) {
   height: 100%;
   border: 0;
 }
-.vb-show {
-  position: absolute;
-  left: 50%;
-  top: 62%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 11px 20px;
-  border-radius: 999px;
-  border: 1px solid var(--line-n);
-  background: rgba(10, 28, 46, .72);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  font: 600 14px/1 var(--sans);
-  cursor: pointer;
-  transition: background .3s var(--ease), transform .3s var(--ease);
-}
-.vb-show:hover {
-  background: var(--petrol);
-  transform: translateX(-50%) translateY(-2px);
-}
-.vb-map svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.vb-sea,
-.vb-loc {
-  position: absolute;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: rgba(184, 199, 207, .55);
-}
-.vb-sea {
-  top: 26px;
-  left: 28px;
-}
-.vb-loc {
-  bottom: 24px;
-  left: 28px;
-}
-.vb-pin {
-  position: absolute;
-  left: 60%;
-  top: 56%;
-  width: 18px;
-  height: 18px;
-}
-.vb-pt {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--gold);
-}
-.vb-halo {
-  position: absolute;
-  inset: -9px;
-  border-radius: 50%;
-  border: 1px solid rgba(217, 183, 126, .55);
-  animation: vbPulse 2.6s var(--ease) infinite;
-}
-.vb-halo2 {
-  animation-delay: 1.3s;
-}
-@keyframes vbPulse {
-  0% {
-    transform: scale(.6);
-    opacity: 0;
-  }
-  35% {
-    opacity: .9;
-  }
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
-}
-.vb-tag {
-  position: absolute;
-  left: 60%;
-  bottom: calc(56% + 30px);
-  transform: translateX(-50%);
-  background: #fff;
-  border-radius: 12px;
-  padding: 9px 13px;
-  box-shadow: 0 14px 34px -14px rgba(10, 28, 46, .55);
-  white-space: nowrap;
-}
-.vb-tag b {
-  display: block;
-  font: 400 19px/1.1 var(--serif);
-  color: var(--ink);
-}
-.vb-tag span {
-  display: block;
-  font-size: 13px;
-  color: var(--ink-2);
-  margin-top: 2px;
-}
 .vb-open {
   position: absolute;
   right: 20px;
@@ -3077,23 +2974,7 @@ main > section ~ section:not(#conditions) {
   .vb-map {
     aspect-ratio: 4 / 5;
   }
-  .vb-tag {
-    left: auto;
-    right: 20px;
-    bottom: auto;
-    top: 52%;
-    transform: none;
-    white-space: normal;
-    max-width: 190px;
-  }
 }
-@media (prefers-reduced-motion: reduce) {
-  .vb-halo {
-    animation: none;
-    opacity: 0;
-  }
-}
-
 /* ---- 9. Questions (home) ---- */
 .hfaq {
   max-width: none;
