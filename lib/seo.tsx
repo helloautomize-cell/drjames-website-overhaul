@@ -174,21 +174,34 @@ export const faqPageNode = (url: string, faqs: { q: string; a: string }[]) => ({
     })),
 });
 
-export const blogPostingNode = (
-  url: string,
-  heading: string,
-  description: string,
-  date: string,
-) => ({
+const realDate = (d: string | null | undefined): d is string =>
+  !!d && d !== "draft" && !d.includes("[CONFIRM");
+
+/** BlogPosting for a guide; every date field is omitted unless it is real. */
+export const blogPostingNode = (opts: {
+  url: string;
+  heading: string;
+  description: string;
+  image?: string | null;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  lastReviewed?: string | null;
+  about?: Record<string, unknown>;
+}) => ({
   "@type": "BlogPosting" as const,
-  "@id": `${SITE_URL}${url}#post`,
-  headline: heading,
-  description,
-  url: `${SITE_URL}${url}`,
-  ...(date.includes("[CONFIRM") ? {} : { datePublished: date }),
+  "@id": `${SITE_URL}${opts.url}#post`,
+  headline: opts.heading,
+  description: opts.description,
+  url: `${SITE_URL}${opts.url}`,
+  ...(opts.image ? { image: `${SITE_URL}${opts.image}` } : {}),
+  ...(realDate(opts.datePublished) ? { datePublished: opts.datePublished } : {}),
+  ...(realDate(opts.dateModified) ? { dateModified: opts.dateModified } : {}),
+  ...(realDate(opts.lastReviewed) ? { lastReviewed: opts.lastReviewed } : {}),
   author: { "@id": `${SITE_URL}/#dr-james` },
+  reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
   publisher: { "@id": `${SITE_URL}/#dr-james` },
   isPartOf: { "@id": `${SITE_URL}/#website` },
+  ...(opts.about ? { about: opts.about } : {}),
 });
 
 /** Renders one @graph per page. Never emits AggregateRating or Review. */

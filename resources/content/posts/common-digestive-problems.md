@@ -3,15 +3,26 @@ kind: post
 title: "Common digestive problems explained"
 description: "Acidity, bloating, reflux and IBS explained by Dr. James. Which gut symptoms are routine, which need tests, and which are urgent."
 heading: "Common digestive problems and how to look after your gut"
-category: "Gut health"
-date: "[CONFIRM: launch date]"
+standfirst: "Acidity, bloating and irregular bowels are among the most common gut complaints. The usual patterns, the warning signs that always need assessment, and what actually helps day to day."
+topic: kidney-liver-gut
+date: "draft"
 updated: null
-readingMinutes: 5
-inBrief:
+lastReviewed: "[CONFIRM]"
+image: null
+imageAlt: null
+imageCaption: null
+imageCredit: null
+quickAnswer: "Occasional heartburn and bloating are ordinary life; daily heartburn, persistent changes in the bowels, weight loss, swallowing difficulty or blood in the stool always deserve a physician's assessment. Most gut problems are manageable once the pattern is named."
+keyTakeaways:
   - "Acidity, bloating and irregular bowels are the most common gut complaints, and most are manageable once the pattern is named."
   - "Warning signs like weight loss, swallowing difficulty, blood or black stools always need assessment, at any age."
   - "Regular painkillers are an overlooked cause of stomach irritation."
   - "The gut and stress are directly linked; real symptoms under pressure are not imaginary."
+questionsToAsk:
+  - "Could my symptoms be caused by a medicine I already take?"
+  - "Do I need any tests, or is the pattern enough?"
+  - "Which foods are most likely to be triggering this?"
+  - "What warning signs should make me come back sooner?"
 faqs:
   - q: "Is heartburn every day normal?"
     a: "It is common but not normal to ignore. Daily heartburn suggests reflux that may irritate the food pipe over time. Review is worthwhile if it happens most days, needs regular antacids, or wakes you at night."
@@ -21,6 +32,11 @@ faqs:
     a: "Yes. The gut has its own nervous system wired to the brain, so stress changes gut movement and sensitivity. The pain is real; the pathway is stress-related. Managing the stress is part of the treatment, not a dismissal."
   - q: "When should bowel changes be checked?"
     a: "Any persistent change, looser, harder or narrower stools for more than a few weeks, deserves review. It matters more after 50, or with blood in the stool, weight loss, or a family history of bowel disease."
+sources:
+  - name: "NHS: heartburn and acid reflux"
+    url: "https://www.nhs.uk/conditions/heartburn-and-acid-reflux/"
+  - name: "NHS: irritable bowel syndrome"
+    url: "https://www.nhs.uk/conditions/irritable-bowel-syndrome-ibs/"
 related: [digestive-problems, fatty-liver, allergies, preventive-check-ups]
 ---
 

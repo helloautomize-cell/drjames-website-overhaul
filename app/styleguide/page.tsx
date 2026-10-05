@@ -26,8 +26,7 @@ import { ServiceTabs } from "@/components/ServiceTabs";
 import { StepTracker } from "@/components/StepTracker";
 import { DoctorCard } from "@/components/sections/DoctorCard";
 import { ConditionsMarquee } from "@/components/sections/Marquee";
-import { LibraryCarousel } from "@/components/LibraryCarousel";
-import { libraryArticles } from "@/lib/library-articles";
+import { LibraryHighlights } from "@/components/home/LibraryHighlights";
 import { Faq } from "@/components/sections/Faq";
 import { ContactBlock } from "@/components/sections/ContactBlock";
 import { BookingFormDemo } from "@/components/sections/BookingForm";
@@ -552,15 +551,15 @@ export default function Styleguide() {
           <ConditionsMarquee />
         </section>
 
-        {/* LIBRARY CAROUSEL */}
+        {/* LIBRARY HIGHLIGHTS */}
         <section className="sg-sec">
           <SecHead
             eyebrow="08 / Health Library"
-            sub="The three articles already on drjamesp.com, with designed covers instead of stock photos. Side cards fade and tilt; the active dot widens into a pill."
+            sub="Featured guide plus the two newest as dated lines. No autoplay, no arrows, no dots."
           >
-            From the Health <em className="acc">Library</em>
+            Health <em className="acc">Library</em>
           </SecHead>
-          <LibraryCarousel articles={libraryArticles()} />
+          <LibraryHighlights />
         </section>
 
         {/* FAQ */}

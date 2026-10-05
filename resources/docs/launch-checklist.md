@@ -11,3 +11,4 @@ Open items to confirm with Dr. James before go-live.
 - [ ] Languages: not rendered anywhere; add back only when the client confirms the list.
 - [ ] MOH licence: not rendered on About; add back when a real number replaces [CONFIRM: number].
 - [ ] Open question: the live "Consulting today until 9 pm" header status may conflict with an appointment-only clinic; decide whether to keep it.
+- [ ] Health Library: give each guide a real publish date (or keep as draft).

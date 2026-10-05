@@ -3,15 +3,26 @@ kind: post
 title: "Sleep disorders and your health"
 description: "Snoring, insomnia and sleep apnea explained by Dr. James. Why poor sleep raises blood pressure and sugar, and when to get assessed."
 heading: "Understanding sleep disorders and what they do to your health"
-category: "Sleep"
-date: "[CONFIRM: launch date]"
+standfirst: "Snoring, insomnia and broken sleep are not just a nuisance: poor sleep quietly raises blood pressure and sugar. What the common sleep disorders look like and when to get assessed."
+topic: lungs-sleep-infections
+date: "draft"
 updated: null
-readingMinutes: 5
-inBrief:
+lastReviewed: "[CONFIRM]"
+image: null
+imageAlt: null
+imageCaption: null
+imageCredit: null
+quickAnswer: "Loud snoring with witnessed breathing pauses is sleep apnea, a medical condition linked to blood pressure, weight and sugar control. Insomnia usually has findable causes: stress, caffeine, irregular hours or an underlying problem. Falling asleep while driving is a safety emergency."
+keyTakeaways:
   - "Sleep is when the body repairs blood vessels, hormones and memory; broken sleep quietly raises blood pressure and sugar."
   - "Loud snoring with breathing pauses is sleep apnea, a medical condition, not just a noise problem."
   - "Insomnia has causes that can be found: stress, caffeine, irregular hours, thyroid problems and some medicines."
   - "Falling asleep while driving is a safety emergency; do not wait for a check."
+questionsToAsk:
+  - "Do my symptoms sound like sleep apnea, and do I need a sleep study?"
+  - "Could a medicine or another condition be causing my insomnia?"
+  - "What sleep habits would help me most?"
+  - "Is my blood pressure or sugar making my sleep worse, or the other way round?"
 faqs:
   - q: "How many hours of sleep do adults need?"
     a: "Most adults need between seven and nine hours. Need varies, but consistently sleeping under six hours is linked to higher blood pressure, weight gain and poorer sugar control. Quality matters as much as length."
@@ -21,6 +32,11 @@ faqs:
     a: "Yes. Short and broken sleep worsens insulin resistance, raises appetite hormones and makes sugar control harder, which is why sleep is part of diabetes care, not a lifestyle extra."
   - q: "Do sleeping tablets fix insomnia?"
     a: "They can help briefly in a crisis, but they do not fix the cause and lose effect with regular use. Lasting improvement comes from treating the driver: sleep habits, stress, caffeine timing, or an underlying condition."
+sources:
+  - name: "NHS: sleep apnoea"
+    url: "https://www.nhs.uk/conditions/sleep-apnoea/"
+  - name: "NHS: insomnia"
+    url: "https://www.nhs.uk/conditions/insomnia/"
 related: [sleep-apnea, weight-management, high-blood-pressure, diabetes-and-prediabetes]
 ---
 

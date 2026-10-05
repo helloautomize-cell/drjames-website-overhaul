@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PageHero } from "@/components/page/PageHero";
-import { postMeta } from "@/lib/content";
+import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
+import { LibrarySearch } from "@/components/page/LibrarySearch";
+import { LibraryTabs } from "@/components/page/LibraryTabs";
+import { LibraryList } from "@/components/page/LibraryList";
+import { LibraryMore } from "@/components/page/LibraryMore";
+import { GuideCover } from "@/components/page/GuideCover";
+import { GuideCard } from "@/components/page/GuideCard";
+import { BookButton } from "@/components/BookButton";
+import { Icon } from "@/lib/icons";
+import { isDraftPost, publishedPostMeta, type PostMeta } from "@/lib/content";
+import { conditionGroups } from "@/lib/conditions";
+import { featuredPost, fmtDate, guideUrl, sortNewest, topicOf } from "@/lib/library";
 import { site } from "@/lib/site-config";
-import { Confirm } from "@/components/Confirm";
+import { whatsappLink } from "@/lib/whatsapp";
+import { SITE_URL } from "@/lib/seo";
 import {
   pageMeta,
   JsonLd,
@@ -14,17 +25,39 @@ import {
   websiteNode,
 } from "@/lib/seo";
 
-export const metadata: Metadata = pageMeta(
-  "Health Library",
-  "Plain-language articles on the conditions Dr. James sees most, reviewed by him before publication. Heart, sleep, gut health and more.",
-  "/health-library/",
-);
+export const metadata: Metadata = {
+  ...pageMeta(
+    "Health Library",
+    "Plain-language guides on the conditions Dr. James sees most, each one written and reviewed by him. Heart, sleep, gut health and more.",
+    "/health-library/",
+  ),
+  alternates: {
+    canonical: `${SITE_URL}/health-library/`,
+    types: { "application/rss+xml": `${SITE_URL}/health-library/rss.xml` },
+  },
+};
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "Health Library" }];
 
+/** "New" when the guide was published within the last 30 days. */
+const isNew = (p: PostMeta) =>
+  !isDraftPost(p) && Date.now() - new Date(`${p.date}T00:00:00Z`).getTime() < 30 * 86400000;
+
 export default function LibraryPage() {
-  const posts = postMeta();
-  const categories = [...new Set(posts.map((p) => p.category))];
+  const posts = publishedPostMeta();
+  const sorted = sortNewest(posts);
+  const feat = featuredPost(posts);
+  const rows = sorted.filter((p) => p.slug !== feat?.slug);
+  const featuredTopic = feat ? topicOf(feat) : null;
+  const featuredReviewed = feat ? fmtDate(feat.lastReviewed) : null;
+  // Topic shelves only earn their place with a real catalogue (spec 3.5).
+  const shelves =
+    posts.length >= 8
+      ? conditionGroups
+          .map((g) => ({ g, items: sorted.filter((p) => p.topic === g.id).slice(0, 3) }))
+          .filter((s) => s.items.length >= 3)
+      : [];
+
   return (
     <main id="main">
       <JsonLd
@@ -35,49 +68,103 @@ export default function LibraryPage() {
           breadcrumbNode(crumbs),
         ]}
       />
-      <PageHero
-        crumbs={crumbs}
-        title="Health Library"
-        intro={
-          <>
-            Plain-language articles on the conditions we see most. Every article is
-            medically reviewed by Dr. James before it is published. Publish date{" "}
-            <Confirm>[CONFIRM]</Confirm>
-          </>
-        }
-      />
-      <div className="container">
-        <div className="chipset" style={{ paddingTop: 28 }}>
-          {categories.map((c) => (
-            <span className="chip" key={c}>
-              {c}
+
+      <section className="hl-hero">
+        <div className="container">
+          <Breadcrumbs items={crumbs} />
+          <div className="hl-hero-grid">
+            <div>
+              <span className="eyebrow">Health Library</span>
+              <h1>
+                Understand your health, <em>in plain words</em>.
+              </h1>
+            </div>
+            <div className="hl-hero-r">
+              <p>
+                Plain-language guides on the conditions Dr. James sees most, each one written
+                and reviewed by him.
+              </p>
+              <LibrarySearch />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <LibraryTabs posts={posts} active="all" />
+
+      {feat && featuredTopic && (
+        <section className="hl-feat container" aria-label="Featured guide">
+          <Link className="hl-feat-img" href={guideUrl(feat.slug)} tabIndex={-1} aria-hidden="true">
+            <GuideCover post={feat} sizes="(max-width: 900px) 100vw, 660px" priority />
+            {isDraftPost(feat) && <span className="draft-chip">Draft</span>}
+          </Link>
+          <div className="hl-feat-txt">
+            <span className="hl-feat-top">
+              <span className="hl-topic">{featuredTopic.label}</span>
+              {isNew(feat) && <span className="hl-new">New</span>}
             </span>
-          ))}
-        </div>
-        <div className="lgrid">
-          {posts.map((p) => (
-            <Link className="lcard" key={p.slug} href={`/health-library/${p.slug}/`}>
-              <span className="cov" aria-hidden="true">
-                {p.category}
-              </span>
-              <span className="body">
-                <span className="cat">{p.category}</span>
-                <h2>{p.heading}</h2>
-                <p>{p.description}</p>
-                <span className="meta">
-                  <Image
-                    src="/images/doctor/dr-james-avatar.jpg"
-                    alt=""
-                    width={24}
-                    height={24}
-                  />
-                  {site.shortName} · {p.readingMinutes} min read
-                </span>
-              </span>
+            <h2>
+              <Link href={guideUrl(feat.slug)}>{feat.heading}</Link>
+            </h2>
+            <p>{feat.standfirst}</p>
+            <span className="hl-feat-by">
+              <Image
+                src="/images/doctor/dr-james-avatar.jpg"
+                alt=""
+                width={24}
+                height={24}
+              />
+              {site.shortName}
+              {featuredReviewed ? ` · Reviewed ${featuredReviewed}` : ""} · {feat.readingMinutes}{" "}
+              min read
+            </span>
+            <Link className="cx-btn cx-btn-p" href={guideUrl(feat.slug)}>
+              Read the guide
+              <Icon name="arrow" size={18} />
             </Link>
-          ))}
+          </div>
+        </section>
+      )}
+
+      <section className="container hl-all" aria-labelledby="hl-all-h">
+        <h2 id="hl-all-h">All guides</h2>
+        <LibraryList posts={rows} />
+        {rows.length > 12 && <LibraryMore />}
+      </section>
+
+      {shelves.map(({ g, items }) => (
+        <section key={g.id} className="container hl-shelf" aria-labelledby={`hl-shelf-${g.id}`}>
+          <div className="hl-shelf-h">
+            <h3 id={`hl-shelf-${g.id}`}>{g.label}</h3>
+            <Link href={`/conditions/#g-${g.id}`}>See the condition page</Link>
+          </div>
+          <div className="gd-keep-grid">
+            {items.map((p) => (
+              <GuideCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <div className="container hl-bandwrap">
+        <div className="ctaband">
+          <h3>Have a question you want answered?</h3>
+          <p>
+            Many guides start from questions patients ask in clinic. Ask yours at your next
+            visit.
+          </p>
+          <div className="btns">
+            <BookButton onDark label="Book appointment" />
+            <a
+              className="btn wa-btn"
+              href={whatsappLink("a question from the Health Library")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
-        <div style={{ paddingBottom: 64 }} />
       </div>
     </main>
   );

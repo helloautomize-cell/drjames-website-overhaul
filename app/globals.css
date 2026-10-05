@@ -3890,78 +3890,6 @@ main p a:not([class]) {
   font-size: 24px;
   margin-bottom: 20px;
 }
-/* health library */
-.lgrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 36px 0 60px;
-}
-.lcard {
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--bg);
-  display: grid;
-  text-decoration: none;
-  color: var(--ink);
-  transition:
-    box-shadow 0.25s var(--ease),
-    transform 0.25s var(--ease),
-    border-color 0.2s;
-}
-.lcard:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-3px);
-  border-color: var(--primary);
-}
-.lcard .cov {
-  aspect-ratio: 16/8.5;
-  background:
-    radial-gradient(420px 160px at 20% 0%, rgba(194, 154, 91, 0.25), transparent 60%),
-    var(--night);
-  display: grid;
-  place-items: center;
-  color: var(--sand-light);
-}
-.lcard .body {
-  padding: 20px 22px 22px;
-  display: grid;
-  gap: 10px;
-}
-.lcard .cat {
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--primary-500);
-}
-.lcard h2 {
-  font-size: 20px;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-}
-.lcard p {
-  margin: 0;
-  font-size: 15px;
-  color: var(--ink-2);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.lcard .meta {
-  display: flex;
-  gap: 10px;
-  font-size: 13.5px;
-  color: var(--ink-2);
-  align-items: center;
-  margin-top: 4px;
-}
-.lcard .meta img {
-  border-radius: 50%;
-}
 .post-head .meta {
   display: flex;
   flex-wrap: wrap;
@@ -4091,14 +4019,6 @@ main p a:not([class]) {
   display: block;
   width: 100%;
   height: auto;
-}
-.chipset {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.chipset .chip {
-  cursor: default;
 }
 .cond-chips {
   display: flex;

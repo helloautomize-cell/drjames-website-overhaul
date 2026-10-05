@@ -8,14 +8,12 @@ import "./v2.css";
 
 const newsreader = Newsreader({
   variable: "--font-serif",
-  axes: ["opsz"],
+  weight: ["400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
+  // preloaded + next/font metric fallback: swap without a CLS or LCP penalty
   display: "swap",
-  fallback: ["Georgia", "Times New Roman", "serif"],
-  // no preload: the 275KB variable pair would otherwise starve the
-  // LCP image in the request queue; swap + adjusted fallback covers CLS
-  preload: false,
+  preload: true,
 });
 
 const interTight = Inter_Tight({
@@ -23,10 +21,10 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SITE_URL ?? "https://drjamesp.com"),
   title: {
     default: "Dr. James Kumar Pallivathukkal | Internal Medicine and Diabetes, Muscat",
     template: "%s | Dr. James Kumar Pallivathukkal",

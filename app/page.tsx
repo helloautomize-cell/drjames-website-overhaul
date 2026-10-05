@@ -13,12 +13,9 @@ const ConditionsMosaic = dynamic(() =>
 const StepTracker = dynamic(() =>
   import("@/components/StepTracker").then((m) => m.StepTracker),
 );
-const LibraryCarousel = dynamic(() =>
-  import("@/components/LibraryCarousel").then((m) => m.LibraryCarousel),
-);
+import { LibraryHighlights } from "@/components/home/LibraryHighlights";
 import { Faq, HOME_FAQS } from "@/components/sections/Faq";
 import { site } from "@/lib/site-config";
-import { libraryArticles } from "@/lib/library-articles";
 import {
   pageMeta,
   JsonLd,
@@ -53,8 +50,6 @@ function SecHead({
 }
 
 export default function Home() {
-  const articles = libraryArticles();
-
   return (
     <main id="main">
       <JsonLd
@@ -87,17 +82,7 @@ export default function Home() {
 
       <MeetDrJames />
 
-      <section className="sec">
-        <div className="container">
-          <SecHead
-            eyebrow="Health Library"
-            sub="Plain-words articles written and reviewed by Dr. James."
-          >
-            From the Health <em className="acc">Library</em>
-          </SecHead>
-          <LibraryCarousel articles={articles} />
-        </div>
-      </section>
+      <LibraryHighlights />
 
       <VisitBand />
 

@@ -165,7 +165,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
           </span>
         </div>
         <div className="x-bar">
-          <Link className="x-logo" href="/" aria-label="Dr. James Pallivathukkal, home">
+          <Link className="x-logo" href="/">
             <span className="x-mk" aria-hidden="true">
               <LogoMark className="x-mk-l" title="" style={{ ["--logo-ground" as string]: "#F3F5F1" }} />
               <LogoMark className="x-mk-d" white title="" style={{ ["--logo-ground" as string]: "#0A1C2E" }} />
