@@ -7,7 +7,7 @@ import { symptoms } from "@/lib/symptoms";
 import { allConditions, conditionUrl } from "@/lib/conditions";
 import { site } from "@/lib/site-config";
 
-const FinderCtx = createContext<{ openFinder: () => void }>({ openFinder: () => {} });
+const FinderCtx = createContext<{ openFinder: (preset?: unknown) => void }>({ openFinder: () => {} });
 export const useFinder = () => useContext(FinderCtx);
 
 const titleOf = (slug: string) => allConditions.find((c) => c.slug === slug)?.title ?? slug;
@@ -28,8 +28,8 @@ export function FinderProvider({ children }: { children: React.ReactNode }) {
       .slice(0, 7);
   }, [q]);
 
-  const openFinder = useCallback(() => {
-    setQ("");
+  const openFinder = useCallback((preset?: unknown) => {
+    setQ(typeof preset === "string" ? preset : "");
     setSel(0);
     setOpen(true);
   }, []);
