@@ -1,10 +1,11 @@
 import { Icon } from "@/lib/icons";
+import { site } from "@/lib/site-config";
 
 const EM_HEADING = "when-to-get-help-straight-away";
 
 /**
- * Renders markdown-produced HTML. If the last h2 is the emergency
- * section, it is lifted into a red callout instead of a plain section.
+ * Renders markdown-produced HTML. The "When to get help straight away"
+ * section (heading up to the next h2) is lifted into a red callout.
  */
 export function ArticleBody({ html }: { html: string }) {
   const marker = `<h2 id="${EM_HEADING}">`;
@@ -17,17 +18,24 @@ export function ArticleBody({ html }: { html: string }) {
   const closeTag = "</h2>";
   const endH = em.indexOf(closeTag);
   const emTitle = em.slice(0, endH);
-  const emBody = em.slice(endH + closeTag.length);
+  const afterH = em.slice(endH + closeTag.length);
+  const next = afterH.indexOf("<h2");
+  const emBody = next === -1 ? afterH : afterH.slice(0, next);
+  const rest = next === -1 ? "" : afterH.slice(next);
   return (
     <>
       <div className="prose" dangerouslySetInnerHTML={{ __html: normal }} />
-      <div className="callout em em-block">
+      <div className="callout em em-block" id={EM_HEADING}>
         <Icon name="alert" size={24} />
         <div>
           <h2>{emTitle}</h2>
           <div className="prose" dangerouslySetInnerHTML={{ __html: emBody }} />
+          <p className="em-call">
+            <a href={`tel:${site.emergency}`}>Call {site.emergency}</a> or go to the nearest emergency department.
+          </p>
         </div>
       </div>
+      {rest ? <div className="prose" dangerouslySetInnerHTML={{ __html: rest }} /> : null}
     </>
   );
 }

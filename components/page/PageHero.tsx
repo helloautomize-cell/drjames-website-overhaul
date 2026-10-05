@@ -5,6 +5,8 @@ import { bookingUrl } from "@/lib/booking-context";
 import { site } from "@/lib/site-config";
 import { Icon, type IconName } from "@/lib/icons";
 import { Badge } from "@/components/Badge";
+import { Confirm } from "@/components/Confirm";
+import Image from "next/image";
 
 /**
  * Compact inner-page hero: breadcrumbs, optional condition badge,
@@ -17,6 +19,7 @@ export function PageHero({
   badge,
   meta,
   reason,
+  reviewed,
 }: {
   crumbs: Crumb[];
   title: string;
@@ -25,6 +28,8 @@ export function PageHero({
   meta?: ReactNode;
   /** Neutral booking reason to prefill when visitors tap Book. */
   reason?: Parameters<typeof bookingUrl>[0];
+  /** Condition pages: shows the reviewed-by line under the buttons. */
+  reviewed?: { lastReviewed: string };
 }) {
   return (
     <div className="pg-hero">
@@ -48,6 +53,17 @@ export function PageHero({
             <Icon name="phone" size={18} /> Call {site.phoneDisplay}
           </a>
         </div>
+        {reviewed ? (
+          <p className="pg-rev">
+            <Image src="/images/doctor/dr-james-portrait.jpg" alt="" width={28} height={28} />
+            <span>Reviewed by {site.name}, Specialist Internist</span>
+            {reviewed.lastReviewed.includes("[CONFIRM]") ? (
+              <Confirm>{reviewed.lastReviewed}</Confirm>
+            ) : (
+              <span className="num">{reviewed.lastReviewed}</span>
+            )}
+          </p>
+        ) : null}
       </div>
     </div>
   );
