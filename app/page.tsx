@@ -86,7 +86,6 @@ export default function Home() {
       </section>
 
       <MeetDrJames />
-      <VisitBand />
 
       <section className="sec">
         <div className="container">
@@ -99,6 +98,8 @@ export default function Home() {
           <LibraryCarousel articles={articles} />
         </div>
       </section>
+
+      <VisitBand />
 
       <section className="sec qa-white">
         <div className="container">
