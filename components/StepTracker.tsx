@@ -76,8 +76,8 @@ export function StepTracker() {
             tabIndex={0}
             onClick={() => setCur(i)}
             onKeyDown={(e) => e.key === "Enter" && setCur(i)}
+            data-done={i < cur || undefined}
           >
-            <small>{String(i + 1).padStart(2, "0")}</small>
             <h3>{title}</h3>
             <p>{body}</p>
           </div>

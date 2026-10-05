@@ -11,12 +11,13 @@ export function Reveal({
   className,
   threshold = 0.35,
   children,
+  ...rest
 }: {
   as?: ElementType;
   className?: string;
   threshold?: number;
   children?: ReactNode;
-}) {
+} & Record<string, unknown>) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export function Reveal({
   }, [threshold]);
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} {...rest}>
       {children}
     </Tag>
   );
