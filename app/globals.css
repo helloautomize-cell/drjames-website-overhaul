@@ -2771,28 +2771,6 @@ table.ct {
   font-weight: 600;
   font-size: 14.5px;
 }
-.ctaband {
-  border-radius: 24px;
-  background:
-    radial-gradient(60% 120% at 85% 0%, #17506a, var(--night) 65%),
-    var(--night);
-  color: var(--on-dark);
-  padding: clamp(28px, 4vw, 48px);
-  display: grid;
-  gap: 12px;
-  justify-items: start;
-}
-.ctaband h3 {
-  font-size: clamp(26px, 3.4vw, 38px);
-  line-height: 1.15;
-}
-.ctaband h3 .acc {
-  color: var(--sand-light);
-}
-.ctaband p {
-  margin: 0;
-  color: var(--on-dark-2);
-}
 .bform {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4102,21 +4080,6 @@ main p a:not([class]) {
 }
 
 /* about page */
-.ab-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 44px;
-  align-items: center;
-  padding: 40px 0 20px;
-}
-@media (max-width: 960px) {
-  .ab-hero {
-    grid-template-columns: 1fr;
-  }
-  .ab-hero .arch-wrap {
-    max-width: 340px;
-  }
-}
 .arch-frame {
   border-radius: 200px 200px 24px 24px;
   border: 1.5px solid var(--sand);
@@ -4128,46 +4091,6 @@ main p a:not([class]) {
   display: block;
   width: 100%;
   height: auto;
-}
-.fact-card {
-  border-radius: 22px;
-  background: var(--glass);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--glass-b);
-  box-shadow: var(--shadow-card);
-  padding: 26px;
-  display: grid;
-  gap: 14px;
-}
-.fact-card .row {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 10px;
-  font-size: 15px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
-}
-.fact-card .row:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-.fact-card .row b {
-  color: var(--ink-2);
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  padding-top: 2px;
-}
-.pull {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(22px, 3vw, 30px);
-  line-height: 1.4;
-  color: var(--secondary);
-  border-left: 3px solid var(--sand);
-  padding-left: 24px;
-  margin: 0;
 }
 .chipset {
   display: flex;
@@ -4501,9 +4424,6 @@ main p a:not([class]) {
   .doc img {
     aspect-ratio: 4/3.1;
   }
-  .ctaband {
-    padding: 24px 20px;
-  }
   .sec {
     padding-block: 44px;
   }
@@ -4639,46 +4559,4 @@ main p a:not([class]) {
 .bform .em-line {
   grid-column: 1 / -1;
   margin: 0;
-}
-
-/* patient quotes (migrated from old site, client-approved override) */
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  margin: 26px 0 0;
-}
-.testi-card {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 20px 22px;
-  display: grid;
-  gap: 12px;
-  align-content: start;
-  margin: 0;
-  background: var(--bg);
-}
-.testi-mark {
-  font-family: var(--serif);
-  font-size: 44px;
-  line-height: 0.6;
-  color: var(--sand);
-}
-.testi-card blockquote {
-  margin: 0;
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: var(--ink-2);
-}
-.testi-card figcaption {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--primary-600);
-}
-@media (max-width: 560px) {
-  .testi-grid {
-    grid-template-columns: 1fr;
-  }
 }

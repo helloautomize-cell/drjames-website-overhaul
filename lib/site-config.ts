@@ -7,6 +7,9 @@
 const graduationYear = 2002;
 const omanSince = 2012;
 
+// REVISIT BEFORE LAUNCH: site shows years since 2002 (24 in 2026). Hospital
+// profile (brhoman.com) says 19 years, old site said 23. Client to confirm
+// which count to publish.
 /**
  * Years in medicine and in Oman, computed once from the two source years so every
  * surface (hero strip, About, structured data) always shows the same pair.
@@ -34,6 +37,41 @@ export const site = {
   yearsInOman: exp.inOman,
   award:
     "Associated with a Guinness World Records achievement for maximum diabetes patient screening at Badr Al Samaa Royal Hospital, 2025.",
+  /** Degrees shown once, in the training ledger. `confirm` renders only outside production. */
+  training: [
+    {
+      abbr: "MBBS",
+      subject: "Medicine",
+      inst: "Vinayaka Missions Kirupananda Variyar Medical College, Tamil Nadu, 2002",
+    },
+    { abbr: "MD", subject: "Internal Medicine", inst: "Manipal, 2007" },
+    { abbr: "PG Dip", subject: "Diabetes", inst: "Cardiff University, 2012" },
+    {
+      abbr: "MBA",
+      subject: "Hospital management",
+      inst: "Vinayaka Missions University, 2012",
+    },
+    {
+      abbr: "MSc",
+      subject: "Diabetes",
+      inst: "2014",
+      confirm: "[CONFIRM: Cardiff or University of South Wales]",
+    },
+    {
+      abbr: "DBA",
+      subject: "Business administration",
+      inst: "Coventry University, 2024",
+    },
+  ],
+  // names to be checked against certificates before launch
+  furtherTraining: [
+    "Physician Leadership, Stanford Medicine",
+    "Leadership programme, NHS (Edward Jenner programme)",
+    "Certificate course in Emergency Medicine, Apollo Hospitals and Medvarsity, India",
+    "Certificate course in Rheumatology, IMA Delhi",
+    "Medicine and the Arts, University of Cape Town",
+    "Medical certification, Petroleum Development Oman (PDO)",
+  ],
   quote:
     "Every patient deserves not only the right treatment but also the right understanding of their health. My goal is to empower patients through knowledge, prevention, and personalized care so they can live healthier and more fulfilling lives.",
   address: {

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/page/PageHero";
-import { CtaBand } from "@/components/page/CtaBand";
 import { postMeta } from "@/lib/content";
 import { site } from "@/lib/site-config";
 import { Confirm } from "@/components/Confirm";
@@ -78,9 +77,7 @@ export default function LibraryPage() {
             </Link>
           ))}
         </div>
-        <div style={{ paddingBottom: 64 }}>
-          <CtaBand />
-        </div>
+        <div style={{ paddingBottom: 64 }} />
       </div>
     </main>
   );

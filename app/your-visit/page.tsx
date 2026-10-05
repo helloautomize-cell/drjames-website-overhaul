@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page/PageHero";
-import { CtaBand } from "@/components/page/CtaBand";
 import { Confirm } from "@/components/Confirm";
 import { StepTracker } from "@/components/StepTracker";
 import { site } from "@/lib/site-config";
@@ -128,9 +127,7 @@ export default function VisitPage() {
           <p className="em-line">Medical emergency? Call {site.emergency}</p>
         </section>
 
-        <div style={{ padding: "10px 0 64px" }}>
-          <CtaBand />
-        </div>
+        <div style={{ padding: "10px 0 64px" }} />
       </div>
     </main>
   );

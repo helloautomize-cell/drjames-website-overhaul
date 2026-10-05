@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page/PageHero";
-import { CtaBand } from "@/components/page/CtaBand";
 import { site } from "@/lib/site-config";
 import { FaqBlock } from "@/components/page/FaqBlock";
 import {
@@ -98,9 +97,7 @@ export default function FaqsPage() {
             </p>
           </div>
         </div>
-        <div style={{ padding: "10px 0 64px" }}>
-          <CtaBand />
-        </div>
+        <div style={{ padding: "10px 0 64px" }} />
       </div>
     </main>
   );

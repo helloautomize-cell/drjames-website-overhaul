@@ -1,10 +1,8 @@
 import { site } from "@/lib/site-config";
-import { whatsappLink } from "@/lib/whatsapp";
 import { Icon } from "@/lib/icons";
-import { BookButton } from "@/components/BookButton";
 import { MapLoader } from "@/components/MapLoader";
 
-/** Contact block: one address everywhere, hours, click-to-load map, CTA band. */
+/** Contact block: one address everywhere, hours, click-to-load map, map. */
 export function ContactBlock() {
   return (
     <>
@@ -25,7 +23,7 @@ export function ContactBlock() {
             <div>
               <b>Consultations</b>
               <span>
-                {site.hoursShort}
+                Calls and WhatsApp by appointment only. {site.hoursShort}
               </span>
             </div>
           </div>
@@ -55,21 +53,6 @@ export function ContactBlock() {
           </div>
         </div>
         <MapLoader />
-      </div>
-      <div className="ctaband">
-        <h3>
-          Ready to talk to a <em className="acc">physician</em>?
-        </h3>
-        <p>Book a consultation with Dr. James at Badr Al Samaa Royal Hospital.</p>
-        <div className="btns">
-          <BookButton onDark />
-          <a className="btn ghost-dark" href={site.phoneTel}>
-            Call {site.phoneDisplay}
-          </a>
-          <a className="btn wa-btn" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>
-        </div>
       </div>
     </>
   );

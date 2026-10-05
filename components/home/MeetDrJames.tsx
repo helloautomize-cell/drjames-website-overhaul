@@ -1,24 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { Confirm } from "@/components/Confirm";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site-config";
 
-const LEDGER: { abbr: string; subject: string; inst: ReactNode }[] = [
-  { abbr: "MD", subject: "Internal Medicine", inst: "Manipal, 2007" },
-  {
-    abbr: "MSc",
-    subject: "Diabetes",
-    inst: (
-      <>
-        University of South Wales <Confirm>[year]</Confirm>
-      </>
-    ),
-  },
-  { abbr: "PG Dip", subject: "Diabetes", inst: "Cardiff University, 2012" },
-  { abbr: "MBA", subject: "Hospital management", inst: "Vinayaka Missions University" },
-];
+const LEDGER = site.training;
 
 const MILESTONES: { yr: string; now?: boolean; title: string; line: string }[] = [
   { yr: "2002", title: "Medical graduation", line: "Vinayaka Missions, Salem" },
@@ -78,9 +64,13 @@ export function MeetDrJames() {
                   <span className="mj-abbr">{r.abbr}</span>
                   <span className="mj-ltx">
                     <b>{r.subject}</b>
-                    <span className="mj-inst-m">{r.inst}</span>
+                    <span className="mj-inst-m">
+                      {r.inst} {"confirm" in r && r.confirm ? <Confirm>{r.confirm}</Confirm> : null}
+                    </span>
                   </span>
-                  <span className="mj-inst">{r.inst}</span>
+                  <span className="mj-inst">
+                    {r.inst} {"confirm" in r && r.confirm ? <Confirm>{r.confirm}</Confirm> : null}
+                  </span>
                 </li>
               ))}
             </ul>

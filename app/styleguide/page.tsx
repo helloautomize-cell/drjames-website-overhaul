@@ -22,7 +22,6 @@ import {
 } from "@/components/shell/Shell";
 import { ConcernPills } from "@/components/sections/ConcernPills";
 import { WhyCards } from "@/components/sections/WhyCards";
-import { Credentials } from "@/components/sections/Credentials";
 import { ServiceTabs } from "@/components/ServiceTabs";
 import { StepTracker } from "@/components/StepTracker";
 import { DoctorCard } from "@/components/sections/DoctorCard";
@@ -496,17 +495,6 @@ export default function Styleguide() {
             Experience you can <em className="acc">check</em>
           </SecHead>
           <WhyCards />
-        </section>
-
-        {/* CREDENTIALS */}
-        <section className="sg-sec">
-          <SecHead
-            eyebrow="02 / Training and career"
-            sub="Qualifications as small seals with a sand ring, then a dated timeline with the current role highlighted. This is where trust is earned, so every line is a checkable fact."
-          >
-            A career built in hospital <em className="acc">medicine</em>
-          </SecHead>
-          <Credentials />
         </section>
 
         {/* SERVICE TABS */}

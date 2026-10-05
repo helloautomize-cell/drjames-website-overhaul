@@ -7,7 +7,7 @@ const STEPS: [string, ReactNode][] = [
   [
     "Book",
     <>
-      WhatsApp or call +968 9751 0975, or use the form. We confirm your time by
+      WhatsApp or call +968 9751 0975. Appointments only, we confirm your time by
       message. <Confirm>Reply time to be confirmed</Confirm>
     </>,
   ],

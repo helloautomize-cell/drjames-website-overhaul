@@ -64,15 +64,20 @@ export const physicianNode = {
   affiliation: { "@id": `${SITE_URL}/#hospital` },
   knowsLanguage: site.languages,
   alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "Manipal Institute of Health Sciences, Karnataka" },
+    // confirmed institutions only; the MSc university stays out until the client
+    // confirms Cardiff vs University of South Wales (see site.training)
     {
       "@type": "CollegeOrUniversity",
-      name: "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+      name: "Vinayaka Missions Kirupananda Variyar Medical College, Tamil Nadu",
     },
+    { "@type": "CollegeOrUniversity", name: "Manipal Institute of Health Sciences, Karnataka" },
     { "@type": "CollegeOrUniversity", name: "Cardiff University" },
-    { "@type": "CollegeOrUniversity", name: "University of South Wales" },
+    { "@type": "CollegeOrUniversity", name: "Vinayaka Missions University" },
+    { "@type": "CollegeOrUniversity", name: "Coventry University" },
   ],
+  // TODO: add areaServed with the patient towns once the client confirms the list
   hasCredential: [
+    { "@type": "EducationalOccupationalCredential", name: "MBBS Medicine, 2002" },
     { "@type": "EducationalOccupationalCredential", name: "MD Internal Medicine, Manipal, 2007" },
     {
       "@type": "EducationalOccupationalCredential",
@@ -80,11 +85,15 @@ export const physicianNode = {
     },
     {
       "@type": "EducationalOccupationalCredential",
-      name: "MSc Diabetes, University of South Wales",
+      name: "MSc Diabetes, 2014",
     },
     {
       "@type": "EducationalOccupationalCredential",
-      name: "MBA Hospital Management, Vinayaka Missions University",
+      name: "MBA Hospital Management, Vinayaka Missions University, 2012",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "DBA Business Administration, Coventry University, 2024",
     },
   ],
   memberOf: site.committees.map((c) => ({

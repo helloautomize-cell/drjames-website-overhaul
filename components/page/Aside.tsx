@@ -47,7 +47,7 @@ export function BookCard() {
   return (
     <div className="book-card">
       <b>Ready to see Dr. James?</b>
-      <p>Book by WhatsApp, phone or the form. {site.hoursShort}.</p>
+      <p>Calls and WhatsApp by appointment only. {site.hoursShort}.</p>
       <div className="row">
         <BookButton label="Book" />
         <a className="btn ghost-dark" href={site.phoneTel}>

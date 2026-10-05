@@ -80,14 +80,10 @@ Compassionate, comprehensive medical care tailored to the unique needs of older 
 View All 
 <h2> Testimonals 
 Dr. James treated me with genuine care and kindness. He listened patiently, made me feel comfortable, and provided excellent treatment. Truly grateful for his personal and professional approach. Highly recommended! 
-[IMG https://drjamesp.com/wp-content/uploads/2026/08/Profile-PNG-File.png alt='Vinod B']Vinod B 
 Very good Doctor and timely advice on changes to be done in medicine intake and lifestyle changes for better health .
 Had a compassionate approach towards each patients and conveying messages in a peaceful manner.. 
-[IMG https://drjamesp.com/wp-content/uploads/2026/08/Profile-PNG-File.png alt='Praveen R.S']Praveen R.S 
 Excellent hospital, highly recommended! Dr. James was very professional, knowledgeable, and caring. He took the time to explain everything clearly and made the whole experience very comfortable. Truly outstanding service! 
-[IMG https://drjamesp.com/wp-content/uploads/2026/08/Profile-PNG-File.png alt='Ahmed Al Owasi']Ahmed Al Owasi 
 Dr James is an empathetic and experienced doctor, who goes above and beyond to make sure his patients are met with the best possible treatment and aftercare. He’s a patient and kind person which makes him an excellent physician. 
-[IMG https://drjamesp.com/wp-content/uploads/2026/08/Profile-PNG-File.png alt='Shilpa Viraj']Shilpa Viraj 
 <h2> Meet Our Specialist 
 Behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarks grove right 
 Patient Centered Excellence 
@@ -262,16 +258,12 @@ Critical ICU Cases
 Advanced Qualifications 
 <h2> Testimonials 
 [IMG https://drjamesp.com/wp-content/uploads/2019/08/quote-icon.png alt='']
-Dr. James provided exceptional care with clear explanations and great attention. I felt safe and well supported throughout my treatment. Sarah Mathew 
 [IMG https://drjamesp.com/wp-content/uploads/2026/06/896-1-1.webp alt='']
 [IMG https://drjamesp.com/wp-content/uploads/2019/08/quote-icon.png alt='']
-Highly professional and compassionate doctor. His diagnosis was accurate and treatment plan was very effective. Ahmed Khan 
 [IMG https://drjamesp.com/wp-content/uploads/2026/06/896-1-2.webp alt='']
 [IMG https://drjamesp.com/wp-content/uploads/2019/08/quote-icon.png alt='']
-One of the most experienced physicians I have consulted. He listens carefully and truly understands patient concerns. Meera Nair 
 [IMG https://drjamesp.com/wp-content/uploads/2026/06/896-1-3.webp alt='']
 [IMG https://drjamesp.com/wp-content/uploads/2019/08/quote-icon.png alt='']
-Excellent medical expertise combined with kind communication. Truly a trusted doctor for all health needs. John Mathews 
 [IMG https://drjamesp.com/wp-content/uploads/2026/06/896-1-5.webp alt='']
 [IMG https://drjamesp.com/wp-content/uploads/2019/08/WhatsApp-Image-2026-04-10-at-12.16.52-AM-Photoroom-1-1.png alt='']
 With extensive expertise in multiple medical disciplines and healthcare leadership, he is committed to providing quality care, promoting health awareness, and supporting better patient outcomes through clinical excellence and compassionate service. 

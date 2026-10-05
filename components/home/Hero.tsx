@@ -1,6 +1,7 @@
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { BookPill } from "@/components/site/BookPill";
+import { Confirm } from "@/components/Confirm";
 import { LiveStatus } from "@/components/site/LiveStatus";
 import { HeroVisual } from "@/components/home/HeroVisual";
 
@@ -61,7 +62,10 @@ export function Hero() {
         <div className="x-proof" role="group" aria-label="Training and experience">
           <div>
             <b>{site.yearsInMedicine}</b>
-            <span>years in medicine, {site.yearsInOman} of them in Oman</span>
+            <span>
+              years in medicine, {site.yearsInOman} of them in Oman{" "}
+              <Confirm>[REVISIT: hospital says 19]</Confirm>
+            </span>
           </div>
           <div>
             <b>MD</b>
@@ -69,7 +73,10 @@ export function Hero() {
           </div>
           <div>
             <b>UK</b>
-            <span>Diabetes training: MSc, University of South Wales, and PG Diploma, Cardiff University</span>
+            <span>
+              Diabetes training: PG Diploma, Cardiff University, and MSc
+              <Confirm>, University of South Wales [CONFIRM: Cardiff or University of South Wales]</Confirm>
+            </span>
           </div>
         </div>
       </div>

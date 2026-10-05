@@ -7,7 +7,6 @@ import { Toc, BookCard } from "@/components/page/Aside";
 import { ReviewerBox } from "@/components/page/ReviewerBox";
 import { FaqBlock } from "@/components/page/FaqBlock";
 import { RelatedConditions } from "@/components/page/RelatedConditions";
-import { CtaBand } from "@/components/page/CtaBand";
 import { conditionDoc, conditionMeta, withHeadingIds } from "@/lib/content";
 import { allConditions } from "@/lib/conditions";
 import { reasonForSlug } from "@/lib/booking-context";
@@ -102,9 +101,7 @@ export default async function ConditionPage({
             <Toc items={toc} />
           </aside>
         </div>
-        <div style={{ paddingBottom: 64 }}>
-          <CtaBand />
-        </div>
+        <div style={{ paddingBottom: 64 }} />
       </div>
     </main>
   );

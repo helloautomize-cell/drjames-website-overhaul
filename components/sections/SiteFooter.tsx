@@ -14,7 +14,7 @@ export function SiteFooter() {
         </p>
         <p className="fh">
           <span>Consultations</span>
-          {site.hoursShort}
+          Calls and WhatsApp by appointment only. {site.hoursShort}
         </p>
         <p className="fh">
           <span>Phone and WhatsApp</span>
