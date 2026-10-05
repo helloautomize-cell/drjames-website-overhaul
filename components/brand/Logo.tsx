@@ -2,7 +2,7 @@ import { useId, type CSSProperties } from "react";
 
 /**
  * The Dr. James logo redrawn as inline SVG (approved redraw, resources/brand/logo/).
- * The wordmark renders in Figtree from next/font via var(--font-figtree).
+ * The wordmark renders in Inter Tight from next/font via var(--font-sans).
  * White cut-outs follow --logo-ground: set it to the surface colour behind the logo.
  */
 
@@ -134,7 +134,7 @@ function MarkArtwork({ white }: { white: boolean }) {
   );
 }
 
-const wordmarkFont = "var(--font-figtree), 'Helvetica Neue', Arial, sans-serif";
+const wordmarkFont = "var(--font-sans), 'Helvetica Neue', Arial, sans-serif";
 
 export function LogoMark({
   white = false,

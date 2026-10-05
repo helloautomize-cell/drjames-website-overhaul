@@ -379,7 +379,7 @@ export default function Styleguide() {
               <b>For the coding agent:</b> the six source SVGs live in{" "}
               <code>resources/brand/logo/</code> (horizontal, stacked and mark, each
               in colour and white). They are inlined here as React components so the
-              wordmark uses Figtree from <code>next/font</code>; the white cut-outs
+              wordmark uses Inter Tight from <code>next/font</code>; the white cut-outs
               follow <code>--logo-ground</code>, so set it to the surface colour
               behind the logo. Keep clear space equal to the medallion height on every
               side. Never stretch, recolour, add shadows or place the colour logo on
@@ -394,9 +394,9 @@ export default function Styleguide() {
         <section className="sg-sec">
           <SecHead
             eyebrow="Typography · locked"
-            sub="Figtree for everything. Instrument Serif italic for a single accent word in a heading. Body text never drops below 17px."
+            sub="Inter Tight for everything. Newsreader italic for a single accent word in a heading. Body text never drops below 17px."
           >
-            Figtree, with one <em className="acc">serif accent</em>
+            Inter Tight, with one <em className="acc">serif accent</em>
           </SecHead>
           <div className="type">
             <div className="row">

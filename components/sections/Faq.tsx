@@ -34,7 +34,7 @@ export function Faq() {
   return (
     <div className="faq hfaq">
       {HOME_FAQS.map((f, i) => (
-        <details key={f.q} open={i === 0}>
+        <details key={f.q} name="hfaq" open={i === 0}>
           <summary>
             {f.q}
             <span className="hfaq-plus" aria-hidden="true" />

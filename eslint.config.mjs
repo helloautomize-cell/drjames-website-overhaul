@@ -5,5 +5,10 @@ import nextTs from "eslint-config-next/typescript";
 export default defineConfig([
   ...nextVitals,
   ...nextTs,
-  globalIgnores(["resources/**", "public/images/**"]),
+  globalIgnores(["resources/**", "public/images/**", "tmp/**"]),
+  {
+    // CommonJS helpers under scripts/ legitimately use require()
+    files: ["**/*.cjs"],
+    rules: { "@typescript-eslint/no-require-imports": "off" },
+  },
 ]);

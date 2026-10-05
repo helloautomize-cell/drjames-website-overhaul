@@ -1,23 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Instrument_Serif } from "next/font/google";
+import { Newsreader, Inter_Tight } from "next/font/google";
 import { SiteChrome } from "@/components/shell/SiteChrome";
 import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import "./v2.css";
 
-const figtree = Figtree({
-  subsets: ["latin"],
-  variable: "--font-figtree",
-  display: "optional",
-});
-
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
+const newsreader = Newsreader({
+  variable: "--font-serif",
+  axes: ["opsz"],
   style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-serif",
-  display: "optional",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+  // no preload: the 275KB variable pair would otherwise starve the
+  // LCP image in the request queue; swap + adjusted fallback covers CLS
+  preload: false,
+});
+
+const interTight = Inter_Tight({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -39,7 +45,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-OM" className={`${figtree.variable} ${instrumentSerif.variable}`}>
+    <html lang="en-OM" className={`${newsreader.variable} ${interTight.variable}`}>
       <body>
         <a href="#main" className="sr-only">
           Skip to content

@@ -135,16 +135,20 @@ export function HeroVisual() {
               key={p.name}
               type="button"
               className="x-prow"
-              aria-expanded={reduced ? i === 0 : i === cur}
+              aria-pressed={reduced ? i === 0 : i === cur}
               onClick={() => setCur(i)}
             >
               <i>0{i + 1}</i>
               <b>{p.name}</b>
-              <span className="x-d">
-                <span>{p.line}</span>
-              </span>
               {reduced ? null : <span className="x-t" key={`${i}-${i === cur ? run : 0}-${cur}`} />}
             </button>
+          ))}
+        </div>
+        <div className="x-dl">
+          {PILLARS.map((p, i) => (
+            <span key={p.name} className={i === cur ? "x-on" : ""} aria-hidden={i !== cur}>
+              {p.line}
+            </span>
           ))}
         </div>
       </div>

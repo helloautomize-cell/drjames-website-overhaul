@@ -8,7 +8,7 @@ const STEPS: [string, ReactNode][] = [
     "Book",
     <>
       WhatsApp or call +968 9751 0975, or use the form. We confirm your time by
-      message. Reply time: <Confirm />
+      message. <Confirm>Reply time to be confirmed</Confirm>
     </>,
   ],
   [
@@ -57,8 +57,10 @@ export function StepTracker() {
   return (
     <div className="tracker">
       <div className="trk-side">
-        <div className="trk-num">{String(cur + 1).padStart(2, "0")}</div>
-        <div className="trk-lab">{STEPS[cur][0]}</div>
+        <div className="trk-swap" key={cur}>
+          <div className="trk-num">{String(cur + 1).padStart(2, "0")}</div>
+          <div className="trk-lab">{STEPS[cur][0]}</div>
+        </div>
         <div className="rail" aria-hidden="true">
           {STEPS.map((_, i) => (
             <i key={i} className={i < cur ? "done" : i === cur ? "now" : ""} />

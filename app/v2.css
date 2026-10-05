@@ -350,13 +350,16 @@
   display: none;
 }
 .x-hero h1 {
-  font-size: clamp(48px, 6.4vw, 100px);
-  line-height: .95;
-  letter-spacing: -.015em;
+  font-size: clamp(46px, 5.6vw, 90px);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  line-height: 1.02;
+  letter-spacing: -.022em;
   margin-top: 26px;
 }
 .x-hero h1 em {
   font-style: italic;
+  font-weight: 400;
   color: var(--gold-dk);
 }
 .x-hero .x-lede {
@@ -425,7 +428,7 @@
 }
 .x-panel {
   position: relative;
-  height: clamp(480px, calc(100svh - 260px), 660px);
+  height: clamp(600px, 70vh, 660px);
   border-radius: 32px;
   overflow: hidden;
   background: radial-gradient(90% 70% at 70% 20%, #1B4660 0%, #10283F 45%, #0A1C2E 100%);
@@ -488,11 +491,12 @@
   top: 28px;
   left: 28px;
   z-index: 3;
-  max-width: 230px;
+  max-width: 260px;
 }
 .x-plate b {
   display: block;
-  font: 400 24px/1.1 var(--serif);
+  font: 500 24px/1.1 var(--serif);
+  letter-spacing: -.005em;
   color: #fff;
 }
 .x-plate span {
@@ -510,14 +514,14 @@
 .x-pill {
   position: absolute;
   left: -64px;
-  bottom: 40px;
+  bottom: 32px;
   width: 360px;
   z-index: 5;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 22px;
   box-shadow: var(--float);
-  padding: 18px 20px 8px;
+  padding: 18px 20px 16px;
 }
 .x-pill.x-in {
   animation-delay: .5s;
@@ -563,7 +567,8 @@
   border-radius: 8px;
 }
 .x-prow i {
-  font: italic 22px/1 var(--serif);
+  font: italic 500 22px/1 var(--serif);
+  letter-spacing: -.005em;
   color: var(--gold-dk);
   padding-top: 1px;
 }
@@ -572,27 +577,25 @@
   color: var(--ink-2);
   transition: color .3s;
 }
-.x-prow[aria-expanded="true"] b,
+.x-prow[aria-pressed="true"] b,
 .x-prow:hover b {
   color: var(--ink);
 }
-.x-prow .x-d {
-  grid-column: 2;
+.x-dl {
   display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .45s var(--ease);
+  margin-top: 12px;
+  min-height: 66px;
 }
-.x-prow .x-d span {
-  overflow: hidden;
+.x-dl span {
+  grid-area: 1 / 1;
   font-size: 14px;
   line-height: 1.5;
   color: var(--ink-2);
+  opacity: 0;
+  transition: opacity .25s var(--ease);
 }
-.x-prow[aria-expanded="true"] .x-d {
-  grid-template-rows: 1fr;
-}
-.x-prow[aria-expanded="true"] .x-d span {
-  padding-top: 6px;
+.x-dl span.x-on {
+  opacity: 1;
 }
 .x-prow .x-t {
   position: absolute;
@@ -604,7 +607,7 @@
   transform-origin: left;
   transform: scaleX(0);
 }
-.x-prow[aria-expanded="true"] .x-t {
+.x-prow[aria-pressed="true"] .x-t {
   animation: x-fill var(--dur, 5.2s) linear forwards;
 }
 .x-pill.x-paused .x-prow .x-t {
@@ -681,8 +684,10 @@
   color: var(--gold-lt);
 }
 .x-night h2 {
-  font-size: clamp(36px, 4.4vw, 60px);
-  line-height: 1.02;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.015em;
   margin-top: 22px;
   color: #fff;
 }
@@ -806,6 +811,8 @@
 }
 .x-tile h3 {
   font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -.005em;
   line-height: 1.08;
   display: flex;
   align-items: center;
@@ -1147,7 +1154,7 @@
   }
   .x-hero h1 {
     font-size: 44px;
-    line-height: .98;
+    line-height: 1.02;
     margin-top: 18px;
   }
   .x-hero .x-lede {
@@ -1308,6 +1315,10 @@
 /* ===== React port additions ===== */
 :root {
   --hdr-h: 118px;
+  --nav-clear: 100px; /* 76px capsule bottom + 24px gap */
+}
+html {
+  scroll-padding-top: var(--nav-clear); /* #hash jumps land below the header */
 }
 .x-hdr-spacer {
   height: var(--hdr-h);
@@ -1433,7 +1444,8 @@
   border: 0;
   cursor: pointer;
   text-align: left;
-  font: 400 25px/1.15 var(--serif);
+  font: 500 25px/1.15 var(--serif);
+  letter-spacing: -.005em;
   color: var(--mist);
   transition:
     color 0.3s,
@@ -1655,6 +1667,7 @@
 @media (max-width: 1023px) {
   :root {
     --hdr-h: 68px;
+    --nav-clear: 88px; /* 10px + 60px capsule + 18px gap */
   }
   body {
     padding-bottom: 96px;
@@ -1667,9 +1680,6 @@
 }
 .x-wa-glyph {
   color: #1f9d55;
-}
-.x-prow .x-d > span {
-  min-height: 0;
 }
 .x-proof .x-confirm-slot {
   display: block;
@@ -1741,14 +1751,18 @@
   flex: none;
 }
 
-/* type scale for headings on pages that keep their layout (Instrument Serif sits smaller than Figtree) */
+/* type scale for headings on pages that keep their layout */
 .sec-h h2 {
-  font-size: clamp(36px, 4.4vw, 60px);
-  line-height: 1.02;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.015em;
 }
 .page-sec h2 {
-  font-size: clamp(32px, 3.6vw, 44px);
-  line-height: 1.05;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.015em;
 }
 .pg-hero h1 {
   font-size: clamp(40px, 5vw, 64px);
@@ -2010,7 +2024,8 @@ main > section ~ section:not(#conditions) {
   border-top: 1px solid var(--line);
 }
 .cl-abbr {
-  font: 400 40px/1 var(--serif);
+  font: 500 40px/1 var(--serif);
+  letter-spacing: -.005em;
   color: var(--gold-dk);
 }
 .cl-sub {
@@ -2027,7 +2042,7 @@ main > section ~ section:not(#conditions) {
 .cl-photos {
   grid-area: photo;
   position: sticky;
-  top: 120px;
+  top: var(--nav-clear);
   align-self: start;
   display: grid;
   gap: 24px;
@@ -2086,7 +2101,8 @@ main > section ~ section:not(#conditions) {
   display: none;
 }
 .tl2 .yr {
-  font: italic 400 28px/1 var(--serif);
+  font: italic 500 28px/1 var(--serif);
+  letter-spacing: -.005em;
   color: var(--gold-dk);
   text-align: right;
   padding-top: 0;
@@ -2202,11 +2218,13 @@ main > section ~ section:not(#conditions) {
 }
 .rd-intro {
   position: sticky;
-  top: 120px;
+  top: var(--nav-clear);
 }
 .rd-intro h2 {
-  font-size: clamp(36px, 4.4vw, 60px);
-  line-height: 1.02;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.015em;
   margin-top: 22px;
 }
 .rd-sub {
@@ -2643,7 +2661,8 @@ main > section ~ section:not(#conditions) {
   border-bottom: 1px solid var(--line-n);
 }
 .mj-abbr {
-  font: 400 34px/1 var(--serif);
+  font: 500 34px/1 var(--serif);
+  letter-spacing: -.005em;
   color: var(--gold-lt);
 }
 .mj-ltx b {
@@ -2716,7 +2735,8 @@ main > section ~ section:not(#conditions) {
   box-shadow: 0 0 0 7px rgba(194, 154, 91, .16);
 }
 .mj-yr {
-  font: italic 400 30px/1 var(--serif);
+  font: italic 500 30px/1 var(--serif);
+  letter-spacing: -.005em;
   color: var(--gold-lt);
   font-variant-numeric: lining-nums tabular-nums;
   display: inline-flex;
@@ -2921,8 +2941,10 @@ main > section ~ section:not(#conditions) {
   background: rgba(29, 107, 114, .75);
 }
 .vb-copy h2 {
-  font-size: clamp(34px, 4vw, 52px);
-  line-height: 1.04;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.015em;
   margin-top: 22px;
 }
 .vb-facts {
@@ -2996,7 +3018,8 @@ main > section ~ section:not(#conditions) {
 .hfaq summary {
   min-height: 0;
   padding: 26px 60px 26px 0;
-  font: 400 24px/1.25 var(--serif);
+  font: 500 24px/1.25 var(--serif);
+  letter-spacing: -.005em;
   color: var(--ink);
   position: relative;
 }
@@ -3020,6 +3043,7 @@ main > section ~ section:not(#conditions) {
   width: 36px;
   height: 36px;
   pointer-events: none;
+  transition: opacity 0.25s var(--ease);
 }
 .hfaq .hfaq-plus::before,
 .hfaq .hfaq-plus::after {
@@ -3037,16 +3061,15 @@ main > section ~ section:not(#conditions) {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 .hfaq details[open] summary::after {
-  background: var(--ink);
-  border-color: var(--ink);
+  border-color: var(--gold-dk);
+  /* the minus lives inside the ring — a centered bar painted on the circle,
+     independent of the plus pseudo-elements' transforms. translateY keeps
+     the centering and overrides the base .faq rotate(45deg). */
+  transform: translateY(-50%);
+  background: linear-gradient(var(--gold-dk), var(--gold-dk)) no-repeat center / 13px 2px;
 }
-.hfaq details[open] .hfaq-plus::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: #fff;
-}
-.hfaq details[open] .hfaq-plus::after {
-  transform: translate(-50%, -50%) rotate(135deg);
-  background: #fff;
+.hfaq details[open] .hfaq-plus {
+  opacity: 0;
 }
 .hfaq details p {
   margin: -6px 0 26px;
