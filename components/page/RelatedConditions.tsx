@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { allConditions, conditionUrl } from "@/lib/conditions";
-import { Icon } from "@/lib/icons";
+import { allConditions } from "@/lib/conditions";
+import { ConditionRow } from "@/components/page/ConditionRow";
 
-/** Related-conditions card row; slugs resolve against lib/conditions. */
+/** Related conditions as ledger rows; slugs resolve against lib/conditions. */
 export function RelatedConditions({ slugs }: { slugs: string[] }) {
   const items = slugs
     .map((s) => allConditions.find((c) => c.slug === s))
@@ -11,13 +10,9 @@ export function RelatedConditions({ slugs }: { slugs: string[] }) {
   return (
     <section className="rel-grid" aria-label="Related conditions">
       <h2>Related conditions</h2>
-      <div className="rel-cards">
+      <div className="cx-rows">
         {items.map((c) => (
-          <Link className="rel-card" key={c.slug} href={conditionUrl(c.slug)}>
-            <Icon name={c.icon} size={26} />
-            <b>{c.title}</b>
-            <span>{c.line}</span>
-          </Link>
+          <ConditionRow key={c.slug} condition={c} />
         ))}
       </div>
     </section>

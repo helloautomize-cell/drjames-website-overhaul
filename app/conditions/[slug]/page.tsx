@@ -79,6 +79,7 @@ export default async function ConditionPage({
         intro={doc.intro}
         badge={cond?.icon}
         reason={reasonForSlug(slug)}
+        reviewed={{ lastReviewed: doc.lastReviewed }}
       />
       <div className="container">
         <div className="pg-grid">

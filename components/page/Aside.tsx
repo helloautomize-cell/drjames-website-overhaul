@@ -1,15 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { site } from "@/lib/site-config";
 import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
 
-/** Sticky table of contents. */
+/** Sticky table of contents with scroll-spy. Plain anchors work without JS. */
 export function Toc({ items }: { items: { id: string; text: string }[] }) {
+  const [active, setActive] = useState<string>();
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-30% 0px -60% 0px" },
+    );
+    items.forEach((h) => {
+      const el = document.getElementById(h.id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [items]);
+
   if (items.length === 0) return null;
   return (
     <nav className="toc" aria-label="On this page">
       <b>On this page</b>
       {items.map((h) => (
-        <a key={h.id} href={`#${h.id}`}>
+        <a
+          key={h.id}
+          href={`#${h.id}`}
+          className={h.id === active ? "on" : undefined}
+          aria-current={h.id === active ? "location" : undefined}
+        >
           {h.text}
         </a>
       ))}

@@ -14,8 +14,8 @@ export function ReviewerBox({ lastReviewed }: { lastReviewed: string }) {
       <Image
         src="/images/doctor/dr-james-avatar.jpg"
         alt=""
-        width={56}
-        height={56}
+        width={72}
+        height={72}
       />
       <div className="who">
         <b>Medically reviewed by {site.name}</b>
@@ -24,7 +24,7 @@ export function ReviewerBox({ lastReviewed }: { lastReviewed: string }) {
         </small>
         <small>
           Last reviewed{" "}
-          {confirm ? <Confirm>{lastReviewed}</Confirm> : lastReviewed} ·{" "}
+          {confirm ? <Confirm>{lastReviewed}</Confirm> : <span className="num">{lastReviewed}</span>} ·{" "}
           <Link className="link" href="/editorial-policy/">
             Editorial and medical review policy
           </Link>
