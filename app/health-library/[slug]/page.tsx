@@ -129,7 +129,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             <p className="gd-stand">{doc.standfirst}</p>
             <div className="gd-byline">
               <Image
-                src="/images/doctor/dr-james-avatar.jpg"
+                src="/images/doctor/d04-headshot-160sq.jpg"
                 alt=""
                 width={40}
                 height={40}

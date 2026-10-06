@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { BookButton } from "@/components/BookButton";
@@ -120,6 +121,15 @@ export default function VisitPage() {
                 Get directions <span aria-hidden="true">→</span>
               </a>
             </aside>
+          </div>
+          <div className="ph-band">
+            <Image
+              src="/images/doctor/d06-corridor-1600w.jpg"
+              alt="Dr. James walking through a hospital corridor"
+              width={2400}
+              height={1350}
+              sizes="100vw"
+            />
           </div>
         </header>
       </div>

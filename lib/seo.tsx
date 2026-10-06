@@ -59,7 +59,7 @@ export const physicianNode = {
   email: site.email,
   address,
   url: `${SITE_URL}/`,
-  image: `${SITE_URL}/images/doctor/dr-james-portrait.jpg`,
+  image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
   workLocation: { "@id": `${SITE_URL}/#hospital` },
   affiliation: { "@id": `${SITE_URL}/#hospital` },
   knowsLanguage: site.languages,

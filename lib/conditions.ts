@@ -1,4 +1,5 @@
 import type { IconName } from "./icons";
+import type { BadgeName } from "./badge-glyphs";
 
 export interface Condition {
   slug: string;
@@ -217,6 +218,71 @@ export const allConditions: Condition[] = conditionGroups.flatMap((g) => g.condi
 
 export function conditionUrl(slug: string) {
   return `/conditions/${slug}/`;
+}
+
+export function conditionGroup(slug: string) {
+  return conditionGroups.find((g) => g.conditions.some((c) => c.slug === slug));
+}
+
+/** Graded group photography per design/handoff/IMAGE-MAP.md. */
+export const GROUP_PHOTO: Record<string, { src: string; alt: string }> = {
+  "diabetes-metabolism": {
+    src: "/images/doctor/d08-blood-sugar-1200w.jpg",
+    alt: "Dr. James showing a patient a blood glucose reading",
+  },
+  "heart-blood-pressure": {
+    src: "/images/doctor/d09-blood-pressure-1200w.jpg",
+    alt: "Dr. James measuring a patient's blood pressure",
+  },
+  "kidney-liver-gut": {
+    src: "/images/doctor/d09-blood-pressure-1200w.jpg",
+    alt: "Dr. James measuring a patient's blood pressure",
+  },
+  "lungs-sleep-infections": {
+    src: "/images/doctor/d10-lungs-1200w.jpg",
+    alt: "Dr. James listening to a patient's lungs with a stethoscope",
+  },
+  "whole-person": {
+    src: "/images/doctor/d10-lungs-1200w.jpg",
+    alt: "Dr. James listening to a patient's lungs with a stethoscope",
+  },
+};
+
+/** Hero photo for a condition page; falls back to the results photo. */
+export function conditionPhoto(slug: string) {
+  const g = conditionGroup(slug);
+  return (
+    (g && GROUP_PHOTO[g.id]) ?? {
+      src: "/images/doctor/d05-results-1200w.jpg",
+      alt: "Dr. James reviewing a patient's lab report",
+    }
+  );
+}
+
+/** Coin badge for a condition, keyed off its service-badge slug. */
+const BADGE_TO_COIN: Record<string, BadgeName> = {
+  diabetes: "blood-sugar",
+  cholesterol: "heart-bp",
+  weight: "blood-sugar",
+  thyroid: "thyroid",
+  "blood-pressure": "heart-bp",
+  "heart-risk": "heart-bp",
+  asthma: "lungs",
+  chest: "lungs",
+  sleep: "sleep-energy",
+  allergy: "lungs",
+  fever: "lungs",
+  kidney: "kidneys",
+  liver: "liver-gut",
+  digestion: "liver-gut",
+  "elderly-care": "joints",
+  checkup: "tests-reason",
+  joint: "joints",
+  anaemia: "sleep-energy",
+};
+
+export function conditionCoin(c: Condition): BadgeName {
+  return BADGE_TO_COIN[c.badge] ?? "together";
 }
 
 /** Plain-language entry pills under the hero (section 4.3). */

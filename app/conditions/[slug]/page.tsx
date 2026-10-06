@@ -8,7 +8,7 @@ import { ReviewerBox } from "@/components/page/ReviewerBox";
 import { FaqBlock } from "@/components/page/FaqBlock";
 import { RelatedConditions } from "@/components/page/RelatedConditions";
 import { conditionDoc, conditionMeta, withHeadingIds } from "@/lib/content";
-import { allConditions } from "@/lib/conditions";
+import { allConditions, conditionCoin, conditionPhoto } from "@/lib/conditions";
 import { reasonForSlug } from "@/lib/booking-context";
 import {
   pageMeta,
@@ -76,7 +76,8 @@ export default async function ConditionPage({
         crumbs={crumbs}
         title={doc.heading}
         intro={doc.intro}
-        badge={cond?.icon}
+        coin={cond ? conditionCoin(cond) : undefined}
+        img={{ ...conditionPhoto(slug), width: 1800, height: 1200 }}
         reason={reasonForSlug(slug)}
         reviewed={{ lastReviewed: doc.lastReviewed }}
       />

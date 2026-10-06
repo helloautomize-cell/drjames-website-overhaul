@@ -12,7 +12,7 @@ export function ReviewerBox({ lastReviewed }: { lastReviewed: string }) {
   return (
     <div className="revbox">
       <Image
-        src="/images/doctor/dr-james-avatar.jpg"
+        src="/images/doctor/d04-headshot-400sq.jpg"
         alt=""
         width={72}
         height={72}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/page/PageHero";
 import { BookingForm } from "@/components/BookingForm";
 import { MapLoader } from "@/components/MapLoader";
@@ -45,6 +46,12 @@ export default async function ContactPage({
       <PageHero
         crumbs={crumbs}
         title="Contact and book an appointment"
+        img={{
+          src: "/images/doctor/d07-welcome-1200w.jpg",
+          alt: "Dr. James welcoming patients at the hospital reception",
+          width: 1800,
+          height: 1200,
+        }}
         intro={
           <>
             Request a visit with the form below, or reach us faster on WhatsApp and{" "}
@@ -70,6 +77,16 @@ export default async function ContactPage({
           </div>
           <aside className="pg-aside">
             <div className="info-cards" style={{ gridTemplateColumns: "1fr", marginTop: 0 }}>
+              <div className="info-card contact-doc">
+                <Image
+                  src="/images/doctor/d04-headshot-400sq.jpg"
+                  alt="Dr. James Kumar Pallivathukkal, specialist internist"
+                  width={72}
+                  height={72}
+                />
+                <b>{site.name}</b>
+                <p>{site.title}</p>
+              </div>
               <div className="info-card">
                 <span className="ic">
                   <Icon name="pin" size={22} />

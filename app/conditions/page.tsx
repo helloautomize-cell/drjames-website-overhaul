@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { BookButton } from "@/components/BookButton";
@@ -10,7 +11,7 @@ import { CONTOURS } from "@/lib/contours";
 import { bookingUrl } from "@/lib/booking-context";
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
-import { conditionGroups, conditionUrl } from "@/lib/conditions";
+import { conditionGroups, conditionUrl, GROUP_PHOTO } from "@/lib/conditions";
 import { pageMeta, JsonLd, breadcrumbNode, medicalWebPageNode, physicianNode, websiteNode } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
@@ -58,6 +59,15 @@ export default function ConditionsPage() {
               </a>
             </div>
           </div>
+          <div className="ph-band">
+            <Image
+              src="/images/doctor/d05-results-1800w.jpg"
+              alt="Dr. James reviewing a patient's lab report"
+              width={1800}
+              height={1200}
+              sizes="100vw"
+            />
+          </div>
         </div>
       </header>
 
@@ -78,6 +88,15 @@ export default function ConditionsPage() {
                 </div>
                 <span className="cx-count">{countLabel(feature.conditions.length)}</span>
               </div>
+              <figure className="cx-gimg">
+                <Image
+                  src={GROUP_PHOTO[feature.id].src}
+                  alt={GROUP_PHOTO[feature.id].alt}
+                  width={1800}
+                  height={1200}
+                  sizes="(max-width: 900px) 100vw, 720px"
+                />
+              </figure>
               <div className="cx-tiles">
                 {feature.conditions.map((c, i) => (
                   <Link className={`cx-tile${i === 0 ? " lead" : ""}`} key={c.slug} href={conditionUrl(c.slug)}>
@@ -101,6 +120,18 @@ export default function ConditionsPage() {
                   <span className="cx-count">{countLabel(g.conditions.length)}</span>
                 </div>
                 <p>{g.intro}</p>
+                {GROUP_PHOTO[g.id] ? (
+                  <figure className="cx-gimg">
+                    <Image
+                      src={GROUP_PHOTO[g.id].src}
+                      alt={GROUP_PHOTO[g.id].alt}
+                      width={1800}
+                      height={1200}
+                      sizes="(max-width: 900px) 100vw, 720px"
+                      loading="lazy"
+                    />
+                  </figure>
+                ) : null}
                 <Reveal as="div" className="cx-rows cx-reveal" threshold={0.1}>
                   {g.conditions.map((c, i) => (
                     <ConditionRow key={c.slug} condition={c} index={i} />

@@ -8,7 +8,7 @@ export function DoctorCard() {
   return (
     <article className="doc">
       <Image
-        src="/images/doctor/dr-james-portrait.jpg"
+        src="/images/doctor/d02-portrait-1000h.jpg"
         alt="Dr. James Kumar Pallivathukkal in the lobby of Badr Al Samaa Royal Hospital"
         width={717}
         height={896}

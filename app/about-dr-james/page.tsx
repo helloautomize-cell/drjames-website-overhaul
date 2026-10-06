@@ -66,6 +66,15 @@ export default function AboutPage() {
       />
 
       <header className="ab-hero">
+        <div className="ab-hero-img">
+          <Image
+            src="/images/doctor/d01-hero-2400w.jpg"
+            alt="Dr. James Kumar Pallivathukkal standing in a hospital lobby"
+            fill
+            sizes="100vw"
+            priority
+          />
+        </div>
         <div className="container">
           <Breadcrumbs items={crumbs} />
           <div className="ab-hero-grid">
@@ -103,40 +112,39 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <figure className="ab-hero-fig">
-              <div className="arch-frame ab-photo">
-                <Image
-                  src="/images/doctor/dr-james-portrait.jpg"
-                  alt="Dr. James standing in the lobby of Badr Al Samaa Royal Hospital"
-                  width={717}
-                  height={896}
-                  sizes="(max-width: 900px) 340px, 38vw"
-                  priority
-                />
-              </div>
-            </figure>
           </div>
         </div>
       </header>
 
       <Reveal as="section" className="ab-sec ab-words ab-fade" aria-labelledby="ab-words-h">
         <div className="container">
-          <div className="ab-inner">
-            <h2 id="ab-words-h" className="sr-only">
-              In his words
-            </h2>
-            <blockquote className="ab-quote">{site.quote}</blockquote>
-            <p>
-              Dr.&nbsp;James is a specialist internist who leads the Internal Medicine
-              department and Quality Control at Badr Al Samaa Royal Hospital in Muscat. He
-              oversees outpatient services and contributes to inpatient care, emergency and
-              ICU services, clinical governance and patient safety.
-            </p>
-            <p>
-              He enjoys health education and teaching. He worked on health education
-              programmes and likes patients to leave knowing what their results mean and why
-              each step of the plan exists.
-            </p>
+          <div className="ab-inner ab-words-grid">
+            <figure className="ab-words-fig">
+              <Image
+                src="/images/doctor/d12-candid-1600h.jpg"
+                alt="Dr. James smiling, stethoscope around his neck"
+                width={1122}
+                height={1402}
+                sizes="(max-width: 900px) 100vw, 380px"
+              />
+            </figure>
+            <div>
+              <h2 id="ab-words-h" className="sr-only">
+                In his words
+              </h2>
+              <blockquote className="ab-quote">{site.quote}</blockquote>
+              <p>
+                Dr.&nbsp;James is a specialist internist who leads the Internal Medicine
+                department and Quality Control at Badr Al Samaa Royal Hospital in Muscat. He
+                oversees outpatient services and contributes to inpatient care, emergency and
+                ICU services, clinical governance and patient safety.
+              </p>
+              <p>
+                He enjoys health education and teaching. He worked on health education
+                programmes and likes patients to leave knowing what their results mean and why
+                each step of the plan exists.
+              </p>
+            </div>
           </div>
         </div>
       </Reveal>
@@ -224,14 +232,26 @@ export default function AboutPage() {
               Beyond the clinic, Dr.&nbsp;James serves on hospital committees at{" "}
               {site.hospital}.
             </p>
-            <ul className="ab-com">
-              {site.committees.map((c) => (
-                <li key={c}>
-                  <b>{c}</b>
-                  <span>{site.hospital}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="ab-lead-grid">
+              <ul className="ab-com">
+                {site.committees.map((c) => (
+                  <li key={c}>
+                    <b>{c}</b>
+                    <span>{site.hospital}</span>
+                  </li>
+                ))}
+              </ul>
+              <figure className="ab-lead-fig">
+                <Image
+                  src="/images/doctor/d11-leadership-1200w.jpg"
+                  alt="Dr. James in his office at Badr Al Samaa Royal Hospital"
+                  width={1800}
+                  height={1200}
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
           </div>
         </div>
       </Reveal>

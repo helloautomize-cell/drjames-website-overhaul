@@ -154,7 +154,7 @@ export function SiteHeader() {
                 ))}
                 <div className="mm-doc">
                   <Image
-                    src="/images/doctor/dr-james-avatar.jpg"
+                    src="/images/doctor/d04-headshot-160sq.jpg"
                     alt=""
                     width={48}
                     height={48}

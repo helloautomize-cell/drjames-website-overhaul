@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { site } from "@/lib/site-config";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { Icon } from "@/lib/icons";
@@ -18,6 +19,13 @@ export default function ThankYou() {
       <div className="empty-page">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Thank you" }]} />
         <div className="thx-card">
+          <Image
+            src="/images/doctor/d04-headshot-400sq.jpg"
+            alt="Dr. James Kumar Pallivathukkal, specialist internist"
+            width={96}
+            height={96}
+            className="thx-photo"
+          />
           <span className="thx-ic">
             <Icon name="check" size={30} strokeWidth={2} />
           </span>

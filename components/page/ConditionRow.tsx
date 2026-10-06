@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { conditionUrl, type Condition } from "@/lib/conditions";
+import { conditionCoin, conditionUrl, type Condition } from "@/lib/conditions";
+import { Badge } from "@/components/Badge";
 import { Icon } from "@/lib/icons";
 
 /** Ledger row shared by the Conditions index and Related conditions. */
@@ -7,7 +8,7 @@ export function ConditionRow({ condition: c, index = 0 }: { condition: Condition
   return (
     <Link className="cx-row" href={conditionUrl(c.slug)} style={{ "--i": index } as React.CSSProperties}>
       <span className="cx-row-ic" aria-hidden="true">
-        <Icon name={c.icon} size={24} />
+        <Badge name={conditionCoin(c)} size="xs" />
       </span>
       <b>{c.title}</b>
       <span className="cx-row-d">{c.line}</span>

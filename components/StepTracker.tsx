@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import { Confirm } from "@/components/Confirm";
 
-const STEPS: [string, ReactNode][] = [
+const STEPS: [string, ReactNode, { src: string; alt: string }?][] = [
   [
     "Book",
     <>
@@ -14,10 +15,18 @@ const STEPS: [string, ReactNode][] = [
   [
     "Arrive and register",
     "Come to the hospital in Al Ghubrah. Bring old prescriptions, reports and the medicines you take, and your sugar diary or meter if you have diabetes.",
+    {
+      src: "/images/doctor/d07-welcome-4x5-1000w.jpg",
+      alt: "Dr. James welcoming patients at the hospital reception",
+    },
   ],
   [
     "Consultation",
     "Dr. James listens, asks about your history and examines you. There is time for your questions.",
+    {
+      src: "/images/doctor/d03-consultation-4x5-1000w.jpg",
+      alt: "Dr. James explaining a care plan to a patient during a consultation",
+    },
   ],
   [
     "Tests if needed",
@@ -68,7 +77,7 @@ export function StepTracker() {
         </div>
       </div>
       <div ref={stepsRef}>
-        {STEPS.map(([title, body], i) => (
+        {STEPS.map(([title, body, img], i) => (
           <div
             key={title}
             className={`step${i === cur ? " on" : ""}`}
@@ -80,6 +89,11 @@ export function StepTracker() {
           >
             <h3>{title}</h3>
             <p>{body}</p>
+            {img ? (
+              <span className="step-img" aria-hidden="false">
+                <Image src={img.src} alt={img.alt} width={1000} height={1250} sizes="(max-width: 900px) 100vw, 380px" />
+              </span>
+            ) : null}
           </div>
         ))}
       </div>

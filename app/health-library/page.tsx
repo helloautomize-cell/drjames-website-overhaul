@@ -87,6 +87,15 @@ export default function LibraryPage() {
               <LibrarySearch />
             </div>
           </div>
+          <div className="ph-band">
+            <Image
+              src="/images/doctor/d05-results-1800w.jpg"
+              alt="Dr. James reviewing a patient's lab report"
+              width={1800}
+              height={1200}
+              sizes="100vw"
+            />
+          </div>
         </div>
       </section>
 
@@ -109,7 +118,7 @@ export default function LibraryPage() {
             <p>{feat.standfirst}</p>
             <span className="hl-feat-by">
               <Image
-                src="/images/doctor/dr-james-avatar.jpg"
+                src="/images/doctor/d04-headshot-160sq.jpg"
                 alt=""
                 width={24}
                 height={24}

@@ -23,7 +23,7 @@ const TICKS = Array.from({ length: 48 }, (_, i) => {
  * that file exists (see scripts/generate-badge-manifest.mjs).
  *
  * `light` uses the paper-section variant (off-white coin, ink→teal glyph).
- * `size` is md (64px, default), lg (96px) or xl (104px).
+ * `size` is xs (28px, orbit hidden), md (64px, default), lg (96px) or xl (104px).
  */
 export function Badge({
   name,
@@ -34,8 +34,8 @@ export function Badge({
 }: {
   name?: BadgeName;
   light?: boolean;
-  /** Coin badge: "lg" (96px) / "xl" (104px), default 64px. Legacy medallion: pixel size. */
-  size?: "lg" | "xl" | number;
+  /** Coin badge: "xs" (28px) / "lg" (96px) / "xl" (104px), default 64px. Legacy medallion: pixel size. */
+  size?: "xs" | "lg" | "xl" | number;
   className?: string;
   icon?: IconName;
 }) {

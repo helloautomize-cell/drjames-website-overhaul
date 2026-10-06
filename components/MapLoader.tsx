@@ -29,7 +29,7 @@ export function MapLoader() {
       ) : (
         <>
           <Image
-            src="/images/doctor/dr-james-portrait.jpg"
+            src="/images/doctor/d07-welcome-1200w.jpg"
             alt="Badr Al Samaa Royal Hospital lobby"
             fill
             sizes="(max-width: 640px) 100vw, 50vw"
