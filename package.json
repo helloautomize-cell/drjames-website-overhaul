@@ -13,7 +13,9 @@
     "format": "prettier --write .",
     "process-images": "node scripts/process-images.mjs",
     "launch-check": "node scripts/launch-check.mjs",
-    "test": "playwright test"
+    "test": "playwright test",
+    "predev": "node scripts/generate-badge-manifest.mjs",
+    "prebuild": "node scripts/generate-badge-manifest.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.23",

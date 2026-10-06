@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Inter_Tight } from "next/font/google";
+import { Newsreader, Inter, Mrs_Saint_Delafield } from "next/font/google";
 import { SiteChrome } from "@/components/shell/SiteChrome";
 import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -16,10 +16,17 @@ const newsreader = Newsreader({
   preload: true,
 });
 
-const interTight = Inter_Tight({
+const inter = Inter({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const signature = Mrs_Saint_Delafield({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-sig",
   display: "swap",
 });
 
@@ -43,7 +50,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-OM" className={`${newsreader.variable} ${interTight.variable}`}>
+    <html
+      lang="en-OM"
+      className={`${newsreader.variable} ${inter.variable} ${signature.variable}`}
+    >
       <body>
         <a href="#main" className="sr-only">
           Skip to content

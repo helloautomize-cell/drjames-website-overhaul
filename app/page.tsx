@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
 import { RightDoctor } from "@/components/home/RightDoctor";
@@ -10,12 +9,13 @@ import { VisitBand } from "@/components/home/VisitBand";
 const ConditionsMosaic = dynamic(() =>
   import("@/components/home/ConditionsMosaic").then((m) => m.ConditionsMosaic),
 );
-const StepTracker = dynamic(() =>
-  import("@/components/StepTracker").then((m) => m.StepTracker),
+const FirstVisit = dynamic(() =>
+  import("@/components/home/FirstVisit").then((m) => m.FirstVisit),
 );
 import { LibraryHighlights } from "@/components/home/LibraryHighlights";
 import { Faq, HOME_FAQS } from "@/components/sections/Faq";
 import { site } from "@/lib/site-config";
+import { whatsappLink } from "@/lib/whatsapp";
 import {
   pageMeta,
   JsonLd,
@@ -30,24 +30,6 @@ export const metadata: Metadata = pageMeta(
   "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Muscat. Diabetes, blood pressure, heart risk, lungs, kidneys and liver, looked after together by one senior physician.",
   "/",
 );
-
-function SecHead({
-  eyebrow,
-  children,
-  sub,
-}: {
-  eyebrow: string;
-  children: ReactNode;
-  sub?: string;
-}) {
-  return (
-    <div className="sec-h">
-      <span className="eyebrow">{eyebrow}</span>
-      <h2>{children}</h2>
-      {sub && <p>{sub}</p>}
-    </div>
-  );
-}
 
 export default function Home() {
   return (
@@ -67,34 +49,35 @@ export default function Home() {
       <ConditionsMosaic />
       <RightDoctor />
       <HowHeWorks />
-
-      <section className="sec">
-        <div className="container">
-          <SecHead
-            eyebrow="Your first visit"
-            sub="From booking to follow-up, here is exactly what happens."
-          >
-            Your first visit, step by <em className="acc">step</em>
-          </SecHead>
-          <StepTracker />
-        </div>
-      </section>
-
+      <FirstVisit />
       <MeetDrJames />
-
       <LibraryHighlights />
-
       <VisitBand />
 
-      <section className="sec qa-white">
+      <section className="sec" aria-labelledby="fq-h">
         <div className="container">
-          <div className="qa-grid">
-            <SecHead
-              eyebrow="Questions"
-              sub="The practical things patients ask most. Anything else, ask on WhatsApp."
-            >
-              Before you <em className="acc">come in</em>
-            </SecHead>
+          <div className="faqgrid">
+            <div>
+              <span className="eyebrow">Questions</span>
+              <h2 id="fq-h">
+                Before you <em className="acc">come in</em>
+              </h2>
+              <p className="fsub">
+                The practical things patients ask most. Can&rsquo;t find your answer? Message the
+                clinic on WhatsApp.
+              </p>
+              <a
+                className="btn btn-o"
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1f7a4d" aria-hidden="true">
+                  <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z" />
+                </svg>
+                Message on WhatsApp
+              </a>
+            </div>
             <Faq />
           </div>
         </div>

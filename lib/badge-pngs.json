@@ -1,0 +1,20 @@
+{
+  "blood-sugar": true,
+  "heart-bp": true,
+  "joints": true,
+  "kidneys": true,
+  "listens": true,
+  "liver-gut": true,
+  "lungs": true,
+  "plain-words": true,
+  "sleep-energy": true,
+  "step-arrive": true,
+  "step-book": true,
+  "step-consult": true,
+  "step-follow-up": true,
+  "step-plan": true,
+  "step-tests": true,
+  "tests-reason": true,
+  "thyroid": true,
+  "together": true
+}

@@ -1,0 +1,878 @@
+{
+  "d01-hero-cutout": {
+    "outputs": [
+      {
+        "name": "d01-hero-cutout",
+        "w": 1122,
+        "h": 1402,
+        "note": "cutout, fringe-cleaned + warm tone only",
+        "png": {
+          "file": "images/doctor/d01-hero-cutout.png",
+          "bytes": 1600274
+        },
+        "webp": {
+          "file": "images/doctor/d01-hero-cutout.webp",
+          "bytes": 111124
+        }
+      }
+    ]
+  },
+  "d01-hero": {
+    "outputs": [
+      {
+        "name": "d01-hero",
+        "w": 3344,
+        "h": 1880,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d01-hero.avif",
+          "bytes": 116901
+        },
+        "webp": {
+          "file": "images/doctor/d01-hero.webp",
+          "bytes": 133452
+        },
+        "jpg": {
+          "file": "images/doctor/d01-hero.jpg",
+          "bytes": 284747
+        }
+      },
+      {
+        "name": "d01-hero-2400w",
+        "w": 2400,
+        "h": 1350,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d01-hero-2400w.avif",
+          "bytes": 78895
+        },
+        "webp": {
+          "file": "images/doctor/d01-hero-2400w.webp",
+          "bytes": 89362
+        },
+        "jpg": {
+          "file": "images/doctor/d01-hero-2400w.jpg",
+          "bytes": 183093
+        }
+      },
+      {
+        "name": "d01-hero-1600w",
+        "w": 1600,
+        "h": 900,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d01-hero-1600w.avif",
+          "bytes": 47632
+        },
+        "webp": {
+          "file": "images/doctor/d01-hero-1600w.webp",
+          "bytes": 56600
+        },
+        "jpg": {
+          "file": "images/doctor/d01-hero-1600w.jpg",
+          "bytes": 105087
+        }
+      }
+    ]
+  },
+  "d02-portrait": {
+    "outputs": [
+      {
+        "name": "d02-portrait",
+        "w": 2048,
+        "h": 3072,
+        "note": "graded base, native aspect (portrait)",
+        "avif": {
+          "file": "images/doctor/d02-portrait.avif",
+          "bytes": 172745
+        },
+        "webp": {
+          "file": "images/doctor/d02-portrait.webp",
+          "bytes": 195198
+        },
+        "jpg": {
+          "file": "images/doctor/d02-portrait.jpg",
+          "bytes": 337423
+        }
+      },
+      {
+        "name": "d02-portrait-1600h",
+        "w": 1067,
+        "h": 1600,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d02-portrait-1600h.avif",
+          "bytes": 81614
+        },
+        "webp": {
+          "file": "images/doctor/d02-portrait-1600h.webp",
+          "bytes": 96312
+        },
+        "jpg": {
+          "file": "images/doctor/d02-portrait-1600h.jpg",
+          "bytes": 137949
+        }
+      },
+      {
+        "name": "d02-portrait-1000h",
+        "w": 667,
+        "h": 1000,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d02-portrait-1000h.avif",
+          "bytes": 42043
+        },
+        "webp": {
+          "file": "images/doctor/d02-portrait-1000h.webp",
+          "bytes": 51434
+        },
+        "jpg": {
+          "file": "images/doctor/d02-portrait-1000h.jpg",
+          "bytes": 68756
+        }
+      }
+    ]
+  },
+  "d03-consultation": {
+    "outputs": [
+      {
+        "name": "d03-consultation",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d03-consultation.avif",
+          "bytes": 129734
+        },
+        "webp": {
+          "file": "images/doctor/d03-consultation.webp",
+          "bytes": 154670
+        },
+        "jpg": {
+          "file": "images/doctor/d03-consultation.jpg",
+          "bytes": 288711
+        }
+      },
+      {
+        "name": "d03-consultation-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d03-consultation-1800w.avif",
+          "bytes": 70403
+        },
+        "webp": {
+          "file": "images/doctor/d03-consultation-1800w.webp",
+          "bytes": 85970
+        },
+        "jpg": {
+          "file": "images/doctor/d03-consultation-1800w.jpg",
+          "bytes": 141668
+        }
+      },
+      {
+        "name": "d03-consultation-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d03-consultation-1200w.avif",
+          "bytes": 43365
+        },
+        "webp": {
+          "file": "images/doctor/d03-consultation-1200w.webp",
+          "bytes": 53304
+        },
+        "jpg": {
+          "file": "images/doctor/d03-consultation-1200w.jpg",
+          "bytes": 80670
+        }
+      },
+      {
+        "name": "d03-consultation-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d03-consultation-4x5-1000w.avif",
+          "bytes": 55789
+        },
+        "webp": {
+          "file": "images/doctor/d03-consultation-4x5-1000w.webp",
+          "bytes": 68052
+        },
+        "jpg": {
+          "file": "images/doctor/d03-consultation-4x5-1000w.jpg",
+          "bytes": 104467
+        }
+      }
+    ]
+  },
+  "d04-headshot": {
+    "outputs": [
+      {
+        "name": "d04-headshot",
+        "w": 2508,
+        "h": 2508,
+        "note": "graded base, native aspect (portrait)",
+        "avif": {
+          "file": "images/doctor/d04-headshot.avif",
+          "bytes": 167273
+        },
+        "webp": {
+          "file": "images/doctor/d04-headshot.webp",
+          "bytes": 192594
+        },
+        "jpg": {
+          "file": "images/doctor/d04-headshot.jpg",
+          "bytes": 313138
+        }
+      },
+      {
+        "name": "d04-headshot-800sq",
+        "w": 800,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d04-headshot-800sq.avif",
+          "bytes": 39349
+        },
+        "webp": {
+          "file": "images/doctor/d04-headshot-800sq.webp",
+          "bytes": 45998
+        },
+        "jpg": {
+          "file": "images/doctor/d04-headshot-800sq.jpg",
+          "bytes": 53237
+        }
+      },
+      {
+        "name": "d04-headshot-400sq",
+        "w": 400,
+        "h": 400,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d04-headshot-400sq.avif",
+          "bytes": 12426
+        },
+        "webp": {
+          "file": "images/doctor/d04-headshot-400sq.webp",
+          "bytes": 13568
+        },
+        "jpg": {
+          "file": "images/doctor/d04-headshot-400sq.jpg",
+          "bytes": 16819
+        }
+      },
+      {
+        "name": "d04-headshot-160sq",
+        "w": 160,
+        "h": 160,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d04-headshot-160sq.avif",
+          "bytes": 3558
+        },
+        "webp": {
+          "file": "images/doctor/d04-headshot-160sq.webp",
+          "bytes": 3698
+        },
+        "jpg": {
+          "file": "images/doctor/d04-headshot-160sq.jpg",
+          "bytes": 4495
+        }
+      },
+      {
+        "name": "d04-headshot-800sq-circle",
+        "w": 800,
+        "h": 800,
+        "note": "circle-safe (attention crop)",
+        "avif": {
+          "file": "images/doctor/d04-headshot-800sq-circle.avif",
+          "bytes": 39349
+        },
+        "webp": {
+          "file": "images/doctor/d04-headshot-800sq-circle.webp",
+          "bytes": 45998
+        },
+        "jpg": {
+          "file": "images/doctor/d04-headshot-800sq-circle.jpg",
+          "bytes": 53237
+        }
+      }
+    ]
+  },
+  "d05-results": {
+    "outputs": [
+      {
+        "name": "d05-results",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d05-results.avif",
+          "bytes": 146520
+        },
+        "webp": {
+          "file": "images/doctor/d05-results.webp",
+          "bytes": 167384
+        },
+        "jpg": {
+          "file": "images/doctor/d05-results.jpg",
+          "bytes": 322733
+        }
+      },
+      {
+        "name": "d05-results-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d05-results-1800w.avif",
+          "bytes": 80132
+        },
+        "webp": {
+          "file": "images/doctor/d05-results-1800w.webp",
+          "bytes": 92936
+        },
+        "jpg": {
+          "file": "images/doctor/d05-results-1800w.jpg",
+          "bytes": 158817
+        }
+      },
+      {
+        "name": "d05-results-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d05-results-1200w.avif",
+          "bytes": 49698
+        },
+        "webp": {
+          "file": "images/doctor/d05-results-1200w.webp",
+          "bytes": 58434
+        },
+        "jpg": {
+          "file": "images/doctor/d05-results-1200w.jpg",
+          "bytes": 91156
+        }
+      },
+      {
+        "name": "d05-results-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d05-results-4x5-1000w.avif",
+          "bytes": 42620
+        },
+        "webp": {
+          "file": "images/doctor/d05-results-4x5-1000w.webp",
+          "bytes": 47558
+        },
+        "jpg": {
+          "file": "images/doctor/d05-results-4x5-1000w.jpg",
+          "bytes": 87909
+        }
+      }
+    ]
+  },
+  "d06-corridor": {
+    "outputs": [
+      {
+        "name": "d06-corridor",
+        "w": 3344,
+        "h": 1880,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d06-corridor.avif",
+          "bytes": 129709
+        },
+        "webp": {
+          "file": "images/doctor/d06-corridor.webp",
+          "bytes": 144844
+        },
+        "jpg": {
+          "file": "images/doctor/d06-corridor.jpg",
+          "bytes": 303658
+        }
+      },
+      {
+        "name": "d06-corridor-2400w",
+        "w": 2400,
+        "h": 1350,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d06-corridor-2400w.avif",
+          "bytes": 89295
+        },
+        "webp": {
+          "file": "images/doctor/d06-corridor-2400w.webp",
+          "bytes": 98044
+        },
+        "jpg": {
+          "file": "images/doctor/d06-corridor-2400w.jpg",
+          "bytes": 196516
+        }
+      },
+      {
+        "name": "d06-corridor-1600w",
+        "w": 1600,
+        "h": 900,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d06-corridor-1600w.avif",
+          "bytes": 55268
+        },
+        "webp": {
+          "file": "images/doctor/d06-corridor-1600w.webp",
+          "bytes": 62912
+        },
+        "jpg": {
+          "file": "images/doctor/d06-corridor-1600w.jpg",
+          "bytes": 114244
+        }
+      }
+    ]
+  },
+  "d07-welcome": {
+    "outputs": [
+      {
+        "name": "d07-welcome",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d07-welcome.avif",
+          "bytes": 146169
+        },
+        "webp": {
+          "file": "images/doctor/d07-welcome.webp",
+          "bytes": 166162
+        },
+        "jpg": {
+          "file": "images/doctor/d07-welcome.jpg",
+          "bytes": 340118
+        }
+      },
+      {
+        "name": "d07-welcome-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d07-welcome-1800w.avif",
+          "bytes": 79085
+        },
+        "webp": {
+          "file": "images/doctor/d07-welcome-1800w.webp",
+          "bytes": 92296
+        },
+        "jpg": {
+          "file": "images/doctor/d07-welcome-1800w.jpg",
+          "bytes": 167568
+        }
+      },
+      {
+        "name": "d07-welcome-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d07-welcome-1200w.avif",
+          "bytes": 48855
+        },
+        "webp": {
+          "file": "images/doctor/d07-welcome-1200w.webp",
+          "bytes": 57998
+        },
+        "jpg": {
+          "file": "images/doctor/d07-welcome-1200w.jpg",
+          "bytes": 95972
+        }
+      },
+      {
+        "name": "d07-welcome-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d07-welcome-4x5-1000w.avif",
+          "bytes": 54509
+        },
+        "webp": {
+          "file": "images/doctor/d07-welcome-4x5-1000w.webp",
+          "bytes": 60910
+        },
+        "jpg": {
+          "file": "images/doctor/d07-welcome-4x5-1000w.jpg",
+          "bytes": 104555
+        }
+      }
+    ]
+  },
+  "d08-blood-sugar": {
+    "outputs": [
+      {
+        "name": "d08-blood-sugar",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d08-blood-sugar.avif",
+          "bytes": 144907
+        },
+        "webp": {
+          "file": "images/doctor/d08-blood-sugar.webp",
+          "bytes": 174780
+        },
+        "jpg": {
+          "file": "images/doctor/d08-blood-sugar.jpg",
+          "bytes": 321758
+        }
+      },
+      {
+        "name": "d08-blood-sugar-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d08-blood-sugar-1800w.avif",
+          "bytes": 79910
+        },
+        "webp": {
+          "file": "images/doctor/d08-blood-sugar-1800w.webp",
+          "bytes": 95378
+        },
+        "jpg": {
+          "file": "images/doctor/d08-blood-sugar-1800w.jpg",
+          "bytes": 159519
+        }
+      },
+      {
+        "name": "d08-blood-sugar-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d08-blood-sugar-1200w.avif",
+          "bytes": 49219
+        },
+        "webp": {
+          "file": "images/doctor/d08-blood-sugar-1200w.webp",
+          "bytes": 61486
+        },
+        "jpg": {
+          "file": "images/doctor/d08-blood-sugar-1200w.jpg",
+          "bytes": 91389
+        }
+      },
+      {
+        "name": "d08-blood-sugar-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d08-blood-sugar-4x5-1000w.avif",
+          "bytes": 59270
+        },
+        "webp": {
+          "file": "images/doctor/d08-blood-sugar-4x5-1000w.webp",
+          "bytes": 71694
+        },
+        "jpg": {
+          "file": "images/doctor/d08-blood-sugar-4x5-1000w.jpg",
+          "bytes": 110631
+        }
+      }
+    ]
+  },
+  "d09-blood-pressure": {
+    "outputs": [
+      {
+        "name": "d09-blood-pressure",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d09-blood-pressure.avif",
+          "bytes": 152773
+        },
+        "webp": {
+          "file": "images/doctor/d09-blood-pressure.webp",
+          "bytes": 180030
+        },
+        "jpg": {
+          "file": "images/doctor/d09-blood-pressure.jpg",
+          "bytes": 331571
+        }
+      },
+      {
+        "name": "d09-blood-pressure-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d09-blood-pressure-1800w.avif",
+          "bytes": 84813
+        },
+        "webp": {
+          "file": "images/doctor/d09-blood-pressure-1800w.webp",
+          "bytes": 99752
+        },
+        "jpg": {
+          "file": "images/doctor/d09-blood-pressure-1800w.jpg",
+          "bytes": 163410
+        }
+      },
+      {
+        "name": "d09-blood-pressure-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d09-blood-pressure-1200w.avif",
+          "bytes": 52002
+        },
+        "webp": {
+          "file": "images/doctor/d09-blood-pressure-1200w.webp",
+          "bytes": 63680
+        },
+        "jpg": {
+          "file": "images/doctor/d09-blood-pressure-1200w.jpg",
+          "bytes": 92915
+        }
+      },
+      {
+        "name": "d09-blood-pressure-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d09-blood-pressure-4x5-1000w.avif",
+          "bytes": 59596
+        },
+        "webp": {
+          "file": "images/doctor/d09-blood-pressure-4x5-1000w.webp",
+          "bytes": 70838
+        },
+        "jpg": {
+          "file": "images/doctor/d09-blood-pressure-4x5-1000w.jpg",
+          "bytes": 107487
+        }
+      }
+    ]
+  },
+  "d10-lungs": {
+    "outputs": [
+      {
+        "name": "d10-lungs",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d10-lungs.avif",
+          "bytes": 169150
+        },
+        "webp": {
+          "file": "images/doctor/d10-lungs.webp",
+          "bytes": 199600
+        },
+        "jpg": {
+          "file": "images/doctor/d10-lungs.jpg",
+          "bytes": 356337
+        }
+      },
+      {
+        "name": "d10-lungs-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d10-lungs-1800w.avif",
+          "bytes": 94839
+        },
+        "webp": {
+          "file": "images/doctor/d10-lungs-1800w.webp",
+          "bytes": 112710
+        },
+        "jpg": {
+          "file": "images/doctor/d10-lungs-1800w.jpg",
+          "bytes": 176846
+        }
+      },
+      {
+        "name": "d10-lungs-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d10-lungs-1200w.avif",
+          "bytes": 60236
+        },
+        "webp": {
+          "file": "images/doctor/d10-lungs-1200w.webp",
+          "bytes": 71668
+        },
+        "jpg": {
+          "file": "images/doctor/d10-lungs-1200w.jpg",
+          "bytes": 99831
+        }
+      },
+      {
+        "name": "d10-lungs-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d10-lungs-4x5-1000w.avif",
+          "bytes": 59114
+        },
+        "webp": {
+          "file": "images/doctor/d10-lungs-4x5-1000w.webp",
+          "bytes": 70308
+        },
+        "jpg": {
+          "file": "images/doctor/d10-lungs-4x5-1000w.jpg",
+          "bytes": 107124
+        }
+      }
+    ]
+  },
+  "d11-leadership": {
+    "outputs": [
+      {
+        "name": "d11-leadership",
+        "w": 3072,
+        "h": 2048,
+        "note": "graded base, native aspect",
+        "avif": {
+          "file": "images/doctor/d11-leadership.avif",
+          "bytes": 119650
+        },
+        "webp": {
+          "file": "images/doctor/d11-leadership.webp",
+          "bytes": 132302
+        },
+        "jpg": {
+          "file": "images/doctor/d11-leadership.jpg",
+          "bytes": 261724
+        }
+      },
+      {
+        "name": "d11-leadership-1800w",
+        "w": 1800,
+        "h": 1200,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d11-leadership-1800w.avif",
+          "bytes": 64470
+        },
+        "webp": {
+          "file": "images/doctor/d11-leadership-1800w.webp",
+          "bytes": 71720
+        },
+        "jpg": {
+          "file": "images/doctor/d11-leadership-1800w.jpg",
+          "bytes": 127645
+        }
+      },
+      {
+        "name": "d11-leadership-1200w",
+        "w": 1200,
+        "h": 800,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d11-leadership-1200w.avif",
+          "bytes": 39853
+        },
+        "webp": {
+          "file": "images/doctor/d11-leadership-1200w.webp",
+          "bytes": 45408
+        },
+        "jpg": {
+          "file": "images/doctor/d11-leadership-1200w.jpg",
+          "bytes": 72496
+        }
+      },
+      {
+        "name": "d11-leadership-4x5-1000w",
+        "w": 1000,
+        "h": 1250,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d11-leadership-4x5-1000w.avif",
+          "bytes": 44292
+        },
+        "webp": {
+          "file": "images/doctor/d11-leadership-4x5-1000w.webp",
+          "bytes": 48704
+        },
+        "jpg": {
+          "file": "images/doctor/d11-leadership-4x5-1000w.jpg",
+          "bytes": 82846
+        }
+      }
+    ]
+  },
+  "d12-candid": {
+    "outputs": [
+      {
+        "name": "d12-candid",
+        "w": 2244,
+        "h": 2804,
+        "note": "graded base, native aspect (portrait)",
+        "avif": {
+          "file": "images/doctor/d12-candid.avif",
+          "bytes": 223555
+        },
+        "webp": {
+          "file": "images/doctor/d12-candid.webp",
+          "bytes": 259546
+        },
+        "jpg": {
+          "file": "images/doctor/d12-candid.jpg",
+          "bytes": 514415
+        }
+      },
+      {
+        "name": "d12-candid-1600h",
+        "w": 1067,
+        "h": 1600,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d12-candid-1600h.avif",
+          "bytes": 109509
+        },
+        "webp": {
+          "file": "images/doctor/d12-candid-1600h.webp",
+          "bytes": 124262
+        },
+        "jpg": {
+          "file": "images/doctor/d12-candid-1600h.jpg",
+          "bytes": 192416
+        }
+      },
+      {
+        "name": "d12-candid-1000h",
+        "w": 667,
+        "h": 1000,
+        "note": "",
+        "avif": {
+          "file": "images/doctor/d12-candid-1000h.avif",
+          "bytes": 55440
+        },
+        "webp": {
+          "file": "images/doctor/d12-candid-1000h.webp",
+          "bytes": 70720
+        },
+        "jpg": {
+          "file": "images/doctor/d12-candid-1000h.jpg",
+          "bytes": 93849
+        }
+      }
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 import { useId } from "react";
 import { iconPaths, type IconName } from "@/lib/icons";
+import { badgeGlyphs, badgeNameToGlyph, type BadgeName } from "@/lib/badge-glyphs";
+import badgePngs from "@/lib/badge-pngs.json";
 
 const TICKS = Array.from({ length: 48 }, (_, i) => {
   const a = i * 7.5 * (Math.PI / 180);
@@ -13,20 +15,74 @@ const TICKS = Array.from({ length: 48 }, (_, i) => {
 });
 
 /**
- * Service badge: white coin, gradient ring, sand dial ticks and a teal line
- * icon in the middle. Placeholder style until the illustrated PNG badges
- * arrive (public/images/icons/services/<slug>.webp).
+ * Navy coin badge from the design hand-off style guide: dashed orbit ring,
+ * 3D coin turn + sheen on hover (CSS: `.badge` block in app/v2.css).
+ *
+ * Pass `name` (e.g. "blood-sugar", "step-book") — renders the inline SVG
+ * glyph placeholder, or `/icons/badges/badge-<name>.png` automatically once
+ * that file exists (see scripts/generate-badge-manifest.mjs).
+ *
+ * `light` uses the paper-section variant (off-white coin, ink→teal glyph).
+ * `size` is md (64px, default), lg (96px) or xl (104px).
  */
 export function Badge({
-  icon,
+  name,
+  light,
   size,
   className,
+  icon,
 }: {
-  icon: IconName;
-  size?: number;
+  name?: BadgeName;
+  light?: boolean;
+  /** Coin badge: "lg" (96px) / "xl" (104px), default 64px. Legacy medallion: pixel size. */
+  size?: "lg" | "xl" | number;
   className?: string;
+  icon?: IconName;
 }) {
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+
+  if (name) {
+    const g = `bg${uid}`;
+    const hasPng = (badgePngs as Record<string, boolean>)[name] === true;
+    const glyph = badgeGlyphs[badgeNameToGlyph[name]];
+    return (
+      <span
+        className={`bcoin${light ? " light" : ""}${typeof size === "string" ? ` ${size}` : ""}${className ? ` ${className}` : ""}`}
+        aria-hidden="true"
+      >
+        <i className="orbit" />
+        <span className="coin">
+          {hasPng ? (
+            <picture>
+              <source srcSet={`/icons/badges/badge-${name}.webp`} type="image/webp" />
+              {/* eslint-disable-next-line @next/next/no-img-element -- 256px static PNG, next/image adds nothing here */}
+              <img src={`/icons/badges/badge-${name}.png`} alt="" width="64" height="64" loading="lazy" />
+            </picture>
+          ) : (
+            <svg
+              viewBox="0 0 48 48"
+              fill="none"
+              stroke={`url(#${g})`}
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <defs>
+                <linearGradient id={g} x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor={light ? "#13213A" : "#C9A66B"} />
+                  <stop offset="1" stopColor={light ? "#2D6A6B" : "#7FBFB3"} />
+                </linearGradient>
+              </defs>
+              {glyph}
+            </svg>
+          )}
+        </span>
+      </span>
+    );
+  }
+
+  /* Legacy white medallion (icon prop). Kept for existing call sites until the
+     new coin badges are rolled out everywhere. */
   const g = `g${uid}`;
   const d = `d${uid}`;
   return (
@@ -77,7 +133,7 @@ export function Badge({
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        {iconPaths[icon]}
+        {icon ? iconPaths[icon] : null}
       </g>
     </svg>
   );

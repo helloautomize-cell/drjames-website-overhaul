@@ -37,61 +37,86 @@
 }
 
 :root {
+  /* Locked palette (design/handoff/drjames-styleguide.html v1.0).
+     Legacy token names kept as aliases so existing rules retint for free. */
+  --paper: #f3f1eb;
+  --paper-2: #fbfaf7;
+  --navy: #0f1e30;
+  --navy-2: #16283e;
+  --navy-line: rgba(201, 166, 107, 0.22);
+  --on-navy: #eae6dc;
+  --muted-navy: #a9b3c1;
+  --gold-2: #c9a66b; /* gold on navy */
+  --gold-dark: #7a5c2c; /* small gold text on paper */
+  --teal: #2d6a6b;
+  --teal-hover: #235556;
+  --teal-light: #7fbfb3;
+  --teal-tint: #e4efec;
+  --alert-tint: #fbedea;
   /* Brand (sampled from the logo: teal ECG/arch and the deep navy wordmark) */
-  --primary: #1d6b72; /* Logo teal. Buttons, active tab, links. 6.18:1 with white text */
-  --secondary: #0e2f52; /* Logo navy. Book label, footer, gradient end. 13.57:1 */
-  --primary-500: #1a646b; /* Text-safe teal on tints: eyebrows, icons, focus ring. 6.82 white, 5.65 on tint */
-  --primary-700: #14545a; /* Pressed state. 8.59:1 */
-  --primary-100: #dcedee; /* Tabs, chips, icon tiles */
-  --primary-50: #f2f8f8; /* Card washes, section tints, info callouts */
-  --mist: #b8c7cf; /* Secondary text on night. 9.94:1 */
-  --sand: #c29a5b; /* Gold. Hairlines, 8-point star, numerals, connecting lines. Never a fill */
-  --gold: #c29a5b;
-  --gold-lt: #d9b77e; /* Gold text on night. 9.05:1 */
-  --gold-dk: #8c6a33; /* Gold text on pearl. 4.53:1 */
-  --pearl: #f3f5f1; /* Page ground. Cards stay #fff */
-  --night-2: #10283f; /* Raised surfaces on night */
-  --petrol: #1d6b72;
-  --lagoon: #7cc0bc; /* On night only: live dot, icons, focus ring */
-  --line-n: rgba(217, 183, 126, 0.28);
-  --alert-n: #f2a49b;
-  --sand-50: #f7f1e6; /* Warm wash behind credentials only */
+  --primary: #2d6a6b; /* Buttons, active tab, links. ~5.9:1 with white text */
+  --secondary: #0f1e30; /* Logo navy. Book label, footer, gradient end. */
+  --primary-500: #235556; /* Text-safe teal on tints: eyebrows, icons, focus ring */
+  --primary-700: #1d4647; /* Pressed state */
+  --primary-100: #e4efec; /* Tabs, chips, icon tiles */
+  --primary-50: #f2f7f6; /* Card washes, section tints, info callouts */
+  --mist: #a9b3c1; /* Secondary text on night */
+  --sand: #8a6a35; /* Gold. Hairlines, 8-point star, numerals, connecting lines. Never a fill */
+  --gold: #8a6a35;
+  --gold-lt: #c9a66b; /* Gold text on night */
+  --gold-dk: #7a5c2c; /* Gold text on pearl */
+  --pearl: #f3f1eb; /* Page ground (paper). Cards stay #fff */
+  --night-2: #16283e; /* Raised surfaces on night */
+  --petrol: #2d6a6b;
+  --lagoon: #7fbfb3; /* On night only: live dot, icons, focus ring */
+  --line-n: rgba(201, 166, 107, 0.22);
+  --alert-n: #f4a28f; /* Coral emergency text on night */
+  --sand-50: #fbfaf7; /* Warm wash behind credentials only */
   /* Neutrals */
-  --ink: #0f2236; /* Headings and body. 14.7:1 on pearl. Never pure black */
-  --ink-2: #4a5f72; /* Secondary text, captions. 6.62:1 */
-  --line: #dce3e1; /* Hairlines on pearl, borders, inactive dots */
+  --ink: #13213a; /* Headings and body. Never pure black */
+  --ink-2: #4f5b6b; /* Secondary text, captions */
+  --line: #e2ddd1; /* Hairlines on pearl, borders, inactive dots */
+  --line-2: #d4cdbe;
   --bg: #ffffff; /* Card surface, always white. The page ground is --pearl */
   /* Status */
-  --alert: #b8322b; /* Emergency notices only. 5.95:1 */
-  --success: #2f7d5b; /* Form success. 4.99:1 */
+  --alert: #b3362b; /* Emergency notices only */
+  --success: #2f7d5b; /* Form success */
   --star: #f2b233; /* Google rating star icon only */
-  --wa: #1d8450; /* WhatsApp button only (4.7:1 vs white) */
+  --wa: #1f7a4d; /* WhatsApp button only */
   --confirm-bg: #fff3b0;
   --confirm-fg: #5c4a00;
   --confirm-b: #c9a800;
-  --em-bg: #fcf1f0;
+  --em-bg: #fbedea;
   --em-b: #ebc0bd;
   --warn-bg: #fff8ec;
   --warn-b: #f1ddb5;
   --warn-fg: #8a5a00;
-  --night: #0a1c2e; /* Header rail, menus, Conditions, footer, hero portrait panel */
-  --sand-light: #d9b77e; /* Gold text on night only */
-  --on-dark-2: #b8c7cf; /* Body text on night */
+  --night: #0f1e30; /* Header rail, menus, Conditions, footer, hero portrait panel */
+  --sand-light: #c9a66b; /* Gold text on night only */
+  --on-dark-2: #a9b3c1; /* Body text on night */
   --phone: #0b1e33;
+  /* Shape (locked radii) */
+  --r-sm: 10px;
+  --r: 16px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+  --r-arch: 220px 220px 20px 20px;
   --on-dark: #ffffff;
   --prompt-fg: #e3eef0;
   /* Gradients and effects */
-  --grad-brand: linear-gradient(#1d6b72, #1d6b72); /* flat petrol, no gradients */
-  --grad-btn: linear-gradient(#1d6b72, #1d6b72);
-  --grad-bar: linear-gradient(#1d6b72, #1d6b72);
-  --shadow-card: 0 1px 2px rgba(15, 34, 54, 0.04), 0 12px 32px -12px rgba(10, 28, 46, 0.18);
-  --float: 0 30px 60px -30px rgba(10, 28, 46, 0.45);
-  --shadow-hover: 0 20px 48px -16px rgba(14, 47, 82, 0.28);
+  --grad-brand: linear-gradient(#2d6a6b, #2d6a6b); /* flat teal, no gradients */
+  --grad-btn: linear-gradient(#2d6a6b, #2d6a6b);
+  --grad-bar: linear-gradient(#2d6a6b, #2d6a6b);
+  --shadow-card: 0 1px 2px rgba(19, 33, 58, 0.06), 0 4px 14px rgba(19, 33, 58, 0.06);
+  --float: 0 30px 60px -30px rgba(15, 30, 48, 0.45);
+  --shadow-hover: 0 20px 48px -16px rgba(15, 30, 48, 0.28);
+  --sh-2: 0 10px 40px rgba(15, 30, 48, 0.14);
   --glass: rgba(255, 255, 255, 0.62);
   --glass-b: rgba(255, 255, 255, 0.6);
   --sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --serif: var(--font-serif), Georgia, "Times New Roman", serif;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --sig: var(--font-sig), cursive;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   color-scheme: light;
 }
 
