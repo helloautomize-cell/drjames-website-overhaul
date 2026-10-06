@@ -81,7 +81,7 @@ export function Hero() {
           </nav>
         </div>
 
-        <div className="sys" aria-label="The eight body systems Dr. James looks after">
+        <div className="sys" role="group" aria-label="The eight body systems Dr. James looks after">
           <i className="glow" aria-hidden="true" />
           <svg className="rings" viewBox="0 0 100 100" aria-hidden="true">
             <defs>

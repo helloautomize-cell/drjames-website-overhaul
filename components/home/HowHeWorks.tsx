@@ -120,10 +120,11 @@ export function HowHeWorks() {
             <h2 id="hw-h" className="sr-only">
               How Dr. James works
             </h2>
-            <p
-              className="qt"
-              aria-label="Every patient deserves not only the right treatment but also the right understanding of their health."
-            >
+            <p className="qt">
+              <span className="sr-only">
+                Every patient deserves not only the right treatment but also the right
+                understanding of their health.
+              </span>
               {QUOTE.map((w, i) => (
                 <span key={i} className={`fw${w.acc ? " acc" : ""}`} aria-hidden="true">
                   {w.w}{" "}
