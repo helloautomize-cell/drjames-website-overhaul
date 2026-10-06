@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/styleguide/", "/thank-you/"],
+        disallow: ["/thank-you/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

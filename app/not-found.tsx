@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site-config";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { BookButton } from "@/components/BookButton";
 import { ConditionSearch } from "@/components/ConditionSearch";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: false },
+};
 
 export default function NotFound() {
   return (

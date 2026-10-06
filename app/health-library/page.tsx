@@ -99,7 +99,7 @@ export default function LibraryPage() {
         </div>
       </section>
 
-      <LibraryTabs posts={posts} active="all" />
+      {posts.length > 0 && <LibraryTabs posts={posts} active="all" />}
 
       {feat && featuredTopic && (
         <section className="hl-feat container" aria-label="Featured guide">
@@ -135,11 +135,21 @@ export default function LibraryPage() {
         </section>
       )}
 
-      <section className="container hl-all" aria-labelledby="hl-all-h">
-        <h2 id="hl-all-h">All guides</h2>
-        <LibraryList posts={rows} />
-        {rows.length > 12 && <LibraryMore />}
-      </section>
+      {sorted.length > 0 ? (
+        <section className="container hl-all" aria-labelledby="hl-all-h">
+          <h2 id="hl-all-h">All guides</h2>
+          <LibraryList posts={rows} />
+          {rows.length > 12 && <LibraryMore />}
+        </section>
+      ) : (
+        <section className="container hl-all" aria-labelledby="hl-all-h">
+          <h2 id="hl-all-h">All guides</h2>
+          <p className="sec-sub">
+            New guides are being written and reviewed — check back soon, or ask Dr. James at
+            your next visit.
+          </p>
+        </section>
+      )}
 
       {shelves.map(({ g, items }) => (
         <section key={g.id} className="container hl-shelf" aria-labelledby={`hl-shelf-${g.id}`}>
