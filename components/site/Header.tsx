@@ -153,7 +153,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
   return (
     <>
       <div className={`x-cscrim${curtain ? " x-on" : ""}`} aria-hidden="true" onClick={closeNow} />
-      <div ref={hdrRef} className={`x-hdr${scrolled ? " x-scrolled" : ""}${curtain ? " x-cur" : ""}`} data-theme="light">
+      <header ref={hdrRef} className={`x-hdr${scrolled ? " x-scrolled" : ""}${curtain ? " x-cur" : ""}`} data-theme="light">
         <div className="x-rail">
           <span className="x-loc">
             <Star8 />
@@ -330,7 +330,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
           </Dialog.Root>
           <span className="x-prog" ref={progRef} />
         </div>
-      </div>
+      </header>
       <div className="x-hdr-spacer" aria-hidden="true" />
     </>
   );

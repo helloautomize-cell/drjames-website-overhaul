@@ -29,7 +29,7 @@ export function Dock() {
 
   const off = typing || pathname?.startsWith("/thank-you");
   return (
-    <div className={`x-dock${off ? " x-off" : ""}`} role="group" aria-label="Quick actions">
+    <nav className={`x-dock${off ? " x-off" : ""}`} aria-label="Quick actions">
       <Link className="x-pri" href={site.bookUrl}>
         <Icon name="calendar" size={20} />
         Book
@@ -46,6 +46,6 @@ export function Dock() {
           <path d="m20 20-3.5-3.5" />
         </svg>
       </button>
-    </div>
+    </nav>
   );
 }

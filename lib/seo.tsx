@@ -33,6 +33,9 @@ export function pageMeta(
       siteName: site.name,
       type: "website",
       locale: "en_OM",
+      // explicit: the root opengraph-image file does not apply to child
+      // segments when openGraph is set per page
+      images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, type: "image/png" }],
     },
   };
 }
@@ -100,6 +103,14 @@ export const physicianNode = {
     "@type": "Organization" as const,
     name: `${c}, ${site.hospital}`,
   })),
+  contactPoint: {
+    "@type": "ContactPoint" as const,
+    contactType: "appointments",
+    telephone: site.phoneDisplay.replace(/\s/g, ""),
+    email: site.email,
+    url: `${SITE_URL}/contact/`,
+    availableLanguage: site.languages,
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -115,6 +126,17 @@ export const hospitalNode = {
   "@id": `${SITE_URL}/#hospital`,
   name: site.hospital,
   address,
+  telephone: site.phoneDisplay.replace(/\s/g, ""),
+  url: `${SITE_URL}${site.profileUrl}`,
+  hasMap: site.mapsUrl,
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "08:30",
+      closes: "21:00",
+    },
+  ],
 };
 
 /** The Internal Medicine clinic Dr. James runs inside the hospital. */

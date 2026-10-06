@@ -13,7 +13,7 @@ const MAPS_EMBED =
 export function VisitMap() {
   const [live, setLive] = useState(false);
   return (
-    <div className="vmap" role="img" aria-label={`Map showing ${site.address.hospital}, Al Ghubrah`}>
+    <div className="vmap" role="group" aria-label={`Map showing ${site.address.hospital}, Al Ghubrah`}>
       <i className="road" aria-hidden="true" />
       {!live && (
         <>

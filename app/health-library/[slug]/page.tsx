@@ -53,7 +53,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const doc = await postDoc(slug);
   if (!doc) return {};
-  return pageMeta(doc.title, doc.description ?? doc.standfirst, guideUrl(slug));
+  const meta = pageMeta(doc.title, doc.description ?? doc.standfirst, guideUrl(slug));
+  // pageMeta ships the generic og card — keep the per-guide generated card
+  if (meta.openGraph) meta.openGraph.images = [`${SITE_URL}${guideUrl(slug)}opengraph-image`];
+  if (meta.twitter) meta.twitter.images = [`${SITE_URL}${guideUrl(slug)}opengraph-image`];
+  return meta;
 }
 
 const domain = (url: string) => {

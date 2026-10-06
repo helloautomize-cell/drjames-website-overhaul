@@ -12,6 +12,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -35,6 +37,8 @@ export async function LegalPage({ slug }: { slug: string }) {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode(`/${slug}/`, doc.heading, undefined, doc.lastReviewed),
           breadcrumbNode(crumbs),
         ]}

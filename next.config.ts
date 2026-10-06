@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
         destination: "/health-library/common-digestive-problems/",
         permanent: true,
       },
+      { source: "/plan-your-visit", destination: "/your-visit/", permanent: true },
       { source: "/category/uncategorized", destination: "/health-library/", permanent: true },
       { source: "/author/:path*", destination: "/health-library/", permanent: true },
       // Old condition/service stubs land on the hub
@@ -61,6 +62,19 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        // public/ assets are not content-hashed — cache 30d, not immutable
+        source: "/images/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
+        ],
+      },
+      {
+        source: "/icons/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
+        ],
+      },
       {
         source: "/:path*",
         headers: [

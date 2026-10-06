@@ -84,6 +84,7 @@ export function PageHero({
             width={img.width}
             height={img.height}
             sizes="(max-width: 900px) 100vw, 40vw"
+            priority
           />
         </div>
       ) : null}

@@ -45,7 +45,7 @@
   --navy-2: #16283e;
   --navy-line: rgba(201, 166, 107, 0.22);
   --on-navy: #eae6dc;
-  --muted-navy: #a9b3c1;
+  --muted-navy: #b6c0cf; /* lightened — stronger contrast on navy */
   --gold-2: #c9a66b; /* gold on navy */
   --gold-dark: #7a5c2c; /* small gold text on paper */
   --teal: #2d6a6b;
@@ -2585,7 +2585,7 @@ table.ct {
   color: var(--primary-500);
   text-decoration: none;
   font-weight: 500;
-  padding-block: 8px;
+  padding-block: 14px; /* 44px tap target */
 }
 .crumbs b {
   color: var(--ink);
@@ -2873,9 +2873,16 @@ table.ct {
 .bform .chk a {
   color: var(--primary-500);
   padding-block: 4px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-main p a:not([class]) {
+main p a:not([class]),
+main dd a:not([class]),
+main p a.nowrap,
+main dd a.nowrap {
   padding-block: 5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .fnote {
   grid-column: 1 / -1;
@@ -2979,7 +2986,9 @@ main p a:not([class]) {
   max-width: 380px;
   padding: 18px 20px;
   border-radius: 18px;
-  background: var(--glass);
+  /* nearly opaque: the glass token (62% white) drops body text under 4.5:1
+     when the card floats over navy sections */
+  background: rgba(251, 250, 247, 0.96);
   border: 1px solid var(--glass-b);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-hover);

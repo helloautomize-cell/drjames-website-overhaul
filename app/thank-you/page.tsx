@@ -9,6 +9,7 @@ import { ThankYouTrack } from "@/components/analytics/ThankYouTrack";
 export const metadata: Metadata = {
   title: "Thank you",
   robots: { index: false, follow: false },
+  alternates: { canonical: `${process.env.SITE_URL ?? "https://drjamesp.com"}/thank-you/` },
 };
 
 /** Confirmation shown after the booking form posts (wired in Phase 5). */
