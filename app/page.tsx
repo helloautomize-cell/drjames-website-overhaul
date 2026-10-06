@@ -22,8 +22,10 @@ import {
   websiteNode,
   physicianNode,
   hospitalNode,
+  medicalClinicNode,
   faqPageNode,
 } from "@/lib/seo";
+import ReactDOM from "react-dom";
 
 export const metadata: Metadata = pageMeta(
   `${site.name} · ${site.title} in Muscat`,
@@ -32,6 +34,12 @@ export const metadata: Metadata = pageMeta(
 );
 
 export default function Home() {
+  // LCP element: emit <link rel=preload> so the hero cut-out starts fetching
+  // before hydration instead of waiting on the <picture> tag.
+  ReactDOM.preload("/images/doctor/d01-hero-cutout.avif", {
+    as: "image",
+    fetchPriority: "high",
+  });
   return (
     <main id="main">
       <JsonLd
@@ -39,6 +47,7 @@ export default function Home() {
           websiteNode,
           physicianNode,
           hospitalNode,
+          medicalClinicNode,
           faqPageNode(
             "/",
             HOME_FAQS.filter((f) => !f.confirm).map(({ q, a }) => ({ q, a })),

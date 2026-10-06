@@ -117,6 +117,28 @@ export const hospitalNode = {
   address,
 };
 
+/** The Internal Medicine clinic Dr. James runs inside the hospital. */
+export const medicalClinicNode = {
+  "@type": "MedicalClinic" as const,
+  "@id": `${SITE_URL}/#clinic`,
+  name: `Internal Medicine Clinic — ${site.hospital}`,
+  medicalSpecialty: ["InternalMedicine", "Endocrinology"] as const,
+  address,
+  telephone: site.phoneDisplay.replace(/\s/g, ""),
+  url: `${SITE_URL}/`,
+  image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
+  isPartOf: { "@id": `${SITE_URL}/#hospital` },
+  employee: { "@id": `${SITE_URL}/#dr-james` },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "08:30",
+      closes: "21:00",
+    },
+  ],
+};
+
 export const websiteNode = {
   "@type": "WebSite" as const,
   "@id": `${SITE_URL}/#website`,

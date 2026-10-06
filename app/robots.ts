@@ -14,6 +14,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/thank-you/"],
       },
+      {
+        // AI crawlers are explicitly welcome to read the site
+        userAgent: ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"],
+        allow: "/",
+        disallow: ["/thank-you/"],
+      },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };

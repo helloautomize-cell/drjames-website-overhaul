@@ -13,6 +13,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -58,6 +60,8 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode(
             `/health-library/topic/${g.id}/`,
             `${g.label} guides`,

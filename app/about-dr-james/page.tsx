@@ -16,6 +16,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -60,6 +62,8 @@ export default function AboutPage() {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/about-dr-james/", "About Dr. James", undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}

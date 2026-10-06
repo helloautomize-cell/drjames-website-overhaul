@@ -36,6 +36,8 @@ import {
   medicalConditionNode,
   faqPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -96,6 +98,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode(url, doc.heading, undefined, doc.lastReviewed),
           blogPostingNode({
             url,

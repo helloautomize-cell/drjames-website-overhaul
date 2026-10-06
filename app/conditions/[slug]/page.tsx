@@ -18,6 +18,8 @@ import {
   medicalConditionNode,
   faqPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -61,6 +63,8 @@ export default async function ConditionPage({
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode(
             url,
             doc.heading,

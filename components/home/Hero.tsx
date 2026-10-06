@@ -110,14 +110,17 @@ export function Hero() {
             ))}
           </div>
           <div className="core">
-            {/* eslint-disable-next-line @next/next/no-img-element -- cut-out needs free height sizing; already 2x optimised webp */}
-            <img
-              src="/images/doctor/d01-hero-cutout.webp"
-              alt="Dr. James Kumar Pallivathukkal in a white coat with arms crossed"
-              width={1122}
-              height={1402}
-              fetchPriority="high"
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element -- cut-out needs free height sizing; optimised avif/webp */}
+            <picture>
+              <source srcSet="/images/doctor/d01-hero-cutout.avif" type="image/avif" />
+              <img
+                src="/images/doctor/d01-hero-cutout.webp"
+                alt="Dr. James Kumar Pallivathukkal in a white coat with arms crossed"
+                width={1122}
+                height={1402}
+                fetchPriority="high"
+              />
+            </picture>
           </div>
           <div className="flt f2">
             <span className="ic">

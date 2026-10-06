@@ -14,6 +14,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -39,6 +41,8 @@ export default async function ContactPage({
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/contact/", "Contact and book an appointment", undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}

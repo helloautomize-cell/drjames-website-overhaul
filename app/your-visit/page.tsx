@@ -23,6 +23,8 @@ import {
   medicalWebPageNode,
   faqPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -62,6 +64,8 @@ export default function VisitPage() {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/your-visit/", "Plan your visit", undefined, "[CONFIRM]"),
           faqPageNode("/your-visit/", practical),
           breadcrumbNode(crumbs),

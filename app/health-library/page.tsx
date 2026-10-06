@@ -22,6 +22,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -64,6 +66,8 @@ export default function LibraryPage() {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/health-library/", "Health Library", undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}

@@ -12,6 +12,8 @@ import {
   breadcrumbNode,
   medicalWebPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -61,6 +63,8 @@ export default async function LibraryPageN({ params }: { params: Promise<{ n: st
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode(`/health-library/page/${num}/`, `Health Library, page ${num}`, undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}

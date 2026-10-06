@@ -12,7 +12,7 @@ import { bookingUrl } from "@/lib/booking-context";
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { conditionGroups, conditionUrl, GROUP_PHOTO } from "@/lib/conditions";
-import { pageMeta, JsonLd, breadcrumbNode, medicalWebPageNode, physicianNode, websiteNode } from "@/lib/seo";
+import { pageMeta, JsonLd, breadcrumbNode, medicalWebPageNode, physicianNode, hospitalNode, medicalClinicNode, websiteNode } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
   "Conditions Dr. James looks after",
@@ -36,6 +36,8 @@ export default function ConditionsPage() {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/conditions/", "Conditions Dr. James looks after", undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}

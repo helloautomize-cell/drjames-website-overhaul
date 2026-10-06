@@ -10,6 +10,8 @@ import {
   medicalWebPageNode,
   faqPageNode,
   physicianNode,
+  hospitalNode,
+  medicalClinicNode,
   websiteNode,
 } from "@/lib/seo";
 
@@ -29,6 +31,8 @@ export default function FaqsPage() {
         graph={[
           websiteNode,
           physicianNode,
+          hospitalNode,
+          medicalClinicNode,
           medicalWebPageNode("/faqs/", "FAQs", undefined, "[CONFIRM]"),
           faqPageNode("/faqs/", faqs),
           breadcrumbNode(crumbs),
