@@ -112,13 +112,20 @@ export function Hero() {
           <div className="core">
             {/* eslint-disable-next-line @next/next/no-img-element -- cut-out needs free height sizing; optimised avif/webp */}
             <picture>
-              <source srcSet="/images/doctor/d01-hero-cutout.avif" type="image/avif" />
+              <source
+                srcSet="/images/doctor/d01-hero-cutout-480w.avif 480w, /images/doctor/d01-hero-cutout-720w.avif 720w, /images/doctor/d01-hero-cutout.avif 1122w"
+                type="image/avif"
+                sizes="(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px"
+              />
               <img
                 src="/images/doctor/d01-hero-cutout.webp"
+                srcSet="/images/doctor/d01-hero-cutout-480w.webp 480w, /images/doctor/d01-hero-cutout-720w.webp 720w, /images/doctor/d01-hero-cutout.webp 1122w"
+                sizes="(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px"
                 alt="Dr. James Kumar Pallivathukkal in a white coat with arms crossed"
                 width={1122}
                 height={1402}
                 fetchPriority="high"
+                decoding="async"
               />
             </picture>
           </div>

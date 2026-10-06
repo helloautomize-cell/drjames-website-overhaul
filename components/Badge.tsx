@@ -56,7 +56,7 @@ export function Badge({
             <picture>
               <source srcSet={`/icons/badges/badge-${name}.webp`} type="image/webp" />
               {/* eslint-disable-next-line @next/next/no-img-element -- 256px static PNG, next/image adds nothing here */}
-              <img src={`/icons/badges/badge-${name}.png`} alt="" width="64" height="64" loading="lazy" />
+              <img src={`/icons/badges/badge-${name}.png`} alt="" width="64" height="64" loading="lazy" decoding="async" />
             </picture>
           ) : (
             <svg

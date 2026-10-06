@@ -16,8 +16,8 @@ const newsreader = Newsreader({
   preload: true,
 });
 
+// variable font — one woff2 instead of four weight files
 const inter = Inter({
-  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -28,6 +28,9 @@ const signature = Mrs_Saint_Delafield({
   subsets: ["latin"],
   variable: "--font-sig",
   display: "swap",
+  // only used by the signature in MeetDrJames — below the fold, keep it off
+  // the critical font path
+  preload: false,
 });
 
 export const metadata: Metadata = {

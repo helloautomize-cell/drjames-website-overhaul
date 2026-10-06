@@ -39,6 +39,9 @@ export default function Home() {
   ReactDOM.preload("/images/doctor/d01-hero-cutout.avif", {
     as: "image",
     fetchPriority: "high",
+    imageSrcSet:
+      "/images/doctor/d01-hero-cutout-480w.avif 480w, /images/doctor/d01-hero-cutout-720w.avif 720w, /images/doctor/d01-hero-cutout.avif 1122w",
+    imageSizes: "(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px",
   });
   return (
     <main id="main">
