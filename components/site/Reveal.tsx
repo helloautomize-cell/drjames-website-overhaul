@@ -26,17 +26,33 @@ export function Reveal({
       el?.classList.add("on");
       return;
     }
+    let done = false;
+    const on = () => {
+      if (done) return;
+      done = true;
+      el.classList.add("on");
+      io.disconnect();
+      window.removeEventListener("scroll", check);
+    };
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
-          el.classList.add("on");
-          io.disconnect();
-        }
+        if (e.isIntersecting) on();
       },
       { threshold },
     );
+    /* content-visibility:auto can skip IO delivery on fast scrolls — fall back
+       to a plain geometry check so children never stay hidden. */
+    const check = () => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * (1 - threshold / 2) && r.bottom > 0) on();
+    };
     io.observe(el);
-    return () => io.disconnect();
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", check);
+    };
   }, [threshold]);
 
   return (
