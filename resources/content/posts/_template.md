@@ -63,7 +63,7 @@ Checklist before opening the PR:
 - Reviewed by Dr. James, lastReviewed filled
 - No statistic without a source in sources
 - No brand names, no cure claims, no comparisons
-- 9999 emergency directive if the topic has red flags
+- :::emergency directive if the topic has red flags (point to the emergency department, no phone numbers)
 
 Body markdown notes:
 - Use ## for sections (they become the "In this guide" list and get ids).
@@ -90,5 +90,5 @@ A short personal note from Dr. James beside the text.
 :::
 
 :::emergency
-The red-flag sentence, with the instruction to call 9999.
+The red-flag sentence, with the instruction to go to the nearest emergency department.
 :::

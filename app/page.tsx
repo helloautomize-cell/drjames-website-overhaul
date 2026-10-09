@@ -25,8 +25,6 @@ import {
   medicalClinicNode,
   faqPageNode,
 } from "@/lib/seo";
-import ReactDOM from "react-dom";
-
 export const metadata: Metadata = pageMeta(
   `${site.name} · ${site.title} in Muscat`,
   "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Muscat. Diabetes, blood pressure, heart risk, lungs, kidneys and liver, looked after together by one senior physician.",
@@ -34,15 +32,6 @@ export const metadata: Metadata = pageMeta(
 );
 
 export default function Home() {
-  // LCP element: emit <link rel=preload> so the hero cut-out starts fetching
-  // before hydration instead of waiting on the <picture> tag.
-  ReactDOM.preload("/images/doctor/d01-hero-cutout.avif", {
-    as: "image",
-    fetchPriority: "high",
-    imageSrcSet:
-      "/images/doctor/d01-hero-cutout-480w.avif 480w, /images/doctor/d01-hero-cutout-720w.avif 720w, /images/doctor/d01-hero-cutout.avif 1122w",
-    imageSizes: "(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px",
-  });
   return (
     <main id="main">
       <JsonLd

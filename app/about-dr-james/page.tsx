@@ -318,9 +318,6 @@ export default function AboutPage() {
                   <Icon name="whatsapp" size={18} /> WhatsApp
                 </a>
               </div>
-              <p className="ab-em">
-                Medical emergency? <a href={`tel:${site.emergency}`}>Call {site.emergency}</a>
-              </p>
             </div>
           </div>
         </div>

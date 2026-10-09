@@ -225,10 +225,11 @@ export function conditionGroup(slug: string) {
 }
 
 /** Graded group photography per design/handoff/IMAGE-MAP.md. */
-export const GROUP_PHOTO: Record<string, { src: string; alt: string }> = {
+export const GROUP_PHOTO: Record<string, { src: string; alt: string; imagePosition?: string }> = {
   "diabetes-metabolism": {
-    src: "/images/doctor/d08-blood-sugar-1200w.jpg",
+    src: "/images/doctor/d08-blood-sugar-1800w.jpg",
     alt: "Dr. James showing a patient a blood glucose reading",
+    imagePosition: "40% 18%",
   },
   "heart-blood-pressure": {
     src: "/images/doctor/d09-blood-pressure-1200w.jpg",

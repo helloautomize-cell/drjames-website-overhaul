@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import heroCutout from "@/public/images/doctor/d02-hero-cutout.png";
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { BookPill } from "@/components/site/BookPill";
@@ -34,16 +36,11 @@ const accWords = ["whole", "picture."];
  * in app/v2.css. Static under reduced motion.
  */
 export function Hero() {
-  let i = 0;
-  const w = (word: string) => {
-    const el = (
-      <span key={word} className="hxo-w" aria-hidden="true">
-        <span style={{ ["--i" as string]: i }}>{word}&nbsp;</span>
-      </span>
-    );
-    i += 1;
-    return el;
-  };
+  const w = (word: string, i: number) => (
+    <span key={word} className="hxo-w" aria-hidden="true">
+      <span style={{ ["--i" as string]: i }}>{word}&nbsp;</span>
+    </span>
+  );
   return (
     <section className="hxo" aria-labelledby="hero-h" data-header="dark">
       <div className="hxo-bg" aria-hidden="true" />
@@ -56,7 +53,7 @@ export function Hero() {
           <br />
           <span className="eyebrow">Specialist internist · Muscat, Oman</span>
           <h1 id="hero-h" className="hxo-h1" aria-label="A physician who sees the whole picture.">
-            {words.map(w)} <em className="acc">{accWords.map(w)}</em>
+            {words.map(w)} <em className="acc">{accWords.map((word, k) => w(word, k + words.length))}</em>
           </h1>
           <p className="hxo-lead">
             Comprehensive internal medicine for long-term health. Diabetes, heart and kidney risk,
@@ -110,24 +107,17 @@ export function Hero() {
             ))}
           </div>
           <div className="core">
-            {/* eslint-disable-next-line @next/next/no-img-element -- cut-out needs free height sizing; optimised avif/webp */}
-            <picture>
-              <source
-                srcSet="/images/doctor/d01-hero-cutout-480w.avif 480w, /images/doctor/d01-hero-cutout-720w.avif 720w, /images/doctor/d01-hero-cutout.avif 1122w"
-                type="image/avif"
-                sizes="(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px"
-              />
-              <img
-                src="/images/doctor/d01-hero-cutout.webp"
-                srcSet="/images/doctor/d01-hero-cutout-480w.webp 480w, /images/doctor/d01-hero-cutout-720w.webp 720w, /images/doctor/d01-hero-cutout.webp 1122w"
-                sizes="(max-width: 600px) 60vw, (max-width: 960px) 45vw, 450px"
-                alt="Dr. James Kumar Pallivathukkal in a white coat with arms crossed"
-                width={1122}
-                height={1402}
-                fetchPriority="high"
-                decoding="async"
-              />
-            </picture>
+            <Image
+              src={heroCutout}
+              alt="Dr. James Kumar Pallivathukkal, Specialist Internist, in a white coat with arms crossed"
+              preload
+              fetchPriority="high"
+              quality={90}
+              sizes="(max-width: 600px) 58vw, 330px"
+              placeholder="empty"
+              className="core-img"
+            />
+            <div data-face-box aria-hidden="true" />
           </div>
           <div className="flt f2">
             <span className="ic">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page/PageHero";
-import { site } from "@/lib/site-config";
 import { FaqBlock } from "@/components/page/FaqBlock";
 import { visibleFaqs } from "@/lib/faqs";
 import {
@@ -47,9 +46,6 @@ export default function FaqsPage() {
         <div className="pg-grid" style={{ gridTemplateColumns: "1fr", maxWidth: 860 }}>
           <div className="main">
             <FaqBlock faqs={faqs} heading="Booking and visits" />
-            <p className="em-line">
-              Medical emergency? Call {site.emergency}. Do not wait for a website reply.
-            </p>
           </div>
         </div>
         <div style={{ padding: "10px 0 64px" }} />

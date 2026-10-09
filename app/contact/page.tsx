@@ -74,9 +74,6 @@ export default async function ContactPage({
                 account needed, and please do not include medical details in the form.
               </p>
               <BookingForm defaultReason={reason} sourcePage={sourcePage} />
-              <p className="em-line" style={{ marginTop: 18 }}>
-                Medical emergency? Call {site.emergency}
-              </p>
             </section>
           </div>
           <aside className="pg-aside">

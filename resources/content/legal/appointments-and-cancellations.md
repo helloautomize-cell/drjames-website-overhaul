@@ -36,4 +36,4 @@ Follow-up timing is set at your consultation based on what your condition needs,
 
 ## Emergencies
 
-Appointments are for non-emergency care. In an emergency, call 9999 or go to the nearest emergency department rather than waiting for a booking reply.
+Appointments are for non-emergency care. In an emergency, go to the nearest emergency department rather than waiting for a booking reply.

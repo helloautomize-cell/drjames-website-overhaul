@@ -8,4 +8,4 @@ A "guide" is one markdown file in `resources/content/posts/`.
 4. **Set the date.** `date: "draft"` keeps the guide visible only on localhost and Vercel previews with a yellow Draft chip; a real date (or `featured: true`, `updated`, `lastReviewed`) publishes it.
 5. **Open a PR.** The build fails with a named file and field on any missing/invalid front matter or unknown directive, so `npm run build` is the check.
 
-Rules: no em or en dashes; no brand names, cure claims or comparisons; every statistic needs a named `sources` entry; emergency guidance uses 9999; topics are the five ids listed in the template.
+Rules: no em or en dashes; no brand names, cure claims or comparisons; every statistic needs a named `sources` entry; emergency guidance points to the nearest emergency department (no phone numbers); topics are the five ids listed in the template.

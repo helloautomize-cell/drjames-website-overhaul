@@ -140,9 +140,6 @@ export function FirstVisit() {
             </ol>
           </div>
           <div className="jr-stage">
-            <span className="jr-num" aria-hidden="true" key={cur}>
-              {String(cur + 1).padStart(2, "0")}
-            </span>
             <Badge key={`b-${cur}-${flip}`} name={STEPS[cur].badge} size="xl" className={flip ? "flip" : ""} />
             <div>
               {STEPS.map((s, i) => (

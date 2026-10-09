@@ -46,4 +46,4 @@ You leave with a clear target and the plan to reach it: food and salt guidance, 
 
 ## When to get help straight away
 
-Blood pressure needs urgent care when it comes with symptoms. Call the emergency line 9999 or go to the nearest emergency department if you have a severe headache with blurred vision, chest pain, sudden breathlessness, weakness on one side, or confusion. Do not drive yourself in that situation.
+Blood pressure needs urgent care when it comes with symptoms. Go to the nearest emergency department if you have a severe headache with blurred vision, chest pain, sudden breathlessness, weakness on one side, or confusion. Do not drive yourself in that situation.

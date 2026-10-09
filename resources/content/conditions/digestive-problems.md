@@ -47,4 +47,4 @@ You leave with the most likely diagnosis in plain words and the plan: food and h
 
 ## When to get help straight away
 
-Severe abdominal pain, persistent vomiting, vomiting blood or black material, black tarry stools, or a hard swollen abdomen need urgent assessment the same day. Fainting or chest pain with vomiting needs 9999.
+Severe abdominal pain, persistent vomiting, vomiting blood or black material, black tarry stools, or a hard swollen abdomen need urgent assessment the same day. Fainting or chest pain with vomiting needs the emergency department.

@@ -8,7 +8,7 @@ export function Callouts() {
       <div className="callout em">
         <Icon name="alert" size={22} />
         <p>
-          <b>When to get help straight away.</b> Call 9999 or go to the nearest emergency
+          <b>When to get help straight away.</b> Go to the nearest emergency
           department if you have chest pain or pressure, sudden breathlessness, fainting,
           weakness on one side of the body, slurred speech, confusion, a seizure, or very
           high or very low sugar with drowsiness.

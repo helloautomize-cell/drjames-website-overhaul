@@ -33,4 +33,4 @@ Good care is a partnership. This page sets out what you can expect from us when 
 
 ## Emergencies
 
-In a medical emergency, call 9999 or go to the nearest emergency department. Do not wait for a website or WhatsApp reply.
+In a medical emergency, go to the nearest emergency department. Do not wait for a website or WhatsApp reply.

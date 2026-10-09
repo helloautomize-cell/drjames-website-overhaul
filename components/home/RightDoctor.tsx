@@ -47,7 +47,7 @@ const Arrow = () => (
   </svg>
 );
 
-/** "Is this the right doctor for you?" — six patient-fit rows + emergency callout. */
+/** "Is this the right doctor for you?" — six patient-fit rows. */
 export function RightDoctor() {
   const { openFinder } = useFinder();
   return (
@@ -93,16 +93,6 @@ export function RightDoctor() {
                 );
               })}
             </ul>
-            <div className="co em">
-              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M10 2 1 18h18L10 2Z" />
-                <path d="M10 8v4M10 15v.5" />
-              </svg>
-              <span>
-                Chest pain, sudden breathlessness or weakness on one side?{" "}
-                <a href="tel:9999">Call 9999 now.</a>
-              </span>
-            </div>
           </div>
         </div>
       </div>

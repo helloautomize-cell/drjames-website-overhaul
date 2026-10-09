@@ -41,7 +41,6 @@ export function ContactBlock() {
               <span>{site.emailDisplay}</span>
             </div>
           </div>
-          <p className="em-line">Medical emergency? Call {site.emergency}</p>
           <div className="btns">
             <a className="btn btn-p" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">
               Get directions

@@ -46,4 +46,4 @@ You leave with the most likely trigger identified, an avoidance plan that is act
 
 ## When to get help straight away
 
-Anaphylaxis is a medical emergency: swelling of the lips, tongue or throat, difficulty breathing or swallowing, widespread hives with dizziness, vomiting or collapse. Call 9999 immediately. If you have been prescribed an adrenaline injector, use it first and still call.
+Anaphylaxis is a medical emergency: swelling of the lips, tongue or throat, difficulty breathing or swallowing, widespread hives with dizziness, vomiting or collapse. Go to the nearest emergency department immediately. If you have been prescribed an adrenaline injector, use it first and still go.

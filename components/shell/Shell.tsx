@@ -6,7 +6,7 @@ import { LogoHorizontal } from "@/components/brand/Logo";
 import { Icon } from "@/lib/icons";
 import { BookButton } from "@/components/BookButton";
 
-/** Thin white utility bar: hours, emergency line, quick links. */
+/** Thin white utility bar: hours and quick links. */
 export function UtilityBar() {
   return (
     <div className="ubar">
@@ -25,7 +25,6 @@ export function UtilityBar() {
       <span>
         <a href={site.phoneTel}>{site.phoneDisplay}</a>
       </span>
-      <span className="em">Medical emergency? Call {site.emergency}</span>
     </div>
   );
 }

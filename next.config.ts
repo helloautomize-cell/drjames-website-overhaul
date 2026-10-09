@@ -30,6 +30,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [75, 90],
+    deviceSizes: [360, 414, 640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [160, 240, 320, 400],
   },
   async redirects() {
     return [

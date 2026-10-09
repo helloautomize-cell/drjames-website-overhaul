@@ -46,4 +46,4 @@ You leave knowing the diagnosis, the treatment if any is needed, and the warning
 
 ## When to get help straight away
 
-Call 9999 or go to emergency if you or a relative has severe breathlessness, blue lips, chest pain, coughing blood, confusion, or is too breathless to speak or drink. In older adults, a chest infection can look like sudden confusion or a fall rather than a cough.
+Go to the emergency department if you or a relative has severe breathlessness, blue lips, chest pain, coughing blood, confusion, or is too breathless to speak or drink. In older adults, a chest infection can look like sudden confusion or a fall rather than a cough.

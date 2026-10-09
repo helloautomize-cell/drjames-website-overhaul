@@ -40,7 +40,7 @@ export default function ThankYou() {
             <a className="link" href={site.phoneTel}>
               {site.phoneDisplay}
             </a>{" "}
-            now. In a medical emergency call {site.emergency}.
+            now. In a medical emergency, go to the nearest emergency department.
           </p>
         </div>
       </div>

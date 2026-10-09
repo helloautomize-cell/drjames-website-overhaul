@@ -15,7 +15,7 @@ Reading this site does not create a doctor-patient relationship with Dr. James K
 
 ## Emergencies
 
-Never use this website in an emergency and never delay emergency care because of anything read here. In a medical emergency in Oman, call 9999 or go to the nearest emergency department.
+Never use this website in an emergency and never delay emergency care because of anything read here. In a medical emergency in Oman, go to the nearest emergency department.
 
 ## Accuracy and review
 

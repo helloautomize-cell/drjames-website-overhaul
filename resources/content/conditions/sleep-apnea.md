@@ -47,4 +47,4 @@ You leave knowing the likely cause and the next step. If a sleep study is done, 
 
 ## When to get help straight away
 
-Severe daytime sleepiness is a safety risk. If you are dozing while driving or operating machinery, treat it as urgent and book a visit soon rather than waiting. A witnessed collapse, blue lips or gasping with chest pain needs 9999.
+Severe daytime sleepiness is a safety risk. If you are dozing while driving or operating machinery, treat it as urgent and book a visit soon rather than waiting. A witnessed collapse, blue lips or gasping with chest pain needs the emergency department.

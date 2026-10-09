@@ -46,4 +46,4 @@ You get a clear expected course: what should improve and by when, plus the warni
 
 ## When to get help straight away
 
-Call 9999 or go to emergency for fever with confusion, a non-blanching rash (a rash that does not fade when pressed), severe headache with neck stiffness, difficulty breathing, signs of severe dehydration, or a seizure. In babies, older adults and diabetics, err on the side of going.
+Go to the emergency department for fever with confusion, a non-blanching rash (a rash that does not fade when pressed), severe headache with neck stiffness, difficulty breathing, signs of severe dehydration, or a seizure. In babies, older adults and diabetics, err on the side of going.

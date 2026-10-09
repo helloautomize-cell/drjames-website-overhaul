@@ -160,9 +160,6 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
             {site.hospital} · Al Ghubrah, Muscat
           </span>
           <LiveStatus />
-          <span className="x-em">
-            Medical emergency? <a href={`tel:${site.emergency}`}>Call {site.emergency}</a>
-          </span>
         </div>
         <div className="x-bar">
           <Link className="x-logo" href="/">
@@ -204,27 +201,21 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
               >
                 <div className="x-cgrid">
                   <ul className="x-ctabs">
-                    {conditionGroups.map((cg, i) => {
-                      const words = cg.label.split(" ");
-                      const last = words.pop();
-                      return (
-                        <li key={cg.id}>
-                          <button
-                            type="button"
-                            className={i === group ? "x-sel" : ""}
-                            aria-pressed={i === group}
-                            onMouseEnter={() => setGroup(i)}
-                            onFocus={() => setGroup(i)}
-                            onClick={() => setGroup(i)}
-                          >
-                            <i>0{i + 1}</i>
-                            <span>
-                              {words.join(" ")} <em>{last}</em>
-                            </span>
-                          </button>
-                        </li>
-                      );
-                    })}
+                    {conditionGroups.map((cg, i) => (
+                      <li key={cg.id}>
+                        <button
+                          type="button"
+                          className={i === group ? "x-sel" : ""}
+                          aria-pressed={i === group}
+                          onMouseEnter={() => setGroup(i)}
+                          onFocus={() => setGroup(i)}
+                          onClick={() => setGroup(i)}
+                        >
+                          <i>0{i + 1}</i>
+                          <span>{cg.label}</span>
+                        </button>
+                      </li>
+                    ))}
                   </ul>
                   <ul className="x-clist" key={g.id}>
                     {g.conditions.map((c, i) => (
@@ -321,9 +312,6 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                 <div className="x-sf">
                   <span>{site.hoursShort}</span>
                   <a href={site.phoneTel}>{site.phoneDisplay}</a>
-                  <span className="x-em">
-                    Medical emergency? <a href={`tel:${site.emergency}`}>Call {site.emergency}</a>
-                  </span>
                 </div>
               </Dialog.Content>
             </Dialog.Portal>

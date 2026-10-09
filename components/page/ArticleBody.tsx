@@ -1,5 +1,4 @@
 import { Icon } from "@/lib/icons";
-import { site } from "@/lib/site-config";
 
 const EM_HEADING = "when-to-get-help-straight-away";
 
@@ -30,9 +29,6 @@ export function ArticleBody({ html }: { html: string }) {
         <div>
           <h2>{emTitle}</h2>
           <div className="prose" dangerouslySetInnerHTML={{ __html: emBody }} />
-          <p className="em-call">
-            <a href={`tel:${site.emergency}`}>Call {site.emergency}</a> or go to the nearest emergency department.
-          </p>
         </div>
       </div>
       {rest ? <div className="prose" dangerouslySetInnerHTML={{ __html: rest }} /> : null}

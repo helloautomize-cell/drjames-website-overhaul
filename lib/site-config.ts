@@ -87,7 +87,6 @@ export const site = {
   whatsapp: "https://wa.me/96897510975",
   emailDisplay: "omanjamesp [at] gmail.com",
   email: "omanjamesp@gmail.com",
-  emergency: "9999",
   hours: "Saturday to Thursday, 8:30 am to 9 pm",
   hoursShort: "Sat to Thu, 8:30 am to 9 pm",
   hoursClosed: "Friday closed",

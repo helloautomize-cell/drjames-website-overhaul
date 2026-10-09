@@ -13,7 +13,7 @@ The site provides general health information and a way to request an appointment
 
 ## Medical emergencies
 
-This website must not be used for emergencies. If you or someone else may need urgent medical care, call 9999 immediately or go to the nearest emergency department.
+This website must not be used for emergencies. If you or someone else may need urgent medical care, go to the nearest emergency department immediately.
 
 ## Appointment requests
 

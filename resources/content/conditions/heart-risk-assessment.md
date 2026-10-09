@@ -47,4 +47,4 @@ You leave with your risk level explained and a short, prioritised plan: which nu
 
 ## When to get help straight away
 
-Chest pain is an emergency when it is heavy, crushing or spreads to the arm, jaw or back, especially with sweating, sickness or breathlessness. Call 9999 immediately. Do not wait to see if it passes, and do not drive yourself.
+Chest pain is an emergency when it is heavy, crushing or spreads to the arm, jaw or back, especially with sweating, sickness or breathlessness. Go to the nearest emergency department immediately. Do not wait to see if it passes, and do not drive yourself.

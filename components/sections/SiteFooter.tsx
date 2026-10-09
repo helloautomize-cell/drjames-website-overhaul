@@ -20,7 +20,6 @@ export function SiteFooter() {
           <span>Phone and WhatsApp</span>
           {site.phoneDisplay}
         </p>
-        <p className="fem">Medical emergency? Call {site.emergency}</p>
       </div>
       <div className="fcol">
         <b>Conditions</b>

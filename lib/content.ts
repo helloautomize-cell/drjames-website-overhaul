@@ -5,7 +5,7 @@
  *
  * Posts additionally support :::-directives (see _template.md):
  *   :::margin    -> a margin note by Dr. James
- *   :::emergency -> the alert callout (9999)
+ *   :::emergency -> the alert callout (red flags)
  *   :::tip       -> a "Good to know" box
  * Unknown directives fail the build with the file and directive named.
  */

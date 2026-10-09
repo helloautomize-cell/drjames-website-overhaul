@@ -47,4 +47,4 @@ You leave with a written plan: what the problem is, how to use your inhalers cor
 
 ## When to get help straight away
 
-Breathlessness is an emergency when you cannot speak full sentences, your lips look blue, or a reliever inhaler is not helping. Call 9999 or go to the nearest emergency department immediately. Severe attacks can worsen quickly, so do not wait.
+Breathlessness is an emergency when you cannot speak full sentences, your lips look blue, or a reliever inhaler is not helping. Go to the nearest emergency department immediately. Severe attacks can worsen quickly, so do not wait.

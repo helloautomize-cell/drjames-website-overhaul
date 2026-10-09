@@ -85,55 +85,61 @@ export default function ConditionsPage() {
               </svg>
               <div className="cx-panel-h">
                 <div>
+                  <span className="cx-gnum">01</span>
                   <h2 id={`g-${feature.id}-h`}>{feature.label}</h2>
                   <p>{feature.intro}</p>
                 </div>
                 <span className="cx-count">{countLabel(feature.conditions.length)}</span>
               </div>
-              <figure className="cx-gimg">
-                <Image
-                  src={GROUP_PHOTO[feature.id].src}
-                  alt={GROUP_PHOTO[feature.id].alt}
-                  width={1800}
-                  height={1200}
-                  sizes="(max-width: 900px) 100vw, 720px"
-                />
-              </figure>
               <div className="cx-tiles">
-                {feature.conditions.map((c, i) => (
-                  <Link className={`cx-tile${i === 0 ? " lead" : ""}`} key={c.slug} href={conditionUrl(c.slug)}>
-                    <span className="cx-tile-ic" aria-hidden="true">
-                      <Icon name={c.icon} size={28} />
-                    </span>
-                    <b>{c.title}</b>
-                    <span className="cx-tile-d">{c.line}</span>
-                    <span className="cx-tile-go" aria-hidden="true">
-                      <Icon name="arrow" size={20} />
-                    </span>
-                  </Link>
-                ))}
+                {feature.conditions.map((c, i) =>
+                  i === 0 ? (
+                    <Link className="cx-tile lead" key={c.slug} href={conditionUrl(c.slug)}>
+                      <span className="cx-tile-ph">
+                        <Image
+                          src={GROUP_PHOTO[feature.id].src}
+                          alt={GROUP_PHOTO[feature.id].alt}
+                          fill
+                          sizes="(max-width: 760px) 100vw, 520px"
+                          quality={85}
+                          style={{ objectPosition: GROUP_PHOTO[feature.id].imagePosition }}
+                        />
+                      </span>
+                      <span className="cx-tile-body">
+                        <span className="cx-tile-ic" aria-hidden="true">
+                          <Icon name={c.icon} size={28} />
+                        </span>
+                        <b>{c.title}</b>
+                        <span className="cx-tile-d">{c.line}</span>
+                        <span className="cx-tile-go" aria-hidden="true">
+                          <Icon name="arrow" size={20} />
+                        </span>
+                      </span>
+                    </Link>
+                  ) : (
+                    <Link className="cx-tile" key={c.slug} href={conditionUrl(c.slug)}>
+                      <span className="cx-tile-ic" aria-hidden="true">
+                        <Icon name={c.icon} size={28} />
+                      </span>
+                      <b>{c.title}</b>
+                      <span className="cx-tile-d">{c.line}</span>
+                      <span className="cx-tile-go" aria-hidden="true">
+                        <Icon name="arrow" size={20} />
+                      </span>
+                    </Link>
+                  ),
+                )}
               </div>
             </section>
 
-            {ledger.map((g) => (
+            {ledger.map((g, gi) => (
               <section className="cx-group" id={`g-${g.id}`} key={g.id} aria-labelledby={`g-${g.id}-h`}>
+                <span className="cx-gnum">0{gi + 2}</span>
                 <div className="cx-group-h">
                   <h2 id={`g-${g.id}-h`}>{g.label}</h2>
                   <span className="cx-count">{countLabel(g.conditions.length)}</span>
                 </div>
                 <p>{g.intro}</p>
-                {GROUP_PHOTO[g.id] ? (
-                  <figure className="cx-gimg">
-                    <Image
-                      src={GROUP_PHOTO[g.id].src}
-                      alt={GROUP_PHOTO[g.id].alt}
-                      width={1800}
-                      height={1200}
-                      sizes="(max-width: 900px) 100vw, 720px"
-                      loading="lazy"
-                    />
-                  </figure>
-                ) : null}
                 <Reveal as="div" className="cx-rows cx-reveal" threshold={0.1}>
                   {g.conditions.map((c, i) => (
                     <ConditionRow key={c.slug} condition={c} index={i} />
@@ -157,8 +163,8 @@ export default function ConditionsPage() {
               <p className="cx-safe">
                 <Icon name="alert" size={20} />
                 <span>
-                  Chest pain, sudden breathlessness, fainting or signs of a stroke: do not wait.{" "}
-                  <a href={`tel:${site.emergency}`}>Call {site.emergency}.</a>
+                  Chest pain, sudden breathlessness, fainting or signs of a stroke: do not wait.
+                  Go to the nearest emergency department.
                 </span>
               </p>
             </section>

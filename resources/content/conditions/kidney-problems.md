@@ -46,4 +46,4 @@ You leave knowing your kidney numbers and what affects them. If diabetes or pres
 
 ## When to get help straight away
 
-Severe loin pain with fever or vomiting can mean an infected kidney stone and needs same-day care. Suddenly passing little or no urine, visible blood in urine with pain, or severe swelling with breathlessness are urgent. Call 9999 if breathlessness is severe.
+Severe loin pain with fever or vomiting can mean an infected kidney stone and needs same-day care. Suddenly passing little or no urine, visible blood in urine with pain, or severe swelling with breathlessness are urgent. Go to the nearest emergency department if breathlessness is severe.

@@ -126,7 +126,7 @@ export function FinderProvider({ children }: { children: React.ReactNode }) {
               )}
             </ul>
             <p className="x-fnote">
-              <b>Chest pain, sudden breathlessness or weakness on one side? Call {site.emergency} now.</b>
+              <b>Chest pain, sudden breathlessness or weakness on one side? Go to the nearest emergency department now.</b>
             </p>
           </Dialog.Content>
         </Dialog.Portal>

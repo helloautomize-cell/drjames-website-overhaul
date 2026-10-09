@@ -217,8 +217,7 @@ export default function VisitPage() {
         >
           <h2 id="yv-bring-h">What to bring</h2>
           <p className="ab-sub">
-            Tick items off as you pack. Nothing is sent anywhere unless you choose to share
-            the list yourself.
+            Everything to have with you for a smooth first visit.
           </p>
           <VisitChecklist />
           <p className="print-addr">
@@ -256,8 +255,7 @@ export default function VisitPage() {
             <Icon name="alert" size={24} />
             <p>
               Chest pain, sudden breathlessness, fainting or signs of a stroke: do not
-              wait.{" "}
-              <a href={`tel:${site.emergency}`}>Call {site.emergency}</a>.
+              wait. Go to the nearest emergency department.
             </p>
           </div>
         </Reveal>

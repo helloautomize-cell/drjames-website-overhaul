@@ -53,9 +53,7 @@ export function VisitBand() {
                   <span>Friday</span>
                   <span className="off">Closed</span>
                 </div>
-                <span style={{ fontSize: 13 }}>
-                  <LiveStatus />
-                </span>
+                <LiveStatus className="x-status vb-live" />
               </div>
             </div>
             <div className="vrow">

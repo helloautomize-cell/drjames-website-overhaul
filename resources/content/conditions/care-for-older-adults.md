@@ -46,4 +46,4 @@ The plan is written clearly: which medicines, which targets, which tests and whe
 
 ## When to get help straight away
 
-In older adults, emergencies often look different: sudden confusion, a fall, refusal to eat, or new weakness can signal infection or worse. Call 9999 for stroke signs (face droop, arm weakness, speech trouble), chest pain, severe breathlessness or unresponsiveness.
+In older adults, emergencies often look different: sudden confusion, a fall, refusal to eat, or new weakness can signal infection or worse. Go to the nearest emergency department for stroke signs (face droop, arm weakness, speech trouble), chest pain, severe breathlessness or unresponsiveness.

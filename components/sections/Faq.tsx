@@ -24,7 +24,7 @@ export const HOME_FAQS: { q: string; a: string; confirm?: string }[] = [
   },
   {
     q: "Can I follow up on WhatsApp after my visit?",
-    a: "For appointments and reports, yes. For new or urgent symptoms, book a visit, or call 9999 in an emergency.",
+    a: "For appointments and reports, yes. For new or urgent symptoms, book a visit, or go to the nearest emergency department.",
     confirm: "[CONFIRM with client]",
   },
 ];

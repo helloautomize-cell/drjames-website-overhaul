@@ -3,7 +3,7 @@ kind: post
 title: "Heart disease warning signs to know"
 description: "The warning signs of heart disease, explained in plain words by Dr. James. What feels urgent, what is easy to miss, and when to act."
 heading: "Heart disease warning signs you should not ignore"
-standfirst: "The heart rarely fails without warning, but its warnings are usually quiet. The signs worth taking seriously, the ones easy to miss, and the ones that mean call 9999 now."
+standfirst: "The heart rarely fails without warning, but its warnings are usually quiet. The signs worth taking seriously, the ones easy to miss, and the ones that mean get emergency care now."
 topic: heart-blood-pressure
 date: "draft"
 updated: null
@@ -13,11 +13,11 @@ image: null
 imageAlt: null
 imageCaption: null
 imageCredit: null
-quickAnswer: "Chest pressure that comes with effort and settles with rest, new breathlessness, unusual fatigue, ankle swelling and palpitations all deserve a physician's check. Heavy chest pain spreading to the arm, jaw or back, with sweating, is an emergency: call 9999."
+quickAnswer: "Chest pressure that comes with effort and settles with rest, new breathlessness, unusual fatigue, ankle swelling and palpitations all deserve a physician's check. Heavy chest pain spreading to the arm, jaw or back, with sweating, is an emergency: get emergency care at once."
 keyTakeaways:
   - "Heart disease rarely announces itself clearly; the early signs are often quiet and easy to dismiss."
   - "Chest pressure on effort, unexplained breathlessness, and palpitations deserve a physician's check, not a wait-and-see."
-  - "Heavy chest pain spreading to the arm, jaw or back, with sweating or sickness, is an emergency: call 9999."
+  - "Heavy chest pain spreading to the arm, jaw or back, with sweating or sickness, is an emergency: get emergency care at once."
   - "Knowing your blood pressure, cholesterol and sugar is the cheapest heart protection you can buy."
 questionsToAsk:
   - "What are my blood pressure, cholesterol and sugar numbers?"
@@ -44,7 +44,7 @@ sources:
 related: [heart-risk-assessment, high-blood-pressure, high-cholesterol, diabetes-and-prediabetes]
 ---
 
-The heart almost never fails without warning. The problem is that its warnings are usually quiet, gradual, and easy to explain away as age, weight or stress. This article covers the signs worth taking seriously, the ones easy to miss, and the ones that mean call 9999 now.
+The heart almost never fails without warning. The problem is that its warnings are usually quiet, gradual, and easy to explain away as age, weight or stress. This article covers the signs worth taking seriously, the ones easy to miss, and the ones that mean get emergency care now.
 
 ## The classic warning sign: chest discomfort on effort
 
@@ -70,9 +70,9 @@ Several early signs get blamed on other things for months:
 
 None of these proves heart disease. Each becomes meaningful when it is new, progressive, or appears alongside the risk factors: high blood pressure, high cholesterol, diabetes, smoking, extra weight or a family history of early heart events.
 
-## Signs that need an emergency call
+## Signs that need emergency care
 
-Heart attack symptoms are different from the quiet signs. Call 9999 immediately for:
+Heart attack symptoms are different from the quiet signs. Go to the nearest emergency department immediately for:
 
 - Heavy, crushing chest pain lasting more than a few minutes, or returning.
 - Pain spreading to the arm, jaw, back or upper abdomen.
@@ -81,7 +81,7 @@ Heart attack symptoms are different from the quiet signs. Call 9999 immediately 
 
 <!-- Wording to be approved by Dr. James. -->
 :::emergency
-Heavy chest pain spreading to the arm, jaw or back, with sweating or sickness: call 9999. Do not drive yourself.
+Heavy chest pain spreading to the arm, jaw or back, with sweating or sickness: go to the nearest emergency department. Do not drive yourself.
 :::
 
 Do not drive yourself, and do not wait to see whether it settles. In a heart attack, minutes change outcomes.

@@ -212,9 +212,6 @@ export function BookingForm({
       <p className="fnote">{NO_MEDICAL_NOTE}</p>
       <Turnstile />
       <SubmitButton />
-      <p className="em-line">
-        Medical emergency? Call {site.emergency}
-      </p>
     </form>
   );
 }

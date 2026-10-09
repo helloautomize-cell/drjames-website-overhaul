@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useFinder } from "@/components/site/SymptomFinder";
-import { site } from "@/lib/site-config";
 
 const CHIPS: { label: string; q: string }[] = [
   { label: "High sugar report", q: "high sugar" },
@@ -85,10 +84,6 @@ export function GroupIndex({ groups }: { groups: { id: string; label: string; co
           </a>
         ))}
       </nav>
-      <div className="cx-emerg">
-        <span>Emergency?</span>
-        <a href={`tel:${site.emergency}`}>Call {site.emergency}</a>
-      </div>
     </aside>
   );
 }
