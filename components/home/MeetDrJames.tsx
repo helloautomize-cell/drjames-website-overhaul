@@ -89,7 +89,7 @@ export function MeetDrJames() {
             />
             <div className="dp-tag">
               <span className="live-chip">
-                <LiveStatus />
+                <LiveStatus className="x-status lc-live" />
               </span>
               <b>{site.hospital}</b>
               <span>Al Ghubrah, Muscat</span>

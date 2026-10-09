@@ -28,9 +28,12 @@ const nextConfig: NextConfig = {
   env: { NEXT_PUBLIC_SHOW_CONFIRM: process.env.VERCEL_ENV === "production" ? "0" : "1" },
   trailingSlash: true,
   poweredByHeader: false,
+  // no dev indicator badge in dev/preview builds
+  devIndicators: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    qualities: [75, 85, 90],
+    // whitelist every quality prop in use: 75 default, 80 GuideCover, 85 conditions, 90 hero cutout
+    qualities: [75, 80, 85, 90],
     deviceSizes: [360, 414, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [160, 240, 320, 400],
   },

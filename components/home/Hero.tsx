@@ -47,7 +47,7 @@ export function Hero() {
       <div className="container hxo-grid">
         <div>
           <span className="live-chip">
-            <LiveStatus />
+            <LiveStatus className="x-status lc-live" />
             <span className="lc-sub">· {site.hospital}</span>
           </span>
           <br />
@@ -142,6 +142,13 @@ export function Hero() {
               <b>UK-trained in diabetes</b>
               <span>PG Dip, Cardiff University · MSc</span>
             </div>
+          </div>
+          <div className="mchip">
+            <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 2 3 5v5c0 4 3 7 7 8 4-1 7-4 7-8V5Z" />
+              <path d="m7 10 2 2 4-4" />
+            </svg>
+            Head of Internal Medicine
           </div>
         </div>
       </div>

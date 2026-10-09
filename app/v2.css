@@ -1906,6 +1906,33 @@ body {
   border-color: var(--line-n);
   box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(217, 183, 126, .14);
 }
+/* mobile: the floating capsule floats over scrolling text — a fixed top scrim
+   covers the gap above/around it and the capsule goes near-solid so nothing
+   shows through. Scrim tint follows the header theme. */
+@media (max-width: 1023px) {
+  .x-hdr::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: calc(var(--hdr-h) + 8px);
+    background: linear-gradient(rgba(243, 241, 235, .96) 70%, rgba(243, 241, 235, 0));
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .x-hdr[data-theme="dark"]::before {
+    background: linear-gradient(rgba(10, 28, 46, .96) 70%, rgba(10, 28, 46, 0));
+  }
+  .x-hdr.x-scrolled::before {
+    opacity: 1;
+  }
+  .x-hdr[data-theme="dark"].x-scrolled .x-bar {
+    background: rgba(10, 28, 46, .96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
 
 /* curtain: scrim behind it, readable group tabs, read-next row */
 .x-cscrim {
@@ -2905,6 +2932,10 @@ main > section ~ section:not(#conditions) {
 .vb-live .x-st-t {
   color: var(--petrol);
   font-weight: 600;
+  white-space: normal;
+}
+.vb-live .x-st-size {
+  display: none;
 }
 .vb-copy .btns {
   display: flex;
@@ -6598,6 +6629,12 @@ main > .sec:not(.x-night) {
 .live-chip .lc-sub {
   color: var(--muted-navy);
 }
+/* the rail's .x-status is absolute-centred; inside the hero pill it must be static */
+.live-chip .lc-live {
+  position: static;
+  transform: none;
+  left: auto;
+}
 
 /* ---------- HERO — "the whole picture" orbit ---------- */
 .hxo {
@@ -6605,7 +6642,8 @@ main > .sec:not(.x-night) {
   background: var(--navy);
   color: var(--on-navy);
   overflow: hidden;
-  padding: 64px 0 0;
+  margin-top: calc(var(--hdr-h) * -1);
+  padding: calc(var(--hdr-h) + 64px) 0 0;
   isolation: isolate;
 }
 .hxo-bg {
@@ -6634,10 +6672,54 @@ main > .sec:not(.x-night) {
   align-items: center;
   padding-bottom: 56px;
 }
+/* below 960px: single column, text column dissolves into the grid and the
+   portrait (order 4) sits right after the H1 — doctor visible on first screen.
+   DOM order is unchanged so desktop and screen readers keep H1 before image. */
 @media (max-width: 960px) {
+  .hxo {
+    padding-top: calc(var(--hdr-h) + 16px);
+  }
   .hxo-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 18px;
+    padding-bottom: 0;
+  }
+  .hxo-grid > div:first-child {
+    display: contents;
+  }
+  .hxo-grid > div:first-child > br {
+    display: none;
+  }
+  .hxo .live-chip {
+    order: 1;
+    justify-self: start;
+    margin-bottom: 14px;
+  }
+  .hxo .eyebrow {
+    order: 2;
+  }
+  .hxo-h1 {
+    order: 3;
+    margin: 0;
+  }
+  .hxo .sys {
+    order: 4;
+    width: min(70vw, 460px);
+  }
+  .hxo .hxo-lead {
+    order: 5;
+    margin: 0;
+  }
+  .hxo .btnrow {
+    order: 6;
+  }
+  .hxo-areas {
+    order: 7;
+    margin-top: 0;
+    max-width: none;
+  }
+  .band {
+    margin-top: 28px;
   }
 }
 .hxo .live-chip {
@@ -6732,6 +6814,7 @@ main > .sec:not(.x-night) {
   aspect-ratio: 1;
   margin: 0 auto;
   container-type: inline-size;
+  --orb: clamp(38px, 12cqw, 62px);
 }
 .sys .glow {
   position: absolute;
@@ -6798,9 +6881,9 @@ main > .sec:not(.x-night) {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 62px;
-  height: 62px;
-  margin: -31px 0 0 -31px;
+  width: var(--orb);
+  height: var(--orb);
+  margin: calc(var(--orb) / -2) 0 0 calc(var(--orb) / -2);
   transform: rotate(var(--a)) translateY(-44cqw) rotate(calc(var(--a) * -1));
 }
 .orb > a {
@@ -6810,12 +6893,21 @@ main > .sec:not(.x-night) {
   text-decoration: none;
 }
 .orb .bcoin {
-  width: 62px;
-  height: 62px;
+  width: var(--orb);
+  height: var(--orb);
 }
 .orb .bcoin svg {
-  width: 32px;
-  height: 32px;
+  width: calc(var(--orb) * 0.52);
+  height: calc(var(--orb) * 0.52);
+}
+.orb .bcoin .orbit {
+  inset: -4px;
+}
+.orb .bcoin .orbit::after {
+  top: -2.5px;
+  width: 5px;
+  height: 5px;
+  margin-left: -2.5px;
 }
 .orb .lb {
   position: absolute;
@@ -6854,18 +6946,16 @@ main > .sec:not(.x-night) {
 .sys:focus-within .orb > a {
   animation-play-state: paused;
 }
-@media (max-width: 600px) {
-  .orb,
-  .orb .bcoin {
-    width: 48px;
-    height: 48px;
+@media (max-width: 759px) {
+  .hxo .sys {
+    width: min(88vw, 360px);
   }
-  .orb {
-    margin: -24px 0 0 -24px;
+  .hxo-h1 {
+    font-size: clamp(34px, 10vw, 42px);
+    line-height: 1.02;
   }
-  .orb .bcoin svg {
-    width: 26px;
-    height: 26px;
+  .orb .lb {
+    display: none;
   }
 }
 .flt {
@@ -6915,12 +7005,50 @@ main > .sec:not(.x-night) {
     transform: translateY(-8px);
   }
 }
+/* single standing chip over the faded coat — only while the cards are hidden */
+.mchip {
+  display: none;
+}
 @media (max-width: 600px) {
   .flt {
     display: none;
   }
   .live-chip .lc-sub {
     display: none;
+  }
+  .mchip {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: 6%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 600 13px/1 var(--sans);
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: var(--r-pill);
+    padding: 8px 14px;
+    max-width: 90%;
+    white-space: nowrap;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
+  .mchip svg {
+    flex: none;
+    color: var(--teal);
+  }
+}
+/* the dock already offers Book whenever it is on screen — never show it twice */
+@media (max-width: 1023px) {
+  .hxo .btnrow .x-book {
+    display: none;
+  }
+}
+@media (max-width: 759px) {
+  .hxo .btnrow .btn-gh {
+    width: 100%;
+    justify-content: center;
   }
 }
 @media (max-width: 1100px) {
@@ -6973,6 +7101,10 @@ main > .sec:not(.x-night) {
   }
   .band > div:nth-child(-n + 2) {
     border-bottom: 1px solid var(--navy-line);
+  }
+  .band > div > span {
+    font-size: 14px;
+    line-height: 1.45;
   }
 }
 
@@ -8313,7 +8445,7 @@ main > .sec:not(.x-night) {
 }
 @media (max-width: 900px) {
   .visit {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 .vcard {
@@ -8324,7 +8456,7 @@ main > .sec:not(.x-night) {
 }
 .vrow {
   display: grid;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 40px minmax(0, 1fr);
   gap: 14px;
   padding: 14px 0;
   border-bottom: 1px solid var(--line);

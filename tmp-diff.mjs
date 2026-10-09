@@ -2,8 +2,8 @@
 import sharp from "sharp";
 import { readdirSync, existsSync } from "node:fs";
 
-const BEFORE = "shots/before";
-const AFTER = process.argv[2] || "shots/after";
+const BEFORE = process.argv[2] || "shots/before";
+const AFTER = process.argv[3] || "shots/after";
 const THRESH = 16; // per-channel delta that counts as a real pixel change
 
 const files = readdirSync(BEFORE).filter((f) => f.endsWith(".png"));

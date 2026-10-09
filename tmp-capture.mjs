@@ -1,4 +1,4 @@
-// Capture full-page screenshots of every route, desktop + mobile.
+// Deterministic full-page screenshots of every route, desktop + mobile.
 // Usage: node tmp-capture.mjs <outdir> [base]
 import { chromium } from "playwright";
 import { mkdir } from "node:fs/promises";
@@ -32,37 +32,77 @@ const VIEWPORTS = [
 ];
 const slug = (r) => (r === "/" ? "home" : r.replace(/^\/|\/$/g, "").replace(/\//g, "_"));
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({
+  args: [
+    "--disable-lcd-text",
+    "--font-render-hinting=none",
+    "--force-color-profile=srgb",
+    "--force-device-scale-factor=1",
+    "--disable-gpu",
+  ],
+});
 await mkdir(OUT, { recursive: true });
 
 for (const route of ROUTES) {
   for (const [tag, w, h] of VIEWPORTS) {
-    const ctx = await browser.newContext({ viewport: { width: w, height: h } });
-    const p = await ctx.newPage();
-    await p.addInitScript(() => {
-      try { localStorage.setItem("dj-consent-v1", JSON.stringify({ analytics: false, ts: 1 })); } catch {}
-    });
-    await p.goto(`${BASE}${route}`, { waitUntil: "load" });
-    await p.evaluate(() => document.fonts.ready);
-    // content-visibility:auto skips IO delivery on fast scrolls — disable it
-    // so every section lays out and the .on gates can fire
-    await p.addStyleTag({ content: "*{content-visibility:visible!important}" });
-    await p.evaluate(async () => {
-      await new Promise((res) => {
-        let y = 0; const step = () => {
-          y += innerHeight; scrollTo(0, y);
-          if (y < document.body.scrollHeight) setTimeout(step, 60);
-          else { scrollTo(0, 0); setTimeout(res, 400); }
-        }; step();
-      });
-    });
-    await p.addStyleTag({ content:
-      "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
-    await p.waitForTimeout(500);
-    await p.screenshot({ path: `${OUT}/${slug(route)}-${tag}.png`, fullPage: true });
-    await ctx.close();
+    const shot = `${OUT}/${slug(route)}-${tag}.png`;
+    try {
+      await capture(browser, route, w, h, shot);
+    } catch (e) {
+      console.log(`FAIL ${route} ${tag}: ${String(e).slice(0, 160)}`);
+    }
   }
   console.log(`${route}`);
 }
 await browser.close();
 console.log("done ->", OUT);
+
+async function capture(browser, route, w, h, shot) {
+  {
+    const ctx = await browser.newContext({
+      viewport: { width: w, height: h },
+      // freeze anything else that varies run to run
+      reducedMotion: "reduce",
+    });
+    const p = await ctx.newPage();
+    await p.addInitScript(() => {
+      try { localStorage.setItem("dj-consent-v1", JSON.stringify({ analytics: false, ts: 1 })); } catch {}
+      // Every IntersectionObserver target reports as intersecting immediately,
+      // so all .on reveal gates latch at mount — no scroll timing involved.
+      window.IntersectionObserver = class {
+        constructor(cb) { this.cb = cb; }
+        observe(t) {
+          this.cb([{ isIntersecting: true, target: t, intersectionRatio: 1,
+                     boundingClientRect: t.getBoundingClientRect(),
+                     intersectionRect: t.getBoundingClientRect() }], this);
+        }
+        unobserve() {} disconnect() {} takeRecords() { return []; }
+      };
+    });
+    await p.goto(`${BASE}${route}`, { waitUntil: "load" });
+    // freeze motion + let lazy sections lay out fully
+    await p.addStyleTag({ content:
+      "*{content-visibility:visible!important;contain-intrinsic-size:auto!important}" +
+      "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
+    await p.evaluate(() => document.fonts.ready);
+    // sweep the page once so lazy <img> below the fold actually fetch+decode,
+    // then wait until every image reports complete
+    await p.evaluate(async () => {
+      await new Promise((res) => {
+        let y = 0; const step = () => {
+          y += innerHeight * 0.8; scrollTo(0, y);
+          if (y < document.body.scrollHeight) setTimeout(step, 50);
+          else { scrollTo(0, 0); setTimeout(res, 250); }
+        }; step();
+      });
+      await Promise.race([
+        Promise.all(Array.from(document.images).map((i) =>
+          i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))),
+        new Promise((r) => setTimeout(r, 8000)),
+      ]);
+    });
+    await p.waitForTimeout(400);
+    await p.screenshot({ path: shot, fullPage: true });
+    await ctx.close();
+  }
+}
