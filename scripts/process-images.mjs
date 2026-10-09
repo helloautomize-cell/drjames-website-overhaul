@@ -3,7 +3,8 @@
  * Reads resources/images/_source/ and writes web-ready files to
  * public/images/{doctor,clinic,awards}. Never upscales. JPEG q85, PNG alpha.
  * Strips EXIF/GPS metadata by default (sharp removes it unless asked to keep).
- * Also writes public/images/alt-text.json and public/images/_todo.md.
+ * Writes internal docs (alt-text.json, _todo.md) to resources/images/ —
+ * not public/, so they are not served to visitors.
  */
 import sharp from "sharp";
 import { mkdir, writeFile } from "node:fs/promises";
@@ -11,6 +12,7 @@ import path from "node:path";
 
 const SRC = path.resolve("resources/images/_source");
 const OUT = path.resolve("public/images");
+const DOCS = path.resolve("resources/images");
 
 const JPEG = { quality: 85, mozjpeg: true };
 
@@ -109,13 +111,13 @@ async function main() {
     "Low-resolution warnings: all source photos are small web copies. dr-james-hero.png is 556px wide; replace by dropping a larger file into resources/images/_source/ with the same name and re-running this script.",
   );
 
-  await mkdir(OUT, { recursive: true });
-  await writeFile(path.join(OUT, "alt-text.json"), JSON.stringify(meta, null, 2) + "\n");
+  await mkdir(DOCS, { recursive: true });
+  await writeFile(path.join(DOCS, "alt-text.json"), JSON.stringify(meta, null, 2) + "\n");
   await writeFile(
-    path.join(OUT, "_todo.md"),
+    path.join(DOCS, "_todo.md"),
     "# Images still needed\n\n" + todo.join("\n") + "\n",
   );
-  console.log("\nWrote alt-text.json and _todo.md");
+  console.log("\nWrote alt-text.json and _todo.md to resources/images/");
 }
 
 main().catch((e) => {

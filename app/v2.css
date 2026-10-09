@@ -7110,11 +7110,9 @@ main > .sec:not(.x-night) {
   gap: 56px;
   align-items: start;
 }
-@media (max-width: 900px) {
-  .fit {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
+.fit-side {
+  position: sticky;
+  top: calc(var(--nav-clear) + 24px);
 }
 .fit h2 {
   font-size: clamp(32px, 3.8vw, 46px);
@@ -7124,6 +7122,31 @@ main > .sec:not(.x-night) {
 .fit-sub {
   margin-top: 14px;
   color: var(--ink-2);
+  max-width: 44ch;
+}
+.fit-plate {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.fit-plate b {
+  display: block;
+  font: 400 17px/1.4 var(--serif);
+  color: var(--ink);
+}
+.fit-plate span {
+  display: block;
+  font: 500 13px/1.5 var(--sans);
+  color: var(--ink-2);
+  margin-top: 2px;
+}
+.fit-book {
+  display: inline-block;
+  margin-top: 16px;
+  font: 500 15px/1.4 var(--sans);
+  color: var(--petrol);
+  text-decoration: underline 1px solid currentColor;
+  text-underline-offset: 2px;
 }
 .fit-list {
   list-style: none;
@@ -7132,15 +7155,14 @@ main > .sec:not(.x-night) {
 }
 .fit-list .fit-row {
   display: grid;
-  grid-template-columns: 28px minmax(0, auto) 20px;
-  justify-content: start;
-  gap: 16px;
+  grid-template-columns: 44px minmax(0, 1fr) 40px;
+  gap: 20px;
   align-items: center;
-  padding: 18px 4px;
+  padding: 24px 20px 24px 12px;
+  border-radius: 14px;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
   text-decoration: none;
-  font-size: 17px;
   width: 100%;
   background: none;
   border-left: 0;
@@ -7149,43 +7171,109 @@ main > .sec:not(.x-night) {
   cursor: pointer;
   text-align: left;
   font-family: inherit;
+  transition: background 0.3s ease;
 }
-.fit-list li:first-child .fit-row {
-  border-top: 1px solid var(--line);
+.fit-list li:last-child .fit-row {
+  border-bottom: 0;
 }
-.fit-list li .fit-row {
-  border-bottom: 1px solid var(--line);
+.fit-list .fit-row:hover,
+.fit-list .fit-row:focus-visible {
+  background: #fbfcfa;
 }
-.fit-list .fit-row:hover {
-  background: var(--paper-2);
-  color: var(--teal);
+.fit-list .fit-row:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--gold);
 }
-.fit-list .ck {
-  width: 28px;
-  height: 28px;
+.fit-list .fit-mark {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--teal-tint);
-  color: var(--teal);
+  border: 1px solid #eadbc0;
+  color: #c29a5b;
   display: grid;
   place-items: center;
   flex: none;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+.fit-list .fit-row:hover .fit-mark,
+.fit-list .fit-row:focus-visible .fit-mark {
+  border-color: var(--petrol);
+  background: #e3efee;
+  color: var(--petrol);
 }
 .fit-list .fit-tx b {
   display: block;
-  font-weight: 600;
+  font: 500 19px/1.35 var(--sans);
+  transition: color 0.3s ease;
+}
+.fit-list .fit-row:hover .fit-tx b,
+.fit-list .fit-row:focus-visible .fit-tx b {
+  color: var(--petrol);
 }
 .fit-list .fit-tx span {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--ink-2);
   margin-top: 3px;
 }
-.fit-list .ar2 {
+.fit-list .fit-arr {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
   color: var(--gold);
-  transition: transform 0.25s var(--ease);
+  display: grid;
+  place-items: center;
+  flex: none;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
-.fit-list .fit-row:hover .ar2 {
-  transform: translateX(4px);
+.fit-list .fit-arr svg {
+  transition: transform 0.3s ease;
+}
+.fit-list .fit-row:hover .fit-arr,
+.fit-list .fit-row:focus-visible .fit-arr {
+  background: var(--petrol);
+  border-color: var(--petrol);
+  color: var(--pearl);
+}
+.fit-list .fit-row:hover .fit-arr svg,
+.fit-list .fit-row:focus-visible .fit-arr svg {
+  transform: translateX(2px);
+}
+@media (max-width: 860px) {
+  .fit {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .fit-side {
+    position: static;
+  }
+  .fit-list .fit-row {
+    grid-template-columns: 36px minmax(0, 1fr);
+    padding: 20px 8px;
+  }
+  .fit-list .fit-mark {
+    width: 36px;
+    height: 36px;
+  }
+  .fit-list .fit-arr {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fit-list .fit-row,
+  .fit-list .fit-mark,
+  .fit-list .fit-tx b,
+  .fit-list .fit-arr,
+  .fit-list .fit-arr svg {
+    transition: none;
+  }
 }
 /* ---------- HOW HE WORKS — cinematic band + overlapping principle cards ---------- */
 .hw2 {

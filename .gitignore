@@ -42,6 +42,9 @@ next-env.d.ts
 # verification artifacts
 lighthouse-*.json
 lighthouse-*.html
+*.lh.json
+tmp-lh.json
+/shots
 
 # local scratch / working files
 /tmp/
