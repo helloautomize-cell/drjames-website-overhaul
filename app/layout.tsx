@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Inter, Mrs_Saint_Delafield } from "next/font/google";
+import { Newsreader, Inter } from "next/font/google";
 import { SiteChrome } from "@/components/shell/SiteChrome";
 import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import "./v2.css";
 
+// variable font — one woff2 for all weights+italics instead of four files
 const newsreader = Newsreader({
   variable: "--font-serif",
-  weight: ["400", "500"],
   style: ["normal", "italic"],
   subsets: ["latin"],
   // preloaded + next/font metric fallback: swap without a CLS or LCP penalty
@@ -16,21 +16,10 @@ const newsreader = Newsreader({
   preload: true,
 });
 
-// variable font — one woff2 instead of four weight files
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-});
-
-const signature = Mrs_Saint_Delafield({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-sig",
-  display: "swap",
-  // only used by the signature in MeetDrJames — below the fold, keep it off
-  // the critical font path
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -55,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en-OM"
-      className={`${newsreader.variable} ${inter.variable} ${signature.variable}`}
+      className={`${newsreader.variable} ${inter.variable}`}
     >
       <body>
         <a href="#main" className="sr-only">

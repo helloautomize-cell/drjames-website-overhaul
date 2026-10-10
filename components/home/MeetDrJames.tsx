@@ -2,12 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Mrs_Saint_Delafield } from "next/font/google";
 import { useEffect, useRef } from "react";
 import { Confirm } from "@/components/Confirm";
 import { Reveal } from "@/components/site/Reveal";
 import { LiveStatus } from "@/components/site/LiveStatus";
 import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
+
+// signature face lives here (its only consumer) instead of on <html>, so it
+// stays off every other page's font path
+const signature = Mrs_Saint_Delafield({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-sig",
+  display: "swap",
+  preload: false,
+});
 
 const MILESTONES: { yr: string; now?: boolean; title: string; line: string }[] = [
   { yr: "2002", title: "Medical graduation", line: "Vinayaka Missions, Salem" },
@@ -76,7 +87,7 @@ export function MeetDrJames() {
   }, []);
 
   return (
-    <section className="x-night dp-sec" data-header="dark" aria-labelledby="mj-h">
+    <section className={`x-night dp-sec ${signature.variable}`} data-header="dark" aria-labelledby="mj-h">
       <div className="dp">
         <div className="dp-media">
           <div className="dp-photo">
