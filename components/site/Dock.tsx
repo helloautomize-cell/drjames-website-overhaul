@@ -11,7 +11,7 @@ import { useFinder } from "@/components/site/SymptomFinder";
 /** Mobile bottom dock: Book, Call, WhatsApp, Finder. Hidden while typing and on /thank-you. */
 export function Dock() {
   const pathname = usePathname();
-  const { openFinder } = useFinder();
+  const { openFinder, preloadFinder } = useFinder();
   const [typing, setTyping] = useState(false);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export function Dock() {
       <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <Icon name="whatsapp" size={22} />
       </a>
-      <button type="button" onClick={openFinder} aria-label="Find care by symptom">
+      <button type="button" onClick={openFinder} onPointerEnter={preloadFinder} onFocus={preloadFinder} aria-label="Find care by symptom">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
           <circle cx="11" cy="11" r="7" />
           <path d="m20 20-3.5-3.5" />
