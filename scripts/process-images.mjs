@@ -7,7 +7,7 @@
  * not public/, so they are not served to visitors.
  */
 import sharp from "sharp";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const SRC = path.resolve("resources/images/_source");
@@ -96,6 +96,25 @@ async function main() {
     .png()
     .toBuffer();
   await save(alt, "doctor/dr-james-alt.png", "Dr. James Kumar Pallivathukkal");
+
+  // --- Badge set ---
+  // Coins display at 62–64px CSS, so ship 128px (2x) variants: the 256px PNGs
+  // stay as masters, badge-<name>-128.{webp,png} is what <Badge> serves.
+  const badgeDir = path.resolve("public/icons/badges");
+  const badgeSrcs = (await readdir(badgeDir)).filter((f) => /^badge-.+(?<!-128)\.png$/i.test(f));
+  for (const f of badgeSrcs) {
+    const name = f.replace(/\.png$/i, "");
+    const src = path.join(badgeDir, f);
+    await sharp(src)
+      .resize(128, 128)
+      .webp({ quality: 82 })
+      .toFile(path.join(badgeDir, `${name}-128.webp`));
+    await sharp(src)
+      .resize(128, 128)
+      .png({ compressionLevel: 9 })
+      .toFile(path.join(badgeDir, `${name}-128.png`));
+  }
+  console.log(`badges: ${badgeSrcs.length} x -128.{webp,png} @ 128px`);
 
   // --- Held back (logged, not produced) ---
   todo.push(

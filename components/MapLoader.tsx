@@ -1,20 +1,14 @@
 import { site } from "@/lib/site-config";
+import { MapFacade } from "@/components/site/MapFacade";
 
 const MAPS_EMBED =
   "https://www.google.com/maps?q=Badr%20Al%20Samaa%20Royal%20Hospital%20Al%20Ghubrah%20Muscat&output=embed";
 
-/** Live Google map of the hospital. */
+/** Static map + click-to-load live map of the hospital. */
 export function MapLoader() {
   return (
-    <figure className="cmap">
-      <iframe
-        title={`Map: ${site.address.hospital}`}
-        src={MAPS_EMBED}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        style={{ border: 0, position: "absolute", inset: 0, width: "100%", height: "100%" }}
-        allowFullScreen
-      />
+    <figure className="cmap" aria-label={`Map showing ${site.address.hospital}, Al Ghubrah`}>
+      <MapFacade embedSrc={MAPS_EMBED} />
     </figure>
   );
 }

@@ -13,10 +13,10 @@ const CHIPS: { label: string; q: string }[] = [
 
 /** Search-looking button and "Often searched" chips. Both hand off to the symptom finder. */
 export function ConditionsSearch() {
-  const { openFinder } = useFinder();
+  const { openFinder, preloadFinder } = useFinder();
   return (
     <>
-      <button type="button" className="cx-search" onClick={() => openFinder("")}>
+      <button type="button" className="cx-search" onClick={() => openFinder("")} onPointerEnter={preloadFinder} onFocus={preloadFinder}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
           <circle cx="11" cy="11" r="7" />
           <path d="m20 20-3.5-3.5" />
@@ -29,7 +29,7 @@ export function ConditionsSearch() {
         <ul aria-labelledby="cx-often">
           {CHIPS.map((c) => (
             <li key={c.label}>
-              <button type="button" onClick={() => openFinder(c.q)}>
+              <button type="button" onClick={() => openFinder(c.q)} onPointerEnter={preloadFinder} onFocus={preloadFinder}>
                 {c.label}
               </button>
             </li>
@@ -42,9 +42,9 @@ export function ConditionsSearch() {
 
 /** Opens the finder from the closing band. */
 export function FinderButton({ children }: { children: React.ReactNode }) {
-  const { openFinder } = useFinder();
+  const { openFinder, preloadFinder } = useFinder();
   return (
-    <button type="button" className="cx-btn cx-btn-p" onClick={() => openFinder("")}>
+    <button type="button" className="cx-btn cx-btn-p" onClick={() => openFinder("")} onPointerEnter={preloadFinder} onFocus={preloadFinder}>
       {children}
     </button>
   );

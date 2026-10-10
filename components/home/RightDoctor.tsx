@@ -104,7 +104,7 @@ const Arrow = () => (
 
 /** "When several conditions overlap." — six patient-fit rows. */
 export function RightDoctor() {
-  const { openFinder } = useFinder();
+  const { openFinder, preloadFinder } = useFinder();
   return (
     <section className="sec" aria-labelledby="rd-h">
       <div className="container">
@@ -147,7 +147,7 @@ export function RightDoctor() {
                 return (
                   <li key={r.stmt}>
                     {r.finder ? (
-                      <button type="button" className="fit-row" onClick={openFinder}>
+                      <button type="button" className="fit-row" onClick={openFinder} onPointerEnter={preloadFinder} onFocus={preloadFinder}>
                         {inner}
                       </button>
                     ) : (

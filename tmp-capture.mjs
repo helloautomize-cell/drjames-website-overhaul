@@ -84,9 +84,8 @@ async function capture(browser, route, w, h, shot) {
     await p.addStyleTag({ content:
       "*{content-visibility:visible!important;contain-intrinsic-size:auto!important}" +
       "*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}" });
-    await p.evaluate(() => document.fonts.ready);
-    // sweep the page once so lazy <img> below the fold actually fetch+decode,
-    // then wait until every image reports complete
+    // sweep the page once so lazy <img> + lazily-used fonts below the fold
+    // actually fetch+decode before we wait on them
     await p.evaluate(async () => {
       await new Promise((res) => {
         let y = 0; const step = () => {
@@ -95,13 +94,22 @@ async function capture(browser, route, w, h, shot) {
           else { scrollTo(0, 0); setTimeout(res, 250); }
         }; step();
       });
-      await Promise.race([
-        Promise.all(Array.from(document.images).map((i) =>
-          i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; }))),
-        new Promise((r) => setTimeout(r, 8000)),
-      ]);
     });
-    await p.waitForTimeout(400);
+    // images all decoded
+    await p.evaluate(() => Promise.race([
+      Promise.all(Array.from(document.images).map((i) =>
+        i.complete ? i.decode().catch(() => 0) : new Promise((r) => { i.onload = i.onerror = r; }))),
+      new Promise((r) => setTimeout(r, 8000)),
+    ]));
+    // network quiet, then force-load every font face and wait for zero pending
+    await p.waitForLoadState("networkidle", { timeout: 15000 }).catch(() => {});
+    await p.evaluate(async () => {
+      await Promise.all(Array.from(document.fonts).map((f) => f.load().catch(() => f)));
+      await document.fonts.ready;
+      for (let i = 0; i < 20 && document.fonts.status !== "loaded"; i++)
+        await new Promise((r) => setTimeout(r, 150));
+    });
+    await p.waitForTimeout(600);
     await p.screenshot({ path: shot, fullPage: true });
     await ctx.close();
   }

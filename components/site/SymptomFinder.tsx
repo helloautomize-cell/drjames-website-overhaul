@@ -1,36 +1,32 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import * as Dialog from "@radix-ui/react-dialog";
-import { symptoms } from "@/lib/symptoms";
-import { allConditions, conditionUrl } from "@/lib/conditions";
-import { site } from "@/lib/site-config";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import dynamic from "next/dynamic";
 
-const FinderCtx = createContext<{ openFinder: (preset?: unknown) => void }>({ openFinder: () => {} });
+// the dialog (radix + symptom data) stays out of the boot bundle; it loads on
+// first open or on pointerenter/focus of a finder trigger
+const FinderPanel = dynamic(() => import("./FinderPanel"), { ssr: false });
+
+const FinderCtx = createContext<{ openFinder: (preset?: unknown) => void; preloadFinder: () => void }>({
+  openFinder: () => {},
+  preloadFinder: () => {},
+});
 export const useFinder = () => useContext(FinderCtx);
 
-const titleOf = (slug: string) => allConditions.find((c) => c.slug === slug)?.title ?? slug;
-
-/** Symptom finder dialog + provider. Opens from the header, curtain, dock and the "/" key. */
-export function FinderProvider({ children }: { children: React.ReactNode }) {
+/** Provides openFinder() to header, curtain, dock and the "/" key. */
+export function FinderProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const [q, setQ] = useState("");
-  const [sel, setSel] = useState(0);
-  const router = useRouter();
-  const listId = "finder-list";
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [preset, setPreset] = useState("");
+  const [load, setLoad] = useState(false);
 
-  const results = useMemo(() => {
-    const v = q.trim().toLowerCase();
-    return symptoms
-      .filter((s) => !v || s.phrase.toLowerCase().includes(v) || titleOf(s.slug).toLowerCase().includes(v))
-      .slice(0, 7);
-  }, [q]);
+  const preloadFinder = useCallback(() => {
+    setLoad(true);
+    void import("./FinderPanel");
+  }, []);
 
-  const openFinder = useCallback((preset?: unknown) => {
-    setQ(typeof preset === "string" ? preset : "");
-    setSel(0);
+  const openFinder = useCallback((p?: unknown) => {
+    setPreset(typeof p === "string" ? p : "");
+    setLoad(true);
     setOpen(true);
   }, []);
 
@@ -46,91 +42,10 @@ export function FinderProvider({ children }: { children: React.ReactNode }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [openFinder]);
 
-  const go = (slug: string) => {
-    setOpen(false);
-    router.push(conditionUrl(slug));
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    const n = results.length;
-    if (e.key === "ArrowDown" && n) {
-      e.preventDefault();
-      setSel((sel + 1) % n);
-    } else if (e.key === "ArrowUp" && n) {
-      e.preventDefault();
-      setSel((sel - 1 + n) % n);
-    } else if (e.key === "Enter" && results[sel]) {
-      e.preventDefault();
-      go(results[sel].slug);
-    }
-  };
-
   return (
-    <FinderCtx.Provider value={{ openFinder }}>
+    <FinderCtx.Provider value={{ openFinder, preloadFinder }}>
       {children}
-      <Dialog.Root open={open} onOpenChange={setOpen}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="x-scrim" />
-          <Dialog.Content
-            className="x-fpanel"
-            aria-describedby={undefined}
-            onOpenAutoFocus={(e) => {
-              e.preventDefault();
-              inputRef.current?.focus();
-            }}
-          >
-            <Dialog.Title className="sr-only">Find care by symptom</Dialog.Title>
-            <div className="x-fin">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-              <input
-                ref={inputRef}
-                value={q}
-                onChange={(e) => {
-                  setQ(e.target.value);
-                  setSel(0);
-                }}
-                onKeyDown={onKeyDown}
-                placeholder="Tired all the time, high sugar…"
-                role="combobox"
-                aria-expanded="true"
-                aria-controls={listId}
-                aria-activedescendant={results[sel] ? `finder-opt-${sel}` : undefined}
-                aria-label="Describe what you feel"
-                autoComplete="off"
-              />
-              <kbd>Esc</kbd>
-            </div>
-            <ul className="x-fres" id={listId} role="listbox" aria-label="Matching conditions">
-              {results.length ? (
-                results.map((r, i) => (
-                  <li
-                    key={r.phrase}
-                    id={`finder-opt-${i}`}
-                    role="option"
-                    aria-selected={i === sel}
-                    className={i === sel ? "x-on" : ""}
-                    onMouseEnter={() => setSel(i)}
-                    onClick={() => go(r.slug)}
-                  >
-                    <span>{r.phrase}</span>
-                    <small>{titleOf(r.slug)} →</small>
-                  </li>
-                ))
-              ) : (
-                <li role="presentation">
-                  <span>No match yet. Try a simpler word, or call {site.phoneDisplay}.</span>
-                </li>
-              )}
-            </ul>
-            <p className="x-fnote">
-              <b>Chest pain, sudden breathlessness or weakness on one side? Go to the nearest emergency department now.</b>
-            </p>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+      {load ? <FinderPanel open={open} onOpenChange={setOpen} preset={preset} /> : null}
     </FinderCtx.Provider>
   );
 }
