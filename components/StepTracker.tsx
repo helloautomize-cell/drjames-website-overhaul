@@ -47,17 +47,26 @@ export function StepTracker() {
   useEffect(() => {
     const el = stepsRef.current;
     if (!el || !("IntersectionObserver" in window)) return;
+    const vis = new Map<Element, number>();
     const io = new IntersectionObserver(
       (entries) => {
-        let best: IntersectionObserverEntry | null = null;
         for (const en of entries) {
-          if (en.isIntersecting && (!best || en.intersectionRatio > best.intersectionRatio)) {
-            best = en;
-          }
+          vis.set(en.target, en.isIntersecting ? en.intersectionRatio : 0);
         }
-        if (best) setCur(Number((best.target as HTMLElement).dataset.i));
+        let best: Element | null = null;
+        let bv = 0;
+        vis.forEach((r, t) => {
+          if (r > bv) {
+            bv = r;
+            best = t;
+          }
+        });
+        if (best) setCur(Number((best as HTMLElement).dataset.i));
       },
-      { rootMargin: "-45% 0px -45% 0px" },
+      {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: Array.from({ length: 21 }, (_, i) => i / 20),
+      },
     );
     el.querySelectorAll(".step").forEach((s) => io.observe(s));
     return () => io.disconnect();

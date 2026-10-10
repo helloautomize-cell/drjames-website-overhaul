@@ -992,6 +992,8 @@
   gap: 8px;
   padding: 8px;
   border-radius: 24px;
+  overflow: hidden;
+  max-width: calc(100vw - 24px);
   background: rgba(16, 40, 63, .72);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
@@ -1841,6 +1843,7 @@ html {
 body {
   background: var(--pearl) url("/images/grain.png") repeat;
   background-size: 160px 160px;
+  overflow-x: clip;
 }
 
 /* header: logo mark crossfade and section-aware theme (data-theme set from data-header="dark" sections) */
@@ -1906,27 +1909,27 @@ body {
   border-color: var(--line-n);
   box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(217, 183, 126, .14);
 }
-/* mobile: the floating capsule floats over scrolling text — a fixed top scrim
-   covers the gap above/around it and the capsule goes near-solid so nothing
-   shows through. Scrim tint follows the header theme. */
+/* the floating capsule floats over scrolling text — a fixed top scrim covers
+   the gap above/around it and the capsule goes near-solid so nothing shows
+   through. Scrim tint follows the header theme. */
+.x-hdr::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(var(--hdr-h) + 8px);
+  background: linear-gradient(rgb(243, 241, 235) 70%, rgba(243, 241, 235, 0));
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+  z-index: -1;
+}
+.x-hdr[data-theme="dark"]::before {
+  background: linear-gradient(rgb(10, 28, 46) 70%, rgba(10, 28, 46, 0));
+}
+.x-hdr.x-scrolled::before {
+  opacity: 1;
+}
 @media (max-width: 1023px) {
-  .x-hdr::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: calc(var(--hdr-h) + 8px);
-    background: linear-gradient(rgba(243, 241, 235, .96) 70%, rgba(243, 241, 235, 0));
-    opacity: 0;
-    transition: opacity .3s;
-    pointer-events: none;
-    z-index: -1;
-  }
-  .x-hdr[data-theme="dark"]::before {
-    background: linear-gradient(rgba(10, 28, 46, .96) 70%, rgba(10, 28, 46, 0));
-  }
-  .x-hdr.x-scrolled::before {
-    opacity: 1;
-  }
   .x-hdr[data-theme="dark"].x-scrolled .x-bar {
     background: rgba(10, 28, 46, .96);
     backdrop-filter: blur(12px);
@@ -3369,6 +3372,7 @@ main > .sec:not(.x-night) {
   min-height: 132px;
   padding: 24px;
   border-radius: 20px;
+  overflow: hidden;
   background: var(--night-2);
   border: 1px solid rgba(217, 183, 126, 0.28);
   color: #fff;
@@ -3395,13 +3399,14 @@ main > .sec:not(.x-night) {
 }
 .cx-tile b {
   grid-column: 2;
-  white-space: nowrap;
+  min-width: 0;
   font: 500 22px/1.2 var(--serif);
   color: #fff;
   padding-right: 32px;
 }
 .cx-tile-d {
   grid-column: 2;
+  min-width: 0;
   font-size: 15px;
   line-height: 1.5;
   color: var(--mist);
@@ -3656,13 +3661,22 @@ main > .sec:not(.x-night) {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
+  /* same treatment as .yv-chips: transparent band whose ::before carries the
+     pearl+grain backdrop 32px up behind the header — reads as continuous page */
   .cx-side {
     margin-inline: calc(-1 * clamp(16px, 4vw, 40px));
-    padding: 8px clamp(16px, 4vw, 40px);
-    background: rgba(243, 245, 241, 0.92);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    padding: 12px clamp(16px, 4vw, 40px);
+    isolation: isolate;
+    border-bottom: 1px solid var(--line);
     margin-bottom: 24px;
+  }
+  .cx-side::before {
+    content: "";
+    position: absolute;
+    inset: -32px 0 0;
+    z-index: -1;
+    background: var(--pearl) url("/images/grain.png") repeat;
+    background-size: 160px 160px;
   }
   .cx-index {
     display: flex;
@@ -6672,56 +6686,6 @@ main > .sec:not(.x-night) {
   align-items: center;
   padding-bottom: 56px;
 }
-/* below 960px: single column, text column dissolves into the grid and the
-   portrait (order 4) sits right after the H1 — doctor visible on first screen.
-   DOM order is unchanged so desktop and screen readers keep H1 before image. */
-@media (max-width: 960px) {
-  .hxo {
-    padding-top: calc(var(--hdr-h) + 16px);
-  }
-  .hxo-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding-bottom: 0;
-  }
-  .hxo-grid > div:first-child {
-    display: contents;
-  }
-  .hxo-grid > div:first-child > br {
-    display: none;
-  }
-  .hxo .live-chip {
-    order: 1;
-    justify-self: start;
-    margin-bottom: 14px;
-  }
-  .hxo .eyebrow {
-    order: 2;
-  }
-  .hxo-h1 {
-    order: 3;
-    margin: 0;
-  }
-  .hxo .sys {
-    order: 4;
-    width: min(70vw, 460px);
-  }
-  .hxo .hxo-lead {
-    order: 5;
-    margin: 0;
-  }
-  .hxo .btnrow {
-    order: 6;
-  }
-  .hxo-areas {
-    order: 7;
-    margin-top: 0;
-    max-width: none;
-  }
-  .band {
-    margin-top: 28px;
-  }
-}
 .hxo .live-chip {
   margin-bottom: 26px;
 }
@@ -6946,18 +6910,7 @@ main > .sec:not(.x-night) {
 .sys:focus-within .orb > a {
   animation-play-state: paused;
 }
-@media (max-width: 759px) {
-  .hxo .sys {
-    width: min(88vw, 360px);
-  }
-  .hxo-h1 {
-    font-size: clamp(34px, 10vw, 42px);
-    line-height: 1.02;
-  }
-  .orb .lb {
-    display: none;
-  }
-}
+
 .flt {
   position: absolute;
   z-index: 4;
@@ -7046,9 +6999,10 @@ main > .sec:not(.x-night) {
   }
 }
 @media (max-width: 759px) {
-  .hxo .btnrow .btn-gh {
-    width: 100%;
-    justify-content: center;
+  /* Book is on the dock and its WhatsApp icon covers messaging — no hero CTAs
+     means nothing interactive sits under the dock at first paint */
+  .hxo .btnrow {
+    display: none;
   }
 }
 @media (max-width: 1100px) {
@@ -7105,6 +7059,71 @@ main > .sec:not(.x-night) {
   .band > div > span {
     font-size: 14px;
     line-height: 1.45;
+  }
+}
+
+/* below 960px: single column, the text column dissolves into the grid and the
+   portrait (order 4) sits right after the H1 — the doctor is visible on the
+   first screen. DOM order is unchanged so desktop and screen readers keep
+   H1 before the image. These rules must come after the hero base rules so
+   the margin resets win at equal specificity. */
+@media (max-width: 960px) {
+  .hxo {
+    padding-top: calc(var(--hdr-h) + 16px);
+  }
+  .hxo-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding-bottom: 0;
+  }
+  .hxo-grid > div:first-child {
+    display: contents;
+  }
+  .hxo-grid > div:first-child > br {
+    display: none;
+  }
+  .hxo .live-chip {
+    order: 1;
+    justify-self: start;
+    margin-bottom: 14px;
+  }
+  .hxo .eyebrow {
+    order: 2;
+  }
+  .hxo-h1 {
+    order: 3;
+    margin: 0;
+  }
+  .hxo .sys {
+    order: 4;
+    width: min(70vw, 460px);
+  }
+  .hxo .hxo-lead {
+    order: 5;
+    margin: 0;
+  }
+  .hxo .btnrow {
+    order: 6;
+  }
+  .hxo-areas {
+    order: 7;
+    margin-top: 0;
+    max-width: none;
+  }
+  .band {
+    margin-top: 28px;
+  }
+}
+@media (max-width: 759px) {
+  .hxo .sys {
+    width: min(88vw, 360px);
+  }
+  .hxo-h1 {
+    font-size: clamp(34px, 10vw, 42px);
+    line-height: 1.02;
+  }
+  .orb .lb {
+    display: none;
   }
 }
 
