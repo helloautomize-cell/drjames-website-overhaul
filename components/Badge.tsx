@@ -54,9 +54,9 @@ export function Badge({
         <span className="coin">
           {hasPng ? (
             <picture>
-              <source srcSet={`/icons/badges/badge-${name}.webp`} type="image/webp" />
-              {/* eslint-disable-next-line @next/next/no-img-element -- 256px static PNG, next/image adds nothing here */}
-              <img src={`/icons/badges/badge-${name}.png`} alt="" width="64" height="64" loading="lazy" decoding="async" />
+              <source srcSet={`/icons/badges/badge-${name}-128.webp`} type="image/webp" />
+              {/* eslint-disable-next-line @next/next/no-img-element -- static PNG fallback, next/image adds nothing here */}
+              <img src={`/icons/badges/badge-${name}-128.png`} alt="" width="64" height="64" loading="lazy" decoding="async" />
             </picture>
           ) : (
             <svg

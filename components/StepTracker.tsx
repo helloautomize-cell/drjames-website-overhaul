@@ -100,7 +100,7 @@ export function StepTracker() {
             <p>{body}</p>
             {img ? (
               <span className="step-img" aria-hidden="false">
-                <Image src={img.src} alt={img.alt} width={1000} height={1250} sizes="(max-width: 900px) 100vw, 380px" />
+                <Image src={img.src} alt={img.alt} width={1000} height={1250} sizes="(max-width: 900px) 82vw, 380px" />
               </span>
             ) : null}
           </div>
