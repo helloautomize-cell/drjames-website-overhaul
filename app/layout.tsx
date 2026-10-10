@@ -4,7 +4,6 @@ import { SiteChrome } from "@/components/shell/SiteChrome";
 import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import "./v2.css";
 
 // variable font — one woff2 for all weights+italics instead of four files
 const newsreader = Newsreader({
