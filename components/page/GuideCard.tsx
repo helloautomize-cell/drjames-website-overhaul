@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isDraftPost, isPublished, type PostMeta } from "@/lib/content";
+import { isPublished, type PostMeta } from "@/lib/content";
 import { fmtDate, guideUrl, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 

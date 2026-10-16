@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isDraftPost, isPublished, publishedPostMeta } from "@/lib/content";
+import { isPublished, publishedPostMeta } from "@/lib/content";
 import { dateMark, featuredPost, guideUrl, sortNewest, topicOf } from "@/lib/library";
 import { GuideCover } from "@/components/page/GuideCover";
 import { Icon } from "@/lib/icons";
