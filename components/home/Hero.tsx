@@ -162,7 +162,7 @@ export function Hero() {
           </div>
           <div>
             <b>{allConditions.length}</b>
-            <span>conditions looked after, together under one physician</span>
+            <span>conditions looked after, together under one internist</span>
           </div>
         </div>
       </div>

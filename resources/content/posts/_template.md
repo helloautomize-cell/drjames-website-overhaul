@@ -58,7 +58,7 @@ sources:
 # Condition slugs from lib/conditions.ts. The first is the guide's main condition
 # (drives the sidebar card, the local section and structured data).
 related: [high-blood-pressure]
-# true renders "<Topic> in Muscat: when to see a physician" before the footer blocks.
+# true renders "<Topic> in Muscat: when to see an internist" before the footer blocks.
 localSection: true
 ---
 
