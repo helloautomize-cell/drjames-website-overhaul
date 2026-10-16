@@ -287,7 +287,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </section>
             )}
 
-            <ReviewerBox lastReviewed={doc.reviewedOn ?? doc.lastReviewed} />
+            <ReviewerBox lastReviewed={doc.reviewedOn} />
 
             {moreConditions.length > 0 && (
               <section className="gd-block gd-related" aria-labelledby="gd-related-h">

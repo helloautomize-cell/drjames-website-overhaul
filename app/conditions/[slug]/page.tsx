@@ -69,7 +69,7 @@ export default async function ConditionPage({
             url,
             doc.heading,
             { "@id": `${url}#condition` },
-            doc.lastReviewed,
+            doc.reviewedOn ?? doc.lastReviewed,
           ),
           medicalConditionNode(url, doc.heading, doc.description),
           faqPageNode(url, doc.faqs),
@@ -83,14 +83,14 @@ export default async function ConditionPage({
         coin={cond ? conditionCoin(cond) : undefined}
         img={{ ...conditionPhoto(slug), width: 1800, height: 1200 }}
         reason={reasonForSlug(slug)}
-        reviewed={{ lastReviewed: doc.lastReviewed }}
+        reviewed={{ lastReviewed: doc.reviewedOn }}
       />
       <div className="container">
         <div className="pg-grid">
           <div className="main">
             <ArticleBody html={html} />
             <FaqBlock faqs={doc.faqs} />
-            <ReviewerBox lastReviewed={doc.lastReviewed} />
+            <ReviewerBox lastReviewed={doc.reviewedOn} />
             <RelatedConditions slugs={doc.related} />
             {doc.relatedPost ? (
               <p className="prose" style={{ marginTop: 28 }}>
