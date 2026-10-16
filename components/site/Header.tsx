@@ -19,7 +19,7 @@ const OPEN_INTENT = 120;
 const CLOSE_GRACE = 220;
 
 const NAV = [
-  { label: "Your visit", href: site.visitUrl, tag: "02" },
+  { label: "Your Visit", href: site.visitUrl, tag: "02" },
   { label: "About Dr. James", href: site.profileUrl, tag: "03" },
   { label: "Health Library", href: site.libraryUrl, tag: "04" },
 ];
