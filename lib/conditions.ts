@@ -31,7 +31,7 @@ export const conditionGroups: ConditionGroup[] = [
     conditions: [
       {
         slug: "diabetes-and-prediabetes",
-        title: "Diabetes and prediabetes",
+        title: "Diabetes and Prediabetes",
         short: "Diabetes",
         line: "Early diagnosis and steady control",
         icon: "drop",
@@ -39,7 +39,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "high-cholesterol",
-        title: "High cholesterol",
+        title: "High Cholesterol",
         short: "High cholesterol",
         line: "Lower your heart risk",
         icon: "chol",
@@ -47,7 +47,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "weight-management",
-        title: "Weight management",
+        title: "Weight Management",
         short: "Weight",
         line: "A medical plan for weight",
         icon: "tape",
@@ -55,7 +55,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "thyroid-disorders",
-        title: "Thyroid disorders",
+        title: "Thyroid Disorders",
         short: "Thyroid disorders",
         line: "Under and overactive thyroid",
         icon: "thy",
@@ -72,7 +72,7 @@ export const conditionGroups: ConditionGroup[] = [
     conditions: [
       {
         slug: "high-blood-pressure",
-        title: "High blood pressure",
+        title: "High Blood Pressure",
         short: "High blood pressure",
         line: "Monitoring and a plan to reach target",
         icon: "bp",
@@ -80,7 +80,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "heart-risk-assessment",
-        title: "Heart risk assessment",
+        title: "Heart Risk Assessment",
         short: "Heart risk",
         line: "Find and reduce risk early",
         icon: "heart",
@@ -92,13 +92,13 @@ export const conditionGroups: ConditionGroup[] = [
     id: "lungs-sleep-infections",
     label: "Lungs, sleep and infections",
     intro:
-      "Breathing problems, chest infections, fevers and sleep, assessed and treated by a physician.",
+      "Breathing problems, chest infections, fevers and sleep, assessed and treated by an internist.",
     icon: "lungs",
     blobVariant: 2,
     conditions: [
       {
         slug: "asthma-and-breathing",
-        title: "Asthma and breathing",
+        title: "Asthma and Breathing",
         short: "Asthma",
         line: "Wheeze, cough and breathlessness",
         icon: "lungs",
@@ -106,7 +106,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "chest-infections-and-pneumonia",
-        title: "Chest infections and pneumonia",
+        title: "Chest Infections and Pneumonia",
         short: "Pneumonia",
         line: "Timely diagnosis and treatment",
         icon: "chest",
@@ -114,7 +114,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "sleep-apnea",
-        title: "Sleep apnea and sleep problems",
+        title: "Sleep Apnea and Sleep Problems",
         short: "Sleep apnea",
         line: "Snoring, insomnia, daytime tiredness",
         icon: "sleep",
@@ -130,7 +130,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "fevers-and-infections",
-        title: "Fevers and infections",
+        title: "Fevers and Infections",
         short: "Fevers",
         line: "Find the cause, treat it right",
         icon: "therm",
@@ -147,7 +147,7 @@ export const conditionGroups: ConditionGroup[] = [
     conditions: [
       {
         slug: "kidney-problems",
-        title: "Kidney problems",
+        title: "Kidney Problems",
         short: "Kidney problems",
         line: "Early checks and protection",
         icon: "kidney",
@@ -155,7 +155,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "fatty-liver",
-        title: "Fatty liver",
+        title: "Fatty Liver",
         short: "Fatty liver",
         line: "Find the cause, protect the liver",
         icon: "liver",
@@ -163,7 +163,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "digestive-problems",
-        title: "Digestive problems",
+        title: "Digestive Problems",
         short: "Acidity and bloating",
         line: "Acidity, bloating, bowel changes",
         icon: "gut",
@@ -180,7 +180,7 @@ export const conditionGroups: ConditionGroup[] = [
     conditions: [
       {
         slug: "care-for-older-adults",
-        title: "Care for older adults",
+        title: "Care for Older Adults",
         short: "Older adults",
         line: "Several conditions, one plan",
         icon: "elder",
@@ -188,7 +188,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "preventive-check-ups",
-        title: "Preventive check-ups",
+        title: "Preventive Check-ups",
         short: "Check-ups",
         line: "Planned after a consultation",
         icon: "check",
@@ -196,7 +196,7 @@ export const conditionGroups: ConditionGroup[] = [
       },
       {
         slug: "joint-pain-and-arthritis",
-        title: "Joint pain and arthritis",
+        title: "Joint Pain and Arthritis",
         short: "Joint pain",
         line: "Ease pain, keep moving",
         icon: "joint",

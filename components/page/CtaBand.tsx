@@ -7,7 +7,7 @@ export function CtaBand() {
   return (
     <div className="ctaband">
       <h3>
-        Ready to talk to a <em className="acc">physician</em>?
+        Ready to talk to an <em className="acc">internist</em>?
       </h3>
       <p>Book a consultation with Dr. James at {site.hospital}.</p>
       <div className="btns">

@@ -15,17 +15,17 @@ import { conditionGroups, conditionUrl, GROUP_PHOTO } from "@/lib/conditions";
 import { pageMeta, JsonLd, breadcrumbNode, medicalWebPageNode, physicianNode, hospitalNode, medicalClinicNode, websiteNode } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta(
-  "Conditions Dr. James looks after",
-  "The conditions an internist manages: diabetes, blood pressure, cholesterol, thyroid, lungs, sleep, kidneys, liver, gut and care for older adults in Muscat.",
+  "Areas of Expertise",
+  "The areas of expertise an internist covers: diabetes, blood pressure, cholesterol, thyroid, lungs, sleep, kidneys, liver, gut and care for older adults in Muscat.",
   "/conditions/",
 );
 
 const crumbs = [
   { label: "Home", href: "/" },
-  { label: "Conditions" },
+  { label: "Areas of Expertise" },
 ];
 
-const countLabel = (n: number) => `${n} condition${n === 1 ? "" : "s"}`;
+const countLabel = (n: number) => `${n} topic${n === 1 ? "" : "s"}`;
 
 export default function ConditionsPage() {
   const [feature, ...ledger] = conditionGroups;
@@ -38,7 +38,7 @@ export default function ConditionsPage() {
           physicianNode,
           hospitalNode,
           medicalClinicNode,
-          medicalWebPageNode("/conditions/", "Conditions Dr. James looks after", undefined, "[CONFIRM]"),
+          medicalWebPageNode("/conditions/", "Areas of Expertise", undefined, "[CONFIRM]"),
           breadcrumbNode(crumbs),
         ]}
       />
@@ -46,7 +46,7 @@ export default function ConditionsPage() {
         <div className="container">
           <div className="cx-wrap">
             <Breadcrumbs items={crumbs} />
-            <p className="eyebrow">Conditions he looks after</p>
+            <p className="eyebrow">Areas of expertise</p>
             <h1>
               Find your concern, or let us <em>work it out together</em>.
             </h1>

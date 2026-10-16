@@ -21,6 +21,64 @@ export function experience(year = new Date().getFullYear()) {
 
 const exp = experience();
 
+/**
+ * Single source of truth for clinic hours: consulting sessions per weekday
+ * (0 = Sunday … 6 = Saturday), [open, close) as 24h hours in Asia/Muscat.
+ * Every hours display, the live-status chip and JSON-LD derive from this.
+ */
+const CLINIC_SESSIONS: Record<number, [number, number][]> = {
+  0: [[9, 13], [17, 21]],
+  1: [[9, 13], [17, 21]],
+  2: [[9, 13], [17, 21]],
+  3: [[9, 13], [17, 21]],
+  4: [[9, 13], [17, 21]],
+  5: [],
+  6: [[9, 13], [17, 21]],
+};
+
+const DAY_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAY_LONG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+export const fmtHour = (h: number) =>
+  h === 12 ? "12 pm" : h < 12 ? `${h} am` : `${h - 12} pm`;
+/** "9 am to 1 pm" / "5 to 9 pm" — shared meridiem is written once. */
+const fmtPair = (o: number, c: number) =>
+  o < 12 === c < 12 ? `${o % 12 === 0 ? 12 : o % 12} to ${fmtHour(c)}` : `${fmtHour(o)} to ${fmtHour(c)}`;
+const fmtSessions = (s: [number, number][]) => s.map(([o, c]) => fmtPair(o, c)).join(" and ");
+const range = (days: number[], names: string[]) =>
+  days.length > 1 ? `${names[days[0]]} to ${names[days[days.length - 1]]}` : names[days[0]];
+
+/** Consecutive weekday runs sharing a session pattern, in the Sat-first clinic week. */
+function sessionGroups() {
+  const groups: { days: number[]; sessions: [number, number][] }[] = [];
+  for (const d of [6, 0, 1, 2, 3, 4, 5]) {
+    const s = CLINIC_SESSIONS[d];
+    const last = groups[groups.length - 1];
+    if (last && JSON.stringify(last.sessions) === JSON.stringify(s)) last.days.push(d);
+    else groups.push({ days: [d], sessions: s });
+  }
+  return groups;
+}
+
+const SESSION_GROUPS = sessionGroups();
+const HOURS = SESSION_GROUPS.filter((g) => g.sessions.length)
+  .map((g) => `${range(g.days, DAY_LONG)}, ${fmtSessions(g.sessions)}`)
+  .join("; ");
+const HOURS_SHORT = SESSION_GROUPS.filter((g) => g.sessions.length)
+  .map((g) => `${range(g.days, DAY_SHORT)}, ${fmtSessions(g.sessions)}`)
+  .join("; ");
+const HOURS_CLOSED = SESSION_GROUPS.filter((g) => !g.sessions.length)
+  .map((g) => `${range(g.days, DAY_LONG)} closed`)
+  .join("; ");
+/** Day/time rows for grid displays (visit card, your-visit). */
+const HOURS_ROWS = SESSION_GROUPS.map((g) => ({
+  days: range(g.days, DAY_SHORT),
+  times: g.sessions.length
+    ? g.sessions.map(([o, c]) => fmtPair(o, c).replace(" to ", " – ")).join(" + ")
+    : "Closed",
+  closed: !g.sessions.length,
+}));
+
 export const site = {
   name: "Dr. James Kumar Pallivathukkal",
   shortName: "Dr. James",
@@ -74,6 +132,7 @@ export const site = {
   ],
   quote:
     "Every patient deserves not only the right treatment but also the right understanding of their health. My goal is to empower patients through knowledge, prevention, and personalized care so they can live healthier and more fulfilling lives.",
+  // REVISIT: confirm address and coordinates against the new Maps pin (Oct 2026)
   address: {
     hospital: "Badr Al Samaa Royal Hospital",
     street: "Al Ghubrah Street",
@@ -81,16 +140,17 @@ export const site = {
     country: "Oman",
     plusCode: "HCP6+M8F",
   },
-  mapsUrl: "https://maps.app.goo.gl/pud75RVoC8PLH8ap7",
+  mapsUrl: "https://maps.app.goo.gl/dNKkw9XcfZngPQG26",
   phoneDisplay: "+968 9751 0975",
   phoneTel: "tel:+96897510975",
   whatsapp: "https://wa.me/96897510975",
   emailDisplay: "omanjamesp [at] gmail.com",
   email: "omanjamesp@gmail.com",
-  hours: "Saturday to Thursday, 8:30 am to 9 pm",
-  hoursShort: "Sat to Thu, 8:30 am to 9 pm",
-  hoursClosed: "Friday closed",
-  schedule: { open: [8, 30], close: [21, 0], closedDays: [5] },
+  sessions: CLINIC_SESSIONS,
+  hours: HOURS,
+  hoursShort: HOURS_SHORT,
+  hoursClosed: HOURS_CLOSED,
+  hoursRows: HOURS_ROWS,
   timeZone: "Asia/Muscat",
   bookUrl: "/contact/#book",
   profileUrl: "/about-dr-james/",

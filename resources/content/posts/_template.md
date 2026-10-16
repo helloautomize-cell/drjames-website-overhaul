@@ -12,6 +12,13 @@ heading: "The question or promise the guide delivers on"
 standfirst: "One or two sentences that tell the reader exactly what this guide covers and for whom."
 # One of: diabetes-metabolism | heart-blood-pressure | lungs-sleep-infections | kidney-liver-gut | whole-person
 topic: heart-blood-pressure
+# "draft-for-doctor-review" until Dr. James approves; "published" needs all
+# three: this status, reviewedBy naming him, and a reviewedOn ISO date.
+status: draft-for-doctor-review
+# Exact name of the reviewer once approved: "Dr. James Kumar Pallivathukkal".
+reviewedBy: null
+# ISO date YYYY-MM-DD of that review; null until then.
+reviewedOn: null
 # "YYYY-MM-DD" to publish, or the literal "draft" to keep it preview-only.
 date: "draft"
 # ISO date or null. When set, the byline shows "Updated <date>".
@@ -51,7 +58,7 @@ sources:
 # Condition slugs from lib/conditions.ts. The first is the guide's main condition
 # (drives the sidebar card, the local section and structured data).
 related: [high-blood-pressure]
-# true renders "<Topic> in Muscat: when to see a physician" before the footer blocks.
+# true renders "<Topic> in Muscat: when to see an internist" before the footer blocks.
 localSection: true
 ---
 

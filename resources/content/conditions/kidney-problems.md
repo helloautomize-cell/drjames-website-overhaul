@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, high-blood-pressure, fatty-liver, fevers-and-infections]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A blood or urine test showed abnormal kidney values or protein in urine.
 - You have diabetes or high blood pressure and have not had a kidney check in a year.

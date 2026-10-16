@@ -1,5 +1,5 @@
 import { conditionGroups } from "@/lib/conditions";
-import { postMeta } from "@/lib/content";
+import { publishedPostMeta } from "@/lib/content";
 
 export interface ReadNext {
   slug: string;
@@ -12,7 +12,7 @@ export interface ReadNext {
  */
 export function readNextByGroup(): Record<string, ReadNext> {
   const out: Record<string, ReadNext> = {};
-  for (const p of postMeta()) {
+  for (const p of publishedPostMeta()) {
     const g = conditionGroups.find((cg) => cg.conditions.some((c) => c.slug === p.related[0]));
     if (g && !out[g.id]) out[g.id] = { slug: p.slug, title: p.title };
   }

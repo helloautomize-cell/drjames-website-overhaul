@@ -20,7 +20,7 @@ faqs:
 related: [weight-management, care-for-older-adults, diabetes-and-prediabetes, preventive-check-ups]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Knee, hip, back, hand or shoulder pain lasting more than a few weeks.
 - Morning stiffness lasting over half an hour, or joints that swell.

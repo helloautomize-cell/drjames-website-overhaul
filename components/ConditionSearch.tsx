@@ -41,7 +41,7 @@ export function ConditionSearch() {
         ) : (
           <span className="no-hit">
             <Icon name="info" size={16} /> No match. Try the{" "}
-            <Link href="/conditions/">full conditions list</Link>.
+            <Link href="/conditions/">full list of areas of expertise</Link>.
           </span>
         )}
       </div>

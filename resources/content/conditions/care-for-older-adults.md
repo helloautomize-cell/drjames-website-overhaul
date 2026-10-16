@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, high-blood-pressure, joint-pain-and-arthritis, kidney-problems, anaemia]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - An older parent manages several conditions and several medicines at once.
 - New symptoms like falls, sudden confusion, poor appetite or weight loss.

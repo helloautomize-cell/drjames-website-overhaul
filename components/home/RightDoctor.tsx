@@ -40,7 +40,7 @@ const ROWS: { id: string; stmt: string; line: string; href?: string; finder?: bo
   {
     id: "people",
     stmt: "You look after a parent with several conditions.",
-    line: "One physician for all of it, and a clear plan the family can follow.",
+    line: "One internist for all of it, and a clear plan the family can follow.",
     href: "/conditions/care-for-older-adults/",
   },
 ];
@@ -110,7 +110,7 @@ export function RightDoctor() {
       <div className="container">
         <div className="fit">
           <div className="fit-side">
-            <span className="eyebrow">The physician who connects it all</span>
+            <span className="eyebrow">The diagnostician who connects it all</span>
             <h2 id="rd-h">
               When several conditions <em className="acc">overlap</em>.
             </h2>

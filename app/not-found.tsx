@@ -24,7 +24,7 @@ export default function NotFound() {
         <div className="btns">
           <BookButton />
           <Link className="btn btn-s" href="/conditions/">
-            All conditions
+            All areas of expertise
           </Link>
           <Link className="btn btn-s" href="/health-library/">
             Health Library

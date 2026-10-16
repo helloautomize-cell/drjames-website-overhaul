@@ -3,7 +3,6 @@ import Image from "next/image";
 import { site } from "@/lib/site-config";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { Icon } from "@/lib/icons";
-import { Confirm } from "@/components/Confirm";
 import { ThankYouTrack } from "@/components/analytics/ThankYouTrack";
 
 export const metadata: Metadata = {
@@ -31,10 +30,7 @@ export default function ThankYou() {
             <Icon name="check" size={30} strokeWidth={2} />
           </span>
           <h1>Thank you, request received</h1>
-          <p>
-            Dr. James&apos;s team will confirm your appointment by message.
-            Reply time: <Confirm />.
-          </p>
+          <p>Dr. James&apos;s team will confirm your appointment by message.</p>
           <p>
             If your need is urgent, call{" "}
             <a className="link" href={site.phoneTel}>

@@ -21,7 +21,7 @@ related: [high-blood-pressure, high-cholesterol, diabetes-and-prediabetes, preve
 relatedPost: heart-disease-warning-signs
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A parent, brother or sister had a heart attack or stroke, especially before 60.
 - You have diabetes, high blood pressure, high cholesterol, or you smoke.

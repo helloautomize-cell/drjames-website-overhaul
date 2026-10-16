@@ -114,7 +114,6 @@
   --glass-b: rgba(255, 255, 255, 0.6);
   --sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --serif: var(--font-serif), Georgia, "Times New Roman", serif;
-  --sig: var(--font-sig), cursive;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   color-scheme: light;
 }
@@ -3130,10 +3129,10 @@ main dd a.nowrap {
   gap: 2px;
 }
 .x-sheet nav a {
-  font: 400 34px/1.2 var(--serif);
+  font: 400 clamp(22px, 6.2vw, 26px)/1.2 var(--serif);
   color: #fff;
   text-decoration: none;
-  padding: 8px 0;
+  padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, .08);
   display: flex;
   justify-content: space-between;
@@ -3141,7 +3140,7 @@ main dd a.nowrap {
 }
 .x-sheet nav a small {
   font: 600 11px/1 var(--sans);
-  letter-spacing: .12em;
+  letter-spacing: .1em;
   color: var(--gold);
 }
 .x-sheet .x-sf {
@@ -3982,8 +3981,9 @@ body {
   }
 }
 /* defer offscreen section rendering (long home page) — hero and the
-   300vh sticky conditions track stay eager */
-main > section ~ section:not(#conditions) {
+   300vh sticky conditions track stay eager; .x-night stays eager too —
+   unrendered, it makes Lighthouse/axe misread the next section's bg */
+main > section ~ section:not(#conditions):not(.x-night) {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
 }
@@ -4951,7 +4951,7 @@ main > .sec:not(.x-night) {
   background: var(--gold);
   margin-bottom: 16px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul {
+.prose h2#who-should-see-an-internist-about-this + ul {
   list-style: none;
   gap: 0;
   padding: 8px 24px;
@@ -4959,14 +4959,14 @@ main > .sec:not(.x-night) {
   border: 1px solid var(--line);
   border-radius: 20px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul li {
+.prose h2#who-should-see-an-internist-about-this + ul li {
   position: relative;
   padding: 14px 0 14px 22px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul li + li {
+.prose h2#who-should-see-an-internist-about-this + ul li + li {
   border-top: 1px solid var(--line);
 }
-.prose h2#who-should-see-a-physician-about-this + ul li::before {
+.prose h2#who-should-see-an-internist-about-this + ul li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -6076,6 +6076,15 @@ main > .sec:not(.x-night) {
   color: var(--ink);
   font: 600 11px/1 var(--sans);
   letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.gd-draftbar {
+  background: var(--gold-lt);
+  color: var(--ink);
+  text-align: center;
+  padding: 10px 16px;
+  font: 600 12px/1.3 var(--sans);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .gd-card-img .draft-chip,
@@ -9181,21 +9190,24 @@ main > .sec:not(.x-night) {
   max-width: 560px;
 }
 .sig {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  gap: 6px;
   margin: 26px 0 8px;
+  justify-items: start;
 }
-.sig-s {
-  font: 400 48px/1 var(--sig);
-  color: var(--gold-2);
-  transform: rotate(-3deg);
-  transform-origin: left;
-  display: inline-block;
+.sig-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
 }
 .sig-n {
-  font-size: 13px;
+  font: 400 22px/1.2 var(--serif);
+  color: #fff;
+}
+.sig-r {
+  font: 400 13px/1.45 var(--sans);
   color: var(--muted-navy);
+  max-width: 38ch;
 }
 .dp-stats {
   display: grid;
@@ -9421,7 +9433,7 @@ main > .sec:not(.x-night) {
 }
 .ctl .y {
   font: 400 34px/1 var(--serif);
-  color: rgba(234, 230, 220, 0.35);
+  color: rgba(234, 230, 220, 0.62);
   transition: color 0.4s;
 }
 .ctl li.lit .y {

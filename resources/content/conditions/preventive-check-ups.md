@@ -20,7 +20,7 @@ faqs:
 related: [heart-risk-assessment, diabetes-and-prediabetes, high-cholesterol, care-for-older-adults]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - You are over 40 and have not had a proper check in a few years.
 - You want a baseline before a milestone: new job, marriage, insurance, travel.

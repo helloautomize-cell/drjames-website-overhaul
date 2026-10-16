@@ -20,7 +20,7 @@ faqs:
 related: [high-cholesterol, weight-management, high-blood-pressure, kidney-problems, fatty-liver]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Your fasting sugar or HbA1c has come back high on a blood test.
 - A parent, brother or sister has diabetes and you want to be checked.

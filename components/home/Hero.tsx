@@ -5,6 +5,7 @@ import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { BookPill } from "@/components/site/BookPill";
 import { LiveStatus } from "@/components/site/LiveStatus";
+import { allConditions } from "@/lib/conditions";
 import type { BadgeName } from "@/lib/badge-glyphs";
 
 /** The eight body systems beside the portrait — each links to its condition page. */
@@ -57,7 +58,8 @@ export function Hero() {
           </h1>
           <p className="hxo-lead">
             Comprehensive internal medicine for long-term health. Diabetes, heart and kidney risk,
-            lungs and complex adult conditions, looked after together by one senior specialist.
+            lungs, infections, inflammatory disorders and complex adult conditions, looked after
+            together by one senior specialist.
           </p>
           <div className="btnrow">
             <BookPill large />
@@ -159,8 +161,8 @@ export function Hero() {
             <span>Diabetes training: PG Diploma, Cardiff University, and MSc</span>
           </div>
           <div>
-            <b>18</b>
-            <span>conditions looked after, together under one physician</span>
+            <b>{allConditions.length}</b>
+            <span>conditions looked after, together under one internist</span>
           </div>
         </div>
       </div>

@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { isDraftPost, type PostMeta } from "@/lib/content";
+import { isPublished, type PostMeta } from "@/lib/content";
 import { fmtDate, guideUrl, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 
 /** Compact guide card: 4:3 cover, topic caps, serif heading, review meta. */
 export function GuideCard({ post }: { post: PostMeta }) {
   const topic = topicOf(post);
-  const reviewed = fmtDate(post.lastReviewed);
+  const reviewed = isPublished(post) ? fmtDate(post.reviewedOn) : null;
   return (
     <Link className="gd-card" href={guideUrl(post.slug)}>
       <span className="gd-card-img">
         <GuideCover post={post} sizes="(max-width: 700px) 90vw, 340px" />
-        {isDraftPost(post) && <span className="draft-chip">Draft</span>}
+        {!isPublished(post) && <span className="draft-chip">Draft</span>}
       </span>
       <span className="gd-card-body">
         <span className="gd-card-topic">{topic.label}</span>

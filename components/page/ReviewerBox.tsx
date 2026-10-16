@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site-config";
-import { Confirm } from "@/components/Confirm";
+import { fmtDateLong } from "@/lib/library";
 
 /**
  * Medical reviewer box required on every medical page (section 6.3).
- * The last-reviewed date stays [CONFIRM] until the doctor signs off.
+ * The "Last reviewed" line renders only once the doctor has signed off.
  */
-export function ReviewerBox({ lastReviewed }: { lastReviewed: string }) {
-  const confirm = lastReviewed.includes("[CONFIRM]");
+export function ReviewerBox({ lastReviewed }: { lastReviewed: string | null }) {
+  const reviewed = fmtDateLong(lastReviewed);
   return (
     <div className="revbox">
       <Image
@@ -23,8 +23,12 @@ export function ReviewerBox({ lastReviewed }: { lastReviewed: string }) {
           {site.title}, {site.hospital}
         </small>
         <small>
-          Last reviewed{" "}
-          {confirm ? <Confirm>{lastReviewed}</Confirm> : <span className="num">{lastReviewed}</span>} ·{" "}
+          {reviewed ? (
+            <>
+              Last reviewed <span className="num">{reviewed}</span>
+              {" · "}
+            </>
+          ) : null}
           <Link className="link" href="/editorial-policy/">
             Editorial and medical review policy
           </Link>

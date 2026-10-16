@@ -7,7 +7,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "What are the consultation hours?",
-    a: "Saturday to Thursday, 8:30 am to 9 pm, with the clinic closed on Fridays. These times are being confirmed with the practice, so please check when you book. Public holiday timings may differ.",
+    a: "Saturday to Thursday, 9 am to 1 pm and 5 to 9 pm, with the clinic closed on Fridays. Consultations are by appointment. Public holiday timings may differ.",
   },
   {
     q: "Do I need a referral to see Dr. James?",

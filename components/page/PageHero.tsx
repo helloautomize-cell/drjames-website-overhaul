@@ -6,7 +6,7 @@ import { site } from "@/lib/site-config";
 import { Icon, type IconName } from "@/lib/icons";
 import { Badge } from "@/components/Badge";
 import type { BadgeName } from "@/lib/badge-glyphs";
-import { Confirm } from "@/components/Confirm";
+import { fmtDateLong } from "@/lib/library";
 import Image from "next/image";
 
 /**
@@ -35,8 +35,8 @@ export function PageHero({
   meta?: ReactNode;
   /** Neutral booking reason to prefill when visitors tap Book. */
   reason?: Parameters<typeof bookingUrl>[0];
-  /** Condition pages: shows the reviewed-by line under the buttons. */
-  reviewed?: { lastReviewed: string };
+  /** Condition pages: reviewer line; the "Last reviewed" date shows only when set. */
+  reviewed?: { lastReviewed: string | null };
 }) {
   return (
     <div className={`pg-hero${img ? " has-img" : ""}`}>
@@ -68,11 +68,9 @@ export function PageHero({
           <p className="pg-rev">
             <Image src="/images/doctor/d04-headshot-160sq.jpg" alt="" width={28} height={28} />
             <span>Reviewed by {site.name}, Specialist Internist</span>
-            {reviewed.lastReviewed.includes("[CONFIRM]") ? (
-              <Confirm>{reviewed.lastReviewed}</Confirm>
-            ) : (
-              <span className="num">{reviewed.lastReviewed}</span>
-            )}
+            {fmtDateLong(reviewed.lastReviewed) ? (
+              <span className="num">Last reviewed {fmtDateLong(reviewed.lastReviewed)}</span>
+            ) : null}
           </p>
         ) : null}
       </div>

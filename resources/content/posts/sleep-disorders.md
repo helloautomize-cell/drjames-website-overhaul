@@ -5,6 +5,9 @@ description: "Snoring, insomnia and sleep apnea explained by Dr. James. Why poor
 heading: "Understanding sleep disorders and what they do to your health"
 standfirst: "Snoring, insomnia and broken sleep are not just a nuisance: poor sleep quietly raises blood pressure and sugar. What the common sleep disorders look like and when to get assessed."
 topic: lungs-sleep-infections
+status: draft-for-doctor-review
+reviewedBy: null
+reviewedOn: null
 date: "draft"
 updated: null
 lastReviewed: "[CONFIRM]"

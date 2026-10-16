@@ -20,7 +20,7 @@ faqs:
 related: [asthma-and-breathing, digestive-problems, fevers-and-infections, chest-infections-and-pneumonia]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Repeated sneezing, itchy eyes or a blocked nose that comes in a pattern.
 - Hives, itching or rashes that keep returning.

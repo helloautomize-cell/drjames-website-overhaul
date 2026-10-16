@@ -10,7 +10,7 @@ import { GuideCover } from "@/components/page/GuideCover";
 import { GuideCard } from "@/components/page/GuideCard";
 import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
-import { isDraftPost, publishedPostMeta, type PostMeta } from "@/lib/content";
+import { isPublished, publishedPostMeta, type PostMeta } from "@/lib/content";
 import { conditionGroups } from "@/lib/conditions";
 import { featuredPost, fmtDate, guideUrl, sortNewest, topicOf } from "@/lib/library";
 import { site } from "@/lib/site-config";
@@ -43,7 +43,7 @@ const crumbs = [{ label: "Home", href: "/" }, { label: "Health Library" }];
 
 /** "New" when the guide was published within the last 30 days. */
 const isNew = (p: PostMeta) =>
-  !isDraftPost(p) && Date.now() - new Date(`${p.date}T00:00:00Z`).getTime() < 30 * 86400000;
+  isPublished(p) && Date.now() - new Date(`${p.date}T00:00:00Z`).getTime() < 30 * 86400000;
 
 export default function LibraryPage() {
   const posts = publishedPostMeta();
@@ -51,7 +51,7 @@ export default function LibraryPage() {
   const feat = featuredPost(posts);
   const rows = sorted.filter((p) => p.slug !== feat?.slug);
   const featuredTopic = feat ? topicOf(feat) : null;
-  const featuredReviewed = feat ? fmtDate(feat.lastReviewed) : null;
+  const featuredReviewed = feat && isPublished(feat) ? fmtDate(feat.reviewedOn) : null;
   // Topic shelves only earn their place with a real catalogue (spec 3.5).
   const shelves =
     posts.length >= 8
@@ -109,7 +109,7 @@ export default function LibraryPage() {
         <section className="hl-feat container" aria-label="Featured guide">
           <Link className="hl-feat-img" href={guideUrl(feat.slug)} tabIndex={-1} aria-hidden="true">
             <GuideCover post={feat} sizes="(max-width: 900px) 100vw, 660px" priority />
-            {isDraftPost(feat) && <span className="draft-chip">Draft</span>}
+            {!isPublished(feat) && <span className="draft-chip">Draft</span>}
           </Link>
           <div className="hl-feat-txt">
             <span className="hl-feat-top">
@@ -149,8 +149,7 @@ export default function LibraryPage() {
         <section className="container hl-all" aria-labelledby="hl-all-h">
           <h2 id="hl-all-h">All guides</h2>
           <p className="sec-sub">
-            New guides are being written and reviewed — check back soon, or ask Dr. James at
-            your next visit.
+            New guides are being written and reviewed by Dr. James. Check back soon.
           </p>
         </section>
       )}

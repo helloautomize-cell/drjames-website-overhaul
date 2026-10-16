@@ -107,7 +107,7 @@ export default function VisitPage() {
                 <div>
                   <dt>When</dt>
                   <dd>
-                    {site.hoursShort} <Confirm>[CONFIRM: hours]</Confirm>
+                    {site.hoursShort}
                     <small>By appointment only</small>
                   </dd>
                 </div>
@@ -215,10 +215,9 @@ export default function VisitPage() {
           id="bring"
           aria-labelledby="yv-bring-h"
         >
-          <h2 id="yv-bring-h">What to bring</h2>
-          <p className="ab-sub">
-            Everything to have with you for a smooth first visit.
-          </p>
+          <h2 id="yv-bring-h" className="sr-only">
+            What to bring
+          </h2>
           <VisitChecklist />
           <p className="print-addr">
             {site.address.hospital}, {site.address.street}, {site.address.city},{" "}

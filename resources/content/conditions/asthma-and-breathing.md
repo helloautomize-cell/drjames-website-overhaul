@@ -21,7 +21,7 @@ related: [allergies, chest-infections-and-pneumonia, sleep-apnea, fevers-and-inf
 relatedPost: sleep-disorders
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - You wheeze, cough or feel chest tightness in episodes.
 - A cough has lasted more than three weeks.

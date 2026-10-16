@@ -20,7 +20,7 @@ faqs:
 related: [asthma-and-breathing, fevers-and-infections, allergies, care-for-older-adults]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A cough with phlegm, fever or chest discomfort lasting more than a few days.
 - Breathlessness, wheeze, or chest pain when breathing.

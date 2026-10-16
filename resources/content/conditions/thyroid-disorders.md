@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, weight-management, high-cholesterol, anaemia, preventive-check-ups]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A blood test showed abnormal TSH, T3 or T4.
 - You feel tired, cold, constipated, or are gaining weight without reason.

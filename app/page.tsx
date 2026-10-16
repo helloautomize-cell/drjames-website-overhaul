@@ -27,7 +27,7 @@ import {
 } from "@/lib/seo";
 export const metadata: Metadata = pageMeta(
   `${site.name} · ${site.title} in Muscat`,
-  "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Muscat. Diabetes, blood pressure, heart risk, lungs, kidneys and liver, looked after together by one senior physician.",
+  "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Muscat. Diabetes, heart and kidney risk, lungs, infections, inflammatory disorders and complex adult conditions, looked after together by one senior specialist.",
   "/",
 );
 
