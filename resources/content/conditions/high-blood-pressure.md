@@ -20,7 +20,7 @@ faqs:
 related: [heart-risk-assessment, diabetes-and-prediabetes, kidney-problems, sleep-apnea, weight-management]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Clinic or home readings are repeatedly above 140 over 90.
 - You take blood pressure medicine and want the dose or side effects reviewed.

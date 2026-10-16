@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, weight-management, high-cholesterol, digestive-problems, kidney-problems]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - An ultrasound report mentioned fatty liver or increased liver echogenicity.
 - Liver enzymes (ALT, AST, GGT) came back raised on a blood test.

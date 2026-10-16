@@ -4950,7 +4950,7 @@ main > .sec:not(.x-night) {
   background: var(--gold);
   margin-bottom: 16px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul {
+.prose h2#who-should-see-an-internist-about-this + ul {
   list-style: none;
   gap: 0;
   padding: 8px 24px;
@@ -4958,14 +4958,14 @@ main > .sec:not(.x-night) {
   border: 1px solid var(--line);
   border-radius: 20px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul li {
+.prose h2#who-should-see-an-internist-about-this + ul li {
   position: relative;
   padding: 14px 0 14px 22px;
 }
-.prose h2#who-should-see-a-physician-about-this + ul li + li {
+.prose h2#who-should-see-an-internist-about-this + ul li + li {
   border-top: 1px solid var(--line);
 }
-.prose h2#who-should-see-a-physician-about-this + ul li::before {
+.prose h2#who-should-see-an-internist-about-this + ul li::before {
   content: "";
   position: absolute;
   left: 0;

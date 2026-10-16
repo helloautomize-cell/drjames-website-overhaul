@@ -20,7 +20,7 @@ faqs:
 related: [chest-infections-and-pneumonia, allergies, asthma-and-breathing, digestive-problems]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Fever lasting more than two to three days, or repeatedly returning.
 - Fever with rash, stiff neck, breathlessness, confusion or severe headache.

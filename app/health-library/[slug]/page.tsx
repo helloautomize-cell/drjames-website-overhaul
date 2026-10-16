@@ -207,7 +207,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {doc.localSection && main && (
               <section className="gd-block gd-local" aria-labelledby="gd-local-h">
-                <h2 id="gd-local-h">{topic.label} in Muscat: when to see a physician</h2>
+                <h2 id="gd-local-h">{topic.label} in Muscat: when to see an internist</h2>
                 <p>
                   Dr. James sees adults with {main.title.toLowerCase()} at {site.hospital}, Al
                   Ghubrah, by appointment.

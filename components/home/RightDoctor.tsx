@@ -110,7 +110,7 @@ export function RightDoctor() {
       <div className="container">
         <div className="fit">
           <div className="fit-side">
-            <span className="eyebrow">The physician who connects it all</span>
+            <span className="eyebrow">The diagnostician who connects it all</span>
             <h2 id="rd-h">
               When several conditions <em className="acc">overlap</em>.
             </h2>

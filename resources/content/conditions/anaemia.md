@@ -20,7 +20,7 @@ faqs:
 related: [thyroid-disorders, digestive-problems, kidney-problems, preventive-check-ups, care-for-older-adults]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A blood test showed low haemoglobin or low ferritin (iron stores).
 - Persistent tiredness, breathlessness on effort, dizziness or pale appearance.

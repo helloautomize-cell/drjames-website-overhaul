@@ -92,7 +92,7 @@ export const conditionGroups: ConditionGroup[] = [
     id: "lungs-sleep-infections",
     label: "Lungs, sleep and infections",
     intro:
-      "Breathing problems, chest infections, fevers and sleep, assessed and treated by a physician.",
+      "Breathing problems, chest infections, fevers and sleep, assessed and treated by an internist.",
     icon: "lungs",
     blobVariant: 2,
     conditions: [

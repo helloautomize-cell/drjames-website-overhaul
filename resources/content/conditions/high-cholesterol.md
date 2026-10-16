@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, heart-risk-assessment, high-blood-pressure, weight-management, fatty-liver]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - A blood test showed high cholesterol or high triglycerides.
 - A close family member had a heart attack or stroke, especially before age 60.

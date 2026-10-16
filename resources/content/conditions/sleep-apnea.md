@@ -21,7 +21,7 @@ related: [weight-management, high-blood-pressure, diabetes-and-prediabetes, hear
 relatedPost: sleep-disorders
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Loud snoring most nights, especially with witnessed pauses in breathing.
 - Waking unrefreshed, with headaches, or falling asleep during the day.

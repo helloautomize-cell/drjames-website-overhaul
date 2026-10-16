@@ -3,7 +3,7 @@ kind: condition
 title: "Digestive problems and gut health in Muscat"
 description: "Acidity, bloating, reflux and bowel changes assessed by Dr. James in Muscat. Most gut problems are manageable once the real cause is named."
 heading: "Digestive problems"
-intro: "Acidity, bloating and bowel changes are among the most common reasons people see a physician, and among the most mismanaged by self-treatment. Dr. James finds the pattern first, because the same symptom can mean very different things."
+intro: "Acidity, bloating and bowel changes are among the most common reasons people see a doctor, and among the most mismanaged by self-treatment. Dr. James finds the pattern first, because the same symptom can mean very different things."
 badge: digestion
 emergency: true
 faqs:
@@ -21,7 +21,7 @@ related: [fatty-liver, allergies, fevers-and-infections, preventive-check-ups]
 relatedPost: common-digestive-problems
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Acidity or heartburn most days, or needing antacids regularly.
 - Bloating, cramps or bowel changes lasting more than a few weeks.

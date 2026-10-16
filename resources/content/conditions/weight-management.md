@@ -20,7 +20,7 @@ faqs:
 related: [diabetes-and-prediabetes, thyroid-disorders, fatty-liver, high-cholesterol, joint-pain-and-arthritis]
 ---
 
-## Who should see a physician about this
+## Who should see an internist about this
 
 - Your weight keeps rising despite your efforts, or returns after every diet.
 - You want to know whether a thyroid, medicine or hormone problem is involved.
