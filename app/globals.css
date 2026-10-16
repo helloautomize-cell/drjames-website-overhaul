@@ -7816,53 +7816,51 @@ main > .sec:not(.x-night) {
     grid-template-columns: 1fr;
   }
 }
-/* orbit system */
+/* clinical plate + tile dock — no circles, nothing rotates */
 .sys {
   position: relative;
   width: min(560px, 100%);
   aspect-ratio: 1;
   margin: 0 auto;
   container-type: inline-size;
-  --orb: clamp(38px, 12cqw, 62px);
 }
-.sys .glow {
+.sys-stage {
+  display: contents;
+}
+.plate {
   position: absolute;
-  inset: 14%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(127, 191, 179, 0.35), rgba(127, 191, 179, 0) 68%);
-  animation: sys-breathe 7s ease-in-out infinite;
+  left: 9%;
+  right: 21%;
+  top: 19%;
+  bottom: 0;
+  z-index: 0;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, rgba(124, 192, 188, 0.2), rgba(124, 192, 188, 0.07) 55%, rgba(10, 28, 46, 0));
+  border: 1px solid rgba(243, 245, 241, 0.13);
+  border-bottom: 0;
+  -webkit-mask-image: linear-gradient(#000 78%, transparent);
+  mask-image: linear-gradient(#000 78%, transparent);
 }
-@keyframes sys-breathe {
-  50% {
-    transform: scale(1.06);
-    opacity: 0.8;
-  }
-}
-.sys svg.rings {
+/* gold hairline just inside the plate's top edge */
+.plate::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.sys .rot {
-  transform-origin: 50% 50%;
-  animation: badge-spin 120s linear infinite;
-}
-.sys .rot.rev {
-  animation-direction: reverse;
-  animation-duration: 80s;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(194, 154, 91, 0));
 }
 .core {
   position: absolute;
   z-index: 2;
   pointer-events: none;
-  left: 50%;
+  left: 44%;
   bottom: 0;
-  height: 80%;
+  height: 84%;
   transform: translateX(-53.7%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 82%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0, #000 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 80%, transparent 100%);
 }
 .core .core-img {
   height: 100%;
@@ -7880,80 +7878,74 @@ main > .sec:not(.x-night) {
   pointer-events: none;
   visibility: hidden;
 }
-.orbring {
+.dock {
   position: absolute;
-  inset: 0;
+  right: 13.5%;
+  top: 26%;
   z-index: 3;
-  animation: badge-spin 110s linear infinite;
+  display: grid;
+  gap: 8px;
 }
-.orb {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--orb);
-  height: var(--orb);
-  margin: calc(var(--orb) / -2) 0 0 calc(var(--orb) / -2);
-  transform: rotate(var(--a)) translateY(-44cqw) rotate(calc(var(--a) * -1));
-}
-.orb > a {
-  display: block;
+.tile {
+  height: 46px;
+  min-width: 46px;
+  justify-self: end;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 10px;
   position: relative;
-  animation: badge-spin 110s linear infinite reverse;
-  text-decoration: none;
-}
-.orb .bcoin {
-  width: var(--orb);
-  height: var(--orb);
-}
-.orb .bcoin svg {
-  width: calc(var(--orb) * 0.52);
-  height: calc(var(--orb) * 0.52);
-}
-.orb .bcoin .orbit {
-  inset: -4px;
-}
-.orb .bcoin .orbit::after {
-  top: -2.5px;
-  width: 5px;
-  height: 5px;
-  margin-left: -2.5px;
-}
-.orb .lb {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, 4px);
-  white-space: nowrap;
-  font: 600 12px var(--sans);
-  color: var(--on-navy);
-  background: rgba(15, 30, 48, 0.92);
-  border: 1px solid var(--navy-line);
-  padding: 5px 10px;
-  border-radius: var(--r-pill);
-  opacity: 0;
+  background: linear-gradient(180deg, #123049, #0d2337);
+  border: 1px solid rgba(124, 192, 188, 0.22);
   transition:
-    opacity 0.25s,
-    transform 0.25s;
-  pointer-events: none;
+    border-color 0.2s,
+    transform 0.2s;
 }
-.orb a:hover .lb,
-.orb a:focus-visible .lb {
-  opacity: 1;
-  transform: translate(-50%, 10px);
+.tile img {
+  width: 26px;
+  height: 26px;
+  flex: none;
 }
-.orb a:hover .coin,
-.orb a:focus-visible .coin {
-  animation: badge-coin 0.9s var(--ease);
+.tile::before {
+  content: attr(data-l);
+  white-space: normal;
+  font: 500 11.5px/1.25 var(--sans);
+  color: var(--pearl);
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-width 0.28s var(--ease),
+    opacity 0.2s,
+    margin-right 0.28s var(--ease);
 }
-.orb a:hover .coin::after,
-.orb a:focus-visible .coin::after {
-  animation: badge-sheen 1s 0.2s var(--ease);
+@media (hover: hover) and (min-width: 1180px) {
+  .tile:hover::before,
+  .tile:focus-visible::before {
+    max-width: 96px;
+    opacity: 1;
+    margin-right: 8px;
+  }
 }
-.sys:hover .orbring,
-.sys:hover .orb > a,
-.sys:focus-within .orbring,
-.sys:focus-within .orb > a {
-  animation-play-state: paused;
+.tile:hover,
+.tile:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.tile:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.dock-cap {
+  position: absolute;
+  right: 3%;
+  top: 26%;
+  writing-mode: vertical-rl;
+  font: 600 10px/1 var(--sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 .flt {
   position: absolute;
@@ -7988,52 +7980,29 @@ main > .sec:not(.x-night) {
   place-items: center;
   flex: none;
 }
-.flt.f1 {
-  left: -9%;
-  bottom: 9%;
-}
 .flt.f2 {
-  right: -8%;
-  top: 3%;
+  top: 4%;
+  left: -6%;
+  right: auto;
   animation-delay: -3.5s;
+}
+.flt.f1 {
+  bottom: 16%;
+  left: -11%;
+  top: auto;
 }
 @keyframes flt-bob {
   50% {
     transform: translateY(-8px);
   }
 }
-/* single standing chip over the faded coat — only while the cards are hidden */
+/* single standing chip over the coat — shown below 960px, when the cards hide */
 .mchip {
   display: none;
 }
 @media (max-width: 600px) {
-  .flt {
-    display: none;
-  }
   .live-chip .lc-sub {
     display: none;
-  }
-  .mchip {
-    position: absolute;
-    z-index: 4;
-    left: 50%;
-    bottom: 6%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font: 600 13px/1 var(--sans);
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.94);
-    border-radius: var(--r-pill);
-    padding: 8px 14px;
-    max-width: 90%;
-    white-space: nowrap;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
-  }
-  .mchip svg {
-    flex: none;
-    color: var(--teal);
   }
 }
 /* the dock already offers Book whenever it is on screen — never show it twice */
@@ -8050,11 +8019,18 @@ main > .sec:not(.x-night) {
   }
 }
 @media (max-width: 1100px) {
-  .flt.f1 {
-    left: 0;
-  }
+  .flt.f1,
   .flt.f2 {
-    right: 0;
+    left: 0;
+    right: auto;
+  }
+}
+@media (min-width: 1180px) {
+  /* push the lower credential card clear of the coat sleeve at wide widths:
+     left -14% per spec, and it sits just below the sleeve's mask-fade line */
+  .flt.f1 {
+    left: -14%;
+    bottom: 2%;
   }
 }
 .band {
@@ -8139,7 +8115,77 @@ main > .sec:not(.x-night) {
   }
   .hxo .sys {
     order: 4;
-    width: min(70vw, 460px);
+    width: min(66vw, 460px);
+    aspect-ratio: auto;
+  }
+  /* plate + portrait in a square stage; the tile dock flows below it */
+  .sys-stage {
+    display: block;
+    position: relative;
+    aspect-ratio: 1 / 1.02;
+  }
+  .plate {
+    left: 7%;
+    right: 7%;
+    top: 17%;
+  }
+  .core {
+    left: 50%;
+    height: 86%;
+  }
+  .dock-cap {
+    display: none;
+  }
+  .flt {
+    display: none;
+  }
+  .mchip {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 600 13px/1 var(--sans);
+    color: var(--ink);
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: var(--r-pill);
+    padding: 8px 14px;
+    max-width: 90%;
+    white-space: nowrap;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
+  .mchip svg {
+    flex: none;
+    color: var(--teal);
+  }
+  .dock {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(194, 154, 91, 0.5);
+  }
+  .tile {
+    min-width: 0;
+    width: auto;
+    height: auto;
+    aspect-ratio: 1;
+    justify-self: stretch;
+    justify-content: center;
+    padding: 0;
+    border-radius: 9px;
+  }
+  .tile img {
+    width: 62%;
+    height: 62%;
+  }
+  .tile::before {
+    display: none;
   }
   .hxo .hxo-lead {
     order: 5;
@@ -8159,14 +8205,11 @@ main > .sec:not(.x-night) {
 }
 @media (max-width: 759px) {
   .hxo .sys {
-    width: min(88vw, 360px);
+    width: min(78vw, 340px);
   }
   .hxo-h1 {
     font-size: clamp(34px, 10vw, 42px);
     line-height: 1.02;
-  }
-  .orb .lb {
-    display: none;
   }
 }
 /* ---------- CONDITIONS — badge card grid ---------- */
@@ -9611,12 +9654,12 @@ main > .sec:not(.x-night) {
     transform: none;
     animation: none;
   }
-  .sys .glow,
-  .sys .rot,
-  .sys .orbring,
-  .sys .orb > a,
   .flt {
     animation: none;
+  }
+  .tile:hover,
+  .tile:focus-visible {
+    transform: none;
   }
   .cond-grid > *,
   .pc {
