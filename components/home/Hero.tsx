@@ -5,11 +5,10 @@ import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { BookPill } from "@/components/site/BookPill";
 import { LiveStatus } from "@/components/site/LiveStatus";
-import { Badge } from "@/components/Badge";
 import type { BadgeName } from "@/lib/badge-glyphs";
 
-/** The eight body systems orbiting the portrait — each links to its condition page. */
-const ORBITS: { name: BadgeName; label: string; href: string }[] = [
+/** The eight body systems beside the portrait — each links to its condition page. */
+const SYSTEMS: { name: BadgeName; label: string; href: string }[] = [
   { name: "blood-sugar", label: "Blood sugar", href: "/conditions/diabetes-and-prediabetes/" },
   { name: "heart-bp", label: "Heart and blood pressure", href: "/conditions/high-blood-pressure/" },
   { name: "kidneys", label: "Kidneys", href: "/conditions/kidney-problems/" },
@@ -31,9 +30,10 @@ const words = ["A", "physician", "who", "sees", "the"];
 const accWords = ["whole", "picture."];
 
 /**
- * Navy orbit hero: headline rises word by word, the eight body systems orbit
- * the cut-out portrait, credentials sit in a glass band below. CSS: .hxo/.sys
- * in app/v2.css. Static under reduced motion.
+ * Navy hero: headline rises word by word, the cut-out portrait stands in front
+ * of a softly lit plate with the eight body systems in a dock on its edge, and
+ * credentials sit in a glass band below. CSS: .hxo/.sys in app/globals.css.
+ * Static under reduced motion.
  */
 export function Hero() {
   const w = (word: string, i: number) => (
@@ -79,46 +79,41 @@ export function Hero() {
         </div>
 
         <div className="sys" role="group" aria-label="The eight body systems Dr. James looks after">
-          <i className="glow" aria-hidden="true" />
-          <svg className="rings" viewBox="0 0 100 100" aria-hidden="true">
-            <defs>
-              <linearGradient id="hxo-rg" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stopColor="#C9A66B" />
-                <stop offset="1" stopColor="#7FBFB3" />
-              </linearGradient>
-            </defs>
-            <g className="rot">
-              <circle cx="50" cy="50" r="44" fill="none" stroke="url(#hxo-rg)" strokeWidth=".25" strokeDasharray=".6 1.6" opacity=".9" />
-            </g>
-            <g className="rot rev">
-              <circle cx="50" cy="50" r="49" fill="none" stroke="rgba(201,166,107,.22)" strokeWidth=".2" />
-              <circle cx="50" cy="1" r=".9" fill="#C9A66B" />
-            </g>
-            <circle cx="50" cy="50" r="37" fill="none" stroke="rgba(127,191,179,.22)" strokeWidth=".2" />
-          </svg>
-          <div className="orbring" aria-hidden="false">
-            {ORBITS.map((o, n) => (
-              <div key={o.name} className="orb" style={{ ["--a" as string]: `${n * 45}deg` }}>
-                <Link href={o.href} aria-label={o.label}>
-                  <Badge name={o.name} />
-                  <span className="lb">{o.label}</span>
-                </Link>
-              </div>
+          <div className="sys-stage">
+            <div className="plate" aria-hidden="true" />
+            <div className="core">
+              <Image
+                src={heroCutout}
+                alt="Dr. James Kumar Pallivathukkal, Specialist Internist, in a white coat with arms crossed"
+                preload
+                fetchPriority="high"
+                quality={90}
+                sizes="(max-width: 600px) 58vw, 330px"
+                placeholder="empty"
+                className="core-img"
+              />
+              <div data-face-box aria-hidden="true" />
+            </div>
+            <div className="mchip">
+              <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 2 3 5v5c0 4 3 7 7 8 4-1 7-4 7-8V5Z" />
+                <path d="m7 10 2 2 4-4" />
+              </svg>
+              Head of Internal Medicine
+            </div>
+          </div>
+          <span className="dock-cap" aria-hidden="true">Systems he looks after</span>
+          <nav className="dock" aria-label="Body systems Dr. James looks after">
+            {SYSTEMS.map((s) => (
+              <Link key={s.name} className="tile" href={s.href} aria-label={s.label} data-l={s.label}>
+                <picture>
+                  <source srcSet={`/icons/badges/badge-${s.name}-128.webp`} type="image/webp" />
+                  {/* eslint-disable-next-line @next/next/no-img-element -- static PNG fallback, next/image adds nothing here */}
+                  <img src={`/icons/badges/badge-${s.name}-128.png`} alt="" width="26" height="26" />
+                </picture>
+              </Link>
             ))}
-          </div>
-          <div className="core">
-            <Image
-              src={heroCutout}
-              alt="Dr. James Kumar Pallivathukkal, Specialist Internist, in a white coat with arms crossed"
-              preload
-              fetchPriority="high"
-              quality={90}
-              sizes="(max-width: 600px) 58vw, 330px"
-              placeholder="empty"
-              className="core-img"
-            />
-            <div data-face-box aria-hidden="true" />
-          </div>
+          </nav>
           <div className="flt f2">
             <span className="ic">
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 20 20" aria-hidden="true">
@@ -142,13 +137,6 @@ export function Hero() {
               <b>UK-trained in diabetes</b>
               <span>PG Dip, Cardiff University · MSc</span>
             </div>
-          </div>
-          <div className="mchip">
-            <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M10 2 3 5v5c0 4 3 7 7 8 4-1 7-4 7-8V5Z" />
-              <path d="m7 10 2 2 4-4" />
-            </svg>
-            Head of Internal Medicine
           </div>
         </div>
       </div>
