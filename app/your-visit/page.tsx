@@ -107,7 +107,7 @@ export default function VisitPage() {
                 <div>
                   <dt>When</dt>
                   <dd>
-                    {site.hoursShort} <Confirm>[CONFIRM: hours]</Confirm>
+                    {site.hoursShort}
                     <small>By appointment only</small>
                   </dd>
                 </div>

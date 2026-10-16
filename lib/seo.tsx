@@ -50,6 +50,26 @@ const address = {
   addressCountry: "OM",
 };
 
+const DAY_NAMES = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+/** OpeningHoursSpecification entries derived from site.sessions. */
+const openingHours = Object.entries(site.sessions).flatMap(([d, ss]) =>
+  ss.map(([o, c]) => ({
+    "@type": "OpeningHoursSpecification" as const,
+    dayOfWeek: DAY_NAMES[Number(d)],
+    opens: `${String(o).padStart(2, "0")}:00`,
+    closes: `${String(c).padStart(2, "0")}:00`,
+  })),
+);
+
 export const physicianNode = {
   "@type": "Physician" as const,
   "@id": `${SITE_URL}/#dr-james`,
@@ -111,14 +131,7 @@ export const physicianNode = {
     url: `${SITE_URL}/contact/`,
     availableLanguage: site.languages,
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-      opens: "08:30",
-      closes: "21:00",
-    },
-  ],
+  openingHoursSpecification: openingHours,
 };
 
 export const hospitalNode = {
@@ -129,14 +142,7 @@ export const hospitalNode = {
   telephone: site.phoneDisplay.replace(/\s/g, ""),
   url: `${SITE_URL}${site.profileUrl}`,
   hasMap: site.mapsUrl,
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-      opens: "08:30",
-      closes: "21:00",
-    },
-  ],
+  openingHoursSpecification: openingHours,
 };
 
 /** The Internal Medicine clinic Dr. James runs inside the hospital. */
@@ -151,14 +157,7 @@ export const medicalClinicNode = {
   image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
   isPartOf: { "@id": `${SITE_URL}/#hospital` },
   employee: { "@id": `${SITE_URL}/#dr-james` },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-      opens: "08:30",
-      closes: "21:00",
-    },
-  ],
+  openingHoursSpecification: openingHours,
 };
 
 export const websiteNode = {

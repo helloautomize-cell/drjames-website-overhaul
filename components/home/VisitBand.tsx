@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import { site } from "@/lib/site-config";
 import { Confirm } from "@/components/Confirm";
 import { LiveStatus } from "@/components/site/LiveStatus";
@@ -48,10 +48,12 @@ export function VisitBand() {
               <div>
                 <b>Hours</b>
                 <div className="hours">
-                  <span>Sat – Thu</span>
-                  <span>8:30 am – 9 pm</span>
-                  <span>Friday</span>
-                  <span className="off">Closed</span>
+                  {site.hoursRows.map((r) => (
+                    <Fragment key={r.days}>
+                      <span>{r.days}</span>
+                      <span className={r.closed ? "off" : undefined}>{r.times}</span>
+                    </Fragment>
+                  ))}
                 </div>
                 <LiveStatus className="x-status vb-live" />
               </div>
