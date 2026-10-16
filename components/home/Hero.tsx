@@ -58,7 +58,8 @@ export function Hero() {
           </h1>
           <p className="hxo-lead">
             Comprehensive internal medicine for long-term health. Diabetes, heart and kidney risk,
-            lungs and complex adult conditions, looked after together by one senior specialist.
+            lungs, infections, inflammatory disorders and complex adult conditions, looked after
+            together by one senior specialist.
           </p>
           <div className="btnrow">
             <BookPill large />
