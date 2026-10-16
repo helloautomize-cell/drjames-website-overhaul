@@ -3,7 +3,6 @@ import Image from "next/image";
 import { PageHero } from "@/components/page/PageHero";
 import { BookingForm } from "@/components/BookingForm";
 import { MapLoader } from "@/components/MapLoader";
-import { Confirm } from "@/components/Confirm";
 import { site } from "@/lib/site-config";
 import { reasonFromParam } from "@/lib/booking-context";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -58,9 +57,11 @@ export default async function ContactPage({
         }}
         intro={
           <>
-            Request a visit with the form below, or reach us faster on WhatsApp and{" "}
-            {site.phoneDisplay}. Requests are answered within{" "}
-            <Confirm>[CONFIRM: reply time]</Confirm>.
+            Fill in the short form below to book your consultation, or message us on{" "}
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>{" "}
+            or call <a href={site.phoneTel}>{site.phoneDisplay}</a>.
           </>
         }
       />
@@ -71,7 +72,7 @@ export default async function ContactPage({
               <h2>Request an appointment</h2>
               <p className="sec-sub">
                 Tell us the basics and we will confirm your slot by WhatsApp or phone. No
-                account needed, and please do not include medical details in the form.
+                account needed. Please don&rsquo;t include medical details in the form.
               </p>
               <BookingForm defaultReason={reason} sourcePage={sourcePage} />
             </section>
