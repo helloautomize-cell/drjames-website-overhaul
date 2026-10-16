@@ -5,7 +5,10 @@ description: "The warning signs of heart disease, explained in plain words by Dr
 heading: "Heart disease warning signs you should not ignore"
 standfirst: "The heart rarely fails without warning, but its warnings are usually quiet. The signs worth taking seriously, the ones easy to miss, and the ones that mean get emergency care now."
 topic: heart-blood-pressure
-date: "draft"
+status: draft-for-doctor-review
+reviewedBy: null
+reviewedOn: null
+ "draft"
 updated: null
 lastReviewed: "[CONFIRM]"
 featured: true

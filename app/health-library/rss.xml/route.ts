@@ -1,4 +1,4 @@
-import { isDraftPost, publishedPostMeta } from "@/lib/content";
+import { isPublished, publishedPostMeta } from "@/lib/content";
 import { guideAbsUrl, sortNewest, topicOf } from "@/lib/library";
 import { site } from "@/lib/site-config";
 import { SITE_URL } from "@/lib/seo";
@@ -13,7 +13,7 @@ const esc = (s: string) =>
 /** RSS 2.0 feed: the newest 30 published guides (drafts never appear). */
 export function GET() {
   const items = sortNewest(publishedPostMeta())
-    .filter((p) => !isDraftPost(p))
+    .filter((p) => isPublished(p))
     .slice(0, 30);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

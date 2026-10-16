@@ -5,7 +5,10 @@ description: "Acidity, bloating, reflux and IBS explained by Dr. James. Which gu
 heading: "Common digestive problems and how to look after your gut"
 standfirst: "Acidity, bloating and irregular bowels are among the most common gut complaints. The usual patterns, the warning signs that always need assessment, and what actually helps day to day."
 topic: kidney-liver-gut
-date: "draft"
+status: draft-for-doctor-review
+reviewedBy: null
+reviewedOn: null
+ "draft"
 updated: null
 lastReviewed: "[CONFIRM]"
 image: null

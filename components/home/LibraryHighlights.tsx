@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isDraftPost, publishedPostMeta } from "@/lib/content";
+import { isDraftPost, isPublished, publishedPostMeta } from "@/lib/content";
 import { dateMark, featuredPost, guideUrl, sortNewest, topicOf } from "@/lib/library";
 import { GuideCover } from "@/components/page/GuideCover";
 import { Icon } from "@/lib/icons";
@@ -36,7 +36,7 @@ export function LibraryHighlights() {
           <Link className="hl-home-feat" href={guideUrl(feat.slug)}>
             <span className="hl-home-img">
               <GuideCover post={feat} sizes="(max-width: 900px) 100vw, 620px" />
-              {isDraftPost(feat) && <span className="draft-chip">Draft</span>}
+              {!isPublished(feat) && <span className="draft-chip">Draft</span>}
             </span>
             <span className="hl-home-txt">
               <span className="hl-topic">{featTopic.label}</span>
@@ -53,7 +53,7 @@ export function LibraryHighlights() {
                   <span className="hl-meta-top">
                     {m ? `${m.day} ${m.my} · ` : ""}
                     <span className="hl-topic">{t.label}</span>
-                    {isDraftPost(p) && <span className="draft-chip">Draft</span>}
+                    {!isPublished(p) && <span className="draft-chip">Draft</span>}
                   </span>
                   <b>{p.heading}</b>
                   <span className="hl-item-meta">{p.readingMinutes} min read</span>

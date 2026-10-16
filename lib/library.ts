@@ -20,6 +20,17 @@ export function fmtDate(iso: string | null | undefined): string | null {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 }
 
+/** "16 October 2026" from an ISO date — the long review-date format. */
+export function fmtDateLong(iso: string | null | undefined): string | null {
+  if (!iso || iso === "draft" || iso.includes("[CONFIRM")) return null;
+  const d = new Date(`${iso}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+}
+
+/** Bar shown on every draft guide in localhost/preview builds. */
+export const DRAFT_BAR = "Draft, not reviewed by Dr. James";
+
 /** Day / "OCT 2026" pair for the list date mark; null for drafts. */
 export function dateMark(iso: string): { day: string; my: string } | null {
   if (iso === "draft") return null;

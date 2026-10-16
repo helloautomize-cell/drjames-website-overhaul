@@ -13,6 +13,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { z } from "zod";
+import { site } from "./site-config";
 import { unified, type Plugin } from "unified";
 import remarkParse from "remark-parse";
 import remarkDirective from "remark-directive";
@@ -26,23 +27,56 @@ export const IS_PROD = process.env.VERCEL_ENV === "production";
 
 const faq = z.object({ q: z.string(), a: z.string() });
 
+const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected ISO date YYYY-MM-DD");
+
 const baseFrontmatter = z.object({
   title: z.string().max(60),
   description: z.string().max(155),
-  status: z.literal("draft-for-doctor-review").default("draft-for-doctor-review"),
+  status: z.enum(["draft-for-doctor-review", "published"]).default("draft-for-doctor-review"),
   lastReviewed: z.string().default("[CONFIRM]"),
+  /** Exact reviewer name once Dr. James has read and approved the page. */
+  reviewedBy: z.string().nullable().default(null),
+  /** ISO date of that review. */
+  reviewedOn: isoDate.nullable().default(null),
 });
 
-const conditionFrontmatter = baseFrontmatter.extend({
-  kind: z.literal("condition"),
-  heading: z.string(),
-  intro: z.string().min(40).max(400),
-  badge: z.string(),
-  emergency: z.boolean().default(false),
-  faqs: z.array(faq).min(4).max(6),
-  related: z.array(z.string()).min(1).max(6),
-  relatedPost: z.string().nullable().default(null),
-});
+/**
+ * The review gate (build-time): a "published" page must name Dr. James as
+ * reviewer and carry a review date, or the build fails naming the file.
+ */
+function reviewGate(
+  v: { status: string; reviewedBy: string | null; reviewedOn: string | null },
+  ctx: z.RefinementCtx,
+) {
+  if (v.status !== "published") return;
+  if (v.reviewedBy !== site.name) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["reviewedBy"],
+      message: `status "published" requires reviewedBy: "${site.name}"`,
+    });
+  }
+  if (!v.reviewedOn) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["reviewedOn"],
+      message: 'status "published" requires a reviewedOn ISO date',
+    });
+  }
+}
+
+const conditionFrontmatter = baseFrontmatter
+  .extend({
+    kind: z.literal("condition"),
+    heading: z.string(),
+    intro: z.string().min(40).max(400),
+    badge: z.string(),
+    emergency: z.boolean().default(false),
+    faqs: z.array(faq).min(4).max(6),
+    related: z.array(z.string()).min(1).max(6),
+    relatedPost: z.string().nullable().default(null),
+  })
+  .superRefine(reviewGate);
 
 /** The five condition groups a guide can belong to (see lib/conditions.ts). */
 export const TOPIC_IDS = [
@@ -53,8 +87,6 @@ export const TOPIC_IDS = [
   "whole-person",
 ] as const;
 export type TopicId = (typeof TOPIC_IDS)[number];
-
-const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected ISO date YYYY-MM-DD");
 
 const postFrontmatter = baseFrontmatter
   .extend({
@@ -90,6 +122,7 @@ const postFrontmatter = baseFrontmatter
     if (v.image && !v.imageAlt) {
       ctx.addIssue({ code: "custom", message: "imageAlt is required when image is set" });
     }
+    reviewGate(v, ctx);
   });
 
 const legalFrontmatter = baseFrontmatter.extend({
@@ -260,9 +293,22 @@ export function isDraftPost(p: { date: string }): boolean {
   return p.date > new Date().toISOString().slice(0, 10);
 }
 
+/**
+ * The review gate (runtime): a page is public only when it is published AND
+ * reviewed by Dr. James with a review date. Everything else is a draft —
+ * rendered on localhost and preview builds, 404 in production.
+ */
+export function isPublished(p: {
+  status: string;
+  reviewedBy: string | null;
+  reviewedOn: string | null;
+}): boolean {
+  return p.status === "published" && p.reviewedBy === site.name && p.reviewedOn != null;
+}
+
 /** Guides shown in listings, sitemap, RSS and static params. */
 export const publishedPostMeta = (): PostMeta[] =>
-  IS_PROD ? postMeta().filter((p) => !isDraftPost(p)) : postMeta();
+  IS_PROD ? postMeta().filter(isPublished) : postMeta();
 
 export const legalMeta = (): LegalMeta[] => files.legal().map((f) => meta(f, legalFrontmatter));
 export const legalDoc = (slug: string): Promise<LegalDoc | null> =>

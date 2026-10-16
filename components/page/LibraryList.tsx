@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isDraftPost, type PostMeta } from "@/lib/content";
+import { isDraftPost, isPublished, type PostMeta } from "@/lib/content";
 import { dateMark, fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 import { BookButton } from "@/components/BookButton";
@@ -19,7 +19,7 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
         {posts.map((p, i) => {
           const t = topicOf(p);
           const mark = dateMark(p.date);
-          const reviewed = fmtDate(p.lastReviewed);
+          const reviewed = isPublished(p) ? fmtDate(p.reviewedOn) : null;
           const extra = i >= PAGE;
           return (
             <Link

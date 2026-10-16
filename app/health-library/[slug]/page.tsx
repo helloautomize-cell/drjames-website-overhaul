@@ -16,13 +16,22 @@ import { FaqBlock } from "@/components/page/FaqBlock";
 import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
 import {
-  isDraftPost,
+  IS_PROD,
+  isPublished,
   postDoc,
   publishedPostMeta,
   withHeadingIds,
 } from "@/lib/content";
 import { allConditions, conditionUrl } from "@/lib/conditions";
-import { fmtDate, guideUrl, mainCondition, sortNewest, topicOf } from "@/lib/library";
+import {
+  DRAFT_BAR,
+  fmtDate,
+  fmtDateLong,
+  guideUrl,
+  mainCondition,
+  sortNewest,
+  topicOf,
+} from "@/lib/library";
 import { site } from "@/lib/site-config";
 import { SITE_URL } from "@/lib/seo";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -71,17 +80,17 @@ const domain = (url: string) => {
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const doc = await postDoc(slug);
-  if (!doc || (isDraftPost(doc) && process.env.VERCEL_ENV === "production")) notFound();
+  if (!doc || (!isPublished(doc) && IS_PROD)) notFound();
 
   const { html, headings } = withHeadingIds(doc.html);
   const url = guideUrl(slug);
   const absUrl = `${SITE_URL}${url}`;
   const topic = topicOf(doc);
   const main = mainCondition(doc);
-  const draft = isDraftPost(doc);
+  const draft = !isPublished(doc);
   const published = fmtDate(doc.date);
   const updated = fmtDate(doc.updated);
-  const reviewed = fmtDate(doc.lastReviewed);
+  const reviewed = fmtDateLong(doc.reviewedOn);
   const crumbs = [
     { label: "Home", href: "/" },
     { label: "Health Library", href: "/health-library/" },
@@ -104,7 +113,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           physicianNode,
           hospitalNode,
           medicalClinicNode,
-          medicalWebPageNode(url, doc.heading, undefined, doc.lastReviewed),
+          medicalWebPageNode(url, doc.heading, undefined, doc.reviewedOn ?? doc.lastReviewed),
           blogPostingNode({
             url,
             heading: doc.heading,
@@ -112,7 +121,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             image: doc.image ?? `${url}opengraph-image`,
             datePublished: doc.date,
             dateModified: doc.updated,
-            lastReviewed: doc.lastReviewed,
+            lastReviewed: doc.reviewedOn ?? doc.lastReviewed,
             ...(main
               ? {
                   about: medicalConditionNode(
@@ -129,6 +138,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       />
       <GuideProgress />
       <article>
+        {draft && (
+          <div className="gd-draftbar" role="status">
+            {DRAFT_BAR}
+          </div>
+        )}
         <header className="gd-head">
           <div className="container">
             <Breadcrumbs items={crumbs} />
@@ -154,7 +168,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                       ? `Published ${published}`
                       : null}
                   {updated || published ? " · " : ""}
-                  {reviewed ? `Reviewed ${reviewed} · ` : ""}
+                  {reviewed ? `Reviewed by ${site.name} on ${reviewed} · ` : ""}
                   {doc.readingMinutes} min read
                 </small>
               </span>
@@ -273,7 +287,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </section>
             )}
 
-            <ReviewerBox lastReviewed={doc.lastReviewed} />
+            <ReviewerBox lastReviewed={doc.reviewedOn ?? doc.lastReviewed} />
 
             {moreConditions.length > 0 && (
               <section className="gd-block gd-related" aria-labelledby="gd-related-h">
