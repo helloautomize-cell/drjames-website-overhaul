@@ -22,7 +22,7 @@ export function SiteFooter() {
         </p>
       </div>
       <div className="fcol">
-        <b>Conditions</b>
+        <b>Areas of Expertise</b>
         {footerNav.conditions.map((l) => (
           <a key={l.label} href={l.href}>
             {l.label}

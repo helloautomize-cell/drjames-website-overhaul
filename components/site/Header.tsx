@@ -186,7 +186,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                 aria-current={here(site.conditionsUrl)}
                 onClick={() => (curtain ? closeNow() : setCurtain(true))}
               >
-                Conditions
+                Areas of Expertise
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
                   <path d="m6 9 6 6 6-6" />
                 </svg>
@@ -195,7 +195,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                 id="x-curtain"
                 className={`x-curtain${curtain ? " x-open" : ""}`}
                 role="region"
-                aria-label="Conditions menu"
+                aria-label="Areas of Expertise menu"
                 onMouseEnter={stay}
                 onMouseLeave={graceClose}
               >
@@ -246,7 +246,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                     <h3>{g.label}</h3>
                     <p>{g.intro}</p>
                     <Link className="x-all" href={site.conditionsUrl} onClick={closeNow}>
-                      See all {allConditions.length} conditions →
+                      All {allConditions.length} areas of expertise →
                     </Link>
                   </div>
                 </div>
@@ -311,7 +311,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                   </button>
                 </Dialog.Close>
                 <nav aria-label="Menu">
-                  {[{ label: "Conditions", href: site.conditionsUrl, tag: "01" }, ...NAV, { label: "Contact", href: site.contactUrl, tag: "05" }].map((n, i) => (
+                  {[{ label: "Areas of Expertise", href: site.conditionsUrl, tag: "01" }, ...NAV, { label: "Contact", href: site.contactUrl, tag: "05" }].map((n, i) => (
                     <Link key={n.href} href={n.href} onClick={() => setSheet(false)} style={{ animationDelay: `${120 + i * 50}ms` }}>
                       {n.label}
                       <small>{n.tag}</small>

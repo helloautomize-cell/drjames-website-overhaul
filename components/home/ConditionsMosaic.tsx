@@ -84,7 +84,7 @@ export function ConditionsMosaic() {
     <section className="sec" id="conditions" aria-labelledby="c-h">
       <div className="container">
         <div className="sec-h">
-          <span className="eyebrow">Conditions he looks after</span>
+          <span className="eyebrow">Areas of expertise</span>
           <h2 id="c-h">
             Your body is one system. Your <em className="acc">care</em> should be too.
           </h2>
@@ -111,7 +111,7 @@ export function ConditionsMosaic() {
         <div className="cond-foot">
           <span>Looked after together by one specialist internist</span>
           <Link className="lnk" href="/conditions/">
-            See all {N} conditions →
+            All {N} areas of expertise →
           </Link>
         </div>
       </div>

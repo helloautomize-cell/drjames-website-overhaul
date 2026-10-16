@@ -52,7 +52,7 @@ export default async function ConditionPage({
   const url = `/conditions/${slug}/`;
   const crumbs = [
     { label: "Home", href: "/" },
-    { label: "Conditions", href: "/conditions/" },
+    { label: "Areas of Expertise", href: "/conditions/" },
     { label: doc.heading },
   ];
   const toc = headings.filter((h) => h.id !== "when-to-get-help-straight-away");

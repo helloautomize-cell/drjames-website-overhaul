@@ -5,6 +5,7 @@ import { site } from "@/lib/site-config";
 import { whatsappLink } from "@/lib/whatsapp";
 import { BookPill } from "@/components/site/BookPill";
 import { LiveStatus } from "@/components/site/LiveStatus";
+import { allConditions } from "@/lib/conditions";
 import type { BadgeName } from "@/lib/badge-glyphs";
 
 /** The eight body systems beside the portrait — each links to its condition page. */
@@ -159,7 +160,7 @@ export function Hero() {
             <span>Diabetes training: PG Diploma, Cardiff University, and MSc</span>
           </div>
           <div>
-            <b>18</b>
+            <b>{allConditions.length}</b>
             <span>conditions looked after, together under one physician</span>
           </div>
         </div>

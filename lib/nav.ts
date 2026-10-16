@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: "Conditions", href: site.conditionsUrl },
+  { label: "Areas of Expertise", href: site.conditionsUrl },
   { label: "Your visit", href: site.visitUrl },
   { label: "About Dr. James", href: site.profileUrl },
   { label: "Health Library", href: site.libraryUrl },
@@ -57,7 +57,7 @@ export const footerNav = {
     { label: "Thyroid disorders", href: "/conditions/thyroid-disorders/" },
     { label: "Asthma and breathing", href: "/conditions/asthma-and-breathing/" },
     { label: "Fatty liver", href: "/conditions/fatty-liver/" },
-    { label: "All conditions", href: site.conditionsUrl },
+    { label: "All Areas of Expertise", href: site.conditionsUrl },
   ],
   patients: [
     { label: "Plan your visit", href: site.visitUrl },

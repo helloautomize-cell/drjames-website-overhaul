@@ -277,7 +277,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {moreConditions.length > 0 && (
               <section className="gd-block gd-related" aria-labelledby="gd-related-h">
-                <h2 id="gd-related-h">Related conditions</h2>
+                <h2 id="gd-related-h">Related areas of expertise</h2>
                 <div className="cx-rows">
                   {moreConditions.map((slug2, i) => {
                     const c = allConditions.find((x) => x.slug === slug2);

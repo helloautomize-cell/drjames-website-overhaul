@@ -277,7 +277,7 @@ export default function AboutPage() {
               ))}
             </p>
             <Link className="cx-btn cx-btn-p" href={site.conditionsUrl}>
-              See all conditions
+              See all areas of expertise
             </Link>
           </div>
         </div>

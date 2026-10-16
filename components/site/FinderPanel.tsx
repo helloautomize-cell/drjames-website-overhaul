@@ -94,7 +94,7 @@ export default function FinderPanel({
             />
             <kbd>Esc</kbd>
           </div>
-          <ul className="x-fres" id={listId} role="listbox" aria-label="Matching conditions">
+          <ul className="x-fres" id={listId} role="listbox" aria-label="Matching areas of expertise">
             {results.length ? (
               results.map((r, i) => (
                 <li

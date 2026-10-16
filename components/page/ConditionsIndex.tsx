@@ -71,7 +71,7 @@ export function GroupIndex({ groups }: { groups: { id: string; label: string; co
 
   return (
     <aside className="cx-side">
-      <nav className="cx-index" aria-label="Condition groups">
+      <nav className="cx-index" aria-label="Areas of expertise groups">
         {groups.map((g) => (
           <a
             key={g.id}
