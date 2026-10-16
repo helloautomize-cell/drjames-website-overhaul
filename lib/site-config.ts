@@ -74,6 +74,7 @@ export const site = {
   ],
   quote:
     "Every patient deserves not only the right treatment but also the right understanding of their health. My goal is to empower patients through knowledge, prevention, and personalized care so they can live healthier and more fulfilling lives.",
+  // REVISIT: confirm address and coordinates against the new Maps pin (Oct 2026)
   address: {
     hospital: "Badr Al Samaa Royal Hospital",
     street: "Al Ghubrah Street",
@@ -81,7 +82,7 @@ export const site = {
     country: "Oman",
     plusCode: "HCP6+M8F",
   },
-  mapsUrl: "https://maps.app.goo.gl/pud75RVoC8PLH8ap7",
+  mapsUrl: "https://maps.app.goo.gl/dNKkw9XcfZngPQG26",
   phoneDisplay: "+968 9751 0975",
   phoneTel: "tel:+96897510975",
   whatsapp: "https://wa.me/96897510975",
