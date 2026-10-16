@@ -114,7 +114,6 @@
   --glass-b: rgba(255, 255, 255, 0.6);
   --sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --serif: var(--font-serif), Georgia, "Times New Roman", serif;
-  --sig: var(--font-sig), cursive;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   color-scheme: light;
 }
@@ -9181,21 +9180,24 @@ main > .sec:not(.x-night) {
   max-width: 560px;
 }
 .sig {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  gap: 6px;
   margin: 26px 0 8px;
+  justify-items: start;
 }
-.sig-s {
-  font: 400 48px/1 var(--sig);
-  color: var(--gold-2);
-  transform: rotate(-3deg);
-  transform-origin: left;
-  display: inline-block;
+.sig-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
 }
 .sig-n {
-  font-size: 13px;
+  font: 400 22px/1.2 var(--serif);
+  color: #fff;
+}
+.sig-r {
+  font: 400 13px/1.45 var(--sans);
   color: var(--muted-navy);
+  max-width: 38ch;
 }
 .dp-stats {
   display: grid;
