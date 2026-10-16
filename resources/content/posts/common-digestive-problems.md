@@ -8,7 +8,7 @@ topic: kidney-liver-gut
 status: draft-for-doctor-review
 reviewedBy: null
 reviewedOn: null
- "draft"
+date: "draft"
 updated: null
 lastReviewed: "[CONFIRM]"
 image: null

@@ -8,7 +8,7 @@ topic: heart-blood-pressure
 status: draft-for-doctor-review
 reviewedBy: null
 reviewedOn: null
- "draft"
+date: "draft"
 updated: null
 lastReviewed: "[CONFIRM]"
 featured: true
