@@ -3981,8 +3981,9 @@ body {
   }
 }
 /* defer offscreen section rendering (long home page) — hero and the
-   300vh sticky conditions track stay eager */
-main > section ~ section:not(#conditions) {
+   300vh sticky conditions track stay eager; .x-night stays eager too —
+   unrendered, it makes Lighthouse/axe misread the next section's bg */
+main > section ~ section:not(#conditions):not(.x-night) {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
 }
@@ -9432,7 +9433,7 @@ main > .sec:not(.x-night) {
 }
 .ctl .y {
   font: 400 34px/1 var(--serif);
-  color: rgba(234, 230, 220, 0.35);
+  color: rgba(234, 230, 220, 0.62);
   transition: color 0.4s;
 }
 .ctl li.lit .y {

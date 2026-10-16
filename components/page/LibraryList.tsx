@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { isDraftPost, isPublished, type PostMeta } from "@/lib/content";
+import { isPublished, type PostMeta } from "@/lib/content";
 import { dateMark, fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 import { BookButton } from "@/components/BookButton";
@@ -36,7 +36,7 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
                     <span>{mark.my}</span>
                   </>
                 ) : (
-                  isDraftPost(p) && <span className="draft-chip">Draft</span>
+                  !isPublished(p) && <span className="draft-chip">Draft</span>
                 )}
               </span>
               <span className="hl-thumb">
@@ -48,7 +48,7 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
                     <span className="hl-date-m num">
                       {mark.day} {mark.my} ·{" "}
                     </span>
-                  ) : isDraftPost(p) ? (
+                  ) : !isPublished(p) ? (
                     <span className="hl-date-m">
                       <span className="draft-chip">Draft</span>{" "}
                     </span>
