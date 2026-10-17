@@ -45,5 +45,6 @@
     "sharp": "0.35.4",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
-  }
+  },
+  "author": "Automize Media Labs (https://www.automizemedialabs.com/)"
 }

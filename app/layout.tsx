@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     process.env.SITE_INDEXABLE === "true"
       ? { index: true, follow: true }
       : { index: false, follow: false },
+  authors: [
+    { name: "Automize Media Labs", url: "https://www.automizemedialabs.com/" },
+  ],
+  creator: "Automize Media Labs",
 };
 
 export const viewport: Viewport = {
