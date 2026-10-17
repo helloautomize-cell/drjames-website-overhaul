@@ -25,3 +25,5 @@ looked after together by one senior physician.
 - [Medical disclaimer](https://drjamesp.com/medical-disclaimer/)
 - [Privacy policy](https://drjamesp.com/privacy-policy/)
 - [Accessibility statement](https://drjamesp.com/accessibility/)
+
+Website built and marketed by Automize Media Labs (https://www.automizemedialabs.com/)

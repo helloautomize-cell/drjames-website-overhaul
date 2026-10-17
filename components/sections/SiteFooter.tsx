@@ -54,7 +54,7 @@ export function SiteFooter() {
           <a
             href="https://www.automizemedialabs.com/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener nofollow"
           >
             Automize Media Labs
           </a>
