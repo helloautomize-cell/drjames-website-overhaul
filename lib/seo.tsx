@@ -166,11 +166,6 @@ export const websiteNode = {
   url: `${SITE_URL}/`,
   name: site.name,
   publisher: { "@id": `${SITE_URL}/#dr-james` },
-  creator: {
-    "@type": "Organization" as const,
-    name: "Automize Media Labs",
-    url: "https://www.automizemedialabs.com/",
-  },
 };
 
 export const breadcrumbNode = (items: Crumb[]) => ({
