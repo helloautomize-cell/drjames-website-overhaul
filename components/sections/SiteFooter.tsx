@@ -49,6 +49,16 @@ export function SiteFooter() {
       <div className="fbase">
         © {new Date().getFullYear()} {site.name}. Health information on this site is for
         education and does not replace a consultation.
+        <p className="fcredit">
+          Built &amp; Marketed by{" "}
+          <a
+            href="https://www.automizemedialabs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Automize Media Labs
+          </a>
+        </p>
       </div>
     </footer>
   );
