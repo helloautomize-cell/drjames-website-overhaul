@@ -1510,6 +1510,25 @@ main dd a.nowrap {
   padding-top: 18px;
   font-size: 13.5px;
 }
+.fcredit {
+  margin: 14px 0 0;
+  text-align: left;
+}
+.fcredit a {
+  color: var(--sand-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 169, 106, 0.45);
+  padding-bottom: 1px;
+}
+.fcredit a:hover {
+  color: var(--on-dark);
+  border-bottom-color: var(--on-dark);
+}
+.fcredit a:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 @media (max-width: 900px) {
   .foot {
     grid-template-columns: 1fr 1fr;
