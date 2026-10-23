@@ -232,9 +232,7 @@ export function MeetDrJames() {
                 <li key={m.title} className={m.now ? "now" : ""}>
                   <span className="y">{m.yr}</span>
                   <div>
-                    <b>
-                      {m.title} {m.now ? <em className="today">Today</em> : null}
-                    </b>
+                    <b>{m.title}</b>
                     <span>
                       {m.line}
                       {m.yr === "2025" ? <Confirm>[CONFIRM source]</Confirm> : null}
