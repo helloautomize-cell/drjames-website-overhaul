@@ -26,6 +26,9 @@ const csp = [
 const nextConfig: NextConfig = {
   // [CONFIRM] chips render in dev and preview builds only; inlined so client components see it too
   env: { NEXT_PUBLIC_SHOW_CONFIRM: process.env.VERCEL_ENV === "production" ? "0" : "1" },
+  // cap static-gen workers: each OG image render loads native satori/vips,
+  // and 7 parallel renders exhaust small CI/laptop memory budgets
+  experimental: { cpus: 3 },
   trailingSlash: true,
   poweredByHeader: false,
   // no dev indicator badge in dev/preview builds

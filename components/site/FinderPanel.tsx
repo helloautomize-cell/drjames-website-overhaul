@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { symptoms } from "@/lib/symptoms";
@@ -25,12 +25,14 @@ export default function FinderPanel({
   const listId = "finder-list";
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
     if (open) {
       setQ(preset);
       setSel(0);
     }
-  }, [open, preset]);
+  }
 
   const results = useMemo(() => {
     const v = q.trim().toLowerCase();
