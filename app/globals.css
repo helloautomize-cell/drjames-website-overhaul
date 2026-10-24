@@ -2179,6 +2179,26 @@ main dd a.nowrap {
   font-size: 19px;
   color: var(--ink-2);
 }
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.prose th,
+.prose td {
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.prose thead th {
+  font-weight: 650;
+  background: var(--sand-50);
+}
 @media (max-width: 720px) {
   .prose h2 {
     scroll-margin-top: var(--nav-clear);

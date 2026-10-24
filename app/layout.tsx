@@ -43,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en-OM"
+      data-scroll-behavior="smooth"
       className={`${newsreader.variable} ${inter.variable}`}
     >
       <body>

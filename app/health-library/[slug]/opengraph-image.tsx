@@ -53,7 +53,9 @@ export default async function GuideOgImage({
   const cond = mainCondition(post);
 
   let imgData: string | null = null;
-  if (post.image) {
+  // satori cannot decode webp; jpeg/png covers are embedded, webp covers use
+  // the designed panel below
+  if (post.image && /\.(jpe?g|png)$/i.test(post.image)) {
     const file = path.join(process.cwd(), "public", post.image);
     if (fs.existsSync(file)) {
       imgData = `data:image/jpeg;base64,${fs.readFileSync(file).toString("base64")}`;
