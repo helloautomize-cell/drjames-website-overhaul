@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Fatty liver disease in Muscat"
-description: "Fatty liver explained and managed by Dr. James in Muscat. Often found on a scan or blood test, and usually reversible with the right plan."
+updated: "2026-10-16"
+description: "Fatty liver explained and managed by Dr. James in Muscat. Often found on a scan or blood test, and usually reversible with the right plan in place."
 heading: "Fatty liver"
 intro: "Fatty liver means fat has built up inside the liver, usually quietly, found on an ultrasound or through raised liver enzymes on a blood test. It is common, closely tied to weight, sugar and cholesterol, and usually improves when those are treated."
 badge: liver

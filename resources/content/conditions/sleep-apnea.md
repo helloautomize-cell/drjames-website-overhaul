@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Sleep apnea and sleep problems in Muscat"
-description: "Snoring, sleep apnea and poor sleep assessed by Dr. James in Muscat. Protect your heart, sugar and daytime energy by sleeping properly."
+updated: "2026-10-16"
+description: "Snoring, sleep apnea and poor sleep assessed by Dr. James in Muscat. Protect your heart, blood sugar and daytime energy by sleeping properly."
 heading: "Sleep apnea and sleep problems"
 intro: "Loud snoring with pauses in breathing is not just a nuisance. It strains the heart, pushes up blood pressure and sugar, and leaves you exhausted. Dr. James assesses the pattern and arranges a sleep study when needed."
 badge: sleep

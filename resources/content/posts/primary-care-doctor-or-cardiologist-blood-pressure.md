@@ -89,6 +89,8 @@ Some symptoms should not wait for a routine appointment. Seek emergency care if 
 
 :::
 
+You may also find these guides helpful: [Smartwatch or Cuff? Which Blood Pressure Reading to Trust](/health-library/smartwatch-vs-cuff-blood-pressure-accuracy/) and [Why Is My Blood Pressure Different at Home Than at the Doctor's Office?](/health-library/why-is-my-blood-pressure-different-at-home-than-doctor/).
+
 ## Final Thoughts
 
 A cardiology referral does not automatically mean the condition is severe. Staying with a primary care doctor does not mean you are getting less attention. What matters is how your readings respond to treatment and what other health conditions you have. If you are in Muscat and unsure which route suits you, your internist can help you decide and arrange a referral if one is needed.

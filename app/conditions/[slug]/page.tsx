@@ -7,11 +7,12 @@ import { Toc, BookCard } from "@/components/page/Aside";
 import { ReviewerBox } from "@/components/page/ReviewerBox";
 import { FaqBlock } from "@/components/page/FaqBlock";
 import { RelatedConditions } from "@/components/page/RelatedConditions";
-import { conditionDoc, conditionMeta, withHeadingIds } from "@/lib/content";
+import { conditionDoc, conditionMeta, isPublished, IS_PROD, withHeadingIds } from "@/lib/content";
 import { allConditions, conditionCoin, conditionPhoto } from "@/lib/conditions";
 import { reasonForSlug } from "@/lib/booking-context";
 import {
   pageMeta,
+  SITE_URL,
   JsonLd,
   breadcrumbNode,
   medicalWebPageNode,
@@ -56,9 +57,18 @@ export default async function ConditionPage({
     { label: doc.heading },
   ];
   const toc = headings.filter((h) => h.id !== "when-to-get-help-straight-away");
+  // Review claims (hero line, ReviewerBox, schema lastReviewed) only render once
+  // the doctor's sign-off exists in front matter — the page still ships either way.
+  const reviewed = isPublished(doc);
+  const draft = !reviewed && !IS_PROD;
 
   return (
     <main id="main">
+      {draft && (
+        <div className="gd-draftbar" role="status">
+          Draft, not reviewed by Dr. James
+        </div>
+      )}
       <JsonLd
         graph={[
           websiteNode,
@@ -68,7 +78,7 @@ export default async function ConditionPage({
           medicalWebPageNode(
             url,
             doc.heading,
-            { "@id": `${url}#condition` },
+            { "@id": `${SITE_URL}${url}#condition` },
             doc.reviewedOn ?? doc.lastReviewed,
           ),
           medicalConditionNode(url, doc.heading, doc.description),
@@ -83,14 +93,14 @@ export default async function ConditionPage({
         coin={cond ? conditionCoin(cond) : undefined}
         img={{ ...conditionPhoto(slug), width: 1800, height: 1200 }}
         reason={reasonForSlug(slug)}
-        reviewed={{ lastReviewed: doc.reviewedOn }}
+        reviewed={reviewed ? { lastReviewed: doc.reviewedOn } : undefined}
       />
       <div className="container">
         <div className="pg-grid">
           <div className="main">
             <ArticleBody html={html} />
             <FaqBlock faqs={doc.faqs} />
-            <ReviewerBox lastReviewed={doc.reviewedOn} />
+            {reviewed ? <ReviewerBox lastReviewed={doc.reviewedOn} /> : null}
             <RelatedConditions slugs={doc.related} />
             {doc.relatedPost ? (
               <p className="prose" style={{ marginTop: 28 }}>

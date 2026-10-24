@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Is Your Anxiety Actually Your Thyroid? When to Test"
-description: "An overactive thyroid can mimic anxiety with palpitations, tremor and poor sleep."
+description: "An overactive thyroid can mimic anxiety with palpitations, tremor and poor sleep. How a simple TSH test tells the difference, and when to get checked."
 heading: "Is Your Anxiety Actually Your Thyroid? When to Test"
 standfirst: "An overactive thyroid can mimic anxiety with palpitations, tremor and poor sleep. Learn how the two overlap, common myths and when thyroid testing makes sense."
 topic: diabetes-metabolism
@@ -27,7 +27,7 @@ keyTakeaways:
 questionsToAsk: []
 faqs:
   - q: "Can thyroid problems cause anxiety?"
-    a: "Yes. An overactive thyroid often causes anxiety, nervousness, palpitations, tremor and poor sleep. Treating the thyroid usually improves these symptoms."
+    a: "Yes. An overactive thyroid often causes anxiety, nervousness, palpitations, tremor and poor sleep. Treating the thyroid usually improves these symptoms. A simple TSH blood test can rule the thyroid in or out within days."
   - q: "How do I know if my anxiety is caused by my thyroid?"
     a: "Symptoms alone cannot confirm it. Weight loss, heat intolerance, tremor or a fast resting heart rate make thyroid involvement more likely. A TSH blood test helps clarify."
   - q: "Can hypothyroidism cause anxiety?"
@@ -35,7 +35,7 @@ faqs:
   - q: "What test checks for thyroid-related anxiety?"
     a: "TSH is usually the first test. If it is abnormal, doctors check free T4 and T3 and may test for antibodies."
   - q: "Will treating my thyroid cure my anxiety?"
-    a: "When hyperthyroidism is the cause, treatment often improves anxiety significantly. Some people still benefit from additional support such as therapy."
+    a: "When hyperthyroidism is the cause, treatment often improves anxiety significantly. Some people still benefit from additional support such as therapy. If symptoms continue after the thyroid normalises, that is a reason to look at other causes rather than more thyroid treatment."
 sources:
   - name: "NHS: Overactive thyroid (hyperthyroidism)"
     url: "https://www.nhs.uk/conditions/overactive-thyroid-hyperthyroidism/"
@@ -119,7 +119,7 @@ Seek urgent care for chest pain, fainting, severe breathlessness, a very fast or
 
 :::
 
-You may also find these guides helpful: [Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart](/health-library/hypothyroidism-vs-hyperthyroidism/), [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Ashwagandha and Thyroid Medication: Is It Safe?](/health-library/ashwagandha-thyroid-medication-safety/).
+You may also find these guides helpful: [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Ashwagandha and Thyroid Medication: Is It Safe?](/health-library/ashwagandha-thyroid-medication-safety/).
 
 ## Final Thoughts
 

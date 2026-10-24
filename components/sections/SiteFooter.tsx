@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/lib/site-config";
 import { footerNav } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
@@ -24,25 +25,25 @@ export function SiteFooter() {
       <div className="fcol">
         <b>Areas of Expertise</b>
         {footerNav.conditions.map((l) => (
-          <a key={l.label} href={l.href}>
+          <Link key={l.label} href={l.href}>
             {l.label}
-          </a>
+          </Link>
         ))}
       </div>
       <div className="fcol">
         <b>Patients</b>
         {footerNav.patients.map((l) => (
-          <a key={l.label} href={l.href}>
+          <Link key={l.label} href={l.href}>
             {l.label}
-          </a>
+          </Link>
         ))}
       </div>
       <div className="fcol">
         <b>Legal</b>
         {footerNav.legal.map((l) => (
-          <a key={l.label} href={l.href}>
+          <Link key={l.label} href={l.href}>
             {l.label}
-          </a>
+          </Link>
         ))}
         <CookieSettingsLink />
       </div>

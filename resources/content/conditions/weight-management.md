@@ -1,6 +1,7 @@
 ---
 kind: condition
 title: "Medical weight management in Muscat"
+updated: "2026-10-16"
 description: "Weight management with Dr. James in Muscat. Find the medical reasons behind weight gain and follow a plan that protects your sugar, joints and heart."
 heading: "Weight management"
 intro: "Weight is a medical issue, not a willpower test. Thyroid problems, medicines, poor sleep and insulin resistance can all push weight up. Dr. James checks for the medical causes first, then builds a plan around your real life."

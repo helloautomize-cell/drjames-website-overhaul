@@ -37,7 +37,7 @@ faqs:
   - q: "Can modest weight loss improve health?"
     a: "Yes. Even a moderate, sustained loss can improve blood sugar, blood pressure and other measures. Your doctor can help set a safe goal."
   - q: "Which health checks are useful if I have obesity?"
-    a: "Doctors often check blood pressure, blood sugar, cholesterol and liver tests, and ask about sleep and joint symptoms."
+    a: "Doctors often check blood pressure, blood sugar, cholesterol and liver tests, and ask about sleep and joint symptoms. These checks look for the conditions obesity commonly travels with, not for obesity itself. The results decide which problems need attention first."
 sources:
   - name: "NHS: Obesity"
     url: "https://www.nhs.uk/conditions/obesity/"
@@ -57,7 +57,7 @@ Obesity is more than a concern about body size or appearance. It is a chronic he
 
 Excess body fat can influence blood sugar regulation, blood pressure, cholesterol, breathing, liver health, joints, and overall physical function. The risks vary from person to person, and having obesity does not mean that someone will develop every condition associated with it.
 
-Understanding these risks can help you recognize why appropriate [weight management](/conditions/weight-management/) is about improving health, not simply changing the number on the scale.
+Understanding these risks can help you recognise why appropriate [weight management](/conditions/weight-management/) is about improving health, not simply changing the number on the scale.
 
 ## Obesity and Type 2 Diabetes
 
@@ -117,7 +117,7 @@ Good medical care should focus on health and function rather than blame.
 
 The goal of weight management is not simply rapid weight loss.
 
-A healthcare professional can assess your individual risks and help create a realistic plan. Depending on your circumstances, treatment may include nutrition changes, physical activity, behavioral support, medication, or other medical approaches.
+A healthcare professional can assess your individual risks and help create a realistic plan. Depending on your circumstances, treatment may include nutrition changes, physical activity, behavioural support, medication, or other medical approaches.
 
 Even when substantial weight loss is not immediately possible, addressing blood pressure, blood sugar, cholesterol, sleep, and other risk factors can still be important for your overall health.
 

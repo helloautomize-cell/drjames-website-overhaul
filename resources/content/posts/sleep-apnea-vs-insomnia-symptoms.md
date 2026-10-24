@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Sleep Apnea or Insomnia? How to Tell Them Apart"
-description: "Trouble sleeping, waking during the night, and feeling tired during the day can occur with both insomnia and sleep apnea."
+description: "Trouble sleeping, night waking and daytime tiredness occur in both insomnia and sleep apnea. The clues that separate them, and why treatment differs."
 heading: "Sleep Apnea or Insomnia? Why the Symptoms Overlap and How to Tell Them Apart"
 standfirst: "Trouble sleeping, waking during the night, and feeling tired during the day can occur with both insomnia and sleep apnea. Learn how these conditions differ, which symptoms can overlap, and when a proper sleep evaluation may be needed."
 topic: lungs-sleep-infections
@@ -35,7 +35,7 @@ faqs:
   - q: "Can you have insomnia and sleep apnea at the same time?"
     a: "Yes. The two conditions can occur together. If sleep difficulties continue despite addressing one problem, your doctor may consider whether another sleep disorder is contributing."
   - q: "Can a bed partner notice sleep apnea?"
-    a: "Often, yes. Loud snoring, gasping and pauses in breathing are commonly noticed by a partner before the person realises."
+    a: "Often, yes. Loud snoring, gasping and pauses in breathing are commonly noticed by a partner before the person realises. Witnessed pauses in breathing are one of the strongest clues that snoring is actually sleep apnea."
   - q: "Is insomnia treated differently from sleep apnea?"
     a: "Yes. Insomnia care focuses on sleep habits, thinking patterns and sometimes medicine. Sleep apnea treatment focuses on keeping the airway open, such as with CPAP."
 sources:

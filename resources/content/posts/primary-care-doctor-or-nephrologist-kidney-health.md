@@ -20,7 +20,7 @@ imageFocus: "50% 40%"
 quickAnswer: "Many kidney concerns can start with a primary care doctor, who can order tests, review medicines and manage related problems such as diabetes and high blood pressure. A nephrologist becomes important when kidney function is falling, protein in the urine is significant or persistent, or the cause is unclear. The two doctors often work together."
 keyTakeaways:
   - "Primary care doctors can evaluate and monitor many kidney health concerns."
-  - "Nephrologists specialize in kidney diseases and complex kidney problems."
+  - "Nephrologists specialise in kidney diseases and complex kidney problems."
   - "Persistent or worsening kidney abnormalities may require specialist evaluation."
   - "Diabetes and high blood pressure can significantly affect kidney health."
   - "Primary care doctors and nephrologists can work together."
@@ -29,8 +29,8 @@ questionsToAsk: []
 faqs:
   - q: "Can a primary care doctor manage kidney disease?"
     a: "Yes. A primary care doctor can monitor and manage many stable or early kidney problems, particularly while also treating related conditions such as diabetes and high blood pressure."
-  - q: "What does a nephrologist specialize in?"
-    a: "A nephrologist specializes in kidney diseases, kidney function, electrolyte problems, and certain blood pressure conditions related to kidney health."
+  - q: "What does a nephrologist specialise in?"
+    a: "A nephrologist specialises in kidney diseases, kidney function, electrolyte problems, and certain blood pressure conditions related to kidney health. You are usually referred when kidney function is declining, results are unusual, or blood pressure stays hard to control."
   - q: "When should I see a nephrologist?"
     a: "A nephrologist may be appropriate when kidney function is declining, protein in the urine is persistent or significant, the cause of kidney abnormalities is unclear, or the condition is difficult to manage."
   - q: "Do I need a nephrologist if my kidney test is mildly abnormal?"
@@ -86,7 +86,7 @@ They can also refer you to a nephrologist if your results or symptoms suggest th
 
 ## What Does a Nephrologist Do?
 
-A nephrologist is a doctor who specializes in kidney diseases and kidney function.
+A nephrologist is a doctor who specialised in kidney diseases and kidney function.
 
 A nephrologist may evaluate conditions such as chronic kidney disease, significant protein in the urine, persistent abnormalities in kidney function, electrolyte disturbances, and certain difficult-to-control blood pressure problems.
 
@@ -128,7 +128,7 @@ You may also find these guides helpful: [Is a Nephrologist Referral Bad News? Wh
 
 ## Final Thoughts
 
-Your primary care doctor is often the right starting point for evaluating kidney health. If testing reveals a persistent, complex, or worsening kidney problem, a nephrologist can provide specialized assessment and management. Rather than choosing one doctor over the other, think of kidney care as a coordinated process designed to identify problems early and protect kidney function over time.
+Your primary care doctor is often the right starting point for evaluating kidney health. If testing reveals a persistent, complex, or worsening kidney problem, a nephrologist can provide specialised assessment and management. Rather than choosing one doctor over the other, think of kidney care as a coordinated process designed to identify problems early and protect kidney function over time.
 
 Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
 

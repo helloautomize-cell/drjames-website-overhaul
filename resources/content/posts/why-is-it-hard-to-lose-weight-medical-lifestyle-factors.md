@@ -37,7 +37,7 @@ faqs:
   - q: "Which tests may be done for weight difficulty?"
     a: "Depending on your history, a doctor may check blood sugar, cholesterol, thyroid function and other tests. The choice is individual."
   - q: "Does stress affect weight?"
-    a: "Stress and poor sleep can influence appetite, eating habits and energy levels, which may affect weight over time."
+    a: "Stress and poor sleep can influence appetite, eating habits and energy levels, which may affect weight over time. Stress can also raise cortisol, which nudges the body to store more fat around the middle."
 sources:
   - name: "NHS: Obesity"
     url: "https://www.nhs.uk/conditions/obesity/"
@@ -105,7 +105,7 @@ Poor sleep can affect hunger, appetite, energy, and daily activity.
 
 People who regularly sleep poorly may also find it harder to maintain consistent eating and exercise habits.
 
-Stress can have a similar effect. Ongoing stress may influence eating behavior, sleep, and activity levels.
+Stress can have a similar effect. Ongoing stress may influence eating behaviour, sleep, and activity levels.
 
 If you snore loudly, wake up gasping, or feel excessively sleepy during the day, sleep apnea may also need to be considered.
 
@@ -137,7 +137,7 @@ You may also find these guides helpful: [Lifestyle Changes vs Weight-Loss Medica
 
 ## Final Thoughts
 
-Losing weight can be challenging because body weight is influenced by biological, medical, behavioral, and environmental factors. If your efforts are not producing the results you expected, that does not automatically mean you are doing something wrong. Reviewing your diet, activity, sleep, medications, and overall health with a healthcare professional can help identify factors that may be making weight management more difficult and guide a safer, more individualized approach.
+Losing weight can be challenging because body weight is influenced by biological, medical, behavioural, and environmental factors. If your efforts are not producing the results you expected, that does not automatically mean you are doing something wrong. Reviewing your diet, activity, sleep, medications, and overall health with a healthcare professional can help identify factors that may be making weight management more difficult and guide a safer, more individualized approach.
 
 Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
 

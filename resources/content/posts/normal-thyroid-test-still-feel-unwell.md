@@ -115,7 +115,7 @@ Seek urgent care for chest pain, fainting, severe breathlessness, confusion, a v
 
 :::
 
-You may also find these guides helpful: [Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart](/health-library/hypothyroidism-vs-hyperthyroidism/), [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
+You may also find these guides helpful: [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
 
 ## Final Thoughts
 

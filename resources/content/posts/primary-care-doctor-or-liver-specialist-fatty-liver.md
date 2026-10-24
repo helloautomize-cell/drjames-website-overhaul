@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Primary Care Doctor or Liver Specialist for Fatty Liver"
-description: "A fatty liver diagnosis does not always mean you need to see a liver specialist immediately."
+description: "A fatty liver result does not always mean you need a liver specialist. What an internist can manage first, and the findings that warrant a referral."
 heading: "Primary Care Doctor or Liver Specialist? Who Should Manage Your Fatty Liver Diagnosis"
 standfirst: "A fatty liver diagnosis does not always mean you need to see a liver specialist immediately."
 topic: kidney-liver-gut
@@ -54,7 +54,7 @@ Not necessarily.
 
 Many people with [fatty liver](/conditions/fatty-liver/) can begin evaluation and management with a primary care or internal medicine doctor. These doctors can assess common risk factors, review blood tests and imaging, and address related conditions such as obesity, diabetes, high cholesterol, and high blood pressure.
 
-A liver specialist may become important when there are signs of more advanced liver disease, uncertainty about the diagnosis, or a need for more specialized assessment.
+A liver specialist may become important when there are signs of more advanced liver disease, uncertainty about the diagnosis, or a need for more specialised assessment.
 
 ## What Can a Primary Care Doctor Do?
 
@@ -88,7 +88,7 @@ These decisions should be individualized rather than based on a one-size-fits-al
 
 ## When Is a Liver Specialist Needed?
 
-A hepatologist is a doctor who specializes in liver diseases. Gastroenterologists also diagnose and manage many liver conditions.
+A hepatologist is a doctor who specialised in liver diseases. Gastroenterologists also diagnose and manage many liver conditions.
 
 Referral may be appropriate when there are concerns about liver scarring, unexplained or persistent liver abnormalities, more advanced disease, or uncertainty about the diagnosis.
 
@@ -136,7 +136,7 @@ You may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Dis
 
 ## Final Thoughts
 
-A fatty liver diagnosis does not automatically mean you need a liver specialist. For many people, primary care or internal medicine is an appropriate place to begin evaluation and management. The important question is whether there are signs of liver injury or fibrosis that require more specialized assessment. Your doctor can review your risk factors and test results and determine whether monitoring, lifestyle-focused management, further testing, or referral to a liver specialist is appropriate.
+A fatty liver diagnosis does not automatically mean you need a liver specialist. For many people, primary care or internal medicine is an appropriate place to begin evaluation and management. The important question is whether there are signs of liver injury or fibrosis that require more specialised assessment. Your doctor can review your risk factors and test results and determine whether monitoring, lifestyle-focused management, further testing, or referral to a liver specialist is appropriate.
 
 Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
 

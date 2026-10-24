@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "How Is Gastritis Treated? Causes, Tests, Lifestyle"
-description: "Gastritis treatment depends on what is causing inflammation of the stomach lining."
+description: "Gastritis treatment depends on what is inflaming the stomach lining — acid, H. pylori, medicines or alcohol. How each cause is found and treated."
 heading: "How Is Gastritis Treated? Causes, Tests and Lifestyle Measures That May Help"
 standfirst: "Gastritis treatment depends on what is causing inflammation of the stomach lining. Learn how doctors identify the cause, which tests may be recommended, how gastritis is treated, and which lifestyle measures may help protect your stomach."
 topic: kidney-liver-gut
@@ -37,7 +37,7 @@ faqs:
   - q: "Do I need an endoscopy for gastritis?"
     a: "Not always. Your doctor decides based on your symptoms, age and warning signs, and may recommend an endoscopy in some situations."
   - q: "Is it safe to take over-the-counter antacids regularly?"
-    a: "Occasional use is usually fine, but frequent use should be discussed with a doctor so the cause can be found."
+    a: "Occasional use is usually fine, but frequent use should be discussed with a doctor so the cause can be found. Daily antacids can mask gastritis that needs proper treatment, especially if H. pylori or a medicine is behind it."
 sources:
   - name: "NIDDK: Gastritis"
     url: "https://www.niddk.nih.gov/health-information/digestive-diseases/gastritis"

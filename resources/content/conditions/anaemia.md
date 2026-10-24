@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Anaemia and low iron checks in Muscat"
-description: "Anaemia found and explained by Dr. James in Muscat. Why your haemoglobin is low matters more than the number itself."
+updated: "2026-10-16"
+description: "Anaemia found and explained by Dr. James in Muscat. Why your haemoglobin is low matters more than the number itself, and how the cause is treated."
 heading: "Anaemia"
 intro: "Anaemia means your blood carries less oxygen than it should, leaving you tired, breathless on effort or pale. The number matters, but the reason behind it matters more, and Dr. James always finds the cause before treating."
 badge: anaemia

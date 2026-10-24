@@ -1,7 +1,8 @@
 ---
 kind: legal
 title: "Privacy policy"
-description: "How this website handles your personal information under Oman's Personal Data Protection Law. What we collect, why, and your rights."
+updated: "2026-10-04"
+description: "How this website handles your personal information under Oman's Personal Data Protection Law — what we collect, why we collect it, and your rights."
 heading: "Privacy policy"
 ---
 

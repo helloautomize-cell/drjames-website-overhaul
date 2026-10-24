@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Primary Care Doctor or Sleep Specialist?"
-description: "Persistent snoring, insomnia, daytime fatigue, or repeated nighttime awakenings can have many causes."
+description: "Snoring, insomnia and daytime fatigue have many causes. When your family doctor or internist is enough, and when a sleep specialist is worth it."
 heading: "Primary Care Doctor or Sleep Specialist? Who Should Manage Your Sleep Problem"
 standfirst: "Persistent snoring, insomnia, daytime fatigue, or repeated nighttime awakenings can have many causes. Learn when a primary care doctor can manage a sleep problem and when seeing a sleep specialist may provide a more detailed evaluation."
 topic: lungs-sleep-infections
@@ -21,7 +21,7 @@ quickAnswer: "A primary care doctor is a good first step for most sleep problems
 keyTakeaways:
   - "Primary care is often the best starting point for persistent sleep problems."
   - "A primary care doctor can evaluate common medical and lifestyle causes of poor sleep."
-  - "A sleep specialist has specialized expertise in diagnosing and treating sleep disorders."
+  - "A sleep specialist has specialised expertise in diagnosing and treating sleep disorders."
   - "Loud snoring, gasping, witnessed breathing pauses, and excessive daytime sleepiness may warrant evaluation for sleep apnea."
   - "A sleep study may be recommended when sleep apnea is suspected."
   - "Persistent insomnia may also require specialist assessment when initial management is unsuccessful."
@@ -35,7 +35,7 @@ faqs:
   - q: "Can a primary care doctor diagnose sleep apnea?"
     a: "A primary care doctor can assess your symptoms and risk factors and determine whether sleep apnea should be investigated. When appropriate, they may arrange sleep testing or refer you to a sleep specialist."
   - q: "Can a primary care doctor diagnose insomnia?"
-    a: "Yes. Insomnia is diagnosed mainly from your sleep history, and a primary care doctor can begin assessment and treatment."
+    a: "Yes. Insomnia is diagnosed mainly from your sleep history, and a primary care doctor can begin assessment and treatment. If basic measures do not help, or another sleep disorder is suspected, a specialist referral follows."
   - q: "What should I bring to a sleep appointment?"
     a: "Bring a short sleep diary, a list of medicines and supplements, and any information from a partner about your snoring or breathing."
 sources:
@@ -55,7 +55,7 @@ Poor sleep is common, but persistent sleep problems should not always be dismiss
 
 If you regularly have trouble falling asleep, wake repeatedly during the night, snore loudly, wake up gasping, or feel excessively tired during the day, you may wonder whether you should see your primary care doctor or a sleep specialist.
 
-For many people, primary care is the right place to begin. A sleep specialist becomes particularly useful when symptoms suggest a specific sleep disorder or when the problem requires specialized testing.
+For many people, primary care is the right place to begin. A sleep specialist becomes particularly useful when symptoms suggest a specific sleep disorder or when the problem requires specialised testing.
 
 ## What Can a Primary Care Doctor Do?
 
@@ -123,7 +123,7 @@ Depending on the individual, testing may be performed at home or in a sleep labo
 
 Not every sleep problem requires a sleep specialist.
 
-Many cases of insomnia can initially be assessed and managed through primary care. Your doctor may look for factors contributing to poor sleep and recommend behavioral or lifestyle approaches.
+Many cases of insomnia can initially be assessed and managed through primary care. Your doctor may look for factors contributing to poor sleep and recommend behavioural or lifestyle approaches.
 
 If insomnia persists, is complicated by another sleep disorder, or does not respond to initial management, specialist assessment may be appropriate.
 

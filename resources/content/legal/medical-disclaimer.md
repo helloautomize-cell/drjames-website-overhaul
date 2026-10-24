@@ -1,6 +1,7 @@
 ---
 kind: legal
 title: "Medical disclaimer"
+updated: "2026-10-09"
 description: "The health information on this site is educational, is not a diagnosis or prescription, and does not replace a consultation with a physician."
 heading: "Medical disclaimer"
 ---

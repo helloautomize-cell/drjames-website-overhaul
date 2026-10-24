@@ -1,6 +1,7 @@
 ---
 kind: condition
 title: "Heart risk assessment in Muscat"
+updated: "2026-10-16"
 description: "Find your real heart risk with Dr. James in Muscat. Blood pressure, cholesterol, sugar and family history read together, with a plan to lower it."
 heading: "Heart risk assessment"
 intro: "Heart disease is often silent until it is serious. A heart risk assessment puts your blood pressure, cholesterol, sugar, family history and habits together into one honest picture, then works on what can be changed."

@@ -35,7 +35,7 @@ faqs:
   - q: "Why am I not losing weight on a GLP-1 medicine?"
     a: "Possible reasons include being on a low dose, diet or activity factors, other medicines, medical conditions or individual variation. Discuss it with your doctor before changing anything."
   - q: "Do GLP-1 medicines cause muscle loss?"
-    a: "Some weight lost may come from muscle. Eating adequate protein and doing strength training help preserve muscle during treatment."
+    a: "Some weight lost may come from muscle. Eating adequate protein and doing strength training help preserve muscle during treatment. Doctors aim for fat loss while protecting muscle, which is why protein intake and resistance exercise are part of the plan."
 sources:
   - name: "NIDDK: Prescription medications to treat overweight and obesity"
     url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"

@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Smartwatch vs. Cuff: Blood Pressure Accuracy"
-description: "Smartwatches can estimate blood pressure, but a validated upper-arm cuff is still the more dependable choice."
+description: "Smartwatches can estimate blood pressure, but a validated upper-arm cuff is still the dependable choice. Where wearables help, and where they mislead."
 heading: "Smartwatch vs. Cuff: Can Wearables Measure Blood Pressure Accurately?"
 standfirst: "Smartwatches can estimate blood pressure, but a validated upper-arm cuff is still the more dependable choice. Learn what wearables get right, where they fall short, and how to measure properly at home."
 topic: heart-blood-pressure
@@ -92,6 +92,8 @@ Do not wait for a repeat reading if high blood pressure comes with chest pain, a
 ## When Should You See a Doctor?
 
 Arrange a review if cuff readings stay high, if your home and clinic numbers differ widely, or if your watch keeps showing high values for several weeks. People with diabetes or kidney disease usually need closer monitoring, so it is worth raising the issue sooner rather than later.
+
+You may also find these guides helpful: [Why Is My Blood Pressure Different at Home Than at the Doctor's Office?](/health-library/why-is-my-blood-pressure-different-at-home-than-doctor/) and [Primary Care Doctor or Cardiologist for Blood Pressure?](/health-library/primary-care-doctor-or-cardiologist-blood-pressure/).
 
 ## Final Thoughts
 

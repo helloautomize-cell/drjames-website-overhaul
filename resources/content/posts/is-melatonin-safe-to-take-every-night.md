@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Is Melatonin Safe to Take Every Night?"
-description: "Melatonin is commonly used to help with sleep, but questions remain about long-term nightly use."
+description: "Melatonin is widely used for sleep, but nightly long-term use raises fair questions. What is known about safety and dose, and when to look for a cause."
 heading: "Is Melatonin Safe to Take Every Night? What the New Heart Research Actually Shows"
 standfirst: "Melatonin is commonly used to help with sleep, but questions remain about long-term nightly use. New preliminary research has raised questions about a possible connection between long-term melatonin use and cardiovascular health."
 topic: lungs-sleep-infections

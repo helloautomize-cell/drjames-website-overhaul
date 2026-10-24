@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Preventive health check-ups in Muscat"
-description: "Check-ups planned by Dr. James in Muscat after a consultation, not a fixed package. The right tests for your age and risks, nothing wasted."
+updated: "2026-10-16"
+description: "Health check-ups planned by Dr. James in Muscat after a consultation, not a fixed package — the right tests for your age and risks, nothing wasted."
 heading: "Preventive check-ups"
 intro: "A good check-up is not a long list of tests; it is the right tests for you. Dr. James plans each check-up after a consultation, based on your age, family history and habits, so nothing is repeated or wasted."
 badge: checkup

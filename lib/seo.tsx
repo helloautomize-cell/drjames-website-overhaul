@@ -81,7 +81,7 @@ export const physicianNode = {
   telephone: site.phoneDisplay.replace(/\s/g, ""),
   email: site.email,
   address,
-  url: `${SITE_URL}/`,
+  url: `${SITE_URL}${site.profileUrl}`,
   image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
   workLocation: { "@id": `${SITE_URL}/#hospital` },
   affiliation: { "@id": `${SITE_URL}/#hospital` },

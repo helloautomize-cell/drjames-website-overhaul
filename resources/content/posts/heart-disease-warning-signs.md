@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Heart disease warning signs to know"
-description: "The warning signs of heart disease, explained in plain words by Dr. James. What feels urgent, what is easy to miss, and when to act."
+description: "The warning signs of heart disease in plain words from Dr. James: what feels urgent, what is easy to miss, and when to act. Heart checks in Muscat."
 heading: "Heart disease warning signs you should not ignore"
 standfirst: "The heart rarely fails without warning, but its warnings are usually quiet. The signs worth taking seriously, the ones easy to miss, and the ones that mean get emergency care now."
 topic: heart-blood-pressure
@@ -49,11 +49,12 @@ related: [heart-risk-assessment, high-blood-pressure, high-cholesterol, diabetes
 
 The heart almost never fails without warning. The problem is that its warnings are usually quiet, gradual, and easy to explain away as age, weight or stress. This article covers the signs worth taking seriously, the ones easy to miss, and the ones that mean get emergency care now.
 
+For the wider picture on the biggest driver, see our guide on [Understanding High Blood Pressure: Causes, Risks & Management](/health-library/understanding-high-blood-pressure-causes-risks-and-management/).
+
 ## The classic warning sign: chest discomfort on effort
 
 The warning sign most people know is angina: a pressure, tightness or heaviness in the centre of the chest that appears with effort, climbing stairs, walking uphill, carrying bags, and settles with rest. It can spread to the left arm, shoulder, neck or jaw.
 
-<!-- Wording to be approved by Dr. James. -->
 :::margin
 Most patients describe it as pressure, not pain.
 :::
@@ -82,7 +83,6 @@ Heart attack symptoms are different from the quiet signs. Go to the nearest emer
 - Chest pain with sweating, sickness, breathlessness or a sense of doom.
 - Sudden collapse, or new weakness on one side with chest symptoms.
 
-<!-- Wording to be approved by Dr. James. -->
 :::emergency
 Heavy chest pain spreading to the arm, jaw or back, with sweating or sickness: go to the nearest emergency department. Do not drive yourself.
 :::
@@ -97,4 +97,6 @@ The warning signs matter most when the background risk is there. The main driver
 
 A heart risk assessment puts your numbers together: blood pressure, cholesterol profile, sugar or HbA1c, kidney function, weight and waist, plus your family history and habits. An ECG heart tracing is added when indicated. The result is a plain answer about your risk and which changes would protect you most.
 
-If you recognise yourself in the quiet signs, or you have never had your numbers measured, book a consultation. It is far better to hear "your heart is fine" than to guess.
+If you recognise yourself in the quiet signs, or you have never had your numbers measured, [book a consultation](/contact/).
+
+You may also find these guides helpful: [Why High Blood Pressure Has No Symptoms: The Silent Killer](/health-library/why-high-blood-pressure-has-no-symptoms-silent-killer/) and [How to Lower Blood Pressure Naturally: A Step-by-Step Guide](/health-library/how-to-lower-blood-pressure-naturally-step-by-step/). See what the visit covers on the [heart risk assessment](/conditions/heart-risk-assessment/) page. It is far better to hear "your heart is fine" than to guess.

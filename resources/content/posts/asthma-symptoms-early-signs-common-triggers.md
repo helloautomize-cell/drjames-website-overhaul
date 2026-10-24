@@ -35,7 +35,7 @@ faqs:
   - q: "Can asthma cause only a cough?"
     a: "Yes. Some people have cough-variant asthma, in which coughing is the main or only noticeable symptom. Persistent or recurring cough should still be evaluated because many other conditions can cause it."
   - q: "Can asthma start in adults?"
-    a: "Yes. Asthma can begin at any age, so new wheezing or breathlessness in an adult should be checked."
+    a: "Yes. Asthma can begin at any age, so new wheezing or breathlessness in an adult should be checked. Adult-onset asthma is common, and it is more often missed because people assume asthma belongs to childhood."
   - q: "Is a cough at night a sign of asthma?"
     a: "It can be. A cough that is worse at night or early morning is a common asthma symptom, but other conditions can cause it too, so it should be checked by a doctor."
 sources:

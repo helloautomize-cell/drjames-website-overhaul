@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Fever and infections in Muscat"
-description: "Fevers, persistent infections and infections that will not settle, assessed by Dr. James in Muscat. Find the cause and treat it correctly."
+updated: "2026-10-16"
+description: "Fevers, persistent infections and infections that will not settle, assessed by Dr. James in Muscat. Finding the cause and treating it correctly."
 heading: "Fevers and infections"
 intro: "A fever is a symptom, not a diagnosis. Most settle in days, but a fever that persists, returns or comes with warning signs needs the cause found, not just paracetamol."
 badge: fever

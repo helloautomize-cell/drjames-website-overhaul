@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Diabetes and prediabetes care in Muscat"
-description: "Type 2 diabetes and prediabetes care with Dr. James in Muscat. Checks that protect your heart, kidneys and eyes, and a plan you can follow."
+updated: "2026-10-16"
+description: "Type 2 diabetes and prediabetes care with Dr. James in Muscat. Checks that protect heart, kidneys and eyes, plus a plan you can actually follow."
 heading: "Diabetes and prediabetes"
 intro: "Diabetes is a long-term partnership, not a one-off prescription. Dr. James looks at your sugar reports alongside your blood pressure, weight and kidneys, then agrees a plan you can keep."
 badge: diabetes

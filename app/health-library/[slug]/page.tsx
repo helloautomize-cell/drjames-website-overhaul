@@ -64,8 +64,14 @@ export async function generateMetadata({
   if (!doc) return {};
   const meta = pageMeta(doc.title, doc.description ?? doc.standfirst, guideUrl(slug));
   // pageMeta ships the generic og card — keep the per-guide generated card
-  if (meta.openGraph) meta.openGraph.images = [`${SITE_URL}${guideUrl(slug)}opengraph-image`];
-  if (meta.twitter) meta.twitter.images = [`${SITE_URL}${guideUrl(slug)}opengraph-image`];
+  const card = `${SITE_URL}${guideUrl(slug)}opengraph-image`;
+  if (meta.openGraph) meta.openGraph.images = [card];
+  meta.twitter = {
+    card: "summary_large_image",
+    title: doc.title,
+    description: doc.description ?? doc.standfirst,
+    images: [card],
+  };
   return meta;
 }
 
@@ -95,6 +101,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     { label: "Home", href: "/" },
     { label: "Health Library", href: "/health-library/" },
     { label: topic.label, href: `/health-library/topic/${topic.id}/` },
+    { label: doc.heading },
   ];
 
   const keepReading = sortNewest(
@@ -159,7 +166,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               />
               <span className="gd-who">
                 <b>
-                  Written and reviewed by {site.name}, {site.title}
+                  Written and reviewed by{" "}
+                  <Link href={site.profileUrl}>{site.name}</Link>, {site.title}
                 </b>
                 <small className="num">
                   {updated

@@ -30,7 +30,7 @@ faqs:
   - q: "Is foamy urine always a sign of kidney disease?"
     a: "No. Occasional foam can occur for several reasons, including dehydration or the force of urination. Persistent foamy urine may warrant medical evaluation for protein in the urine."
   - q: "Can kidney disease cause tiredness?"
-    a: "Yes. Fatigue can occur with kidney disease, particularly as kidney function becomes impaired, but tiredness has many possible causes."
+    a: "Yes. Fatigue can occur with kidney disease, particularly as kidney function becomes impaired, but tiredness has many possible causes. It is most meaningful alongside other signs such as foamy urine, swelling or rising blood pressure."
   - q: "What does protein in urine mean?"
     a: "Protein in urine, or proteinuria, can occur when the kidney's filtering system allows more protein to pass into the urine than it normally should. Persistent proteinuria should be evaluated by a healthcare professional."
   - q: "What are other early signs of kidney disease?"

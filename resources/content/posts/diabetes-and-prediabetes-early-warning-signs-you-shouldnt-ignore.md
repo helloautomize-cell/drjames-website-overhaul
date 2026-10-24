@@ -37,9 +37,9 @@ faqs:
   - q: "Can I have prediabetes with normal fasting blood sugar?"
     a: "Yes. HbA1c, fasting glucose and the oral glucose tolerance test measure different aspects of glucose regulation. They do not always identify exactly the same people. Someone may therefore have a normal fasting glucose while another test shows abnormal glucose regulation."
   - q: "How often should I check my blood sugar if I have prediabetes?"
-    a: "Current diabetes guidance generally recommends testing people with prediabetes at least once a year. The appropriate schedule can vary according to your HbA1c, glucose results, risk factors and overall health."
+    a: "Current diabetes guidance generally recommends testing people with prediabetes at least once a year. The appropriate schedule can vary according to your HbA1c, glucose results, risk factors and overall health. People with a higher HbA1c, or added risks such as previous gestational diabetes, are usually checked more often."
   - q: "Can thin people develop prediabetes?"
-    a: "Yes. Body weight is only one part of diabetes risk. Family history, age, physical activity, genetics, previous gestational diabetes and other metabolic factors can contribute even when someone is not overweight."
+    a: "Yes. Body weight is only one part of diabetes risk. Family history, age, physical activity, genetics, previous gestational diabetes and other metabolic factors can contribute even when someone is not overweight. A lean build does not remove the need for a check when other risks are present."
 sources:
   - name: "NIDDK: Prediabetes and insulin resistance"
     url: "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/prediabetes-insulin-resistance"
@@ -381,7 +381,7 @@ For an Indian diet, it may be useful to look at:
 
 - Protein sources
 
-- Fiber-rich foods
+- Fibre-rich foods
 
 - Frequency of eating outside the home
 

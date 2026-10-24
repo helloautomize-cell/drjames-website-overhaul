@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Asthma and breathing problems in Muscat"
-description: "Asthma, wheeze, chronic cough and breathlessness assessed by Dr. James in Muscat. Find the cause, control the symptoms, breathe easier."
+updated: "2026-10-16"
+description: "Asthma, wheeze, chronic cough and breathlessness assessed by Dr. James in Muscat. Find the cause, control the symptoms, and breathe more easily."
 heading: "Asthma and breathing problems"
 intro: "Breathlessness, wheeze and a cough that will not settle all deserve a proper look. Dr. James works out whether it is asthma, allergy, infection or something on the heart side, then treats the cause."
 badge: asthma

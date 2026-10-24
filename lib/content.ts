@@ -39,6 +39,8 @@ const baseFrontmatter = z.object({
   reviewedBy: z.string().nullable().default(null),
   /** ISO date of that review. */
   reviewedOn: isoDate.nullable().default(null),
+  /** ISO date the content was last edited — feeds sitemap lastmod. */
+  updated: isoDate.nullable().default(null),
 });
 
 /**
