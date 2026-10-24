@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/plan-your-visit", destination: "/your-visit/", permanent: true },
+      // merged into the thyroid pillar to end keyword cannibalisation
+      {
+        source: "/health-library/hypothyroidism-vs-hyperthyroidism",
+        destination: "/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/",
+        permanent: true,
+      },
       { source: "/category/uncategorized", destination: "/health-library/", permanent: true },
       { source: "/author/:path*", destination: "/health-library/", permanent: true },
       // Old condition/service stubs land on the hub

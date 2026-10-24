@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Asthma vs COPD: What Is the Difference and How Can You Tell?"
-description: "Asthma and COPD can both cause coughing, wheezing, and shortness of breath, but they are different lung conditions."
+description: "Asthma and COPD can both cause coughing, wheezing and breathlessness, but they are different conditions. How doctors tell them apart, and why it matters."
 heading: "Asthma vs COPD: What Is the Difference and How Can You Tell?"
 standfirst: "Asthma and COPD can both cause coughing, wheezing, and shortness of breath, but they are different lung conditions. Learn how their symptoms, triggers, causes, and treatment approaches differ and why proper diagnosis matters."
 topic: lungs-sleep-infections
@@ -33,7 +33,7 @@ faqs:
   - q: "Can asthma turn into COPD?"
     a: "Asthma does not simply “turn into” COPD. They are different conditions, although long-standing asthma can be associated with persistent changes in lung function in some people. Some individuals can also have features of both conditions."
   - q: "Is wheezing more common in asthma or COPD?"
-    a: "Wheezing can occur in both asthma and COPD. It is not specific enough to determine which condition a person has."
+    a: "Wheezing can occur in both asthma and COPD. It is not specific enough to determine which condition a person has. The pattern around it — age, smoking history, triggers and lung function tests — is what separates the two."
   - q: "Can a lung function test diagnose asthma or COPD?"
     a: "Spirometry measures how much air you breathe out and how fast. It is an important test to help diagnose both conditions, alongside your history and examination."
   - q: "Does quitting smoking help COPD?"

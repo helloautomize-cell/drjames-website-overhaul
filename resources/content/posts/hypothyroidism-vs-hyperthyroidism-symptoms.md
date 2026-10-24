@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Thyroid Disorders: Hypothyroidism vs. Hyperthyroidism"
-description: "Hypothyroidism and hyperthyroidism can cause some surprisingly similar complaints, but the two conditions affect the body in opposite ways."
+description: "Hypothyroidism and hyperthyroidism share surprisingly similar complaints but push the body in opposite directions. Symptoms, tests and treatment compared."
 heading: "Thyroid Disorders Explained: Hypothyroidism vs. Hyperthyroidism"
 standfirst: "Feeling unusually tired? Gaining or losing weight without making major changes to your diet? Perhaps your heart has started racing, you are more sensitive to heat or cold, or you simply don't feel like yourself."
 topic: diabetes-metabolism
@@ -37,17 +37,17 @@ questionsToAsk:
   - "What could be causing my thyroid abnormality?"
 faqs:
   - q: "What is the main difference between hypothyroidism and hyperthyroidism?"
-    a: "Hypothyroidism occurs when the body does not have enough thyroid hormone. Hyperthyroidism occurs when there is too much thyroid hormone. Their symptoms can overlap, but hypothyroidism often slows body processes while hyperthyroidism tends to accelerate them."
+    a: "Hypothyroidism occurs when the body does not have enough thyroid hormone. Hyperthyroidism occurs when there is too much thyroid hormone. Their symptoms can overlap, but hypothyroidism often slows body processes while hyperthyroidism tends to accelerate them. Because the two conditions share tiredness, weight change and mood effects, a TSH blood test is what reliably tells them apart."
   - q: "What are the most common symptoms of hypothyroidism?"
-    a: "Common symptoms include fatigue, feeling cold, constipation, dry skin, weight gain, muscle or joint discomfort and difficulty concentrating. Menstrual changes can also occur."
+    a: "Common symptoms include fatigue, feeling cold, constipation, dry skin, weight gain, muscle or joint discomfort and difficulty concentrating. Menstrual changes can also occur. These signs usually build slowly over months, which is why they are often blamed on age or stress before the thyroid is checked."
   - q: "What are the common symptoms of hyperthyroidism?"
-    a: "Hyperthyroidism may cause weight loss, heat intolerance, sweating, tremor, anxiety, difficulty sleeping, increased bowel movements and a fast or irregular heartbeat."
+    a: "Hyperthyroidism may cause weight loss, heat intolerance, sweating, tremor, anxiety, difficulty sleeping, increased bowel movements and a fast or irregular heartbeat. Symptoms often develop quickly, and a fast or irregular heartbeat in particular should be reviewed promptly."
   - q: "Can you have hypothyroidism and still lose weight?"
-    a: "Yes. Weight is influenced by many factors, and hypothyroidism does not guarantee weight gain. A person's weight should not be used by itself to diagnose a thyroid disorder."
+    a: "Yes. Weight is influenced by many factors, and hypothyroidism does not guarantee weight gain. A person's weight should not be used by itself to diagnose a thyroid disorder. If weight changes come with tiredness, feeling cold or constipation, a thyroid blood test is a reasonable step."
   - q: "Which blood test checks for thyroid problems?"
-    a: "TSH is commonly the first test used to assess thyroid function. Depending on the result and clinical situation, doctors may also request free T4, T3 or thyroid antibody tests."
+    a: "TSH is commonly the first test used to assess thyroid function. Depending on the result and clinical situation, doctors may also request free T4, T3 or thyroid antibody tests. The pattern matters: a low TSH points one way, a high TSH the other, and your doctor reads it against your symptoms."
   - q: "Can thyroid problems cause anxiety?"
-    a: "Yes. Hyperthyroidism can cause nervousness, restlessness, tremor, palpitations and difficulty sleeping. However, anxiety can have many other causes, so these symptoms do not automatically indicate thyroid disease."
+    a: "Yes. Hyperthyroidism can cause nervousness, restlessness, tremor, palpitations and difficulty sleeping. However, anxiety can have many other causes, so these symptoms do not automatically indicate thyroid disease. Anxiety that appears alongside weight loss, heat intolerance or tremor is worth a thyroid check."
 sources:
   - name: "NHS: Underactive thyroid (hypothyroidism)"
     url: "https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/"
@@ -531,8 +531,6 @@ Fact: Thyroid medication affects hormone levels, and too little or too much trea
 ## Final Thoughts
 
 ## Which guides go deeper on this topic?
-
-- [Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart](/health-library/hypothyroidism-vs-hyperthyroidism/)
 
 - [Ashwagandha and Thyroid Medication: Is It Safe?](/health-library/ashwagandha-thyroid-medication-safety/)
 

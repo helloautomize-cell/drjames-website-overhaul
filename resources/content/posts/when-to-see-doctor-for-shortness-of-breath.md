@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "When to See a Doctor for Shortness of Breath"
-description: "Shortness of breath can happen after exercise, but unexplained or persistent breathing difficulty may signal an underlying health problem."
+description: "Shortness of breath after exertion can be normal, but unexplained or persistent breathlessness needs checking. The patterns that matter, and when to book."
 heading: "When Should You See a Doctor for Shortness of Breath or Breathing Difficulty?"
 standfirst: "Shortness of breath can happen after exercise, but unexplained or persistent breathing difficulty may signal an underlying health problem. Learn the common causes, warning signs, and when breathing problems require medical attention."
 topic: lungs-sleep-infections
@@ -31,11 +31,11 @@ faqs:
   - q: "When should I see a doctor for shortness of breath?"
     a: "See a doctor if breathlessness is unexplained, keeps returning, occurs during normal activities, affects your sleep, or is becoming worse."
   - q: "Is shortness of breath always a sign of a lung problem?"
-    a: "No. Breathlessness can be caused by lung conditions such as asthma or COPD, but heart conditions, anemia, anxiety, medications, and other problems can also contribute."
+    a: "No. Breathlessness can be caused by lung conditions such as asthma or COPD, but heart conditions, anaemia, anxiety, medications, and other problems can also contribute."
   - q: "Can anxiety cause shortness of breath?"
     a: "Yes. Anxiety and panic can cause a sensation of breathlessness or difficulty breathing. However, new or persistent symptoms should not automatically be assumed to be anxiety without appropriate medical evaluation."
   - q: "Does smoking cause shortness of breath?"
-    a: "Smoking can damage the lungs and airways and is a common cause of long-term breathlessness. Stopping helps your lungs."
+    a: "Smoking can damage the lungs and airways and is a common cause of long-term breathlessness. Stopping helps your lungs. Breathlessness in a smoker deserves a check even when it seems mild, because it can be the first sign of airway or heart disease."
   - q: "Can being unfit cause shortness of breath?"
     a: "Poor fitness can make you breathless sooner during activity, but new or worsening breathlessness should still be checked, as heart and lung conditions can cause similar symptoms."
 sources:
@@ -105,7 +105,7 @@ Shortness of breath accompanied by chest discomfort, swelling of the legs, or un
 
 ## Other Possible Causes
 
-Anemia, anxiety or panic attacks, certain medications, reduced fitness, and other medical conditions can also cause or contribute to breathlessness.
+anaemia, anxiety or panic attacks, certain medications, reduced fitness, and other medical conditions can also cause or contribute to breathlessness.
 
 Because the causes are so varied, identifying the underlying problem is more useful than simply treating the symptom.
 

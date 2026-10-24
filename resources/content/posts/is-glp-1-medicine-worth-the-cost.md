@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Is a GLP-1 Medicine Worth the Cost?"
-description: "Deciding on GLP-1 treatment means weighing cost against health benefits and long-term commitment."
+description: "GLP-1 treatment means weighing monthly cost against real health benefits and long-term commitment. What the trials actually show, in plain numbers."
 heading: "Is a GLP-1 Medicine Worth the Cost?"
 standfirst: "Deciding on GLP-1 treatment means weighing cost against health benefits and long-term commitment. Use this balanced guide to think through value, alternatives and questions to ask."
 topic: diabetes-metabolism

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL ?? "https://drjamesp.com"),
   title: {
     default: "Dr. James Kumar Pallivathukkal | Internal Medicine and Diabetes, Muscat",
-    template: "%s | Dr. James Kumar Pallivathukkal",
+    template: "%s | Dr. James",
   },
   description:
     "Specialist in Internal Medicine and Diabetes at Badr Al Samaa Royal Hospital, Al Ghubrah Street, Muscat, Oman. Book by WhatsApp or phone on +968 9751 0975.",

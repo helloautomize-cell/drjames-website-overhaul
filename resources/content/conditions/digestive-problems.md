@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Digestive problems and gut health in Muscat"
-description: "Acidity, bloating, reflux and bowel changes assessed by Dr. James in Muscat. Most gut problems are manageable once the real cause is named."
+updated: "2026-10-16"
+description: "Acidity, bloating, reflux and bowel changes assessed by Dr. James in Muscat. Most gut problems settle once the real cause is named and treated."
 heading: "Digestive problems"
 intro: "Acidity, bloating and bowel changes are among the most common reasons people see a doctor, and among the most mismanaged by self-treatment. Dr. James finds the pattern first, because the same symptom can mean very different things."
 badge: digestion

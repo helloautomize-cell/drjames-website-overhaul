@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "CGM or A1C: Which Test Actually Catches Prediabetes Early?"
-description: "A1C remains the test that diagnoses prediabetes. A CGM shows something different: how your glucose behaves after meals and overnight."
+description: "A1C remains the test that diagnoses prediabetes; a CGM shows how your glucose behaves after meals and overnight. When each test is worth it."
 heading: "CGM or A1C: Which Test Actually Catches Prediabetes Early?"
 standfirst: "A1C remains the test that diagnoses prediabetes. A CGM shows something different: how your glucose behaves after meals and overnight. Here is how to use each one."
 topic: diabetes-metabolism
@@ -21,7 +21,7 @@ quickAnswer: "A1C is the standard test for diagnosing prediabetes. A CGM cannot 
 keyTakeaways:
   - "A1C is the standard test for diagnosing prediabetes."
   - "A CGM cannot diagnose prediabetes, but it shows how glucose behaves through the day."
-  - "A1C can be unreliable with anemia, some blood disorders and kidney disease."
+  - "A1C can be unreliable with anaemia, some blood disorders and kidney disease."
   - "A CGM reading is a reason for a conversation with your doctor, not a diagnosis."
 questionsToAsk: []
 faqs:
@@ -58,7 +58,7 @@ Below 5.7% is considered normal. A result from 5.7% to 6.4% falls in the [predia
 
 Because it is an average, two people can have the same A1C and very different days. One may spike sharply after lunch and then settle back to normal. The other may stay fairly even all day. A1C alone cannot distinguish them.
 
-A1C can also mislead in certain people. Anemia, recent blood loss or transfusion, kidney disease, pregnancy and inherited hemoglobin disorders such as thalassemia can all shift the reading. Thalassemia is found in parts of the Gulf region, so if you know you have a blood condition, mention it before your doctor relies on A1C alone.
+A1C can also mislead in certain people. anaemia, recent blood loss or transfusion, kidney disease, pregnancy and inherited haemoglobin disorders such as thalassemia can all shift the reading. Thalassemia is found in parts of the Gulf region, so if you know you have a blood condition, mention it before your doctor relies on A1C alone.
 
 ## What Does a CGM Show?
 

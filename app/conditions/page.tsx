@@ -16,7 +16,7 @@ import { pageMeta, JsonLd, breadcrumbNode, medicalWebPageNode, physicianNode, ho
 
 export const metadata: Metadata = pageMeta(
   "Areas of Expertise",
-  "The areas of expertise an internist covers: diabetes, blood pressure, cholesterol, thyroid, lungs, sleep, kidneys, liver, gut and care for older adults in Muscat.",
+  "The areas of expertise an internist covers — diabetes, blood pressure, cholesterol, thyroid, lungs, sleep, kidneys, liver and gut — in Muscat.",
   "/conditions/",
 );
 

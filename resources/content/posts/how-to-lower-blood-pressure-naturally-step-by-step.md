@@ -102,6 +102,8 @@ Book a review if your readings stay high after several weeks of consistent effor
 
 :::
 
+You may also find these guides helpful: [Why Is My Blood Pressure Different at Home Than at the Doctor's Office?](/health-library/why-is-my-blood-pressure-different-at-home-than-doctor/) and [Why High Blood Pressure Has No Symptoms: The Silent Killer](/health-library/why-high-blood-pressure-has-no-symptoms-silent-killer/).
+
 ## Final Thoughts
 
 Lifestyle changes are worth making even when medicine is needed, because they protect the heart and blood vessels either way. If you are in Muscat and want your readings and habits reviewed together, Dr. James Pallivathukkal, an Internal Medicine specialist, can help you work out a realistic plan.

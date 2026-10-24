@@ -1,6 +1,7 @@
 ---
 kind: legal
 title: "Patient rights and responsibilities"
+updated: "2026-10-09"
 description: "Your rights as a patient: respect, privacy, clear information, informed consent and how to raise a concern, and what we ask of you in return."
 heading: "Patient rights and responsibilities"
 ---

@@ -1,7 +1,8 @@
 ---
 kind: legal
 title: "Editorial and medical review policy"
-description: "How health content on this site is drafted, checked and reviewed by Dr. James, including our use of AI-assisted drafting and corrections."
+updated: "2026-10-04"
+description: "How health content on this site is drafted, checked and medically reviewed by Dr. James, including our use of AI-assisted drafting and corrections."
 heading: "Editorial and medical review policy"
 ---
 

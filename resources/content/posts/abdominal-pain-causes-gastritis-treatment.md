@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Abdominal Pain Causes & Gastritis: Symptoms and Treatment"
-description: "Learn the common abdominal pain causes by location, how gastritis feels and is treated, and which warning signs need urgent care."
+description: "Common causes of abdominal pain explained by location, how gastritis feels and is treated, and which warning signs mean you should seek urgent care."
 heading: "Abdominal Pain Causes & Gastritis: Symptoms and Treatment"
 standfirst: "Learn the common abdominal pain causes by location, how gastritis feels and is treated, and which warning signs need urgent care. Guidance for patients in Muscat, Oman."
 topic: kidney-liver-gut

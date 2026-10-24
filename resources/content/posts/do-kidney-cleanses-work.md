@@ -28,7 +28,7 @@ keyTakeaways:
 questionsToAsk: []
 faqs:
   - q: "Do kidney cleanses repair damaged kidneys?"
-    a: "No. There is no good evidence that commercial kidney cleanses can repair established kidney damage."
+    a: "No. There is no good evidence that commercial kidney cleanses can repair established kidney damage. Damaged kidneys are managed by controlling the cause — blood pressure, diabetes or infection — not by a cleanse product. Most such products have no proven benefit, and some can strain the kidneys they claim to help."
   - q: "Do kidney detox teas really work?"
     a: "Kidney detox teas have not been shown to detoxify healthy kidneys or reverse kidney disease. Some ingredients may also interact with medicines or cause side effects."
   - q: "Are kidney detox supplements safe?"

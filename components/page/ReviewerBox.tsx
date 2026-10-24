@@ -18,7 +18,9 @@ export function ReviewerBox({ lastReviewed }: { lastReviewed: string | null }) {
         height={72}
       />
       <div className="who">
-        <b>Medically reviewed by {site.name}</b>
+        <b>
+          Medically reviewed by <Link href={site.profileUrl}>{site.name}</Link>
+        </b>
         <small>
           {site.title}, {site.hospital}
         </small>

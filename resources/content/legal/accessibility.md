@@ -1,7 +1,8 @@
 ---
 kind: legal
 title: "Accessibility statement"
-description: "Our commitment to an accessible website: WCAG 2.2 AA targets, the features built in, and how to tell us when something is hard to use."
+updated: "2026-10-04"
+description: "Our commitment to an accessible website: WCAG 2.2 AA targets, the accessibility features built in, and how to tell us when something is hard to use."
 heading: "Accessibility statement"
 ---
 

@@ -1,7 +1,8 @@
 ---
 kind: legal
 title: "Terms of use"
-description: "The terms for using this website: educational content, appointment requests, intellectual property and Omani law."
+updated: "2026-10-09"
+description: "The terms for using this website: educational health content, appointment requests, intellectual property and the Omani law that applies to both."
 heading: "Terms of use"
 ---
 

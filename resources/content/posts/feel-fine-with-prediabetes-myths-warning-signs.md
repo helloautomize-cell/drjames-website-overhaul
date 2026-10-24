@@ -103,6 +103,8 @@ Ask your doctor which test is most suitable for you, and bring your family histo
 
 Adults in Muscat who recognise these risk factors in themselves can arrange an internal medicine consultation to talk through testing and follow-up.
 
+You may also find these guides helpful: [CGM or A1C: Which Test Actually Catches Prediabetes Early?](/health-library/cgm-vs-a1c-prediabetes-early-detection/) and [Can Prediabetes Be Reversed? A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/).
+
 ## Final Thoughts
 
 Feeling well is a good sign, but it cannot tell you what your glucose is doing. A simple test can, and finding prediabetes early leaves more room to influence its course. If you are unsure whether you need testing, a short conversation with your doctor will usually settle the question.

@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Common digestive problems explained"
-description: "Acidity, bloating, reflux and IBS explained by Dr. James. Which gut symptoms are routine, which need tests, and which are urgent."
+description: "Acidity, bloating, reflux and IBS explained by Dr. James. Which gut symptoms are routine, which need tests, and which need urgent care in Muscat."
 heading: "Common digestive problems and how to look after your gut"
 standfirst: "Acidity, bloating and irregular bowels are among the most common gut complaints. The usual patterns, the warning signs that always need assessment, and what actually helps day to day."
 topic: kidney-liver-gut
@@ -45,6 +45,8 @@ related: [digestive-problems, fatty-liver, allergies, preventive-check-ups]
 
 Digestive complaints are among the most common reasons people visit a physician, and among the most commonly self-treated for months before that visit. Most gut problems are manageable once the pattern is named. This article covers the usual suspects and the signs that should not be waited out.
 
+For the wider picture, see our guide on [Abdominal Pain Causes & Gastritis: Symptoms and Treatment](/health-library/abdominal-pain-causes-gastritis-treatment/).
+
 ## Acidity and reflux
 
 Heartburn is a burning behind the breastbone, often after meals or when lying down, sometimes with a sour taste. It happens when stomach acid moves up into the food pipe (reflux). Triggers are predictable: large or late meals, fatty and spicy food, coffee, fizzy drinks, tight belts and lying down soon after eating.
@@ -84,3 +86,5 @@ These features do not prove something serious, but they change what the problem 
 ## Looking after your gut day to day
 
 The basics protect most people: eat at regular times, slow down at meals, drink water regularly rather than in binges, include vegetables and fibre daily, limit painkillers to genuine need, and take stress seriously as a gut factor. And when a symptom persists, get it named. A short consultation that names the problem beats months of guessing.
+
+You may also find these guides helpful: [When Is Abdominal Pain Serious? Warning Signs You Should Not Ignore](/health-library/when-is-abdominal-pain-serious-warning-signs/) and [Gastritis vs Acid Reflux: What Is the Difference Between the Symptoms?](/health-library/gastritis-vs-acid-reflux-symptoms/). For how these problems are assessed in clinic, see the [digestive problems](/conditions/digestive-problems/) page, or [book an appointment](/contact/).

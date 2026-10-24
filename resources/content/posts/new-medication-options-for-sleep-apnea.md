@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "New Medication Options for Sleep Apnea"
-description: "Medication is becoming part of the treatment conversation for some people with obstructive sleep apnea."
+description: "Medication is joining CPAP and weight loss in treating obstructive sleep apnea. What tirzepatide showed in trials, who may benefit, and its limits."
 heading: "New Medication Options for Sleep Apnea: What Patients Should Know"
 standfirst: "Medication is becoming part of the treatment conversation for some people with obstructive sleep apnea."
 topic: lungs-sleep-infections
@@ -37,7 +37,7 @@ faqs:
   - q: "Who may be considered for sleep apnea medication?"
     a: "Doctors may consider it for some adults with obstructive sleep apnea and obesity, after assessing health, other medicines and treatment goals."
   - q: "Do I still need regular sleep apnea follow-up on medication?"
-    a: "Yes. Follow-up helps your doctor check symptoms, weight, side effects and whether other treatments are still needed."
+    a: "Yes. Follow-up helps your doctor check symptoms, weight, side effects and whether other treatments are still needed. It also catches weight regain or returning symptoms early, before they undo the progress."
 sources:
   - name: "NHLBI: Sleep apnea treatment"
     url: "https://www.nhlbi.nih.gov/health/sleep-apnea/treatment"
@@ -105,7 +105,7 @@ The right approach depends on the severity and type of sleep apnea, anatomy, sym
 
 ## What Should Patients Know About Side Effects?
 
-Tirzepatide can cause side effects, including nausea, diarrhea, vomiting, constipation, abdominal discomfort, fatigue, and reflux.
+Tirzepatide can cause side effects, including nausea, diarrhoea, vomiting, constipation, abdominal discomfort, fatigue, and reflux.
 
 The FDA also lists important warnings and precautions, including risks involving the gallbladder, pancreas, kidney function, allergic reactions, and other conditions. It should not be used by people with a personal or family history of medullary thyroid carcinoma or with Multiple Endocrine Neoplasia syndrome type 2.
 

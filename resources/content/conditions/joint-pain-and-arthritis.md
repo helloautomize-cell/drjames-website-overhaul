@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Joint pain and arthritis care in Muscat"
-description: "Knee, back and joint pain assessed by Dr. James in Muscat. Tell wear-and-tear from inflammatory arthritis and treat each correctly."
+updated: "2026-10-16"
+description: "Knee, back and joint pain assessed by Dr. James in Muscat. Telling wear-and-tear apart from inflammatory arthritis, and treating each correctly."
 heading: "Joint pain and arthritis"
 intro: "Joint pain has many causes and they are not all arthritis. Wear-and-tear, inflammation, gout, vitamin D lack and simple strain feel different once the pattern is read properly, and each is treated differently."
 badge: joint

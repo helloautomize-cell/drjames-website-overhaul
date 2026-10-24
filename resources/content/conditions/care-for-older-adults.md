@@ -1,6 +1,7 @@
 ---
 kind: condition
 title: "Care for older adults in Muscat"
+updated: "2026-10-16"
 description: "Physician-led care for older adults in Muscat. Several conditions handled as one plan, with medicines reviewed together and family kept informed."
 heading: "Care for older adults"
 intro: "Older patients rarely have one problem; they have several, plus a list of medicines that interact. Dr. James looks after the whole picture at once, so visits, tests and medicines stay coordinated instead of scattered."

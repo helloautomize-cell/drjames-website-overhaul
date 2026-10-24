@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Elevated Liver Enzymes on a Routine Blood Test"
-description: "An elevated ALT or AST result does not automatically mean you have serious liver disease."
+description: "An elevated ALT or AST result does not automatically mean serious liver disease. What these liver enzymes actually measure, and what to check next."
 heading: "Elevated Liver Enzymes on a Routine Blood Test: What ALT and AST Actually Mean"
 standfirst: "An elevated ALT or AST result does not automatically mean you have serious liver disease. Learn what these liver enzymes mean, why they can rise, and when abnormal results need further evaluation."
 topic: kidney-liver-gut
@@ -36,7 +36,7 @@ faqs:
   - q: "Should I worry about slightly high liver enzymes?"
     a: "A mild rise is common and often has a treatable cause such as fatty liver or a medicine. It should still be followed up, because the cause matters."
   - q: "Can medicines or supplements raise liver enzymes?"
-    a: "Yes. Some prescription medicines, herbal products and supplements can affect the liver. Tell your doctor everything you take."
+    a: "Yes. Some prescription medicines, herbal products and supplements can affect the liver. Tell your doctor everything you take. This includes common painkillers, cholesterol medicines and some gym or herbal supplements."
 sources:
   - name: "NHS: Non-alcoholic fatty liver disease"
     url: "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/"

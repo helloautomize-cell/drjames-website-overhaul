@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Primary Care Doctor or Endocrinologist for Thyroid?"
-description: "Many thyroid conditions can be managed by a primary care or internal medicine doctor."
+description: "Most thyroid conditions can be managed well by an internist or family doctor. Which thyroid problems genuinely need an endocrinologist, and which do not."
 heading: "Primary Care Doctor or Endocrinologist for Thyroid?"
 standfirst: "Many thyroid conditions can be managed by a primary care or internal medicine doctor. Learn what each doctor does and when an endocrinologist referral makes sense."
 topic: diabetes-metabolism
@@ -27,7 +27,7 @@ keyTakeaways:
 questionsToAsk: []
 faqs:
   - q: "Can a general physician treat hypothyroidism?"
-    a: "Yes. Most cases of uncomplicated hypothyroidism are diagnosed, treated and monitored effectively by primary care or internal medicine doctors."
+    a: "Yes. Most cases of uncomplicated hypothyroidism are diagnosed, treated and monitored effectively by primary care or internal medicine doctors. An endocrinologist usually steps in when results are unusual, treatment is not working, or nodules or pregnancy are involved."
   - q: "When should I see an endocrinologist for thyroid?"
     a: "Consider an endocrinologist for hyperthyroidism needing specialist treatment, thyroid nodules, levels that are hard to control, unusual test results, thyroid eye disease or complex pregnancy-related thyroid issues."
   - q: "Is an endocrinologist better than an internist for thyroid?"
@@ -99,7 +99,7 @@ Take levothyroxine as directed, usually on an empty stomach with water, and keep
 
 For straightforward, stable thyroid conditions, a primary care or internal medicine doctor is usually suitable. For complex or difficult cases, an endocrinologist adds expertise. What matters most is consistent follow-up and a doctor who knows your full health picture.
 
-You may also find these guides helpful: [Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart](/health-library/hypothyroidism-vs-hyperthyroidism/), [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
+You may also find these guides helpful: [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
 
 ## Final Thoughts
 

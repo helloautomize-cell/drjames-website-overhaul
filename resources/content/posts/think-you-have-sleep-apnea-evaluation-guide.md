@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Think You Might Have Sleep Apnea?"
-description: "Loud snoring, gasping during sleep, morning headaches, and daytime tiredness can be signs of sleep apnea."
+description: "Loud snoring, gasping at night, morning headaches and daytime tiredness can signal sleep apnea. What a proper evaluation involves, step by step."
 heading: "Think You Might Have Sleep Apnea? A Step-by-Step Guide to Getting Evaluated"
 standfirst: "Loud snoring, gasping during sleep, morning headaches, and daytime tiredness can be signs of sleep apnea. Learn how sleep apnea is evaluated, which tests may be recommended, and what to expect during the evaluation process."
 topic: lungs-sleep-infections
@@ -57,7 +57,7 @@ Sleep apnea is a sleep disorder in which breathing repeatedly becomes reduced or
 
 Having symptoms does not automatically mean you have sleep apnea. A proper evaluation can help determine what is actually causing your sleep problems.
 
-## Step 1: Recognize the Warning Signs
+## Step 1: Recognise the Warning Signs
 
 Possible symptoms of sleep apnea include:
 

@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Allergy testing and treatment in Muscat"
-description: "Sneezing, rashes and suspected allergies assessed by Dr. James in Muscat. Find the real trigger and calm the symptoms without guesswork."
+updated: "2026-10-16"
+description: "Sneezing, rashes and suspected allergies assessed by Dr. James in Muscat. Finding the real trigger and calming the symptoms without guesswork."
 heading: "Allergies"
 intro: "Sneezing, itchy eyes, rashes and wheeze can all be allergy, but guessing the trigger rarely works. Dr. James maps your symptoms to likely causes and only tests when the answer will change what you do."
 badge: allergy

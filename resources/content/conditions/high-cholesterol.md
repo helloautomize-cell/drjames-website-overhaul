@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "High cholesterol checks and treatment in Muscat"
-description: "High cholesterol explained and managed by Dr. James in Muscat. Know your numbers, your heart risk, and a plan that fits your life."
+updated: "2026-10-16"
+description: "High cholesterol explained and managed by Dr. James in Muscat. Know your numbers, understand your heart risk, and follow a plan that fits your life."
 heading: "High cholesterol"
 intro: "High cholesterol has no symptoms, but it quietly raises the risk of heart attack and stroke. Dr. James reads your cholesterol numbers together with your age, blood pressure and family history to decide what, if anything, needs treatment."
 badge: cholesterol

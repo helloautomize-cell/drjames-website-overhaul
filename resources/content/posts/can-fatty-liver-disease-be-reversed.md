@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Can Fatty Liver Disease Be Reversed?"
-description: "Fatty liver disease can often improve when the underlying causes and metabolic risk factors are addressed."
+description: "Fatty liver disease can often improve when weight and insulin resistance are addressed. What reversal realistically means, and how long it takes."
 heading: "Can Fatty Liver Disease Be Reversed? A Step-by-Step Guide to Protecting Your Liver"
 standfirst: "Fatty liver disease can often improve when the underlying causes and metabolic risk factors are addressed."
 topic: kidney-liver-gut

@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "New Medication Options for Advanced Fatty Liver Disease"
-description: "Newer treatment options are changing how some patients with advanced fatty liver disease are managed."
+description: "New medicines are changing how advanced fatty liver disease is managed. What resmetirom and similar options do, who qualifies, and what is still unproven."
 heading: "New Medication Options for Advanced Fatty Liver Disease: What Patients Should Know"
 standfirst: "Newer treatment options are changing how some patients with advanced fatty liver disease are managed. Learn which patients may benefit from medication, why fibrosis matters, and why lifestyle and medical care remain important."
 topic: kidney-liver-gut
@@ -32,7 +32,7 @@ faqs:
   - q: "What is resmetirom used for?"
     a: "Resmetirom is used for certain adults with noncirrhotic MASH and moderate-to-advanced liver fibrosis. It is prescribed based on specific clinical criteria and requires medical monitoring."
   - q: "Does everyone with fatty liver need medication?"
-    a: "No. Many people can be managed primarily through lifestyle changes and treatment of metabolic risk factors. Medication is considered according to disease severity and individual circumstances."
+    a: "No. Many people can be managed primarily through lifestyle changes and treatment of metabolic risk factors. Medication is considered according to disease severity and individual circumstances. Lifestyle measures are what keep the liver improving, whether or not a medicine is added."
   - q: "Who may be considered for fatty liver medication?"
     a: "Doctors usually consider medication for people with MASH and moderate to advanced fibrosis after careful assessment. Many people with fatty liver do not need it."
   - q: "Do I still need lifestyle changes if I take medicine?"

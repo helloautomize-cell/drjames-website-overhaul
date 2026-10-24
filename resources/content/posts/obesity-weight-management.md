@@ -35,7 +35,7 @@ faqs:
   - q: "Can losing weight reduce my risk of diabetes?"
     a: "Weight management can be an important part of reducing metabolic risk, particularly in people who have overweight, obesity, insulin resistance or prediabetes. However, diabetes risk is influenced by several factors, including genetics, age and family history. Your doctor can assess your individual risk using your medical history and appropriate blood tests."
   - q: "Are weight-loss injections safe?"
-    a: "Weight-loss injections can be appropriate for some patients when prescribed and monitored correctly. Gastrointestinal side effects such as nausea, vomiting, constipation or diarrhea can occur, and individual medicines have different precautions. They should not be started simply because they are popular online. A doctor should first determine whether the medicine is suitable for you."
+    a: "Weight-loss injections can be appropriate for some patients when prescribed and monitored correctly. Gastrointestinal side effects such as nausea, vomiting, constipation or diarrhoea can occur, and individual medicines have different precautions. They should not be started simply because they are popular online. A doctor should first determine whether the medicine is suitable for you."
   - q: "Do I have to take medication if I have obesity?"
     a: "No. Medication is not required for everyone. Lifestyle measures remain an important part of treatment, and some people can achieve meaningful improvement without prescription medication. For others, medication may provide additional support when lifestyle changes alone are not sufficient. The decision depends on overall health, risks and individual circumstances."
   - q: "When should I see a doctor about my weight?"
@@ -411,7 +411,7 @@ Gastrointestinal symptoms are among the more common side effects of several medi
 
 - Vomiting
 
-- Diarrhea
+- Diarrhoea
 
 - Constipation
 

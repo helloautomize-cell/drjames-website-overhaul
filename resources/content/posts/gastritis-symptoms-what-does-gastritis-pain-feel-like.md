@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Gastritis Symptoms: What the Pain Feels Like"
-description: "Gastritis can cause burning or aching pain in the upper abdomen, but symptoms vary from person to person."
+description: "Gastritis often causes burning or aching upper-abdominal pain, but symptoms vary. How it differs from reflux and ulcers, and when pain needs a doctor."
 heading: "Gastritis Symptoms: What Does Gastritis Pain Feel Like and Where Does It Hurt?"
 standfirst: "Gastritis can cause burning or aching pain in the upper abdomen, but symptoms vary from person to person."
 topic: kidney-liver-gut

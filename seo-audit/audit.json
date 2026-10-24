@@ -1,0 +1,3917 @@
+{
+  "generated": "2026-10-24",
+  "site": "https://drjamesp.com (local production build, SITE_INDEXABLE=true)",
+  "commit": "eac1455 (origin/main)",
+  "method": "npm run build + next start; raw-HTML fetches with Googlebot/GPTBot/OAI-SearchBot/ChatGPT-User/ClaudeBot/Claude-SearchBot/PerplexityBot/Applebot/Bingbot; static analysis of all 63 posts + 18 conditions + 7 legal pages.",
+  "pagesAudited": 99,
+  "issues": [
+    {
+      "id": "SEO-001",
+      "priority": "P0",
+      "area": "Crawling & indexing",
+      "title": "Entire site is noindex + robots.txt Disallow-all until SITE_INDEXABLE=true is set in the production environment",
+      "pages": [
+        "all"
+      ],
+      "evidence": "lib/seo.tsx:12 `siteIndexable = process.env.SITE_INDEXABLE === \"true\"`; next.config.ts headers() emits `X-Robots-Tag: noindex, nofollow` and app/robots.ts returns `Disallow: /` when unset. Verified: a build without the env var serves `Disallow: /` for every bot.",
+      "fix": "Before launch, set SITE_INDEXABLE=true and SITE_URL=https://drjamesp.com in the Vercel/hosting production env vars, redeploy, then verify robots.txt allows all and no X-Robots-Tag header is sent. Deliberate pre-launch gate — correct design, but a hard launch blocker if forgotten."
+    },
+    {
+      "id": "SEO-002",
+      "priority": "P1",
+      "area": "On-page",
+      "title": "Title template appends 32 characters — every rendered <title> is 63–95 chars, far over the 50–60 target",
+      "pages": [
+        "all except home"
+      ],
+      "evidence": "app/layout.tsx:28 `template: \"%s | Dr. James Kumar Pallivathukkal\"`. Rendered: guide title 94 chars ('Fatty Liver Disease: Causes, Symptoms & How to Reverse It | Dr. James Kumar Pallivathukkal'), /conditions/ 51, /faqs/ 68, /contact/ 64. 27 guide front-matter titles are already <50 chars and still render >65 with the suffix.",
+      "fix": "Shorten the template to ` | Dr. James` or ` | Dr James, Muscat`, or drop the suffix on article pages where the front-matter title already carries the brand intent. Recheck every page lands 50–60 chars rendered."
+    },
+    {
+      "id": "SEO-003",
+      "priority": "P1",
+      "area": "E-E-A-T",
+      "title": "All 18 condition pages bypass the doctor-review gate yet display \"Reviewed by Dr. James\" and ship no dates",
+      "pages": [
+        "/conditions/* (18 pages)"
+      ],
+      "evidence": "resources/content/conditions/*.md carry no `status`/`reviewedOn` (default = draft-for-doctor-review) but app/conditions/[slug]/page.tsx has no isPublished() check — posts have one, conditions do not. PageHero always renders 'Reviewed by {site.name}' (pg-rev) while the lastReviewed date is silently dropped. resources/content/legal/editorial-policy.md states nothing unreviewed is presented.",
+      "fix": "Either obtain Dr. James's review and add `status: published`, `reviewedBy`, `reviewedOn` to all 18 condition files (preferred — also enables the Last reviewed date), or apply isPublished() gating to conditions like posts."
+    },
+    {
+      "id": "SEO-004",
+      "priority": "P1",
+      "area": "E-E-A-T / Internal links",
+      "title": "Author/reviewer name is never linked to /about-dr-james/ — no guide links to the doctor page at all",
+      "pages": [
+        "/health-library/* (63)",
+        "/conditions/* (18)"
+      ],
+      "evidence": "app/health-library/[slug]/page.tsx:160-164 renders 'Written and reviewed by {site.name}' as plain text; components/page/ReviewerBox.tsx renders the name unlinked. A link crawl of all 63 post bodies found 0 links to /about-dr-james/.",
+      "fix": "Link the doctor's name in the guide byline and ReviewerBox to /about-dr-james/, and add a natural first-mention link in article body copy ('Dr. James' -> profile)."
+    },
+    {
+      "id": "SEO-005",
+      "priority": "P1",
+      "area": "Crawling / GEO",
+      "title": "llms.txt is stale: none of the 63 guides, 18 conditions or topic hubs are listed, and the hours line contradicts site data",
+      "pages": [
+        "/llms.txt"
+      ],
+      "evidence": "public/llms.txt says 'Saturday–Thursday 8:30 am–9 pm' but lib/site-config.ts CLINIC_SESSIONS = 9–13 and 17–21 Sat–Thu, Fri closed. It predates the 60-guide Health Library launch and lists only 7 pages.",
+      "fix": "Regenerate llms.txt (or render it from data like the sitemap) covering doctor, hospital, hours from site-config, the 5 topic hubs, all pillars and key supports, plus the policy pages."
+    },
+    {
+      "id": "SEO-006",
+      "priority": "P1",
+      "area": "On-page",
+      "title": "Meta descriptions out of range: home 238 chars; several core pages <140; 19 guides <120 chars",
+      "pages": [
+        "/",
+        "/your-visit/",
+        "/faqs/",
+        "/health-library/",
+        "+19 guides"
+      ],
+      "evidence": "Rendered home description is 238 chars. /your-visit/ 129, /faqs/ 134, /health-library/ 133, /editorial-policy/ 137. Guides under 120 include is-melatonin-safe-to-take-every-night (96), nephrologist-referral (92), gastritis pages (82–106). Pagination pages share a 35-char boilerplate ('Plain-language guides by Dr. James.').",
+      "fix": "Bring every page to 140–160 chars. Rewrite the home description. Give paginated pages a fuller distinct description or mark them noindex."
+    },
+    {
+      "id": "SEO-007",
+      "priority": "P2",
+      "area": "Crawling",
+      "title": "sitemap.xml lastmod = build timestamp for all core, condition, topic and legal URLs",
+      "pages": [
+        "sitemap.xml"
+      ],
+      "evidence": "app/sitemap.ts uses `lastModified: new Date()` for CORE, conditionMeta(), topics and legalMeta() — rendered sitemap shows 2026-10-24T16:03:44.597Z (build time) on e.g. /conditions/high-blood-pressure/. Only guides carry real dates.",
+      "fix": "Give conditions/legal a real lastmod (front-matter `updated` field or file mtime); use a fixed launch date for core pages or the latest guide date."
+    },
+    {
+      "id": "SEO-008",
+      "priority": "P2",
+      "area": "Schema / On-page",
+      "title": "Guide breadcrumbs omit the current page and reuse the topic page's BreadcrumbList @id",
+      "pages": [
+        "/health-library/* (63)"
+      ],
+      "evidence": "app/health-library/[slug]/page.tsx:94-98 crumbs end at the topic; breadcrumbNode() then builds @id from the last crumb → every guide's BreadcrumbList @id = `…/topic/<id>/#breadcrumb`, colliding with the topic page's own @id. Rendered HTML confirms 3-item trail on a guide.",
+      "fix": "Append `{ label: doc.heading }` (no href) to the guide crumbs so both the visible trail and the BreadcrumbList include the article and get a unique @id."
+    },
+    {
+      "id": "SEO-009",
+      "priority": "P2",
+      "area": "On-page",
+      "title": "Guide twitter:image falls back to the generic card — per-guide override is dead code",
+      "pages": [
+        "/health-library/* (63)"
+      ],
+      "evidence": "app/health-library/[slug]/page.tsx:68 `if (meta.twitter) meta.twitter.images = …` — pageMeta() never sets meta.twitter, so the branch never runs. Rendered guide HTML: twitter:image = https://drjamesp.com/twitter-image?… (generic).",
+      "fix": "Set `meta.twitter = { card: 'summary_large_image', title, description, images: [per-guide og image] }` explicitly in the guide generateMetadata."
+    },
+    {
+      "id": "SEO-010",
+      "priority": "P2",
+      "area": "Keywords",
+      "title": "Keyword cannibalisation risk: two thyroid-comparison pages target the same query",
+      "pages": [
+        "/health-library/hypothyroidism-vs-hyperthyroidism/",
+        "/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/"
+      ],
+      "evidence": "522-word support 'hypothyroidism-vs-hyperthyroidism' and 2,613-word pillar 'hypothyroidism-vs-hyperthyroidism-symptoms' both target 'hypothyroidism vs hyperthyroidism'. Also watch asthma-symptoms-triggers-relief vs asthma-symptoms-early-signs-common-triggers.",
+      "fix": "Merge the short page into the pillar with a 308, or reposition it to a distinct intent (e.g. 'test results and numbers')."
+    },
+    {
+      "id": "SEO-011",
+      "priority": "P2",
+      "area": "Pillar linking",
+      "title": "3 legacy guides link to no pillar, no sibling and no condition page; 9 supports have <2 sibling links",
+      "pages": [
+        "/health-library/common-digestive-problems/",
+        "/health-library/heart-disease-warning-signs/",
+        "/health-library/sleep-disorders/",
+        "9 more supports"
+      ],
+      "evidence": "Link-graph analysis of all post bodies: the three pre-library posts have 0 outgoing guide links and don't link back to the pillar that links to them (abdominal-pain, HBP, sleep pillars respectively). Supports with <2 sibling links: can-prediabetes-be-reversed, feel-fine-with-prediabetes, how-to-lower-blood-pressure, internist-or-endocrinologist, primary-care-doctor-or-cardiologist, smartwatch-vs-cuff + the 3 above.",
+      "fix": "Add 'For the wider picture, see our guide on…' pillar links and 2 contextual sibling links in each of the listed bodies."
+    },
+    {
+      "id": "SEO-012",
+      "priority": "P2",
+      "area": "Schema",
+      "title": "MedicalWebPage `about` on condition pages uses a relative @id; conditions have no dates anywhere in schema",
+      "pages": [
+        "/conditions/* (18)"
+      ],
+      "evidence": "app/conditions/[slug]/page.tsx passes `{ \"@id\": `${url}#condition` }` (relative) as about; seo.tsx:199 medicalConditionNode itself uses the absolute `${SITE_URL}${url}#condition`. Condition front-matter has no date fields, so MedicalWebPage emits no datePublished/dateModified/lastReviewed.",
+      "fix": "Use `medicalConditionNode(url, …)`'s output (or `${SITE_URL}${url}#condition`) for `about`; add date/reviewedOn fields to condition front-matter once reviewed (see SEO-003)."
+    },
+    {
+      "id": "SEO-013",
+      "priority": "P2",
+      "area": "FAQs",
+      "title": "64% of FAQ answers are under 35 words (target 40–60)",
+      "pages": [
+        "most guides + conditions"
+      ],
+      "evidence": "All 328 FAQ answers measured from front-matter: 209 under 35 words, 0 over 70. Example pattern is punchy 15–30-word answers.",
+      "fix": "No rewrite needed for correctness — short direct answers are AEO-friendly — but expand the thinnest answers (a second sentence naming the entity + one concrete detail) on pillar pages first."
+    },
+    {
+      "id": "SEO-014",
+      "priority": "P2",
+      "area": "Codebase",
+      "title": "Anthropic C2PA provenance manifest embedded in shipped brand assets",
+      "pages": [
+        "app/icon.svg",
+        "public/icons/mark-source.svg"
+      ],
+      "evidence": "Both SVGs contain a full c2pa manifest block ('Claimed generated by Anthropic', 'c2pa.action.generated' …). Any crawler fetching the site icon sees an AI-generation receipt.",
+      "fix": "Export clean SVGs (strip the <metadata>/<c2pa:manifest> block) before launch."
+    },
+    {
+      "id": "SEO-015",
+      "priority": "P2",
+      "area": "Content consistency",
+      "title": "US spellings leak into a UK/Oman-English site",
+      "pages": [
+        "6 posts"
+      ],
+      "evidence": "'anemia' in cgm-vs-a1c-prediabetes-early-detection, still-short-of-breath-with-inhaler, when-to-see-doctor-for-shortness-of-breath; 'Fiber' in diabetes-early-warning-signs; 'Center' in glp-1 pillar; 'behavior' in why-is-it-hard-to-lose-weight. The site's own condition slug is /conditions/anaemia/.",
+      "fix": "Normalise to UK spellings (anaemia, fibre, centre, behaviour) to match the rest of the site."
+    },
+    {
+      "id": "SEO-016",
+      "priority": "P2",
+      "area": "Performance",
+      "title": "Core Web Vitals not lab-verified; SSR HTML payloads are heavy",
+      "pages": [
+        "all"
+      ],
+      "evidence": "Raw HTML: home 203KB, guide 216KB, library index 784KB (large RSC inline payload). next/image, next/font, priority hints are all in place, but no Lighthouse run exists in-repo; recommend measuring LCP/INP/CLS on home, a pillar, a support and a condition page before launch.",
+      "fix": "Run Lighthouse mobile on the 4 page types; consider trimming the inline RSC payload on the library index if LCP/INP regress."
+    },
+    {
+      "id": "SEO-017",
+      "priority": "P3",
+      "area": "Client input",
+      "title": "MOH licence / registration number missing from site and Physician schema",
+      "pages": [
+        "/about-dr-james/",
+        "Physician @id #dr-james"
+      ],
+      "evidence": "lib/site-config.ts:163 `mohLicence: \"[CONFIRM: number]\"`.",
+      "fix": "Client supplies the Oman MOH licence number; display on About and add hasCredential/identifier to physicianNode."
+    },
+    {
+      "id": "SEO-018",
+      "priority": "P3",
+      "area": "Client input",
+      "title": "Unconfirmed facts: MSc awarding university, languages spoken, years-of-experience count",
+      "pages": [
+        "/about-dr-james/",
+        "schema"
+      ],
+      "evidence": "site-config.ts:114 '[CONFIRM: Cardiff or University of South Wales]' for the MSc; languages=['English'] marked languagesConfirm; experience computed (24y in 2026) vs old site's 23 and hospital profile's 19.",
+      "fix": "Client confirms MSc institution, language list (knowsLanguage), and the canonical experience numbers."
+    },
+    {
+      "id": "SEO-019",
+      "priority": "P3",
+      "area": "Technical",
+      "title": "Host-level checks pending: www/apex canonical redirect, HTTPS, Google Business Profile NAP match, production bot-firewall",
+      "pages": [
+        "all"
+      ],
+      "evidence": "Cannot be verified on localhost; next.config only handles trailing-slash and legacy paths.",
+      "fix": "At deploy: 308 www→apex (or vice versa) on the production domain, confirm no Vercel/Cloudflare bot rule challenges AI UAs, and match GBP name/address/phone to site-config."
+    },
+    {
+      "id": "SEO-020",
+      "priority": "P3",
+      "area": "Technical",
+      "title": "Misc: no PWA manifest; npm audit shows 3 vulnerabilities (1 critical); footer uses plain <a> for internal links; topic 'whole-person' has no guides",
+      "pages": [
+        "site-wide"
+      ],
+      "evidence": "No manifest.webmanifest in public/ or metadata; `npm install` reported 3 vulns; SiteFooter.tsx uses <a href> (real hrefs, crawlable — cosmetic Next.js convention issue); TOPIC_IDS includes 'whole-person' but no post uses it so no topic page generates (safe, just dead taxonomy).",
+      "fix": "Optional manifest; run npm audit fix; switch footer links to next/link; drop or populate the whole-person topic."
+    }
+  ],
+  "checklist": [
+    [
+      1,
+      "robots.txt exists, links sitemap, doesn't block",
+      "PARTIAL",
+      "Exists and correct when indexable; Disallow-all when SITE_INDEXABLE unset (SEO-001)."
+    ],
+    [
+      2,
+      "AI bots allowed",
+      "PASS",
+      "Wildcard Allow:/ + explicit GPTBot/ClaudeBot/PerplexityBot/Google-Extended. OAI-SearchBot/ChatGPT-User/Claude-SearchBot/Perplexity-User/Applebot-Extended covered by wildcard; naming them explicitly is tidier."
+    ],
+    [
+      3,
+      "No middleware/firewall blocks bots",
+      "PASS",
+      "All 9 test UAs returned 200 on prod build. Host-level bot rules unverifiable locally (SEO-019)."
+    ],
+    [
+      4,
+      "sitemap.xml real lastmod, only indexable URLs",
+      "FAIL",
+      "Guides have real lastmod; core/conditions/topics/legal use build timestamp (SEO-007). No redirecting/404/noindex URLs listed; thank-you correctly excluded."
+    ],
+    [
+      5,
+      "llms.txt complete",
+      "PARTIAL",
+      "Exists but stale: 7 pages only, wrong hours, no guides (SEO-005)."
+    ],
+    [
+      6,
+      "No accidental noindex; previews noindex",
+      "PARTIAL",
+      "Deliberate env gate; preview behaviour correct. Dynamic routes evaluate SITE_INDEXABLE at request time — env must be present at runtime too (verified: /contact/ served noindex when runtime env missing)."
+    ],
+    [
+      7,
+      "metadataBase + self-canonical",
+      "PASS",
+      "metadataBase set in app/layout.tsx:25; every page emits absolute canonical."
+    ],
+    [
+      8,
+      "One version, 301/308, no chains",
+      "PARTIAL",
+      "trailingSlash:true → 308 to trailing slash; legacy WP paths 301. www/apex pending host config (SEO-019)."
+    ],
+    [
+      9,
+      "Real 404s",
+      "PASS",
+      "/does-not-exist/ → 404; /elements/* → 410 via route handler."
+    ],
+    [
+      10,
+      "Main content/headings/FAQs/byline/dates/schema in raw HTML",
+      "PASS",
+      "Verified in curl'd HTML: full article body, byline, dates, FAQ <details>, JSON-LD all present for Googlebot/GPTBot/ClaudeBot."
+    ],
+    [
+      11,
+      "No client-only content",
+      "PASS",
+      "FAQs use native <details>; TOC duplicated for mobile; search is progressive enhancement over server-rendered list."
+    ],
+    [
+      12,
+      "Internal links real <a href>",
+      "PASS",
+      "All body links are markdown→<a href>; footer uses plain <a> (crawlable); no onClick nav found (SEO-020 note)."
+    ],
+    [
+      13,
+      "Unique 50–60 titles, 140–160 descriptions",
+      "FAIL",
+      "Template suffix pushes all titles to 63–95 (SEO-002); descriptions out of range on home + ~26 pages (SEO-006). Titles/descriptions otherwise unique."
+    ],
+    [
+      14,
+      "One H1, clean H2/H3",
+      "PASS",
+      "h1 count = 1 on all tested pages; H2s are question-form."
+    ],
+    [
+      15,
+      "Clean URLs, pillar>support",
+      "PASS",
+      "/conditions/<slug>/, /health-library/<slug>/, /health-library/topic/<id>/."
+    ],
+    [
+      16,
+      "Image alt/width-height/next-image",
+      "PASS",
+      "All images via next/image with alt (decorative alts empty — acceptable); post schema requires imageAlt when image set."
+    ],
+    [
+      17,
+      "OG + Twitter every page",
+      "PASS",
+      "Both present site-wide. Caveat: guide twitter:image is generic card (SEO-009)."
+    ],
+    [
+      18,
+      "Visible breadcrumbs on inner pages",
+      "PARTIAL",
+      "Present on all inner pages but guide crumbs stop at topic, omitting the article itself (SEO-008)."
+    ],
+    [
+      19,
+      "Core Web Vitals",
+      "PARTIAL",
+      "Not lab-verified; heavy HTML payloads noted (SEO-016). next/image + next/font + priority used correctly."
+    ],
+    [
+      20,
+      "No broken internal links/redirect links",
+      "PASS",
+      "0 broken internal links across all 63 post bodies."
+    ],
+    [
+      21,
+      "One @graph, stable @ids, Org/Clinic/WebSite/WebPage",
+      "PARTIAL",
+      "Single JSON-LD @graph per page with Physician/Hospital/MedicalClinic/WebSite/MedicalWebPage. BreadcrumbList @id collides across guides (SEO-008); no standalone Organization node (Physician+MedicalClinic+Hospital cover the entity)."
+    ],
+    [
+      22,
+      "Article schema: MedicalWebPage/Article with author, reviewedBy, dates, about, publisher",
+      "PASS",
+      "BlogPosting + MedicalWebPage: author→#dr-james, reviewedBy, datePublished/dateModified/lastReviewed (when real), about→MedicalCondition, publisher."
+    ],
+    [
+      23,
+      "Physician schema with quals, registration, specialty, affiliation, image, sameAs",
+      "PARTIAL",
+      "Qualifications (hasCredential), specialty, affiliation, image, knowsLanguage all present. Missing: registration/licence number (SEO-017), sameAs links, url points to / not /about-dr-james/."
+    ],
+    [
+      24,
+      "Service=MedicalProcedure/Service; condition=MedicalCondition",
+      "PASS",
+      "Condition pages emit MedicalCondition (about). No separate MedicalProcedure/Service node — condition pages are framed as conditions, acceptable."
+    ],
+    [
+      25,
+      "BreadcrumbList inner pages; FAQPage where FAQs exist",
+      "PASS",
+      "Both emitted; FAQPage generated from the same front-matter that renders visible <details> FAQs."
+    ],
+    [
+      26,
+      "Schema matches visible content, valid JSON, no dupes",
+      "PASS",
+      "Schema derives from same data source; single script; [CONFIRM] values filtered out."
+    ],
+    [
+      27,
+      "Doctor profile page, crawlable, linked from articles",
+      "PARTIAL",
+      "/about-dr-james/ exists with photo, training, affiliations, committees — but no registration number and article bylines don't link to it (SEO-004, SEO-017)."
+    ],
+    [
+      28,
+      "Written by + Medically reviewed by + dates near top",
+      "PARTIAL",
+      "Guides: 'Written and reviewed by' + Published/Updated/Reviewed-on dates near top — but unlinked (SEO-004). Conditions: 'Reviewed by' only, no dates at all (SEO-003)."
+    ],
+    [
+      29,
+      "Trust pages in footer",
+      "PASS",
+      "About, Contact (address+phone+map facade), Editorial Policy, Medical Disclaimer, Privacy, Terms, Patient Rights, Appointments, Accessibility — all in footer."
+    ],
+    [
+      30,
+      "Citations to authoritative sources, working",
+      "PASS",
+      "NHS (56 posts), NIDDK (38), CDC (10), WHO (7), diabetes.org (4), NHLBI (3), NCCIH, Mayo — rendered as a Sources section."
+    ],
+    [
+      31,
+      "No risky claims",
+      "PASS",
+      "All 'guarantee'/'cure' hits are disclaiming contexts ('no guaranteed way', 'not a cure'). No 'best doctor', 'painless', '100%' claims."
+    ],
+    [
+      32,
+      "'When to see a doctor' on condition pages",
+      "PASS",
+      "All 18 conditions have 'Who should see an internist about this'; 10 add 'When to get help straight away' emergency callout; every guide has a 'when to see an internist' local section."
+    ],
+    [
+      33,
+      "First-hand experience + local context",
+      "PASS",
+      "Muscat/Badr Al Samaa context throughout; localSection on every guide. NOTE: audit template assumed India/INR — this clinic is Muscat, Oman (en-OM); the Oman context is the correct equivalent."
+    ],
+    [
+      34,
+      "NAP identical site + schema",
+      "PARTIAL",
+      "Consistent in code + schema (single site-config source); llms.txt contradicts hours (SEO-005)."
+    ],
+    [
+      35,
+      "Every pillar has 5 supports",
+      "PASS",
+      "10 pillars identified (>2000 words); each links 5–8 same-topic supports."
+    ],
+    [
+      36,
+      "Pillar links all supports in body",
+      "PASS",
+      "All 10 pillars carry body links to their cluster (5–8 each)."
+    ],
+    [
+      37,
+      "Supports link pillar early + 2 siblings",
+      "PARTIAL",
+      "60/63 link a pillar; 3 legacy posts link to nothing (SEO-011); 9 supports have <2 sibling links."
+    ],
+    [
+      38,
+      "Pillar/support link service + doctor page",
+      "PARTIAL",
+      "All guides link a /conditions/ page via template + body; none link /about-dr-james/ (SEO-004)."
+    ],
+    [
+      39,
+      "Descriptive varied anchors",
+      "PASS",
+      "Markdown links use descriptive phrases; no 'click here' found."
+    ],
+    [
+      40,
+      "No orphans, ≤3 clicks",
+      "PASS",
+      "Every guide receives an incoming guide link; all reachable via library index + topic hubs + mega menu."
+    ],
+    [
+      41,
+      "4–8 unique FAQs per page",
+      "PASS",
+      "All guides 4–6, conditions 4–6 (schema-enforced), /faqs/ page."
+    ],
+    [
+      42,
+      "FAQ answers direct, 40–60 words",
+      "PARTIAL",
+      "Direct answer first (good); 64% under 35 words (SEO-013)."
+    ],
+    [
+      43,
+      "FAQs in raw HTML, match FAQPage word-for-word",
+      "PASS",
+      "<details> elements in SSR HTML; schema generated from identical front-matter."
+    ],
+    [
+      44,
+      "Primary + related entities covered",
+      "PASS",
+      "Pillars cover symptoms/causes/tests/treatment/cost/specialist; 'which specialist' support posts close the referral entity."
+    ],
+    [
+      45,
+      "Primary entity defined in first 100 words",
+      "PASS",
+      "standfirst + 'Quick answer' box (120–420 chars, schema-enforced) delivers quotable definitions."
+    ],
+    [
+      46,
+      "H2 answers one question, names entity",
+      "PASS",
+      "Verified: e.g. fatty-liver pillar's 30 H2s are all patient questions naming the entity."
+    ],
+    [
+      47,
+      "Medical + plain term together first mention",
+      "PASS",
+      "e.g. 'nonalcoholic fatty liver disease (NAFLD)', 'hypertension (high blood pressure)' patterns present."
+    ],
+    [
+      48,
+      "Primary keyword in title/H1/URL/intro/H2/desc",
+      "PASS",
+      "Verified on sampled pages."
+    ],
+    [
+      49,
+      "No keyword cannibalisation",
+      "FAIL",
+      "hypothyroidism-vs-hyperthyroidism pair (SEO-010)."
+    ],
+    [
+      50,
+      "Quotable specifics for AI",
+      "PASS",
+      "Numbers, costs (GLP-1 pricing posts), timelines, comparison content present."
+    ],
+    [
+      51,
+      "ChatGPT tells",
+      "PASS",
+      "0 hits on delve/landscape/journey/unlock/robust/etc; no 'In conclusion'; no emoji."
+    ],
+    [
+      52,
+      "Claude tells",
+      "PARTIAL",
+      "0 em dashes; minor: 'straightforward' ×8, 'genuinely' ×5, 'that said' ×2 across 18 files; boilerplate heads 'Final Thoughts'/'Myth vs Fact' on pillars."
+    ],
+    [
+      53,
+      "General AI tells",
+      "PARTIAL",
+      "Same skeleton on every guide (standfirst→quick answer→TOC→body→takeaways→FAQ→sources) is template-y but intentional design; some US spellings (SEO-015)."
+    ],
+    [
+      54,
+      "Agent fingerprints",
+      "PARTIAL",
+      "C2PA Anthropic manifest in 2 SVG assets (SEO-014); 1 TODO comment in lib/seo.tsx:101; no lorem/placeholders/console.log/mock data."
+    ],
+    [
+      55,
+      "lang, favicon, manifest, HTTPS",
+      "PARTIAL",
+      "lang='en-OM' (correct for Oman — the checklist's en-IN doesn't apply); favicon+icon+apple-icon present; no manifest; HTTPS host-level."
+    ],
+    [
+      56,
+      "Unique service/location pages, GBP match",
+      "PARTIAL",
+      "Pages are genuinely unique (no city-swapping); GBP NAP match pending (SEO-019)."
+    ],
+    [
+      57,
+      "Entity sameAs + consistent terms",
+      "PARTIAL",
+      "No sameAs links to Wikipedia/Wikidata/MeSH in schema; 'anemia/anaemia' inconsistency (SEO-015)."
+    ],
+    [
+      58,
+      "PAA/cost/vs coverage",
+      "PASS",
+      "Multiple 'X vs Y' and cost posts (glp-1 cost, smartwatch-vs-cuff, sleep-apnea-vs-insomnia, 5× primary-care-vs-specialist)."
+    ],
+    [
+      59,
+      "Reading level grade 7–9, outdated facts",
+      "PASS",
+      "Plain-language register throughout; no obviously outdated claims spotted — flagged items need doctor's pass anyway (SEO-003)."
+    ],
+    [
+      60,
+      "No self-serving rating schema/fake testimonials",
+      "PASS",
+      "seo.tsx:250 documents 'never emits AggregateRating or Review'; patient quotes are attributed to site text, no review schema."
+    ],
+    [
+      61,
+      "No NMC/DMR-act violations",
+      "PASS",
+      "No cure/guarantee claims; consistent disclaimers. (Oman MOH advertising rules apply rather than NMC — same spirit.)"
+    ],
+    [
+      62,
+      "External links correct rel",
+      "PASS",
+      "Sources use target=_blank rel='noopener noreferrer'; agency credit uses rel='noopener nofollow'; no affiliate links."
+    ],
+    [
+      63,
+      "AI-answer readiness for top-5 queries",
+      "PARTIAL",
+      "See report section — strong quotable structure; blocked mainly by launch gate + unlinked bylines."
+    ]
+  ],
+  "clusters": [
+    {
+      "pillar": "/health-library/abdominal-pain-causes-gastritis-treatment/",
+      "supports": [
+        "common-digestive-problems",
+        "what-causes-abdominal-pain",
+        "gastritis-symptoms-what-does-gastritis-pain-feel-like",
+        "gastritis-vs-acid-reflux-symptoms",
+        "how-is-gastritis-treated",
+        "when-is-abdominal-pain-serious-warning-signs"
+      ],
+      "missingLinks": [
+        "common-digestive-problems does not link back to pillar"
+      ]
+    },
+    {
+      "pillar": "/health-library/asthma-symptoms-triggers-relief/",
+      "supports": [
+        "asthma-symptoms-early-signs-common-triggers",
+        "asthma-vs-copd-difference-symptoms",
+        "when-to-see-doctor-for-shortness-of-breath",
+        "still-short-of-breath-with-inhaler",
+        "how-to-choose-asthma-breathing-specialist-muscat"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/common-sleep-disorders-symptoms-health-effects/",
+      "supports": [
+        "sleep-disorders",
+        "sleep-apnea-vs-insomnia-symptoms",
+        "is-melatonin-safe-to-take-every-night",
+        "think-you-have-sleep-apnea-evaluation-guide",
+        "new-medication-options-for-sleep-apnea",
+        "primary-care-doctor-or-sleep-specialist-sleep-problem"
+      ],
+      "missingLinks": [
+        "sleep-disorders does not link back to pillar"
+      ]
+    },
+    {
+      "pillar": "/health-library/diabetes-and-prediabetes-early-warning-signs-you-shouldnt-ignore/",
+      "supports": [
+        "cgm-vs-a1c-prediabetes-early-detection",
+        "can-prediabetes-be-reversed-step-by-step-guide",
+        "feel-fine-with-prediabetes-myths-warning-signs",
+        "internist-or-endocrinologist-choosing-diabetes-specialist",
+        "what-causes-blood-sugar-rise-without-eating"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/",
+      "supports": [
+        "nafld-masld-mash-fatty-liver-disease-names",
+        "elevated-liver-enzymes-alt-ast-meaning",
+        "can-fatty-liver-disease-be-reversed",
+        "new-medication-options-advanced-fatty-liver-disease",
+        "primary-care-doctor-or-liver-specialist-fatty-liver"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/glp-1-diabetes-weight-loss-results-cost-side-effects/",
+      "supports": [
+        "why-is-it-hard-to-lose-weight-medical-lifestyle-factors",
+        "lifestyle-changes-vs-weight-loss-medication-obesity",
+        "are-weight-loss-injections-safe",
+        "glp-1-medicines-more-affordable-accessible",
+        "how-much-weight-lose-glp-1-medicines",
+        "glp-1-side-effects-how-to-manage",
+        "is-glp-1-medicine-worth-the-cost",
+        "what-happens-when-you-stop-glp-1"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/",
+      "supports": [
+        "hypothyroidism-vs-hyperthyroidism",
+        "ashwagandha-thyroid-medication-safety",
+        "normal-thyroid-test-still-feel-unwell",
+        "anxiety-or-thyroid-when-to-test",
+        "primary-care-or-endocrinologist-thyroid"
+      ],
+      "missingLinks": [
+        "cannibalisation: short page duplicates pillar intent (SEO-010)"
+      ]
+    },
+    {
+      "pillar": "/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/",
+      "supports": [
+        "early-signs-of-kidney-disease-foamy-urine-fatigue",
+        "ibuprofen-naproxen-acetaminophen-kidney-safety",
+        "do-kidney-cleanses-work",
+        "nephrologist-referral-what-it-means-for-your-kidneys",
+        "primary-care-doctor-or-nephrologist-kidney-health"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/obesity-weight-management/",
+      "supports": [
+        "why-is-it-hard-to-lose-weight-medical-lifestyle-factors",
+        "lifestyle-changes-vs-weight-loss-medication-obesity",
+        "when-to-see-doctor-about-your-weight",
+        "are-weight-loss-injections-safe",
+        "how-does-obesity-affect-your-health"
+      ],
+      "missingLinks": []
+    },
+    {
+      "pillar": "/health-library/understanding-high-blood-pressure-causes-risks-and-management/",
+      "supports": [
+        "heart-disease-warning-signs",
+        "why-high-blood-pressure-has-no-symptoms-silent-killer",
+        "smartwatch-vs-cuff-blood-pressure-accuracy",
+        "how-to-lower-blood-pressure-naturally-step-by-step",
+        "why-is-my-blood-pressure-different-at-home-than-doctor",
+        "primary-care-doctor-or-cardiologist-blood-pressure"
+      ],
+      "missingLinks": [
+        "heart-disease-warning-signs does not link back to pillar"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "url": "/health-library/abdominal-pain-causes-gastritis-treatment/",
+      "slug": "abdominal-pain-causes-gastritis-treatment",
+      "type": "pillar",
+      "cluster": "kidney-liver-gut",
+      "title": "Abdominal Pain Causes & Gastritis: Symptoms and Treatment",
+      "titleLen": 57,
+      "descLen": 129,
+      "words": 3363,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 8,
+      "aiScore": 52,
+      "worst": [
+        "Sleep, regular activity and whatever genuinely helps you unwind are all worth protecting.",
+        "[Abdominal pain](/conditions/digestive-problems/) can come from something as ordinary as trapped gas or [indigestion](/health-library/common-digestive-problems/), or from something that needs a surgeon, like appendicitis.",
+        "In this guide we go through the common causes of abdominal pain by location and pattern, take a closer look at gastritis (one of the most frequent reasons people come in with upper stomach pain), and list the warning signs you shouldn't sit on.",
+        "Warning Signs You Should Not Ignore](/health-library/when-is-abdominal-pain-serious-warning-signs/)\r\n\r\n## Final Thoughts\r\n\r\nMost abdominal pain has a cause that can be managed, and gastritis usually improves well once its trigger is identified.",
+        "If you've been living with ongoing stomach pain, indigestion or suspected gastritis in Muscat, seeing an Internal Medicine Specialist can help pin down the cause and arrange the right tests."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Causes Abdominal Pain?",
+        "What Can Abdominal Pain Mean by Location?",
+        "What Is Gastritis?",
+        "What Causes Gastritis?",
+        "Gastritis vs Acid Reflux: What Is the Difference?",
+        "How Is Abdominal Pain Diagnosed?",
+        "What Tests May Be Needed?",
+        "How Do Doctors Tell Serious From Minor Causes?",
+        "How Is Gastritis Treated?",
+        "Can Gastritis Be Managed Without Medication?",
+        "What Lifestyle Changes Can Help With Gastritis and Stomach Pain?",
+        "What Complications Can Occur?",
+        "When Is Abdominal Pain Serious?",
+        "Common Myths About Abdominal Pain and Gastritis"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/anxiety-or-thyroid-when-to-test/",
+      "slug": "anxiety-or-thyroid-when-to-test",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Is Your Anxiety Actually Your Thyroid? When to Test",
+      "titleLen": 51,
+      "descLen": 81,
+      "words": 480,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Anxiety and an overactive [thyroid](/conditions/thyroid-disorders/) can feel surprisingly similar.",
+        "Both can cause a racing heart, restlessness, poor sleep and irritability.",
+        "Many people wonder whether their anxiety is really a thyroid problem.",
+        "Sometimes it is, but often it is not, and a simple blood test can help clarify.",
+        "For the wider picture, see our guide on [Thyroid Disorders Explained: Hypothyroidism vs."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Can an Overactive Thyroid Feel Like Anxiety?",
+        "What Symptoms Overlap?",
+        "Which Symptoms Point More Toward the Thyroid?",
+        "What About Hypothyroidism?",
+        "What Are Common Myths?",
+        "When Should You Get Tested?",
+        "How Are They Treated?",
+        "When Should You Seek Urgent Care?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/are-weight-loss-injections-safe/",
+      "slug": "are-weight-loss-injections-safe",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Are Weight-Loss Injections Safe?",
+      "titleLen": 32,
+      "descLen": 134,
+      "words": 768,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Possible side effects may include:\r\n\r\n- Nausea\r\n\r\n- Vomiting\r\n\r\n- Diarrhea\r\n\r\n- Constipation\r\n\r\n- Abdominal discomfort\r\n\r\n- Reduced appetite\r\n\r\nThese symptoms can sometimes improve as the body adjusts, but persistent or severe symptoms should be discussed with your doctor.",
+        "Depending on the medication and individual circumstances, doctors may need to consider issues such as gallbladder problems, pancreatitis, kidney-related complications associated with severe dehydration, or other adverse effects.",
+        ":::\r\n\r\nYou may also find these guides helpful: [Lifestyle Changes vs Weight-Loss Medication: Which Approach Is Right for Obesity?](/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/), [When Should You See a Doctor About Your Weight?",
+        "For the wider picture, see our guide on [Obesity and Weight Management: Causes, Treatment & Healthy Weight Loss](/health-library/obesity-weight-management/).",
+        "Weight-loss injections have received significant attention in recent years, particularly medications that work through hormones involved in appetite and blood-sugar regulation."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Are Weight-Loss Injections Safe?",
+        "How Do Weight-Loss Injections Work?",
+        "What Are the Potential Benefits?",
+        "What Are the Common Side Effects?",
+        "More Serious Risks Need Attention",
+        "Who Should Not Take Them?",
+        "Why Medical Supervision Matters",
+        "Do You Have to Take Them Forever?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/ashwagandha-thyroid-medication-safety/",
+      "slug": "ashwagandha-thyroid-medication-safety",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Ashwagandha and Thyroid Medication: Is It Safe?",
+      "titleLen": 47,
+      "descLen": 80,
+      "words": 429,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "Ashwagandha is an herbal supplement from Ayurvedic tradition, often marketed for stress, sleep and energy.",
+        "If you have a [thyroid condition](/conditions/thyroid-disorders/) or take thyroid medication, it is important to know that ashwagandha may affect thyroid hormone levels.",
+        "For the wider picture, see our guide on [Thyroid Disorders Explained: Hypothyroidism vs.",
+        "Hyperthyroidism](/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/).",
+        "Some research has found that ashwagandha can raise thyroid hormone levels in certain people."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Might Ashwagandha Affect the Thyroid?",
+        "What If You Take Levothyroxine?",
+        "What About Hyperthyroidism?",
+        "What Are Possible Warning Signs?",
+        "Are There Other Safety Concerns?",
+        "What Should You Do Before Taking It?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/asthma-symptoms-early-signs-common-triggers/",
+      "slug": "asthma-symptoms-early-signs-common-triggers",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "What Are the Symptoms of Asthma?",
+      "titleLen": 32,
+      "descLen": 153,
+      "words": 799,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 40,
+      "worst": [
+        "Seek urgent medical attention if breathing becomes severely difficult, symptoms are rapidly worsening, you cannot speak normally because of breathlessness, or your prescribed rescue treatment is not providing the expected relief.",
+        "You may also find these guides helpful: [Asthma vs COPD: What Is the Difference and How Can You Tell?](/health-library/asthma-vs-copd-difference-symptoms/), [When Should You See a Doctor for Shortness of Breath or Breathing Difficulty?](/health-library/when-to-see-doctor-for-shortness-of-breath/), [Why Am I Still Short of Breath Even With an Inhaler?",
+        "For the wider picture, see our guide on [Asthma Symptoms and Triggers: Causes, Diagnosis & Relief](/health-library/asthma-symptoms-triggers-relief/).",
+        "[Asthma](/conditions/asthma-and-breathing/) is a chronic condition that affects the airways, the tubes that carry air into and out of the lungs.",
+        "In people with asthma, the airways can become inflamed and narrowed, making breathing more difficult."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does Asthma Feel Like?",
+        "Common Symptoms of Asthma",
+        "Symptoms Can Come and Go",
+        "Early Signs You Should Pay Attention To",
+        "Common Asthma Triggers",
+        "Exercise and Cold Air",
+        "Stress and Other Factors",
+        "When Are Asthma Symptoms an Emergency?",
+        "How Is Asthma Diagnosed?",
+        "Managing Asthma Starts With Understanding Your Symptoms"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/asthma-symptoms-triggers-relief/",
+      "slug": "asthma-symptoms-triggers-relief",
+      "type": "pillar",
+      "cluster": "lungs-sleep-infections",
+      "title": "Asthma Symptoms and Triggers: Causes, Diagnosis & Relief",
+      "titleLen": 56,
+      "descLen": 154,
+      "words": 3876,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 48,
+      "worst": [
+        "Whichever of those sounds familiar, this guide covers what asthma actually is, the triggers that matter most (including a few that are especially relevant in Oman), how doctors confirm it, how it's treated, and the signs that mean you shouldn't wait.",
+        "Your doctor will probably ask whether things improve on days off, whether you or your family have allergies or eczema, whether you smoke, which medicines you take, and whether you've ever needed emergency treatment for your breathing.",
+        "The same goes if you've needed steroid tablets or an emergency visit, still feel short of breath despite your inhalers, aren't sure your technique is right, are pregnant or planning a pregnancy, or you're over 40 with new symptoms, particularly if you've smoked.",
+        "For adults in Muscat, an internal medicine specialist can assess breathing symptoms alongside the rest of your health, including your heart, weight, allergies, reflux and diabetes, and arrange further tests or a specialist referral if needed.",
+        "Common Reasons and When to Get Help](/health-library/still-short-of-breath-with-inhaler/)\r\n\r\n- [How to Choose an Asthma and Breathing Specialist in Muscat: What to Look For](/health-library/how-to-choose-asthma-breathing-specialist-muscat/)\r\n\r\nFor one person, asthma is a minor nuisance that shows up with the odd cold."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Is Asthma?",
+        "What Triggers Asthma?",
+        "Who Is More Likely to Get Asthma?",
+        "Is It Asthma or Something Else?",
+        "How Is Asthma Diagnosed?",
+        "How Is Asthma Treated?",
+        "Why Does Inhaler Technique Matter So Much?",
+        "Can Asthma Be Controlled Without Medication?",
+        "What Everyday Changes Help Asthma?",
+        "What Is an Asthma Action Plan?",
+        "What Complications Can Asthma Cause?",
+        "What Does an Asthma Attack Feel Like?",
+        "When Should You See a Doctor About Asthma or Breathing Problems?",
+        "Common Myths About Asthma"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/asthma-vs-copd-difference-symptoms/",
+      "slug": "asthma-vs-copd-difference-symptoms",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Asthma vs COPD: What Is the Difference and How Can You Tell?",
+      "titleLen": 60,
+      "descLen": 115,
+      "words": 787,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Symptoms can vary over time and may be triggered by factors such as:\r\n\r\n- Allergens\r\n\r\n- Respiratory infections\r\n\r\n- Exercise\r\n\r\n- Cold air\r\n\r\n- Smoke and air pollution\r\n\r\n- Strong odors or chemical irritants\r\n\r\nPeople with asthma may have periods when their breathing is normal and other times when symptoms become more noticeable.",
+        "Early Signs, Common Triggers and Warning Symptoms](/health-library/asthma-symptoms-early-signs-common-triggers/), [When Should You See a Doctor for Shortness of Breath or Breathing Difficulty?](/health-library/when-to-see-doctor-for-shortness-of-breath/), [Why Am I Still Short of Breath Even With an Inhaler?",
+        "[Asthma](/conditions/asthma-and-breathing/) and chronic obstructive pulmonary disease (COPD) can both cause breathing difficulties.",
+        "Wheezing, coughing, chest tightness, and shortness of breath may occur with either condition.",
+        "That similarity can make it difficult to know which condition is responsible for your symptoms."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Asthma and COPD: Similar Symptoms, Different Conditions",
+        "What Is Asthma?",
+        "What Is COPD?",
+        "Asthma vs COPD: The Main Differences",
+        "Age and Medical History Can Provide Clues",
+        "How Are Asthma and COPD Diagnosed?",
+        "Can Someone Have Both Asthma and COPD?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/can-fatty-liver-disease-be-reversed/",
+      "slug": "can-fatty-liver-disease-be-reversed",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Can Fatty Liver Disease Be Reversed?",
+      "titleLen": 36,
+      "descLen": 106,
+      "words": 726,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "In many people, [fatty liver disease](/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/) can improve when the factors contributing to excess liver fat are addressed.",
+        "The extent of improvement depends on the underlying cause and whether liver inflammation or scarring is already present.",
+        "Today, fatty liver associated with metabolic dysfunction is commonly called MASLD (metabolic dysfunction-associated steatotic liver disease).",
+        "It is often linked with conditions such as excess weight, type 2 diabetes, high blood pressure, and abnormal cholesterol or triglyceride levels.",
+        "The good news is that improving metabolic health can also support liver health."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Can Fatty Liver Disease Be Reversed?",
+        "Step 1: Understand Your Liver Health",
+        "Step 2: Work Toward a Healthy Weight",
+        "Step 3: Improve Your Everyday Diet",
+        "Step 4: Stay Physically Active",
+        "Step 5: Control Diabetes, Cholesterol, and Blood Pressure",
+        "Be Careful With Supplements",
+        "Step 6: Avoid Excess Alcohol"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/can-prediabetes-be-reversed-step-by-step-guide/",
+      "slug": "can-prediabetes-be-reversed-step-by-step-guide",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Can Prediabetes Be Reversed? A Step-by-Step Guide",
+      "titleLen": 49,
+      "descLen": 153,
+      "words": 775,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 36,
+      "worst": [
+        "If you live in Muscat and would like your results reviewed in full, including blood pressure, cholesterol, family history and sleep, an Internal Medicine specialist can help you see the whole picture.",
+        "A [prediabetes](/conditions/diabetes-and-prediabetes/) result can feel like a verdict, but it is closer to an early notice.",
+        "Many people see their blood sugar return to the normal range after changes to activity, food, weight and sleep.",
+        "The harder part is keeping those changes going long enough for the improvement to hold.",
+        "Below is what tends to work, in the order most patients find easiest to start."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Step 1: Confirm Your Result and Note Your Numbers",
+        "Step 2: Start Moving",
+        "Step 3: Adjust What Is on Your Plate",
+        "Step 4: Work on Excess Weight, Gradually",
+        "Step 5: Look After Your Sleep and Stress",
+        "Step 6: Keep Testing and Following Up",
+        "Should Medication Be Considered?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/cgm-vs-a1c-prediabetes-early-detection/",
+      "slug": "cgm-vs-a1c-prediabetes-early-detection",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "CGM or A1C: Which Test Actually Catches Prediabetes Early?",
+      "titleLen": 58,
+      "descLen": 133,
+      "words": 721,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 27,
+      "worst": [
+        "A CGM can show:\r\n\r\n- How high glucose climbs after breakfast, lunch or dinner\r\n\r\n- How many hours a day glucose stays above the usual range\r\n\r\n- Lows overnight or in the early morning\r\n\r\n- Whether poor sleep, stress or specific meals line up with spikes\r\n\r\nGlucose can rise after eating well before the three-month average changes.",
+        "If you have risk factors, such as a parent or sibling with type 2 diabetes, excess weight, high blood pressure, gestational diabetes in a past pregnancy or polycystic ovary syndrome, ask your doctor about glucose testing now.",
+        "A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/), [Prediabetes and Feeling Fine: Myths, Warning Signs and When to Worry](/health-library/feel-fine-with-prediabetes-myths-warning-signs/), [Internist or Endocrinologist?",
+        "Many patients now ask about continuous glucose monitors (CGMs) after seeing them on social media.",
+        "Some companies sell these sensors to people without diabetes, and the marketing can make them sound like a better version of a blood test."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [
+        "What Does an A1C Test Measure?",
+        "What Does a CGM Show?",
+        "Can a CGM Diagnose Prediabetes?",
+        "Which Test Finds Prediabetes Earlier?",
+        "What Should You Do Next?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/common-digestive-problems/",
+      "slug": "common-digestive-problems",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Common digestive problems explained",
+      "titleLen": 35,
+      "descLen": 129,
+      "words": 491,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 4,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 15,
+      "worst": [],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/common-sleep-disorders-symptoms-health-effects/",
+      "slug": "common-sleep-disorders-symptoms-health-effects",
+      "type": "pillar",
+      "cluster": "lungs-sleep-infections",
+      "title": "Common Sleep Disorders: Symptoms, Causes & Health Effects",
+      "titleLen": 57,
+      "descLen": 154,
+      "words": 3781,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 8,
+      "aiScore": 24,
+      "worst": [],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/diabetes-and-prediabetes-early-warning-signs-you-shouldnt-ignore/",
+      "slug": "diabetes-and-prediabetes-early-warning-signs-you-shouldnt-ignore",
+      "type": "pillar",
+      "cluster": "diabetes-metabolism",
+      "title": "Diabetes & Prediabetes: Early Warning Signs",
+      "titleLen": 43,
+      "descLen": 145,
+      "words": 3120,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 49,
+      "worst": [
+        "Possible symptoms include:\r\n\r\n- Feeling unusually thirsty\r\n\r\n- Passing urine more frequently than usual\r\n\r\n- Feeling hungry much of the time\r\n\r\n- Losing weight without trying\r\n\r\n- Feeling unusually tired\r\n\r\n- Blurred vision\r\n\r\n- Cuts or wounds taking longer to heal\r\n\r\n- Repeated infections\r\n\r\n- General weakness\r\n\r\nThere is an important caveat here.",
+        "An HbA1c result of:\r\n\r\n- Below 5.7% is generally considered normal\r\n\r\n- 5.7 to 6.4% falls in the prediabetes range\r\n\r\n- 6.5% or higher falls in the diabetes diagnostic range\r\n\r\nThere are situations in which HbA1c may not accurately reflect blood glucose.",
+        "A two-hour result of:\r\n\r\n- 140 to 199 mg/dL is within the prediabetes range\r\n\r\n- 200 mg/dL or higher meets the glucose criterion for diabetes\r\n\r\nThe OGTT can identify glucose abnormalities that may not be obvious from fasting glucose alone.",
+        "For an Indian diet, it may be useful to look at:\r\n\r\n- Portion sizes\r\n\r\n- Sugary drinks\r\n\r\n- Sweets and desserts\r\n\r\n- Refined carbohydrates\r\n\r\n- Highly processed snacks\r\n\r\n- Vegetable intake\r\n\r\n- Protein sources\r\n\r\n- Fiber-rich foods\r\n\r\n- Frequency of eating outside the home\r\n\r\nThe aim is not necessarily to eliminate one food.",
+        "A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/)\r\n\r\n- [Prediabetes and Feeling Fine: Myths, Warning Signs and When to Worry](/health-library/feel-fine-with-prediabetes-myths-warning-signs/)\r\n\r\n- [Internist or Endocrinologist?"
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [
+        "Can You Have Prediabetes Without Any Symptoms?",
+        "What Are the Early Warning Signs of Diabetes?",
+        "Why Does Prediabetes Often Go Unnoticed?",
+        "What Causes Prediabetes?",
+        "How Is Prediabetes Diagnosed?",
+        "What Blood Sugar Levels Indicate Prediabetes?",
+        "What Does HbA1c Tell You?",
+        "What Does a Fasting Blood Sugar Test Show?",
+        "What Is an Oral Glucose Tolerance Test?",
+        "Who Should Get Tested for Prediabetes?",
+        "Can Prediabetes Be Reversed?",
+        "What Can You Do If You Have Prediabetes?",
+        "What Happens If Prediabetes Is Ignored?",
+        "Common Myths About Prediabetes",
+        "When Should You See an Internal Medicine Doctor?",
+        "When Can High Blood Sugar Become an Emergency?",
+        "The Most Important Thing to Remember About Prediabetes"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/do-kidney-cleanses-work/",
+      "slug": "do-kidney-cleanses-work",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Do Kidney Cleanses Actually Work?",
+      "titleLen": 33,
+      "descLen": 149,
+      "words": 645,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "More urination does not necessarily mean that the kidneys are being “detoxed.”\r\n\r\nIf you have kidney disease, diabetes, high blood pressure, or take regular medication, discuss supplements with your healthcare professional before using them.",
+        "You may also find these guides helpful: [Early Signs of Kidney Disease: Why Foamy Urine and Fatigue Matter](/health-library/early-signs-of-kidney-disease-foamy-urine-fatigue/), [Ibuprofen, Naproxen, or Acetaminophen: Which Painkillers Are Actually Safe for Your Kidneys?](/health-library/ibuprofen-naproxen-acetaminophen-kidney-safety/), [Is a Nephrologist Referral Bad News?",
+        "For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Shouldn’t Overlook](/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/).",
+        "Kidney cleanse products are often marketed as a simple way to remove toxins, flush waste, or “reset” the kidneys.",
+        "They may come as teas, juices, powders, capsules, or herbal supplements."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Do Kidney Cleanses Really Detox Your Kidneys?",
+        "How Do Your Kidneys Clean Your Blood?",
+        "What About Kidney Cleanse Teas and Supplements?",
+        "Can Drinking More Water Clean the Kidneys?",
+        "What Actually Supports Kidney Health?",
+        "When Should You Get Your Kidneys Checked?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/early-signs-of-kidney-disease-foamy-urine-fatigue/",
+      "slug": "early-signs-of-kidney-disease-foamy-urine-fatigue",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Early Signs of Kidney Disease",
+      "titleLen": 29,
+      "descLen": 150,
+      "words": 610,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Shouldn’t Overlook](/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/).",
+        "Yes, but early kidney disease may cause few or no noticeable symptoms.",
+        "The kidneys filter waste and excess fluid from the blood while helping regulate important functions such as fluid balance and blood pressure.",
+        "When kidney function becomes impaired, changes may eventually appear in urine, energy levels, swelling, or urination habits.",
+        "Recognizing these changes can help you seek medical evaluation sooner."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Can Kidney Disease Have Early Warning Signs?",
+        "What Does Foamy Urine Mean?",
+        "Why Can Kidney Disease Cause Fatigue?",
+        "Other Signs to Watch For",
+        "How Is Kidney Disease Detected?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/elevated-liver-enzymes-alt-ast-meaning/",
+      "slug": "elevated-liver-enzymes-alt-ast-meaning",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Elevated Liver Enzymes on a Routine Blood Test",
+      "titleLen": 46,
+      "descLen": 89,
+      "words": 704,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "Possible causes include:\r\n\r\n- [Fatty liver disease](/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/)\r\n\r\n- Viral hepatitis\r\n\r\n- Alcohol-related liver injury\r\n\r\n- Certain medicines or supplements\r\n\r\n- Other liver conditions\r\n\r\nHowever, the ALT number alone cannot identify the exact cause.",
+        "If a routine blood test shows elevated ALT or AST, it is understandable to feel concerned.",
+        "But an abnormal liver enzyme result does not automatically mean that you have serious liver disease.",
+        "ALT (alanine aminotransferase) and AST (aspartate aminotransferase) are enzymes found inside cells.",
+        "ALT is found mainly in the liver, while AST is also present in other tissues, including muscles and the heart."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Are ALT and AST?",
+        "What Does a High ALT Mean?",
+        "What Does a High AST Mean?",
+        "ALT vs AST: Why Both Matter",
+        "Does an Elevated Result Mean Liver Disease?",
+        "What Should You Do If Your Liver Enzymes Are High?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/",
+      "slug": "fatty-liver-disease-causes-symptoms-and-how-to-reverse-it",
+      "type": "pillar",
+      "cluster": "kidney-liver-gut",
+      "title": "Fatty Liver Disease: Causes, Symptoms & How to Reverse It",
+      "titleLen": 57,
+      "descLen": 153,
+      "words": 3735,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 25,
+      "worst": [
+        "The first question, therefore, is not simply \"How much fat is in my liver?\" It is also \"Is there any liver inflammation or scarring?\"\r\n\r\n[Fatty liver disease](/conditions/fatty-liver/) means that excess fat has built up inside the liver.",
+        "People with MASLD may also have conditions such as:\r\n\r\n- Overweight or obesity\r\n\r\n- Type 2 diabetes\r\n\r\n- Insulin resistance\r\n\r\n- High blood pressure\r\n\r\n- High triglycerides\r\n\r\n- Abnormal cholesterol levels\r\n\r\n- Metabolic syndrome\r\n\r\nFatty liver can exist at different stages.",
+        "You may therefore see all of these terms:\r\n\r\n- Fatty liver disease\r\n\r\n- NAFLD\r\n\r\n- NASH\r\n\r\n- MASLD\r\n\r\n- MASH\r\n\r\n- Metabolic fatty liver disease\r\n\r\nIf an older ultrasound or medical report says \"fatty liver\" or \"NAFLD,\" it does not necessarily mean the information is wrong.",
+        "Common risk factors include:\r\n\r\n- Overweight or obesity\r\n\r\n- Insulin resistance\r\n\r\n- Type 2 diabetes\r\n\r\n- Prediabetes\r\n\r\n- High triglycerides\r\n\r\n- Abnormal cholesterol\r\n\r\n- High blood pressure\r\n\r\n- Metabolic syndrome\r\n\r\n- Low physical activity\r\n\r\n- Genetic susceptibility\r\n\r\nUsually, there is not one single cause.",
+        "That is why fatty liver is frequently seen alongside:\r\n\r\n- Prediabetes\r\n\r\n- Type 2 diabetes\r\n\r\n- Abdominal obesity\r\n\r\n- High triglycerides\r\n\r\n- High blood pressure\r\n\r\nFor this reason, treating fatty liver often means looking beyond the liver itself."
+      ],
+      "boilerHeads": [
+        "Myth vs Fact",
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/feel-fine-with-prediabetes-myths-warning-signs/",
+      "slug": "feel-fine-with-prediabetes-myths-warning-signs",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Prediabetes and Feeling Fine: Myths and Warning Signs",
+      "titleLen": 53,
+      "descLen": 155,
+      "words": 710,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 30,
+      "worst": [
+        "Most people with [prediabetes](/conditions/diabetes-and-prediabetes/) feel completely normal.",
+        "Energy is fine, weight has not changed much and thirst is nothing unusual.",
+        "How you feel on an ordinary day says little about what your blood glucose is doing, and a blood test is the only way to find out.",
+        "For the wider picture, see our guide on [prediabetes early warning signs](/health-library/diabetes-and-prediabetes-early-warning-signs-you-shouldnt-ignore/).",
+        "Early insulin resistance is offset by the pancreas producing more insulin, which keeps glucose low enough that daily life is not disrupted."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Prediabetes Often Feels Like Nothing",
+        "Common Myths About Feeling Fine",
+        "Warning Signs Worth Acting On",
+        "When Should You Worry?",
+        "What Should You Do Next?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/gastritis-symptoms-what-does-gastritis-pain-feel-like/",
+      "slug": "gastritis-symptoms-what-does-gastritis-pain-feel-like",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Gastritis Symptoms: What the Pain Feels Like",
+      "titleLen": 44,
+      "descLen": 105,
+      "words": 759,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "For the wider picture, see our guide on [Abdominal Pain Causes & Gastritis: Symptoms and Treatment](/health-library/abdominal-pain-causes-gastritis-treatment/).",
+        "It can cause discomfort in the upper abdomen, although some people with gastritis have few or no noticeable symptoms.",
+        "When symptoms occur, gastritis pain is often described as a burning, aching, gnawing, or uncomfortable sensation in the upper part of the abdomen.",
+        "The exact symptoms can vary depending on the underlying cause and whether another digestive condition is present.",
+        "Gastritis pain most commonly occurs in the upper middle or upper-left area of the abdomen, beneath the breastbone and ribs."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does Gastritis Pain Feel Like?",
+        "Where Does Gastritis Usually Hurt?",
+        "Can Gastritis Pain Move?",
+        "Common Symptoms of Gastritis",
+        "What Causes Gastritis?",
+        "How Is Gastritis Diagnosed?",
+        "When Is Stomach Pain a Warning Sign?",
+        "Don't Assume Every Stomach Ache Is Gastritis"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/gastritis-vs-acid-reflux-symptoms/",
+      "slug": "gastritis-vs-acid-reflux-symptoms",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Gastritis vs Acid Reflux: How the Symptoms Differ",
+      "titleLen": 49,
+      "descLen": 106,
+      "words": 753,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        ":::\r\n\r\nYou may also find these guides helpful: [Gastritis Symptoms: What Does Gastritis Pain Feel Like and Where Does It Hurt?](/health-library/gastritis-symptoms-what-does-gastritis-pain-feel-like/), [How Is Gastritis Treated?",
+        "If symptoms continue, repeatedly return, or interfere with your daily life, a medical evaluation can help determine the actual cause and guide appropriate treatment.",
+        "Gastritis and acid reflux are often confused because both can cause discomfort in the upper digestive system.",
+        "Gastritis involves inflammation of the stomach lining, while acid reflux occurs when stomach contents flow backward into the esophagus, the tube connecting your mouth to your stomach.",
+        "Because their symptoms can overlap, the location and nature of your discomfort can provide clues, but they cannot confirm the diagnosis by themselves."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Gastritis and Acid Reflux Are Not the Same",
+        "Gastritis Symptoms: What Does It Feel Like?",
+        "What Causes Gastritis?",
+        "Acid Reflux Symptoms: How Are They Different?",
+        "Why Does Acid Reflux Happen?",
+        "Gastritis vs Acid Reflux: The Main Difference",
+        "How Do Doctors Tell Them Apart?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/glp-1-diabetes-weight-loss-results-cost-side-effects/",
+      "slug": "glp-1-diabetes-weight-loss-results-cost-side-effects",
+      "type": "pillar",
+      "cluster": "diabetes-metabolism",
+      "title": "GLP-1 for Diabetes & Weight Loss",
+      "titleLen": 32,
+      "descLen": 145,
+      "words": 3479,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 10,
+      "aiScore": 55,
+      "worst": [
+        "The reason is straightforward: the biological factors that contributed to excess weight do not necessarily disappear simply because a person has lost weight.",
+        "For someone considering GLP-1 treatment in Muscat or elsewhere in Oman, a more useful question is not simply, \"How much weight will I lose?\" It is whether the expected benefit, possible risks, cost and long-term treatment plan make sense for that individual.",
+        "Depending on the medicine, GLP-1-based treatment can:\r\n\r\n- Increase insulin release when blood glucose is elevated\r\n\r\n- Reduce glucagon release\r\n\r\n- Slow the movement of food through the stomach\r\n\r\n- Increase feelings of fullness\r\n\r\n- Reduce appetite\r\n\r\n- Improve blood glucose control\r\n\r\n- Support weight loss\r\n\r\nNot all medicines in this group are identical.",
+        "For example, participants in the STEP 1 trial who had overweight or obesity without diabetes and received semaglutide 2.4 mg alongside lifestyle intervention lost an average of about 14.9% of their starting body weight after 68 weeks.",
+        "Patients may experience:\r\n\r\n- Nausea\r\n\r\n- Vomiting\r\n\r\n- Diarrhoea\r\n\r\n- Constipation\r\n\r\n- Bloating\r\n\r\n- Abdominal discomfort\r\n\r\n- Indigestion\r\n\r\n- Reduced appetite\r\n\r\nThese symptoms are often more noticeable when treatment is first started or when the dose is increased."
+      ],
+      "boilerHeads": [
+        "Myth vs Fact",
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Are GLP-1 Medicines?",
+        "How Do GLP-1 Medicines Help With Diabetes?",
+        "How Much Weight Can You Really Lose With GLP-1 Medicines?",
+        "What Does Realistic GLP-1 Weight Loss Look Like?",
+        "Do GLP-1 Medicines Work Without Diet and Exercise?",
+        "What Are the Common Side Effects of GLP-1 Medicines?",
+        "Can GLP-1 Medicines Cause Serious Side Effects?",
+        "When Should You Seek Urgent Medical Attention?",
+        "Can GLP-1 Medicines Cause Low Blood Sugar?",
+        "How Much Do GLP-1 Medicines Cost?",
+        "Why Were GLP-1 Medicines So Expensive and Difficult to Access?",
+        "Are Cheaper or Compounded GLP-1 Medicines Safe?",
+        "Is a GLP-1 Medicine Worth the Cost?",
+        "How Long Do You Need to Take a GLP-1 Medicine?",
+        "What Happens When You Stop a GLP-1 Medicine?",
+        "Who May Be Considered for GLP-1 Treatment?",
+        "Who May Need Extra Caution With GLP-1 Medicines?",
+        "What Should You Ask Before Starting a GLP-1 Medicine?",
+        "GLP-1 Treatment in Muscat: What Should Patients Consider?"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/glp-1-medicines-more-affordable-accessible/",
+      "slug": "glp-1-medicines-more-affordable-accessible",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "GLP-1 Medicines: Why They Are Becoming More Accessible",
+      "titleLen": 54,
+      "descLen": 147,
+      "words": 459,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 30,
+      "worst": [
+        "You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 Medicines?](/health-library/how-much-weight-lose-glp-1-medicines/), [GLP-1 Side Effects and How to Manage Them](/health-library/glp-1-side-effects-how-to-manage/), [Is a GLP-1 Medicine Worth the Cost?](/health-library/is-glp-1-medicine-worth-the-cost/).",
+        "GLP-1 medicines are a group of treatments that mimic a natural gut hormone called glucagon-like peptide-1.",
+        "They help lower blood sugar, slow stomach emptying and reduce appetite.",
+        "Medicines such as semaglutide, and the dual GIP/GLP-1 medicine tirzepatide, are used for [type 2 diabetes](/conditions/diabetes-and-prediabetes/) and, in some formulations, for weight management.",
+        "For the wider picture, see our guide on [GLP-1 for Diabetes & Weight Loss: Results, Cost & Side Effects](/health-library/glp-1-diabetes-weight-loss-results-cost-side-effects/)."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Were GLP-1 Medicines Hard to Get?",
+        "What Has Changed?",
+        "What Still Affects Cost?",
+        "How Can You Stay Safe?",
+        "Who May Be Suitable?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/glp-1-side-effects-how-to-manage/",
+      "slug": "glp-1-side-effects-how-to-manage",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "GLP-1 Side Effects and How to Manage Them",
+      "titleLen": 41,
+      "descLen": 151,
+      "words": 495,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        ":::emergency\r\n\r\nCall your doctor or seek urgent care for severe or persistent abdominal pain, vomiting that prevents you keeping fluids down, signs of dehydration, yellow eyes or skin, symptoms of low blood sugar, or swelling of the face or difficulty breathing.",
+        ":::\r\n\r\nYou may also find these guides helpful: [GLP-1 Medicines: Why They Are Becoming More Accessible](/health-library/glp-1-medicines-more-affordable-accessible/), [How Much Weight Can You Lose on GLP-1 Medicines?](/health-library/how-much-weight-lose-glp-1-medicines/), [Is a GLP-1 Medicine Worth the Cost?](/health-library/is-glp-1-medicine-worth-the-cost/).",
+        "GLP-1 medicines such as semaglutide and tirzepatide work partly by slowing stomach emptying and reducing appetite.",
+        "These same effects cause the most common side effects, mainly digestive symptoms.",
+        "Most are mild to moderate and improve over time, especially when doses are increased slowly."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Are the Common Side Effects?",
+        "How Can You Manage Nausea?",
+        "How Can You Manage Constipation?",
+        "How Can You Manage Diarrhoea?",
+        "Why Does Dose Matter?",
+        "What Are the Rare but Serious Risks?",
+        "When Should You Call Your Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/heart-disease-warning-signs/",
+      "slug": "heart-disease-warning-signs",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "Heart disease warning signs to know",
+      "titleLen": 35,
+      "descLen": 132,
+      "words": 585,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 4,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 15,
+      "worst": [],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/how-does-obesity-affect-your-health/",
+      "slug": "how-does-obesity-affect-your-health",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "How Does Obesity Affect Your Health?",
+      "titleLen": 36,
+      "descLen": 147,
+      "words": 845,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        "Signs You May Benefit From Medical Weight Management](/health-library/when-to-see-doctor-about-your-weight/), [Lifestyle Changes vs Weight-Loss Medication: Which Approach Is Right for Obesity?](/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/).",
+        "Understanding these risks can help you recognize why appropriate [weight management](/conditions/weight-management/) is about improving health, not simply changing the number on the scale.",
+        "If you are concerned about your weight or have related health problems, a medical evaluation can help identify your individual risks and guide an appropriate treatment plan.",
+        "For the wider picture, see our guide on [Obesity and Weight Management: Causes, Treatment & Healthy Weight Loss](/health-library/obesity-weight-management/).",
+        "Obesity is more than a concern about body size or appearance."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Can Obesity Affect Your Health?",
+        "Obesity and Type 2 Diabetes",
+        "Prediabetes Can Be an Early Warning",
+        "Heart Disease and High Blood Pressure",
+        "Sleep Apnea and Breathing Problems",
+        "Fatty Liver Disease",
+        "Joint Pain and Reduced Mobility",
+        "Obesity Can Affect More Than Physical Health",
+        "What Can You Do About These Risks?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/how-is-gastritis-treated/",
+      "slug": "how-is-gastritis-treated",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "How Is Gastritis Treated? Causes, Tests, Lifestyle",
+      "titleLen": 50,
+      "descLen": 82,
+      "words": 767,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Helpful measures may include:\r\n\r\n- Limiting alcohol if it worsens your symptoms\r\n\r\n- Avoiding foods that consistently trigger discomfort\r\n\r\n- Eating regular, balanced meals\r\n\r\n- Avoiding very large meals if they aggravate symptoms\r\n\r\n- Taking medicines exactly as prescribed\r\n\r\n- Avoiding unnecessary use of NSAID painkillers\r\n\r\nThere is no single \"gastritis diet\" that works for everyone.",
+        "You may also find these guides helpful: [Gastritis Symptoms: What Does Gastritis Pain Feel Like and Where Does It Hurt?](/health-library/gastritis-symptoms-what-does-gastritis-pain-feel-like/), [Gastritis vs Acid Reflux: What Is the Difference Between the Symptoms?](/health-library/gastritis-vs-acid-reflux-symptoms/), [What Causes Abdominal Pain?",
+        "For the wider picture, see our guide on [Abdominal Pain Causes & Gastritis: Symptoms and Treatment](/health-library/abdominal-pain-causes-gastritis-treatment/).",
+        "Gastritis is inflammation of the stomach lining, and treatment depends on the underlying cause.",
+        "Simply treating stomach pain may provide temporary relief without addressing the reason the inflammation developed."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Is Gastritis Treated?",
+        "Step 1: Identify the Cause",
+        "H. Pylori Testing",
+        "Step 2: Medicines May Be Used",
+        "Step 3: Make Stomach-Friendly Lifestyle Changes",
+        "What About Spicy Foods?",
+        "When Might More Testing Be Needed?",
+        "When Should You Seek Medical Attention?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/how-much-weight-lose-glp-1-medicines/",
+      "slug": "how-much-weight-lose-glp-1-medicines",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "How Much Weight Can You Lose on GLP-1 Medicines?",
+      "titleLen": 48,
+      "descLen": 151,
+      "words": 426,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "Average results were:\r\n\r\n- Semaglutide 2.4 mg weekly: around 15 percent average weight loss in people without diabetes\r\n\r\n- Tirzepatide at higher doses: around 20 percent average weight loss in people without diabetes\r\n\r\n- Lower average weight loss in people with type 2 diabetes\r\n\r\nAverages hide a wide range.",
+        "You may also find these guides helpful: [GLP-1 Medicines: Why They Are Becoming More Accessible](/health-library/glp-1-medicines-more-affordable-accessible/), [GLP-1 Side Effects and How to Manage Them](/health-library/glp-1-side-effects-how-to-manage/), [Is a GLP-1 Medicine Worth the Cost?](/health-library/is-glp-1-medicine-worth-the-cost/).",
+        "GLP-1 medicines reduce appetite, increase fullness and slow stomach emptying, helping many people eat less and lose weight.",
+        "Social media often shows dramatic before-and-after stories, but results vary widely.",
+        "Understanding realistic expectations helps you make an informed decision."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does the Research Show?",
+        "What Is a Realistic Timeline?",
+        "What Affects How Much You Lose?",
+        "Why Does Muscle Matter?",
+        "What Other Benefits Are There?",
+        "What If You Lose Little Weight?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/how-to-choose-asthma-breathing-specialist-muscat/",
+      "slug": "how-to-choose-asthma-breathing-specialist-muscat",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "How to Choose an Asthma and Breathing Specialist in Muscat",
+      "titleLen": 58,
+      "descLen": 147,
+      "words": 798,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        "A clinic that can coordinate appropriate diagnostic testing can make the evaluation process more straightforward.",
+        "When choosing a specialist in Muscat, consider practical factors such as appointment availability, location, follow-up arrangements, access to investigations, and whether you can communicate comfortably with the medical team.",
+        ":::emergency\r\n\r\nSeek urgent medical attention for severe or rapidly worsening breathing difficulty, inability to speak normally because of breathlessness, bluish or grey lips or skin, confusion, fainting, or severe chest pain.",
+        "Early Signs, Common Triggers and Warning Symptoms](/health-library/asthma-symptoms-early-signs-common-triggers/), [Asthma vs COPD: What Is the Difference and How Can You Tell?](/health-library/asthma-vs-copd-difference-symptoms/), [Why Am I Still Short of Breath Even With an Inhaler?",
+        "Look for relevant specialist training, appropriate professional licensing, experience with respiratory conditions, access to suitable diagnostic testing, and a doctor who takes time to understand and explain your symptoms."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Finding the Right Asthma Specialist in Muscat",
+        "Start With the Doctor's Qualifications and Specialty",
+        "Experience With Your Particular Problem Matters",
+        "Check Whether Appropriate Breathing Tests Are Available",
+        "Treatment Should Be Individualized",
+        "Consider Accessibility and Follow-Up",
+        "Know When You Need Urgent Care"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/how-to-lower-blood-pressure-naturally-step-by-step/",
+      "slug": "how-to-lower-blood-pressure-naturally-step-by-step",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "How to Lower Blood Pressure Naturally: A Step-by-Step Guide",
+      "titleLen": 59,
+      "descLen": 151,
+      "words": 834,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 28,
+      "worst": [
+        "If your readings have come back higher than you would like, you probably want to know what you can change yourself.",
+        "Diet, activity, body weight, alcohol, smoking and sleep all push blood pressure up or down.",
+        "For people already on medicine, the same habits can make treatment work better and protect the heart and kidneys over the long term.",
+        "For the wider picture, see our guide on [Understanding High Blood Pressure: Causes, Risks & Management](/health-library/understanding-high-blood-pressure-causes-risks-and-management/).",
+        "Often they make a measurable difference, though people respond differently."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Will Lifestyle Changes Really Bring Blood Pressure Down?",
+        "Step-by-Step Lifestyle Plan",
+        "What Should You Do Now?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/",
+      "slug": "hypothyroidism-vs-hyperthyroidism-symptoms",
+      "type": "pillar",
+      "cluster": "diabetes-metabolism",
+      "title": "Thyroid Disorders: Hypothyroidism vs. Hyperthyroidism",
+      "titleLen": 53,
+      "descLen": 139,
+      "words": 2611,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 52,
+      "worst": [
+        "T3 is generally less useful as a routine test for diagnosing straightforward hypothyroidism.",
+        "Other possible causes include:\r\n\r\n- Thyroiditis\r\n\r\n- Previous thyroid surgery\r\n\r\n- Certain types of radiation treatment\r\n\r\n- Some medicines\r\n\r\n- Problems involving the pituitary or hypothalamus\r\n\r\n- Certain iodine-related conditions\r\n\r\nThe cause matters because treatment and follow-up may differ depending on what has affected the thyroid.",
+        "Other causes include:\r\n\r\n- Overactive thyroid nodules\r\n\r\n- Thyroiditis\r\n\r\n- Excess iodine in certain circumstances\r\n\r\n- Taking too much thyroid hormone medicine\r\n\r\n- Rarely, problems involving the pituitary gland\r\n\r\nAgain, identifying the cause is important because treatment is not identical for every patient.",
+        "Body weight is influenced by:\r\n\r\n- Diet\r\n\r\n- Physical activity\r\n\r\n- Sleep\r\n\r\n- Medications\r\n\r\n- Age\r\n\r\n- Hormonal factors\r\n\r\n- Metabolic conditions\r\n\r\n- Fluid retention\r\n\r\n- Other health conditions\r\n\r\nLikewise, unexplained weight loss does not automatically mean hyperthyroidism.",
+        "Hyperthyroidism may produce symptoms that resemble anxiety, including:\r\n\r\n- Nervousness\r\n\r\n- Restlessness\r\n\r\n- Trembling\r\n\r\n- Palpitations\r\n\r\n- Difficulty sleeping\r\n\r\n- Irritability\r\n\r\nThis can sometimes lead a person to focus entirely on stress or anxiety when an underlying thyroid problem also needs to be considered."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Is Hypothyroidism?",
+        "What Is Hyperthyroidism?",
+        "Why Can Thyroid Symptoms Be So Confusing?",
+        "Is Weight Gain Always a Sign of Hypothyroidism?",
+        "Can Anxiety Be Caused by a Thyroid Problem?",
+        "How Are Thyroid Disorders Diagnosed?",
+        "What Happens After a Thyroid Problem Is Diagnosed?",
+        "How Is Hyperthyroidism Treated?",
+        "Can Thyroid Problems Be Managed Without Medication?",
+        "What About Diet and Thyroid Health?",
+        "Thyroid Disorders, Pregnancy and Fertility",
+        "When Should You See a Doctor About Thyroid Symptoms?",
+        "When Is a Thyroid Problem Urgent?",
+        "Common Myths About Hypothyroidism and Hyperthyroidism"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/hypothyroidism-vs-hyperthyroidism/",
+      "slug": "hypothyroidism-vs-hyperthyroidism",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart",
+      "titleLen": 57,
+      "descLen": 153,
+      "words": 520,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "The [thyroid](/conditions/thyroid-disorders/) is a small, butterfly-shaped gland at the front of the neck.",
+        "It makes hormones that control metabolism, energy, heart rate and body temperature.",
+        "Hypothyroidism means the thyroid makes too little hormone, while hyperthyroidism means it makes too much.",
+        "Because they push the body in opposite directions, their symptoms often look very different.",
+        "For the wider picture, see our guide on [Thyroid Disorders Explained: Hypothyroidism vs."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Do the Symptoms Compare?",
+        "What Causes Hypothyroidism?",
+        "What Causes Hyperthyroidism?",
+        "How Are Thyroid Problems Diagnosed?",
+        "Why Can't Symptoms Alone Confirm It?",
+        "How Are They Treated?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/ibuprofen-naproxen-acetaminophen-kidney-safety/",
+      "slug": "ibuprofen-naproxen-acetaminophen-kidney-safety",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Ibuprofen, Naproxen, or Acetaminophen: Kidney Safety",
+      "titleLen": 52,
+      "descLen": 147,
+      "words": 650,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 30,
+      "worst": [
+        "NSAIDs can reduce blood flow to the kidneys, which may cause [kidney problems](/conditions/kidney-problems/) in susceptible people, particularly with higher doses, prolonged use, dehydration, or certain medical conditions.",
+        "For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Shouldn’t Overlook](/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/).",
+        "When you have a headache, muscle pain, arthritis, or another common source of discomfort, over-the-counter painkillers may seem harmless.",
+        "But some pain medicines can affect kidney function, particularly when used frequently or by people who already have kidney or cardiovascular problems.",
+        "Ibuprofen and naproxen belong to a group called NSAIDs (nonsteroidal anti-inflammatory drugs)."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Which Painkiller Is Safest for Your Kidneys?",
+        "Ibuprofen and Naproxen: Why Kidney Caution Matters",
+        "What About Naproxen?",
+        "Who Needs Extra Caution?",
+        "Don't Treat Persistent Pain Yourself"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/internist-or-endocrinologist-choosing-diabetes-specialist/",
+      "slug": "internist-or-endocrinologist-choosing-diabetes-specialist",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Internist or Endocrinologist? Choosing a Diabetes Specialist",
+      "titleLen": 60,
+      "descLen": 152,
+      "words": 702,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 30,
+      "worst": [
+        "They start with a number on a lab report, a glucose reading that seemed off, or a parent who has just been diagnosed and now has a long list of questions.",
+        "Then comes the practical problem: who should you actually see?",
+        "For most adults with [diabetes](/conditions/diabetes-and-prediabetes/), an internist is a sound place to begin.",
+        "An endocrinologist is a physician with additional training in hormones and metabolism, and there are clear situations where that training makes a real difference.",
+        "Knowing which situation you are in can save you weeks of waiting."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does an Internist Do for Diabetes?",
+        "When Is an Endocrinologist the Better Choice?",
+        "Does a Referral Mean Something Is Seriously Wrong?",
+        "How Should You Prepare for the Right Appointment?",
+        "When Should You Seek Urgent Care?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/is-glp-1-medicine-worth-the-cost/",
+      "slug": "is-glp-1-medicine-worth-the-cost",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Is a GLP-1 Medicine Worth the Cost?",
+      "titleLen": 35,
+      "descLen": 97,
+      "words": 399,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 30,
+      "worst": [
+        "You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 Medicines?](/health-library/how-much-weight-lose-glp-1-medicines/), [GLP-1 Side Effects and How to Manage Them](/health-library/glp-1-side-effects-how-to-manage/), [What Happens When You Stop a GLP-1 Medicine?](/health-library/what-happens-when-you-stop-glp-1/).",
+        "GLP-1 medicines can improve blood sugar, support significant weight loss and, in some patients, reduce cardiovascular risk.",
+        "Whether they are worth it depends on your health, goals, finances and alternatives.",
+        "For the wider picture, see our guide on [GLP-1 for Diabetes & Weight Loss: Results, Cost & Side Effects](/health-library/glp-1-diabetes-weight-loss-results-cost-side-effects/).",
+        "Structured lifestyle programmes, other diabetes or weight-loss medicines, and metabolic surgery for selected patients are alternatives."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Benefits Should You Weigh?",
+        "What Costs and Commitments Should You Consider?",
+        "Who Is Likely to Get the Most Value?",
+        "Who May Not Benefit as Much?",
+        "What Alternatives Exist?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/is-melatonin-safe-to-take-every-night/",
+      "slug": "is-melatonin-safe-to-take-every-night",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Is Melatonin Safe to Take Every Night?",
+      "titleLen": 38,
+      "descLen": 96,
+      "words": 796,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).",
+        "Melatonin is a hormone naturally produced by the body that helps regulate the sleep-wake cycle.",
+        "Melatonin supplements are widely used by people who have trouble falling asleep, adjusting to a new schedule, or dealing with certain sleep-timing problems.",
+        "Because melatonin is naturally produced by the body and is available without a prescription in some countries, it is sometimes viewed as completely harmless.",
+        "Researchers are still learning about the effects of long-term melatonin use, and recent preliminary research has raised questions about its possible relationship with cardiovascular health."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Is Taking Melatonin Every Night Safe?",
+        "What Did the New Heart Research Show?",
+        "An Association Is Not Proof of Cause",
+        "Should You Stop Taking Melatonin?",
+        "Why Persistent Insomnia Deserves Attention",
+        "Healthy Sleep Habits Still Matter",
+        "Talk to Your Doctor Before Long-Term Use"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/",
+      "slug": "kidney-health-101-warning-signs-you-shouldnt-overlook",
+      "type": "pillar",
+      "cluster": "kidney-liver-gut",
+      "title": "Kidney Health 101: Warning Signs You Shouldn’t Overlook",
+      "titleLen": 55,
+      "descLen": 152,
+      "words": 2836,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 54,
+      "worst": [
+        "The cause may be relatively straightforward, such as a urinary infection or kidney stone, but there are also other possible causes involving the kidneys or urinary tract.",
+        "This can lead to swelling, particularly around the:\r\n\r\n- Feet\r\n\r\n- Ankles\r\n\r\n- Lower legs\r\n\r\n- Hands\r\n\r\n- Area around the eyes\r\n\r\nSwelling has many possible causes, including heart, liver, venous and other medical conditions.",
+        "You might notice:\r\n\r\n- Urinating more often than usual\r\n\r\n- Urinating less than usual\r\n\r\n- Needing to urinate repeatedly during the night\r\n\r\n- Changes in the appearance of urine\r\n\r\n- Difficulty passing urine\r\n\r\n- A sudden change from your usual urinary pattern\r\n\r\nThese symptoms can also occur with urinary tract problems, prostate conditions, diabetes and other disorders.",
+        "Kidney disease does not always announce itself with obvious symptoms.",
+        "In many people, kidney function can decline for some time before they notice that anything is wrong."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Are the Early Warning Signs of Kidney Disease?",
+        "Why Can Kidney Disease Be Difficult to Notice?",
+        "Who Is at Higher Risk of Kidney Disease?",
+        "How Is Kidney Function Tested?",
+        "What Does an Abnormal Kidney Test Mean?",
+        "Can Diabetes Damage the Kidneys?",
+        "Can High Blood Pressure Cause Kidney Disease?",
+        "Can Kidney Disease Cause Pain?",
+        "What Other Conditions Can Cause Similar Symptoms?",
+        "When Should You See a Doctor About Kidney Symptoms?",
+        "When Do Kidney Symptoms Require Urgent Medical Attention?",
+        "Can Kidney Disease Be Prevented?",
+        "Do Kidney Cleanses or Detoxes Actually Protect the Kidneys?",
+        "What Is the Difference Between Acute Kidney Injury and Chronic Kidney Disease?",
+        "What Happens If Kidney Disease Is Left Unchecked?"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/",
+      "slug": "lifestyle-changes-vs-weight-loss-medication-obesity",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Lifestyle Changes vs Weight-Loss Medication",
+      "titleLen": 43,
+      "descLen": 139,
+      "words": 818,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Lifestyle habits remain central to obesity management, while medication can provide additional support for people who meet appropriate criteria or have difficulty achieving sufficient weight loss through lifestyle measures alone.",
+        "Medication can help reduce hunger or improve appetite control, while nutrition, physical activity, and behavioral strategies provide the foundation for healthier long-term habits.",
+        "A medical evaluation can help determine whether lifestyle treatment, medication, or a combination of both is the most appropriate approach for your health and long-term goals.",
+        "For the wider picture, see our guide on [Obesity and Weight Management: Causes, Treatment & Healthy Weight Loss](/health-library/obesity-weight-management/).",
+        "When someone is trying to manage obesity, the conversation often becomes diet and exercise versus weight-loss medication."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Is Lifestyle Change Enough to Treat Obesity?",
+        "What Do Lifestyle Changes Involve?",
+        "Why Lifestyle Changes Still Matter",
+        "When Might Weight-Loss Medication Be Considered?",
+        "Medication Is Not a Replacement for Healthy Habits",
+        "Side Effects and Monitoring Matter",
+        "Why Combining Both Approaches May Work Better",
+        "How Do You Know Which Approach Is Right for You?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/nafld-masld-mash-fatty-liver-disease-names/",
+      "slug": "nafld-masld-mash-fatty-liver-disease-names",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "NAFLD, MASLD, MASH: Fatty Liver Disease Names",
+      "titleLen": 45,
+      "descLen": 154,
+      "words": 686,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "If you have been told that you have fatty liver, understanding which term applies to your condition can help you have a more informed discussion with your doctor about liver health, risk factors, and appropriate follow-up.",
+        "The newer terminology was introduced to better describe the underlying metabolic factors associated with many cases of fatty liver disease and to move away from terminology based mainly on what the disease is not caused by.",
+        ":::\r\n\r\nYou may also find these guides helpful: [Elevated Liver Enzymes on a Routine Blood Test: What ALT and AST Actually Mean](/health-library/elevated-liver-enzymes-alt-ast-meaning/), [Can Fatty Liver Disease Be Reversed?",
+        "A Step-by-Step Guide to Protecting Your Liver](/health-library/can-fatty-liver-disease-be-reversed/), [New Medication Options for Advanced Fatty Liver Disease: What Patients Should Know](/health-library/new-medication-options-advanced-fatty-liver-disease/).",
+        "If you have recently read about [fatty liver disease](/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/), you may have noticed several different terms: NAFLD, MASLD, and MASH."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Has Fatty Liver Disease Been Renamed?",
+        "What Did NAFLD Mean?",
+        "What Does MASLD Mean?",
+        "MASLD Is More Than a Liver Problem",
+        "What Does MASH Mean?",
+        "Does Fatty Liver Always Cause Symptoms?",
+        "How Is Fatty Liver Disease Evaluated?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/nephrologist-referral-what-it-means-for-your-kidneys/",
+      "slug": "nephrologist-referral-what-it-means-for-your-kidneys",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Is a Nephrologist Referral Bad News?",
+      "titleLen": 36,
+      "descLen": 92,
+      "words": 680,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Shouldn’t Overlook](/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/).",
+        "Being told that you need to see a nephrologist can naturally feel worrying.",
+        "But a referral does not automatically mean that you have severe or permanent kidney disease.",
+        "A nephrologist is a doctor who specializes in kidney health and kidney-related disorders.",
+        "Your primary care doctor may recommend a consultation when blood or urine tests show an abnormality, when blood pressure is difficult to control, or when there is a concern that requires more specialized evaluation."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Does Seeing a Nephrologist Mean Something Is Seriously Wrong?",
+        "Why Might Your Doctor Refer You?",
+        "An Abnormal Test Does Not Always Mean Kidney Disease",
+        "What Does a Nephrologist Do?",
+        "Why Early Specialist Evaluation Can Be Helpful",
+        "Don't Panic About the Referral"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/new-medication-options-advanced-fatty-liver-disease/",
+      "slug": "new-medication-options-advanced-fatty-liver-disease",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "New Medication Options for Advanced Fatty Liver Disease",
+      "titleLen": 55,
+      "descLen": 101,
+      "words": 768,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "Treatment for [fatty liver disease](/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/) has evolved, particularly for people with metabolic dysfunction-associated steatohepatitis (MASH) and significant liver fibrosis.",
+        "The newer approach focuses not only on reducing liver fat but also on addressing liver inflammation and fibrosis, which are important factors in the progression of liver disease.",
+        "A medication should not be started simply because it is advertised as a “fatty liver treatment.”\r\n\r\n## Not Every Patient Needs a New Drug\r\n\r\nIf you have simple liver fat without significant fibrosis, lifestyle and metabolic risk management may remain the main approach.",
+        "It is important to understand that not everyone with fatty liver needs medication.",
+        "Treatment depends on the type of liver disease, the degree of fibrosis, associated metabolic conditions, and overall health."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Are There New Medicines for Fatty Liver Disease?",
+        "Why Does Liver Fibrosis Matter?",
+        "Resmetirom: A Newer Treatment Option",
+        "Medication Is Not a Replacement for Lifestyle Care",
+        "What About Medicines for Diabetes and Obesity?",
+        "Not Every Patient Needs a New Drug",
+        "What Should Patients Ask Their Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/new-medication-options-for-sleep-apnea/",
+      "slug": "new-medication-options-for-sleep-apnea",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "New Medication Options for Sleep Apnea",
+      "titleLen": 38,
+      "descLen": 103,
+      "words": 801,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "From there, your doctor can help determine whether medication, PAP therapy, an oral appliance, weight management, or a combination of approaches makes the most sense for you.",
+        "For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).",
+        "For years, treatment for obstructive [sleep apnea](/conditions/sleep-apnea/) (OSA) has focused on approaches such as positive airway pressure therapy, oral appliances, weight management, and selected surgical procedures.",
+        "Food and Drug Administration (FDA) approved tirzepatide as the first medication specifically indicated for moderate-to-severe obstructive sleep apnea in adults with obesity.",
+        "The approval is for use alongside a reduced-calorie diet and increased physical activity."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Are Medications Now Available for Sleep Apnea?",
+        "How Does Tirzepatide Help Sleep Apnea?",
+        "It Is Not a Universal Sleep Apnea Medication",
+        "Does Medication Replace CPAP?",
+        "Other Treatment Options Still Matter",
+        "What Should Patients Know About Side Effects?",
+        "What Is the Next Step If You Have Sleep Apnea?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/normal-thyroid-test-still-feel-unwell/",
+      "slug": "normal-thyroid-test-still-feel-unwell",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Normal Thyroid Test but Still Feeling Unwell? What Now",
+      "titleLen": 54,
+      "descLen": 152,
+      "words": 470,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 5,
+      "aiScore": 32,
+      "worst": [
+        "It can be frustrating to feel tired, gain weight or feel anxious and then hear that your [thyroid](/conditions/thyroid-disorders/) test is normal.",
+        "A normal result means your thyroid was working within the expected range when tested.",
+        "For the wider picture, see our guide on [Thyroid Disorders Explained: Hypothyroidism vs.",
+        "Hyperthyroidism](/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/).",
+        "When it is normal, the thyroid is usually producing the right amount of hormone."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does a Normal Thyroid Test Mean?",
+        "When Might Retesting Be Reasonable?",
+        "What Else Can Cause Thyroid-Like Symptoms?",
+        "What If You Already Take Thyroid Medication?",
+        "What Should Your Next Steps Be?",
+        "When Should You Seek Urgent Help?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/obesity-weight-management/",
+      "slug": "obesity-weight-management",
+      "type": "pillar",
+      "cluster": "diabetes-metabolism",
+      "title": "Obesity and Weight Management",
+      "titleLen": 29,
+      "descLen": 150,
+      "words": 3262,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 7,
+      "aiScore": 55,
+      "worst": [
+        "For some people, losing weight seems straightforward at first: eat differently, exercise more and stay consistent.",
+        "If you are concerned about obesity, repeated weight regain or related conditions such as diabetes, high blood pressure, fatty liver disease or sleep apnea, discussing your situation with an Internal Medicine physician can help clarify the next steps.",
+        "Depending on the individual, useful measures may include:\r\n\r\n- Blood pressure\r\n\r\n- HbA1c\r\n\r\n- Blood glucose\r\n\r\n- Cholesterol\r\n\r\n- Waist circumference\r\n\r\n- Physical fitness\r\n\r\n- Mobility\r\n\r\n- Sleep quality\r\n\r\n- Ability to perform daily activities\r\n\r\nSometimes the first meaningful improvement is not a dramatic change in body weight.",
+        "Medical and Lifestyle Factors That Can Affect Weight](/health-library/why-is-it-hard-to-lose-weight-medical-lifestyle-factors/)\r\n\r\n- [Lifestyle Changes vs Weight-Loss Medication: Which Approach Is Right for Obesity?](/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/)\r\n\r\n- [When Should You See a Doctor About Your Weight?",
+        "A person's medical history, weight pattern, other health conditions, medications and treatment goals all matter when deciding how obesity should be managed."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Is Obesity?",
+        "Why Is Losing Weight So Difficult for Some People?",
+        "How Can Obesity Affect Your Health?",
+        "How Is Obesity Evaluated?",
+        "Can Lifestyle Changes Really Help With Obesity?",
+        "When Should You Consider Medical Weight Management?",
+        "What Does Medical Weight Management Involve?",
+        "What Are Weight-Loss Medicines?",
+        "Are Weight-Loss Injections Safe?",
+        "Is Medication Better Than Lifestyle Treatment?",
+        "What Happens After Stopping a Weight-Loss Medicine?",
+        "Can Obesity Be Managed Without Medication?",
+        "Why Does Weight Come Back After Losing It?",
+        "What Is Visceral Fat?",
+        "Does Obesity Always Cause Symptoms?",
+        "When Should You See a Doctor About Your Weight?",
+        "Common Myths About Obesity",
+        "What Does Weight Management Look Like in Muscat?"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/primary-care-doctor-or-cardiologist-blood-pressure/",
+      "slug": "primary-care-doctor-or-cardiologist-blood-pressure",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "Primary Care Doctor or Cardiologist for Blood Pressure?",
+      "titleLen": 55,
+      "descLen": 147,
+      "words": 600,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 28,
+      "worst": [
+        "Seek emergency care if [high blood pressure](/conditions/high-blood-pressure/) comes with chest pain, severe breathlessness, sudden weakness or numbness, difficulty speaking, a sudden severe headache, vision changes, confusion or fainting.",
+        "After a high reading, most patients ask the same follow-up question: who should be looking after this?",
+        "For the majority of people, the answer is a primary care doctor or internist.",
+        "They can confirm the diagnosis, start treatment, adjust medicines and check the kidneys, blood sugar and cholesterol.",
+        "A cardiologist tends to join the team in more specific situations, such as pressure that won't settle on treatment or existing heart disease."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Primary Care Is Usually the Starting Point",
+        "When Is a Cardiologist Needed?",
+        "What Should You Do Next?",
+        "When Should You Seek Urgent Care?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/primary-care-doctor-or-liver-specialist-fatty-liver/",
+      "slug": "primary-care-doctor-or-liver-specialist-fatty-liver",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Primary Care Doctor or Liver Specialist for Fatty Liver",
+      "titleLen": 55,
+      "descLen": 92,
+      "words": 794,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        ":::\r\n\r\nYou may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Disease Has So Many Names Now](/health-library/nafld-masld-mash-fatty-liver-disease-names/), [Elevated Liver Enzymes on a Routine Blood Test: What ALT and AST Actually Mean](/health-library/elevated-liver-enzymes-alt-ast-meaning/), [Can Fatty Liver Disease Be Reversed?",
+        "Being told that you have [fatty liver disease](/health-library/fatty-liver-disease-causes-symptoms-and-how-to-reverse-it/) can raise an immediate question: “Do I need to see a liver specialist?”\r\n\r\nNot necessarily.",
+        "Many people with [fatty liver](/conditions/fatty-liver/) can begin evaluation and management with a primary care or internal medicine doctor.",
+        "These doctors can assess common risk factors, review blood tests and imaging, and address related conditions such as obesity, diabetes, high cholesterol, and high blood pressure.",
+        "A liver specialist may become important when there are signs of more advanced liver disease, uncertainty about the diagnosis, or a need for more specialized assessment."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Who Should Manage Fatty Liver Disease?",
+        "What Can a Primary Care Doctor Do?",
+        "Lifestyle Management Matters",
+        "When Is a Liver Specialist Needed?",
+        "Fatty Liver Is Not Always the Same Condition",
+        "Why Liver Scarring Matters",
+        "What If My Liver Enzymes Are Normal?",
+        "Primary Care and Liver Specialists Can Work Together"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/primary-care-doctor-or-nephrologist-kidney-health/",
+      "slug": "primary-care-doctor-or-nephrologist-kidney-health",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "Primary Care Doctor or Nephrologist?",
+      "titleLen": 36,
+      "descLen": 150,
+      "words": 683,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        "A nephrologist may evaluate conditions such as chronic kidney disease, significant protein in the urine, persistent abnormalities in kidney function, electrolyte disturbances, and certain difficult-to-control blood pressure problems.",
+        "For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Shouldn’t Overlook](/health-library/kidney-health-101-warning-signs-you-shouldnt-overlook/).",
+        "If you have an abnormal kidney test, protein in your urine, or a diagnosis of kidney disease, you may wonder whether you should see a primary care doctor or a nephrologist.",
+        "The right doctor depends on your kidney function, symptoms, underlying health conditions, and how complex your kidney problem is.",
+        "Many kidney health concerns can initially be evaluated by a primary care doctor."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Who Should Manage Your Kidney Health?",
+        "What Can a Primary Care Doctor Do?",
+        "When Primary Care May Be Enough",
+        "What Does a Nephrologist Do?",
+        "When Should You See a Nephrologist?",
+        "Can Both Doctors Work Together?",
+        "Don't Wait for Symptoms"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/primary-care-doctor-or-sleep-specialist-sleep-problem/",
+      "slug": "primary-care-doctor-or-sleep-specialist-sleep-problem",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Primary Care Doctor or Sleep Specialist?",
+      "titleLen": 40,
+      "descLen": 101,
+      "words": 822,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        "If you regularly have trouble falling asleep, wake repeatedly during the night, snore loudly, wake up gasping, or feel excessively tired during the day, you may wonder whether you should see your primary care doctor or a sleep specialist.",
+        "Important clues include:\r\n\r\n- Loud or persistent snoring\r\n\r\n- Gasping or choking during sleep\r\n\r\n- Breathing pauses noticed by another person\r\n\r\n- Morning headaches\r\n\r\n- Dry mouth on waking\r\n\r\n- Significant daytime sleepiness\r\n\r\n- Difficulty concentrating\r\n\r\nA sleep specialist may recommend a sleep study when obstructive sleep apnea is suspected.",
+        "Your primary care doctor can continue managing your general health and conditions such as diabetes, blood pressure, or thyroid problems, while a sleep specialist can provide focused assessment and treatment for a diagnosed sleep disorder.",
+        "For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).",
+        "Poor sleep is common, but persistent sleep problems should not always be dismissed as stress or a busy lifestyle."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Where Should You Start With a Sleep Problem?",
+        "What Can a Primary Care Doctor Do?",
+        "Primary Care Is Often the First Step",
+        "When Might You Need a Sleep Specialist?",
+        "Signs That Sleep Apnea May Need Specialist Evaluation",
+        "What About Insomnia?",
+        "Persistent Symptoms Should Not Be Ignored",
+        "Primary Care and Sleep Specialists Can Work Together",
+        "When Should You Make an Appointment?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/primary-care-or-endocrinologist-thyroid/",
+      "slug": "primary-care-or-endocrinologist-thyroid",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Primary Care Doctor or Endocrinologist for Thyroid?",
+      "titleLen": 51,
+      "descLen": 85,
+      "words": 430,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "For straightforward, stable thyroid conditions, a primary care or internal medicine doctor is usually suitable.",
+        "When you are diagnosed with a thyroid problem, you may wonder whether you need a specialist.",
+        "Primary care and internal medicine doctors manage many thyroid conditions well, while endocrinologists, who specialise in hormones, help with complex or difficult cases.",
+        "For the wider picture, see our guide on [Thyroid Disorders Explained: Hypothyroidism vs.",
+        "Hyperthyroidism](/health-library/hypothyroidism-vs-hyperthyroidism-symptoms/)."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Can a Primary Care or Internal Medicine Doctor Do?",
+        "What Does an Endocrinologist Do?",
+        "When Is an Endocrinologist Referral Helpful?",
+        "Can Both Doctors Work Together?",
+        "How Should You Take Thyroid Medication?",
+        "How Do You Choose?"
+      ],
+      "tellHits": 1
+    },
+    {
+      "url": "/health-library/sleep-apnea-vs-insomnia-symptoms/",
+      "slug": "sleep-apnea-vs-insomnia-symptoms",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Sleep Apnea or Insomnia? How to Tell Them Apart",
+      "titleLen": 47,
+      "descLen": 121,
+      "words": 794,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        "What the New Heart Research Actually Shows](/health-library/is-melatonin-safe-to-take-every-night/), [New Medication Options for Sleep Apnea: What Patients Should Know](/health-library/new-medication-options-for-sleep-apnea/).",
+        "For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).",
+        "If you regularly wake up tired, struggle to stay asleep, or find yourself exhausted during the day, it can be difficult to know what is actually causing the problem.",
+        "Insomnia and [sleep apnea](/conditions/sleep-apnea/) are different sleep disorders, but their symptoms can overlap.",
+        "Both can leave you feeling unrefreshed, fatigued, and less able to concentrate during the day."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Can Sleep Apnea and Insomnia Feel So Similar?",
+        "What Is Insomnia?",
+        "What Is Sleep Apnea?",
+        "Common Warning Signs",
+        "Where the Symptoms Overlap",
+        "The Clues That Point Toward Sleep Apnea",
+        "You Can Have Both",
+        "How Are They Diagnosed?",
+        "When Should You Seek Help?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/sleep-disorders/",
+      "slug": "sleep-disorders",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Sleep disorders and your health",
+      "titleLen": 31,
+      "descLen": 131,
+      "words": 458,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 4,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 15,
+      "worst": [],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/smartwatch-vs-cuff-blood-pressure-accuracy/",
+      "slug": "smartwatch-vs-cuff-blood-pressure-accuracy",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "Smartwatch vs. Cuff: Blood Pressure Accuracy",
+      "titleLen": 44,
+      "descLen": 109,
+      "words": 716,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 3,
+      "aiScore": 34,
+      "worst": [
+        "A smartwatch can display a blood pressure figure, and sometimes that figure lands close to the real value.",
+        "They estimate it from the pulse signal at your wrist, so the number depends on the device, how snugly it sits, and what you were doing when you checked.",
+        "For the wider picture, see our guide on [Understanding High Blood Pressure: Causes, Risks & Management](/health-library/understanding-high-blood-pressure-causes-risks-and-management/).",
+        "The cuff inflates around your upper arm, briefly blocks the artery, and then lets the pressure out slowly.",
+        "As blood begins to flow again, the device senses the change in the artery wall and converts it into two numbers."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Does a Cuff Measure Blood Pressure?",
+        "How Do Smartwatches Estimate Blood Pressure?",
+        "What Do Wearables Do Well?",
+        "Where Can Wearables Mislead?",
+        "How Should You Measure Blood Pressure at Home?",
+        "What Should You Do If You Use a Smartwatch?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/still-short-of-breath-with-inhaler/",
+      "slug": "still-short-of-breath-with-inhaler",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Why Am I Still Short of Breath Even With an Inhaler?",
+      "titleLen": 52,
+      "descLen": 147,
+      "words": 803,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "If you use an inhaler for [asthma](/conditions/asthma-and-breathing/) but continue to feel short of breath, it does not necessarily mean that your inhaler is “not working.”\r\n\r\nThere can be several reasons for ongoing breathlessness.",
+        ":::emergency\r\n\r\nSeek urgent medical attention if you are struggling to breathe, cannot speak normally because of breathlessness, develop bluish or grey lips or skin, become confused or faint, or have severe chest pain or pressure.",
+        "Early Signs, Common Triggers and Warning Symptoms](/health-library/asthma-symptoms-early-signs-common-triggers/), [Asthma vs COPD: What Is the Difference and How Can You Tell?](/health-library/asthma-vs-copd-difference-symptoms/), [When Should You See a Doctor for Shortness of Breath or Breathing Difficulty?](/health-library/when-to-see-doctor-for-shortness-of-breath/).",
+        "For the wider picture, see our guide on [Asthma Symptoms and Triggers: Causes, Diagnosis & Relief](/health-library/asthma-symptoms-triggers-relief/).",
+        "Your asthma may not be adequately controlled, the inhaler may not be reaching your lungs effectively, or your symptoms may have another cause."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Am I Still Short of Breath After Using My Inhaler?",
+        "Your Asthma May Not Be Fully Controlled",
+        "Your Inhaler Technique May Matter",
+        "Your Breathlessness May Have Another Cause",
+        "Could It Be COPD or Another Lung Condition?",
+        "Lung Function Testing Can Help",
+        "When Should You Get Urgent Help?",
+        "What Should You Do If Breathlessness Keeps Returning?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/think-you-have-sleep-apnea-evaluation-guide/",
+      "slug": "think-you-have-sleep-apnea-evaluation-guide",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "Think You Might Have Sleep Apnea?",
+      "titleLen": 33,
+      "descLen": 105,
+      "words": 777,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 36,
+      "worst": [
+        "Why the Symptoms Overlap and How to Tell Them Apart](/health-library/sleep-apnea-vs-insomnia-symptoms/), [New Medication Options for Sleep Apnea: What Patients Should Know](/health-library/new-medication-options-for-sleep-apnea/), [Primary Care Doctor or Sleep Specialist?",
+        "For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).",
+        "Getting enough hours of sleep but still waking up exhausted can be frustrating.",
+        "If you also snore loudly, wake up gasping, or someone has noticed pauses in your breathing while you sleep, [sleep apnea](/conditions/sleep-apnea/) may be worth investigating.",
+        "Sleep apnea is a sleep disorder in which breathing repeatedly becomes reduced or stops during sleep."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Could Your Sleep Problems Be Sleep Apnea?",
+        "Step 1: Recognize the Warning Signs",
+        "Pay Attention to Daytime Sleepiness",
+        "Step 2: Discuss Your Symptoms With a Doctor",
+        "Step 3: Complete a Sleep Apnea Screening Assessment",
+        "Step 4: Have the Appropriate Sleep Study",
+        "What Happens After Testing?",
+        "Step 5: Take Daytime Sleepiness Seriously"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/understanding-high-blood-pressure-causes-risks-and-management/",
+      "slug": "understanding-high-blood-pressure-causes-risks-and-management",
+      "type": "pillar",
+      "cluster": "heart-blood-pressure",
+      "title": "Understanding High Blood Pressure: Causes and Risks",
+      "titleLen": 51,
+      "descLen": 153,
+      "words": 3745,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 8,
+      "aiScore": 28,
+      "worst": [
+        "The first step is knowing whether the blood pressure is genuinely and consistently high.",
+        "That said, hypertension is not exclusively a condition of older adults.",
+        "A simple record can include:\r\n\r\nDate | Time | Blood pressure | Pulse | Notes\r\n\r\nYou might also record anything relevant that could help explain an unusual reading, such as illness, poor sleep, significant stress or recent exercise.",
+        "Severely elevated blood pressure can be associated with more concerning symptoms, including:\r\n\r\n- Severe headache\r\n\r\n- Chest pain\r\n\r\n- Shortness of breath\r\n\r\n- Changes in vision\r\n\r\n- Confusion\r\n\r\n- Nausea or vomiting\r\n\r\n- Weakness or numbness\r\n\r\n- Difficulty speaking\r\n\r\nThese symptoms should not simply be blamed on \"high BP.\" They need proper medical assessment.",
+        "Depending on the situation, this may involve:\r\n\r\n- Repeat clinic measurements\r\n\r\n- Home blood pressure monitoring\r\n\r\n- Ambulatory blood pressure monitoring over a longer period\r\n\r\n- Assessment of other cardiovascular risk factors\r\n\r\n- Blood and urine tests\r\n\r\n- Additional investigations when an underlying cause is suspected\r\n\r\nThe aim is not simply to obtain a number."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [],
+      "tellHits": 2
+    },
+    {
+      "url": "/health-library/what-causes-abdominal-pain/",
+      "slug": "what-causes-abdominal-pain",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "What Causes Abdominal Pain? Common Causes by Location",
+      "titleLen": 53,
+      "descLen": 145,
+      "words": 792,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 38,
+      "worst": [
+        ":::\r\n\r\n:::emergency\r\n\r\nSeek urgent medical attention for severe or rapidly worsening abdominal pain, significant abdominal swelling, persistent vomiting, vomiting blood, black or bloody stools, fainting, confusion, or severe weakness.",
+        "Warning Signs You Should Not Ignore](/health-library/when-is-abdominal-pain-serious-warning-signs/), [Gastritis Symptoms: What Does Gastritis Pain Feel Like and Where Does It Hurt?](/health-library/gastritis-symptoms-what-does-gastritis-pain-feel-like/), [Gastritis vs Acid Reflux: What Is the Difference Between the Symptoms?](/health-library/gastritis-vs-acid-reflux-symptoms/).",
+        "For the wider picture, see our guide on [Abdominal Pain Causes & Gastritis: Symptoms and Treatment](/health-library/abdominal-pain-causes-gastritis-treatment/).",
+        "[Abdominal pain](/conditions/digestive-problems/) is a common symptom, but its cause is not always obvious.",
+        "Pain can come from the stomach, intestines, gallbladder, liver, pancreas, kidneys, urinary tract, or other structures inside or around the abdomen."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Can Cause Abdominal Pain?",
+        "Abdominal Pain by Location",
+        "Lower Right Abdomen",
+        "Lower Left Abdomen",
+        "Timing and Pattern Can Provide Clues",
+        "Other Symptoms Matter",
+        "When Is Abdominal Pain an Emergency?",
+        "How Is the Cause Diagnosed?",
+        "Don't Ignore Persistent Abdominal Pain"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/what-causes-blood-sugar-rise-without-eating/",
+      "slug": "what-causes-blood-sugar-rise-without-eating",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "What Causes Blood Sugar to Rise When You Haven't Eaten?",
+      "titleLen": 55,
+      "descLen": 151,
+      "words": 836,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 30,
+      "worst": [
+        "A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/), [CGM or A1C: Which Test Actually Catches Prediabetes Early?](/health-library/cgm-vs-a1c-prediabetes-early-detection/), [Sleep Apnea or Insomnia?",
+        "Your liver keeps adding glucose to the bloodstream between meals and through the night, which is how your brain gets fuel while you sleep.",
+        "So when a fasting reading comes back high, the question is usually which part of this system is out of step: the liver, the insulin response, a hormone or medicine, or the test itself.",
+        "For the wider picture, see our guide on [prediabetes early warning signs](/health-library/diabetes-and-prediabetes-early-warning-signs-you-shouldnt-ignore/).",
+        "Between meals, the liver breaks down stored glycogen and builds new glucose from other sources."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "How Does the Liver Keep Blood Sugar Steady?",
+        "What Else Can Raise Blood Sugar Before Breakfast?",
+        "Could the Test Be Misleading?",
+        "What Should You Do?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/what-happens-when-you-stop-glp-1/",
+      "slug": "what-happens-when-you-stop-glp-1",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "What Happens When You Stop a GLP-1 Medicine?",
+      "titleLen": 44,
+      "descLen": 155,
+      "words": 438,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 Medicines?](/health-library/how-much-weight-lose-glp-1-medicines/), [Is a GLP-1 Medicine Worth the Cost?](/health-library/is-glp-1-medicine-worth-the-cost/), [GLP-1 Side Effects and How to Manage Them](/health-library/glp-1-side-effects-how-to-manage/).",
+        "GLP-1 medicines help control appetite and blood sugar while you take them.",
+        "They do not permanently change how your body regulates weight.",
+        "Many people wonder what happens if they stop because of cost, side effects or reaching their goal.",
+        "For the wider picture, see our guide on [GLP-1 for Diabetes & Weight Loss: Results, Cost & Side Effects](/health-library/glp-1-diabetes-weight-loss-results-cost-side-effects/)."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Does Weight Return?",
+        "What Else Can Change?",
+        "Who Is Most Likely to Regain Weight?",
+        "How Can You Reduce Weight Regain?",
+        "Should You Taper the Dose?",
+        "Are There Alternatives If Weight Returns?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/when-is-abdominal-pain-serious-warning-signs/",
+      "slug": "when-is-abdominal-pain-serious-warning-signs",
+      "type": "supporting",
+      "cluster": "kidney-liver-gut",
+      "title": "When Is Abdominal Pain Serious? Warning Signs",
+      "titleLen": 45,
+      "descLen": 110,
+      "words": 792,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 40,
+      "worst": [
+        "Common Causes by Location, Timing and Symptoms](/health-library/what-causes-abdominal-pain/), [Gastritis Symptoms: What Does Gastritis Pain Feel Like and Where Does It Hurt?](/health-library/gastritis-symptoms-what-does-gastritis-pain-feel-like/), [Gastritis vs Acid Reflux: What Is the Difference Between the Symptoms?](/health-library/gastritis-vs-acid-reflux-symptoms/).",
+        "For the wider picture, see our guide on [Abdominal Pain Causes & Gastritis: Symptoms and Treatment](/health-library/abdominal-pain-causes-gastritis-treatment/).",
+        ":::emergency\r\n\r\n[Abdominal pain](/conditions/digestive-problems/) is extremely common and can have many causes.",
+        "Indigestion, gas, constipation, or a mild infection may cause temporary discomfort.",
+        "However, severe, sudden, persistent, or worsening abdominal pain can sometimes indicate a condition requiring urgent medical attention."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "When Should You Worry About Abdominal Pain?",
+        "Warning Signs You Should Not Ignore",
+        "Severe or Rapidly Worsening Pain",
+        "Vomiting Blood or Passing Black Stools",
+        "Fever With Abdominal Pain",
+        "Pay Attention to Where the Pain Occurs",
+        "Other Symptoms That Need Attention",
+        "What About Mild but Persistent Pain?",
+        "Avoid Masking the Problem",
+        "How Is Serious Abdominal Pain Evaluated?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/when-to-see-doctor-about-your-weight/",
+      "slug": "when-to-see-doctor-about-your-weight",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "When Should You See a Doctor About Your Weight?",
+      "titleLen": 47,
+      "descLen": 155,
+      "words": 826,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "For some adults with obesity, or overweight accompanied by weight-related health problems, medication may be considered when lifestyle interventions alone have not produced sufficient results or when additional treatment is clinically appropriate.",
+        "Medical and Lifestyle Factors That Can Affect Weight](/health-library/why-is-it-hard-to-lose-weight-medical-lifestyle-factors/), [Lifestyle Changes vs Weight-Loss Medication: Which Approach Is Right for Obesity?](/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/), [Are Weight-Loss Injections Safe?",
+        "If you have persistent difficulty losing weight, repeated weight regain, or health problems associated with excess weight, a medical evaluation can help identify factors that may be making weight management difficult.",
+        "For the wider picture, see our guide on [Obesity and Weight Management: Causes, Treatment & Healthy Weight Loss](/health-library/obesity-weight-management/).",
+        "Trying to lose weight can be difficult, particularly when changes in diet and physical activity do not produce the results you expect."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "When Is It Time to Talk to a Doctor About Your Weight?",
+        "Signs You May Benefit From Medical Weight Management",
+        "Medical Conditions Can Affect Weight",
+        "What Happens During a Weight-Management Consultation?",
+        "When Might Medication Be Considered?",
+        "Avoid Quick-Fix Weight-Loss Products",
+        "Don't Wait for Your Weight to Become a Bigger Health Problem"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/when-to-see-doctor-for-shortness-of-breath/",
+      "slug": "when-to-see-doctor-for-shortness-of-breath",
+      "type": "supporting",
+      "cluster": "lungs-sleep-infections",
+      "title": "When to See a Doctor for Shortness of Breath",
+      "titleLen": 44,
+      "descLen": 138,
+      "words": 745,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "The important question is not only how severe the breathlessness feels, but also when it happens, how long it lasts, and whether it is getting worse.",
+        "Early Signs, Common Triggers and Warning Symptoms](/health-library/asthma-symptoms-early-signs-common-triggers/), [Asthma vs COPD: What Is the Difference and How Can You Tell?](/health-library/asthma-vs-copd-difference-symptoms/), [Why Am I Still Short of Breath Even With an Inhaler?",
+        "For the wider picture, see our guide on [Asthma Symptoms and Triggers: Causes, Diagnosis & Relief](/health-library/asthma-symptoms-triggers-relief/).",
+        "Shortness of breath, also called breathlessness or dyspnea, is the feeling that you cannot get enough air or are having difficulty breathing.",
+        "It can happen for a simple reason, such as intense exercise, but it can also be caused by conditions affecting the lungs, heart, blood, or other parts of the body."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Does Shortness of Breath Mean?",
+        "When Is Shortness of Breath Normal?",
+        "Pay Attention to Changes in Your Breathing",
+        "Other Possible Causes",
+        "When Is Shortness of Breath an Emergency?",
+        "What Will a Doctor Check?",
+        "Don't Self-Diagnose Persistent Breathlessness"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/why-high-blood-pressure-has-no-symptoms-silent-killer/",
+      "slug": "why-high-blood-pressure-has-no-symptoms-silent-killer",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "Why High Blood Pressure Has No Symptoms: The Silent Killer",
+      "titleLen": 58,
+      "descLen": 137,
+      "words": 792,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 32,
+      "worst": [
+        "Over time it can contribute to:\r\n\r\n- Heart attack and heart failure\r\n\r\n- Stroke\r\n\r\n- Kidney damage, which can progress to kidney failure in some people\r\n\r\n- Damage to the tiny vessels at the back of the eye\r\n\r\nMany patients first learn they have hypertension after one of these events.",
+        "These include eating less salt, especially the hidden salt in bread, sauces, instant meals and restaurant food, walking or exercising on most days, losing weight gradually if needed, cutting back on alcohol and stopping smoking.",
+        "Ask most people with [high blood pressure](/conditions/high-blood-pressure/) how they feel and you will hear some version of \"fine.\" That answer is the core of the problem.",
+        "High blood pressure is usually silent, and it does its damage quietly in the heart, brain, kidneys and eyes for years before anyone connects it to a symptom.",
+        "For the wider picture, see our guide on [high blood pressure causes, risks and management](/health-library/understanding-high-blood-pressure-causes-risks-and-management/)."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Does High Blood Pressure Feel Like Nothing?",
+        "Why Is It Called the Silent Killer?",
+        "Which Symptoms Mean You Need Urgent Help?",
+        "How Do You Find Out If You Have It?",
+        "What Should You Do If a Reading Is High?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/why-is-it-hard-to-lose-weight-medical-lifestyle-factors/",
+      "slug": "why-is-it-hard-to-lose-weight-medical-lifestyle-factors",
+      "type": "supporting",
+      "cluster": "diabetes-metabolism",
+      "title": "Why Is It So Hard to Lose Weight?",
+      "titleLen": 33,
+      "descLen": 150,
+      "words": 828,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 40,
+      "worst": [
+        "Reviewing your diet, activity, sleep, medications, and overall health with a healthcare professional can help identify factors that may be making weight management more difficult and guide a safer, more individualized approach.",
+        "Consider a medical evaluation if you have unexplained weight gain, difficulty losing weight despite consistent efforts, symptoms suggesting a hormonal or metabolic condition, or medications that may be affecting your weight.",
+        "You may also find these guides helpful: [Lifestyle Changes vs Weight-Loss Medication: Which Approach Is Right for Obesity?](/health-library/lifestyle-changes-vs-weight-loss-medication-obesity/), [When Should You See a Doctor About Your Weight?",
+        "For the wider picture, see our guide on [Obesity and Weight Management: Causes, Treatment & Healthy Weight Loss](/health-library/obesity-weight-management/).",
+        "If you have been trying to lose weight but are seeing little or no change, it can be frustrating."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "Why Doesn't Weight Loss Always Happen as Expected?",
+        "Your Body Adapts During Weight Loss",
+        "Medical Conditions Can Affect Weight",
+        "Polycystic Ovary Syndrome",
+        "Other Health Conditions",
+        "Medications Can Influence Body Weight",
+        "Sleep and Stress Matter More Than Many People Realize",
+        "Your Eating Pattern Matters Too",
+        "Exercise Helps, But It Is Not the Whole Story",
+        "When Should You Talk to a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/health-library/why-is-my-blood-pressure-different-at-home-than-doctor/",
+      "slug": "why-is-my-blood-pressure-different-at-home-than-doctor",
+      "type": "supporting",
+      "cluster": "heart-blood-pressure",
+      "title": "Why Is My Blood Pressure Different at Home?",
+      "titleLen": 43,
+      "descLen": 151,
+      "words": 728,
+      "byline": true,
+      "bylineLinked": false,
+      "dates": true,
+      "faqs": 6,
+      "schema": [
+        "MedicalWebPage",
+        "BlogPosting",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 6,
+      "aiScore": 34,
+      "worst": [
+        "Cuff: Can Wearables Measure Blood Pressure Accurately?](/health-library/smartwatch-vs-cuff-blood-pressure-accuracy/), [How to Lower Blood Pressure Naturally: A Step-by-Step Guide](/health-library/how-to-lower-blood-pressure-naturally-step-by-step/).",
+        "The nurse wraps the cuff, the screen shows a number, and it is noticeably higher than the reading you took on your kitchen monitor that morning.",
+        "The gap is one of the most common things patients ask about, and it tends to reveal something useful rather than a faulty machine.",
+        "For the wider picture, see our guide on [high blood pressure causes, risks and management](/health-library/understanding-high-blood-pressure-causes-risks-and-management/).",
+        "The waiting room, the unfamiliar equipment, and the knowledge that a number is about to be recorded can all push pressure up for a few minutes."
+      ],
+      "boilerHeads": [
+        "Final Thoughts"
+      ],
+      "titleCaseHeads": [
+        "What Is White-Coat Hypertension?",
+        "What Is Masked Hypertension?",
+        "Why Does My Reading Change?",
+        "How Should You Measure Blood Pressure at Home?",
+        "How Long Should I Monitor?",
+        "Which Reading Counts?",
+        "When Should You See a Doctor?"
+      ],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/allergies/",
+      "slug": "allergies",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Allergy testing and treatment in Muscat",
+      "titleLen": 39,
+      "descLen": 136,
+      "words": 281,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James examines your nose, throat, skin and chest, and looks for patterns like seasonal flares, home versus work differences, and links to foods or medicines.",
+        "Testing is suggested only when it changes management: allergy blood tests or a referral for skin testing when the trigger stays unclear, and an action plan if you have had severe reactions.",
+        "If a severe allergy is suspected, an emergency action plan is written out clearly for you and your family."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/anaemia/",
+      "slug": "anaemia",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Anaemia and low iron checks in Muscat",
+      "titleLen": 37,
+      "descLen": 116,
+      "words": 232,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about diet, periods, gut symptoms, previous blood counts and family blood conditions, then examines for pallor and other clues.",
+        "Your blood count is reviewed properly: not just haemoglobin but cell size and pattern, which point toward the cause.",
+        "Further tests are chosen by the pattern: ferritin for iron stores, B12 and folate, thyroid function, or screening for thalassemia trait."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/asthma-and-breathing/",
+      "slug": "asthma-and-breathing",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Asthma and breathing problems in Muscat",
+      "titleLen": 39,
+      "descLen": 135,
+      "words": 273,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about the pattern: when symptoms started, what triggers them, night symptoms, smoke and dust exposure, and your medicines.",
+        "He listens to your chest and may arrange spirometry (a breathing test) or a chest X-ray when needed.",
+        "The goal is a clear label for the problem: asthma, allergy-driven cough, post-viral cough, reflux-related cough or something else."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/care-for-older-adults/",
+      "slug": "care-for-older-adults",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Care for older adults in Muscat",
+      "titleLen": 31,
+      "descLen": 145,
+      "words": 277,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James reviews the full picture: each condition, each medicine and why it was started, recent reports, falls, appetite, sleep, mood and memory concerns.",
+        "Examination covers pressure lying and standing (a drop on standing causes falls), heart, chest and basic function.",
+        "Medicines are reviewed together rather than one by one: what still earns its place, what interacts, what can be simplified."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/chest-infections-and-pneumonia/",
+      "slug": "chest-infections-and-pneumonia",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Chest infections and pneumonia in Muscat",
+      "titleLen": 40,
+      "descLen": 127,
+      "words": 292,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks how the illness started and progressed, then checks your temperature, oxygen level, breathing rate and listens to your chest.",
+        "A chest X-ray is arranged when pneumonia or another cause needs ruling out.",
+        "You get an honest answer about whether the illness is viral and just needs support, or bacterial and needs antibiotics, plus clear instructions on what should improve and when."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/diabetes-and-prediabetes/",
+      "slug": "diabetes-and-prediabetes",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Diabetes and prediabetes care in Muscat",
+      "titleLen": 39,
+      "descLen": 139,
+      "words": 307,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James listens first: how long the problem has been there, your family history, your routine and the medicines you already take.",
+        "He examines you, checks your feet, weight and blood pressure, and reviews your old reports.",
+        "He may ask for a fasting sugar, HbA1c (a three-month average of your blood sugar), kidney function, cholesterol and a urine test for protein."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/digestive-problems/",
+      "slug": "digestive-problems",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Digestive problems and gut health in Muscat",
+      "titleLen": 43,
+      "descLen": 139,
+      "words": 270,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James takes the history that usually makes the diagnosis: which symptoms, their timing, relation to meals, stress, travel, medicines like painkillers, and any alarm features.",
+        "He examines your abdomen and checks for anaemia clues like pallor.",
+        "Tests are chosen for a reason: blood tests for anaemia or inflammation, stool tests for infection or hidden blood, an H."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/fatty-liver/",
+      "slug": "fatty-liver",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Fatty liver disease in Muscat",
+      "titleLen": 29,
+      "descLen": 138,
+      "words": 222,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about alcohol honestly, medicines and supplements, weight history, and your diabetes and cholesterol picture.",
+        "He examines your abdomen and reviews your liver tests and any ultrasound report.",
+        "The job at this visit is twofold: confirm that fat is the likely explanation and rule out other causes like viral hepatitis, and estimate how much the liver is affected."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/fevers-and-infections/",
+      "slug": "fevers-and-infections",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Fever and infections in Muscat",
+      "titleLen": 30,
+      "descLen": 138,
+      "words": 287,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 16,
+      "worst": [
+        "You leave knowing the most likely cause, whether an antibiotic is genuinely indicated, and exactly which warning signs mean come back now.",
+        "James maps the timeline: when the fever started, its pattern, what came with it, travel, contacts, and medicines already taken.",
+        "A full examination follows: throat, ears, chest, abdomen, skin and urine check as appropriate."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 1
+    },
+    {
+      "url": "/conditions/heart-risk-assessment/",
+      "slug": "heart-risk-assessment",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Heart risk assessment in Muscat",
+      "titleLen": 31,
+      "descLen": 145,
+      "words": 299,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James takes a full history: family heart events, smoking, diet, activity, stress and any symptoms like chest tightness, breathlessness or palpitations.",
+        "He measures your blood pressure, weight and waist, listens to your heart, and reviews or orders the relevant blood tests and an ECG if indicated.",
+        "Your results are then combined into a plain answer: low, medium or high risk, and which factors are doing most of the damage."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/high-blood-pressure/",
+      "slug": "high-blood-pressure",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "High blood pressure care in Muscat",
+      "titleLen": 34,
+      "descLen": 136,
+      "words": 304,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about salt, sleep, stress, alcohol, medicines and family history, then measures your pressure properly in both arms after rest.",
+        "He examines your heart and checks for signs that pressure has already affected the eyes, heart or kidneys.",
+        "He may ask for home readings over a week, basic kidney and sugar tests, and an ECG (a heart tracing)."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/high-cholesterol/",
+      "slug": "high-cholesterol",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "High cholesterol checks and treatment in Muscat",
+      "titleLen": 47,
+      "descLen": 130,
+      "words": 265,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James goes through your lipid profile (the fat breakdown in your blood test) and asks about diet, activity, smoking, alcohol and family history.",
+        "He checks your blood pressure, weight and waist, because these change what your cholesterol numbers mean for you.",
+        "Two people with the same cholesterol can need very different treatment."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/joint-pain-and-arthritis/",
+      "slug": "joint-pain-and-arthritis",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Joint pain and arthritis care in Muscat",
+      "titleLen": 39,
+      "descLen": 131,
+      "words": 228,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James maps the pain: which joints, what time of day, what triggers and relieves it, stiffness, swelling, and how it started.",
+        "He examines the joints for warmth, swelling and range, and checks muscle strength and gait.",
+        "Blood tests for inflammation, uric acid, vitamin D and related markers are added when the pattern suggests them, and imaging only when it will change management."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/kidney-problems/",
+      "slug": "kidney-problems",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Kidney problems and checks in Muscat",
+      "titleLen": 36,
+      "descLen": 142,
+      "words": 289,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about urine changes, swelling, infections, stones, medicines and your diabetes and pressure control.",
+        "Kidney function is assessed with creatinine and eGFR blood tests and a urine test for protein, sometimes an ultrasound of the kidneys.",
+        "He then explains where your kidney health stands: normal, early change, or needs a kidney specialist, and which medicines need dose care."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/preventive-check-ups/",
+      "slug": "preventive-check-ups",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Preventive health check-ups in Muscat",
+      "titleLen": 37,
+      "descLen": 139,
+      "words": 251,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about your history, family history, diet, activity, sleep, smoking and alcohol, then examines you: pressure, weight, waist, heart and chest.",
+        "James after a consultation, based on your conditions and symptoms, so no test is repeated or wasted.",
+        "When results return, you sit down again and go through them in plain language: what is normal, what needs watching, and what needs action."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/sleep-apnea/",
+      "slug": "sleep-apnea",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Sleep apnea and sleep problems in Muscat",
+      "titleLen": 40,
+      "descLen": 135,
+      "words": 273,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about your sleep pattern, what your partner has noticed, caffeine, alcohol, shift work, and your medicines.",
+        "He examines your weight, neck, nose and throat, checks your blood pressure, and screens for related problems like thyroid disease.",
+        "When apnea is suspected, a sleep study is arranged to measure breathing, oxygen and sleep stages."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/thyroid-disorders/",
+      "slug": "thyroid-disorders",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Thyroid problems checked and treated in Muscat",
+      "titleLen": 46,
+      "descLen": 133,
+      "words": 263,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James asks about your symptoms, medicines, supplements and family history, then examines your neck, pulse, skin and reflexes.",
+        "He reviews your thyroid function tests (the blood tests TSH, T4 and T3) and may repeat them or add an antibody test to find the cause.",
+        "If a lump or nodule is suspected, an ultrasound may be arranged."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    },
+    {
+      "url": "/conditions/weight-management/",
+      "slug": "weight-management",
+      "type": "condition/service",
+      "cluster": "conditions",
+      "title": "Medical weight management in Muscat",
+      "titleLen": 35,
+      "descLen": 149,
+      "words": 258,
+      "byline": false,
+      "bylineLinked": false,
+      "dates": false,
+      "faqs": 5,
+      "schema": [
+        "MedicalWebPage",
+        "MedicalCondition",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "linksOut": 0,
+      "aiScore": 12,
+      "worst": [
+        "James takes a careful history: when the weight changed, your eating pattern, sleep, activity, stress, medicines and previous attempts.",
+        "He measures weight, waist and blood pressure, and may check your thyroid, sugar and liver tests, because weight is often a symptom as much as a cause.",
+        "You then agree a realistic target and the first changes to make."
+      ],
+      "boilerHeads": [],
+      "titleCaseHeads": [],
+      "tellHits": 0
+    }
+  ]
+}

@@ -101,6 +101,8 @@ For some people at higher risk, doctors may discuss medication alongside lifesty
 
 :::
 
+You may also find these guides helpful: [CGM or A1C: Which Test Actually Catches Prediabetes Early?](/health-library/cgm-vs-a1c-prediabetes-early-detection/) and [What Causes Blood Sugar to Rise When You Haven't Eaten?](/health-library/what-causes-blood-sugar-rise-without-eating/).
+
 ## Final Thoughts
 
 You do not need to overhaul your life in a week. Choose two or three changes you can realistically keep for months, then add to them as they become routine. If you live in Muscat and would like your results reviewed in full, including blood pressure, cholesterol, family history and sleep, an Internal Medicine specialist can help you see the whole picture.

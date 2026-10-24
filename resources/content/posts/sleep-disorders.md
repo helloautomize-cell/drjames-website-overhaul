@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Sleep disorders and your health"
-description: "Snoring, insomnia and sleep apnea explained by Dr. James. Why poor sleep raises blood pressure and sugar, and when to get assessed."
+description: "Snoring, insomnia and sleep apnea explained by Dr. James: why poor sleep raises blood pressure and sugar, and when a sleep assessment is worth booking."
 heading: "Understanding sleep disorders and what they do to your health"
 standfirst: "Snoring, insomnia and broken sleep are not just a nuisance: poor sleep quietly raises blood pressure and sugar. What the common sleep disorders look like and when to get assessed."
 topic: lungs-sleep-infections
@@ -45,6 +45,8 @@ related: [sleep-apnea, weight-management, high-blood-pressure, diabetes-and-pred
 
 Most people treat sleep as the thing that gets cut first. The body disagrees. During sleep it repairs blood vessels, balances hormones, and files the day's memories. When sleep is short or broken for months, blood pressure rises, sugar control worsens, appetite increases, and concentration frays.
 
+For the wider picture, see our guide on [Common Sleep Disorders: Symptoms, Causes & Health Effects](/health-library/common-sleep-disorders-symptoms-health-effects/).
+
 ## Sleep apnea: the disorder that sounds like snoring
 
 Obstructive sleep apnea is the most important sleep disorder we see. The throat relaxes during sleep and narrows or closes, so breathing repeatedly pauses or becomes shallow. Each pause pulls you briefly toward waking, sometimes hundreds of times a night, without you knowing.
@@ -80,3 +82,5 @@ The fix depends on the cause. Consistent wake time, morning light, cutting late 
 See a physician if your partner reports breathing pauses, daytime sleepiness interferes with work or driving, blood pressure or sugar stays high despite treatment, or insomnia has lasted more than a few weeks. Falling asleep while driving is a safety emergency; book soon, not eventually.
 
 The assessment covers your sleep pattern, medicines, caffeine, weight and related conditions, and leads to a sleep study when apnea is suspected. Sleep is not a luxury. Fixing it often does more for your pressure and sugar than another tablet.
+
+You may also find these guides helpful: [Sleep Apnea or Insomnia? Why the Symptoms Overlap and How to Tell Them Apart](/health-library/sleep-apnea-vs-insomnia-symptoms/) and [Is Melatonin Safe to Take Every Night? What the New Heart Research Actually Shows](/health-library/is-melatonin-safe-to-take-every-night/). For an assessment of snoring or poor sleep, see the [sleep apnea](/conditions/sleep-apnea/) page or [book an appointment](/contact/).

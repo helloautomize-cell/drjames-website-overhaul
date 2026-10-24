@@ -23,7 +23,7 @@ keyTakeaways:
   - "Asthma may not be adequately controlled, or triggers may be continuing to affect your airways."
   - "Incorrect inhaler technique can reduce how much medication reaches the lungs."
   - "Different inhalers serve different purposes, so treatment should be individualized."
-  - "COPD, heart conditions, infections, anemia, anxiety, and other conditions can also cause breathlessness."
+  - "COPD, heart conditions, infections, anaemia, anxiety, and other conditions can also cause breathlessness."
   - "Spirometry may help doctors assess lung function when appropriate."
   - "Severe or rapidly worsening breathing difficulty requires urgent medical attention."
 questionsToAsk: []
@@ -89,7 +89,7 @@ Do not change your inhaler, dose, or frequency on your own. Your treatment plan 
 
 Not every episode of shortness of breath is caused by asthma.
 
-Conditions such as COPD, respiratory infections, heart problems, anemia, anxiety, or other medical conditions can cause breathlessness.
+Conditions such as COPD, respiratory infections, heart problems, anaemia, anxiety, or other medical conditions can cause breathlessness.
 
 Some people may also have more than one condition at the same time.
 

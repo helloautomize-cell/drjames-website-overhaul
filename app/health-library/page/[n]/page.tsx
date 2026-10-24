@@ -36,7 +36,11 @@ export async function generateMetadata({
   params: Promise<{ n: string }>;
 }): Promise<Metadata> {
   const { n } = await params;
-  return pageMeta(`Health Library, page ${n}`, "Plain-language guides by Dr. James.", `/health-library/page/${n}/`);
+  return pageMeta(
+    `Health Library, page ${n}`,
+    `Page ${n} of Dr. James's Health Library — more plain-language guides on diabetes, heart, thyroid, liver, kidney and sleep health in Muscat.`,
+    `/health-library/page/${n}/`,
+  );
 }
 
 export default async function LibraryPageN({ params }: { params: Promise<{ n: string }> }) {

@@ -20,7 +20,7 @@ import {
 
 export const metadata: Metadata = pageMeta(
   "Contact and book an appointment",
-  "Book a consultation with Dr. James at Badr Al Samaa Royal Hospital, Al Ghubrah Street, Muscat. WhatsApp, phone +968 9751 0975, or the form.",
+  "Book a consultation with Dr. James at Badr Al Samaa Royal Hospital, Al Ghubrah Street, Muscat. By WhatsApp, phone +968 9751 0975, or the form.",
   "/contact/",
 );
 

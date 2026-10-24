@@ -16,7 +16,7 @@ import {
 
 export const metadata: Metadata = pageMeta(
   "FAQs: appointments, visits and care",
-  "Quick answers about booking, hours, what to bring, insurance, follow-ups and seeing Dr. James at Badr Al Samaa Royal Hospital, Muscat.",
+  "Quick answers about booking, opening hours, what to bring, insurance, follow-ups and seeing Dr. James at Badr Al Samaa Royal Hospital, Muscat.",
   "/faqs/",
 );
 

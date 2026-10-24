@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "High blood pressure care in Muscat"
-description: "High blood pressure checks and treatment with Dr. James in Muscat. Find your true readings, your heart risk, and a plan to reach target."
+updated: "2026-10-16"
+description: "High blood pressure checks and treatment with Dr. James in Muscat. True readings, your real heart risk, and a practical plan to reach target."
 heading: "High blood pressure"
 intro: "High blood pressure rarely causes symptoms, but over years it strains the heart, brain and kidneys. Dr. James first confirms your real readings, then treats the cause and the number together."
 badge: blood-pressure

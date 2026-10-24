@@ -23,7 +23,7 @@ keyTakeaways:
   - "Persistent difficulty losing weight, repeated weight regain, or unexplained weight changes may justify medical evaluation."
   - "Weight management can be affected by sleep, medications, medical conditions, appetite, stress, and lifestyle."
   - "A medical assessment should consider overall health rather than focusing only on the number on the scale."
-  - "Treatment may include lifestyle changes, behavioral support, medication, or a combination when appropriate."
+  - "Treatment may include lifestyle changes, behavioural support, medication, or a combination when appropriate."
   - "Weight-loss medications are not suitable for everyone and should be medically supervised."
   - "Avoid unregulated supplements and extreme weight-loss approaches."
 questionsToAsk: []
@@ -31,11 +31,11 @@ faqs:
   - q: "When should I see a doctor about my weight?"
     a: "Consider seeing a doctor if you have persistent difficulty losing weight, repeated weight regain, unexplained weight changes, or health problems such as high blood pressure, abnormal blood sugar, or sleep problems associated with your weight."
   - q: "What is medical weight management?"
-    a: "Medical weight management is a structured approach to managing excess weight with professional guidance. Depending on the individual, it may involve nutrition, physical activity, behavioral strategies, medication, and evaluation of related medical conditions."
+    a: "Medical weight management is a structured approach to managing excess weight with professional guidance. Depending on the individual, it may involve nutrition, physical activity, behavioural strategies, medication, and evaluation of related medical conditions."
   - q: "Do I need to be obese to see a weight-management doctor?"
     a: "No. People with different weight-related concerns may benefit from professional guidance. Whether medical treatment is appropriate depends on your overall health, weight-related risks, medical history, and individual circumstances."
   - q: "What tests may be done at a weight consultation?"
-    a: "Your doctor may check blood pressure, blood sugar, cholesterol, thyroid and liver tests, depending on your history."
+    a: "Your doctor may check blood pressure, blood sugar, cholesterol, thyroid and liver tests, depending on your history. The aim is to find drivers and risks — such as sleep apnea, thyroid problems or fatty liver — before choosing a plan."
   - q: "Can a doctor help if I have tried many diets?"
     a: "Yes. A doctor can look for medical causes, review medicines and discuss a plan that fits your health and daily life rather than another short-term diet."
 sources:
@@ -109,7 +109,7 @@ Depending on your situation, the assessment may include physical measurements an
 
 The goal is to understand why weight management has been difficult and what approach is realistic for you.
 
-Treatment may include structured lifestyle changes, nutritional guidance, behavioral strategies, weight-management medication, or a combination of approaches when appropriate.
+Treatment may include structured lifestyle changes, nutritional guidance, behavioural strategies, weight-management medication, or a combination of approaches when appropriate.
 
 ## When Might Medication Be Considered?
 

@@ -1,6 +1,7 @@
 ---
 kind: condition
 title: "Kidney problems and checks in Muscat"
+updated: "2026-10-16"
 description: "Kidney problems found early and managed by Dr. James in Muscat. Protect your kidneys from diabetes and blood pressure before damage is silent."
 heading: "Kidney problems"
 intro: "Kidneys usually stay quiet until damage is advanced, which is why diabetes and high blood pressure need kidney checks even when you feel well. Early changes found on a blood or urine test can still be slowed or protected."

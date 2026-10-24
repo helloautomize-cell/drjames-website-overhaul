@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Is a Nephrologist Referral Bad News?"
-description: "Being referred to a nephrologist does not automatically mean you have severe kidney disease."
+description: "Being referred to a nephrologist does not automatically mean severe kidney disease. Why referrals happen, what the specialist checks, and what to bring."
 heading: "Is a Nephrologist Referral Bad News? What It Actually Means for Your Kidneys"
 standfirst: "Being referred to a nephrologist does not automatically mean you have severe kidney disease. Learn why doctors recommend kidney specialist evaluation, what a nephrologist does, and what to expect from your appointment."
 topic: kidney-liver-gut
@@ -19,7 +19,7 @@ imageCredit: null
 imageFocus: "50% 40%"
 quickAnswer: "A nephrologist referral does not mean you have kidney failure. Doctors refer patients for many reasons, including abnormal kidney blood tests, protein or blood in the urine, or blood pressure that is hard to control. The aim is usually to understand the result early and decide whether monitoring or treatment is needed."
 keyTakeaways:
-  - "A nephrologist specializes in kidney health and kidney-related disorders."
+  - "A nephrologist specialised in kidney health and kidney-related disorders."
   - "Being referred does not automatically mean you have severe kidney disease."
   - "Abnormal blood or urine tests are common reasons for referral."
   - "Kidney results need to be interpreted in the context of your overall health."
@@ -52,7 +52,7 @@ For the wider picture, see our guide on [Kidney Health 101: Warning Signs You Sh
 
 Being told that you need to see a nephrologist can naturally feel worrying. But a referral does not automatically mean that you have severe or permanent kidney disease.
 
-A nephrologist is a doctor who specializes in kidney health and kidney-related disorders. Your primary care doctor may recommend a consultation when blood or urine tests show an abnormality, when blood pressure is difficult to control, or when there is a concern that requires more specialized evaluation.
+A nephrologist is a doctor who specialised in kidney health and kidney-related disorders. Your primary care doctor may recommend a consultation when blood or urine tests show an abnormality, when blood pressure is difficult to control, or when there is a concern that requires more specialised evaluation.
 
 In many cases, the purpose of a referral is simply to understand the problem early and decide what should happen next.
 

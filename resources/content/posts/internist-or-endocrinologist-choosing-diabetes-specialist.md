@@ -33,7 +33,7 @@ faqs:
   - q: "Which doctor is better for diabetes, an endocrinologist or an internist?"
     a: "It depends on the person. Endocrinologists have deeper training in hormone and metabolic disorders. Internists have broad training across adult medicine and tend to manage several conditions at once. For some patients, the two work together, with the internist handling everyday care and the endocrinologist guiding the diabetes plan."
   - q: "Who looks after children with diabetes?"
-    a: "Children are usually cared for by a pediatric endocrinologist, supported by a diabetes educator and the family's pediatrician. Type 1 diabetes often appears in childhood and requires specialized insulin management and hands-on family training. Parents should seek prompt medical advice if a child has unusual thirst, frequent urination, unexplained weight loss or marked tiredness."
+    a: "Children are usually cared for by a paediatric endocrinologist, supported by a diabetes educator and the family's pediatrician. Type 1 diabetes often appears in childhood and requires specialised insulin management and hands-on family training. Parents should seek prompt medical advice if a child has unusual thirst, frequent urination, unexplained weight loss or marked tiredness."
   - q: "Do I need a referral before seeing an endocrinologist?"
     a: "It depends on your insurance, the healthcare system you use and the clinic's own rules. Some centers accept direct bookings, while others expect a referral from a primary care doctor or internist. Call the clinic or your insurer before you book. A referral that includes your recent test results often helps the specialist get up to speed quickly."
   - q: "What should I take to my first diabetes specialist visit?"
@@ -92,6 +92,8 @@ Dr. James Pallivathukkal practices as an Internal Medicine specialist in Muscat,
 Some symptoms should not wait for any appointment. Seek urgent care for persistent vomiting that prevents you from keeping fluids down, fast or deep breathing, drowsiness or confusion, or fainting. A low blood sugar that does not come up after treatment also needs immediate help. These can be signs of emergencies such as diabetic ketoacidosis or severe hypoglycemia.
 
 :::
+
+You may also find these guides helpful: [What Causes Blood Sugar to Rise When You Haven't Eaten?](/health-library/what-causes-blood-sugar-rise-without-eating/) and [Can Prediabetes Be Reversed? A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/).
 
 ## Final Thoughts
 

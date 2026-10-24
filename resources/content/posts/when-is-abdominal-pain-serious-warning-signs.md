@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "When Is Abdominal Pain Serious? Warning Signs"
-description: "Most abdominal pain is not caused by a serious condition, but certain symptoms can signal a medical emergency."
+description: "Most abdominal pain is not serious, but certain symptoms signal an emergency. The warning signs by location and pattern, and when to go straight in."
 heading: "When Is Abdominal Pain Serious? Warning Signs You Should Not Ignore"
 standfirst: "Most abdominal pain is not caused by a serious condition, but certain symptoms can signal a medical emergency."
 topic: kidney-liver-gut

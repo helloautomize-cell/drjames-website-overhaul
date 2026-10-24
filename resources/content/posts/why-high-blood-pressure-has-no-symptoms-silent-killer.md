@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Why High Blood Pressure Has No Symptoms: The Silent Killer"
-description: "Blood pressure often gives no warning. Learn why hypertension stays hidden, which symptoms are urgent, and when a check is worth booking."
+description: "Blood pressure often gives no warning before damage starts. Why hypertension stays silent, which rare symptoms are urgent, and when a check is worth it."
 heading: "Why High Blood Pressure Has No Symptoms: The Silent Killer"
 standfirst: "Ask most people with high blood pressure how they feel and you will hear some version of \"fine.\" That answer is the core of the problem."
 topic: heart-blood-pressure

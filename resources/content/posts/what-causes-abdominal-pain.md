@@ -103,7 +103,7 @@ Doctors will usually ask about symptoms occurring alongside the pain, such as:
 
 - Vomiting
 
-- Diarrhea or constipation
+- Diarrhoea or constipation
 
 - Bloating
 

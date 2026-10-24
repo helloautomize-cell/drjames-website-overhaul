@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Gastritis vs Acid Reflux: How the Symptoms Differ"
-description: "Gastritis and acid reflux can both cause upper digestive discomfort, but they affect the body differently."
+description: "Gastritis and acid reflux both cause upper digestive discomfort but affect different parts of the gut. How to tell burning from pain, and what helps each."
 heading: "Gastritis vs Acid Reflux: What Is the Difference Between the Symptoms?"
 standfirst: "Gastritis and acid reflux can both cause upper digestive discomfort, but they affect the body differently."
 topic: kidney-liver-gut
@@ -35,7 +35,7 @@ faqs:
   - q: "Where does acid reflux pain usually occur?"
     a: "Acid reflux commonly causes a burning sensation behind the breastbone, known as heartburn. The sensation may rise toward the throat and may be accompanied by a sour or bitter taste."
   - q: "Can gastritis and acid reflux occur together?"
-    a: "Yes. They are different conditions but can occur together, which is why assessment by a doctor is helpful."
+    a: "Yes. They are different conditions but can occur together, which is why assessment by a doctor is helpful. Reflux can coexist with gastritis from H. pylori or painkillers, so ongoing upper gut symptoms are worth a proper look rather than repeated antacids."
   - q: "Do I need tests to tell gastritis from reflux?"
     a: "Not always. Your doctor often decides from your symptoms, and may suggest tests such as H. pylori testing or an endoscopy if symptoms persist or warning signs are present."
 sources:

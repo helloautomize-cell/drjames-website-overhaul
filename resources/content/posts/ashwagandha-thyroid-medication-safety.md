@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Ashwagandha and Thyroid Medication: Is It Safe?"
-description: "Ashwagandha may raise thyroid hormone levels and interact with thyroid medicine."
+description: "Ashwagandha may raise thyroid hormone levels and can interact with levothyroxine. What the evidence says, and what to do before you combine them."
 heading: "Ashwagandha and Thyroid Medication: Is It Safe?"
 standfirst: "Ashwagandha may raise thyroid hormone levels and interact with thyroid medicine. Learn the evidence, possible risks and why to speak with your doctor before taking it."
 topic: diabetes-metabolism
@@ -31,7 +31,7 @@ faqs:
   - q: "Does ashwagandha increase thyroid hormone?"
     a: "Some small studies suggest it may raise thyroid hormone levels, and rare cases of thyrotoxicosis have been reported. The evidence is limited and does not support using it to treat thyroid disease."
   - q: "Can ashwagandha replace thyroid medication?"
-    a: "No. Ashwagandha should not replace prescribed thyroid medicine. Stopping or changing thyroid medication without medical advice can cause serious problems."
+    a: "No. Ashwagandha should not replace prescribed thyroid medicine. Stopping or changing thyroid medication without medical advice can cause serious problems. Thyroid doses are set by blood tests, and a supplement that pushes hormone levels up can quietly throw that balance off."
   - q: "Is ashwagandha safe with hyperthyroidism?"
     a: "People with hyperthyroidism should be especially cautious because it may increase thyroid hormone further. Speak with your doctor before taking it."
   - q: "What side effects should I watch for?"
@@ -81,7 +81,7 @@ Rare cases of liver injury have been reported with ashwagandha. It may also inte
 
 - Stop and seek advice if new symptoms develop
 
-You may also find these guides helpful: [Hypothyroidism vs Hyperthyroidism: Telling Symptoms Apart](/health-library/hypothyroidism-vs-hyperthyroidism/), [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
+You may also find these guides helpful: [Normal Thyroid Test but Still Feeling Unwell? What Now](/health-library/normal-thyroid-test-still-feel-unwell/), [Is Your Anxiety Actually Your Thyroid? When to Test](/health-library/anxiety-or-thyroid-when-to-test/).
 
 ## Final Thoughts
 

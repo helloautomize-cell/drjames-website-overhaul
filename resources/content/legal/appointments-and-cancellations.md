@@ -1,7 +1,8 @@
 ---
 kind: legal
 title: "Appointments and cancellations"
-description: "How booking works: requests by form, WhatsApp or phone, confirmation, late arrival, cancellation and what to bring."
+updated: "2026-10-09"
+description: "How booking works at Dr. James's clinic: requests by form, WhatsApp or phone, confirmation, late arrival, cancellation and what to bring."
 heading: "Appointments and cancellations"
 ---
 

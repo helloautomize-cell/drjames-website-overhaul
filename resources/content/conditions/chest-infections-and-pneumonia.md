@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Chest infections and pneumonia in Muscat"
-description: "Chest infections, bronchitis and pneumonia assessed and treated by Dr. James in Muscat. Know when a cough needs more than rest."
+updated: "2026-10-16"
+description: "Chest infections, bronchitis and pneumonia assessed and treated by Dr. James in Muscat. When a cough needs more than rest, and what tests decide."
 heading: "Chest infections and pneumonia"
 intro: "Most chest infections are viral and settle on their own, but some turn into pneumonia and need treatment quickly. Dr. James examines your chest and decides when an X-ray or antibiotics are genuinely needed."
 badge: chest

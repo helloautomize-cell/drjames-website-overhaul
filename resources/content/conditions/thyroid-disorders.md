@@ -1,7 +1,8 @@
 ---
 kind: condition
 title: "Thyroid problems checked and treated in Muscat"
-description: "Underactive and overactive thyroid care with Dr. James in Muscat. Simple blood tests, clear explanation of TSH, and steady follow-up."
+updated: "2026-10-16"
+description: "Underactive and overactive thyroid care with Dr. James in Muscat. Simple blood tests, a clear explanation of TSH results, and steady follow-up."
 heading: "Thyroid disorders"
 intro: "The thyroid is a small gland in the neck that sets the body's speed. When it runs slow or fast, it can cause tiredness, weight change, hair loss and palpitations. A simple blood test gives the answer, and treatment is usually straightforward."
 badge: thyroid

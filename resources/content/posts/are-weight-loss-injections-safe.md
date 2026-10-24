@@ -1,7 +1,7 @@
 ---
 kind: post
 title: "Are Weight-Loss Injections Safe?"
-description: "Weight-loss injections have become an important treatment option for some people with obesity, but they are not suitable for everyone."
+description: "Weight-loss injections can help some people with obesity, but they are not suitable for everyone. Who they help, the side effects, and how doctors decide."
 heading: "Are Weight-Loss Injections Safe? Benefits, Risks and What Patients Should Know"
 standfirst: "Weight-loss injections have become an important treatment option for some people with obesity, but they are not suitable for everyone."
 topic: diabetes-metabolism
@@ -17,11 +17,11 @@ imageAlt: "Doctor explaining treatment options for long term weight management"
 imageCaption: null
 imageCredit: null
 imageFocus: "50% 40%"
-quickAnswer: "Prescription weight-loss injections can help some adults with obesity lose weight, but they are not for everyone. Common side effects include nausea, vomiting, diarrhea, constipation and abdominal discomfort. Rarer serious problems need urgent attention. They should be started and monitored by a doctor, not bought from unverified sources."
+quickAnswer: "Prescription weight-loss injections can help some adults with obesity lose weight, but they are not for everyone. Common side effects include nausea, vomiting, diarrhoea, constipation and abdominal discomfort. Rarer serious problems need urgent attention. They should be started and monitored by a doctor, not bought from unverified sources."
 keyTakeaways:
   - "Weight-loss injections can be appropriate for some people with obesity but are not suitable for everyone."
   - "Many work by affecting appetite and feelings of fullness through hormonal pathways."
-  - "Gastrointestinal side effects such as nausea, vomiting, diarrhea, and constipation are common with several medications."
+  - "Gastrointestinal side effects such as nausea, vomiting, diarrhoea, and constipation are common with several medications."
   - "Serious adverse effects are possible and vary depending on the medication."
   - "Certain medical conditions and personal or family medical histories may affect eligibility."
   - "Weight-loss injections work best as part of a broader medical weight-management plan."
@@ -31,13 +31,13 @@ faqs:
   - q: "Are weight-loss injections safe for everyone?"
     a: "No. Weight-loss injections are not appropriate for everyone. Suitability depends on the specific medication, medical history, other medications, contraindications, and individual health circumstances."
   - q: "What are the most common side effects of weight-loss injections?"
-    a: "Gastrointestinal symptoms are common with several weight-loss injections. These may include nausea, vomiting, diarrhea, constipation, and abdominal discomfort."
+    a: "Gastrointestinal symptoms are common with several weight-loss injections. These may include nausea, vomiting, diarrhoea, constipation, and abdominal discomfort. They are usually strongest in the first weeks and ease as the dose settles."
   - q: "Can weight-loss injections cause serious side effects?"
     a: "Yes. Although serious complications are not the most common outcome, certain medications can have important risks and warnings. Your doctor should explain the relevant risks before treatment."
   - q: "Where should I get weight-loss injections from?"
     a: "Only from a licensed pharmacy with a prescription from a doctor who has assessed you. Avoid unverified online or informal sellers."
   - q: "Can weight-loss injections be used in pregnancy?"
-    a: "They are generally not recommended in pregnancy or when trying to conceive. Discuss this with your doctor."
+    a: "They are generally not recommended in pregnancy or when trying to conceive. Discuss this with your doctor. Safety data in pregnancy is limited, so doctors usually advise stopping these medicines well before trying to conceive — your doctor can give you a timeline."
 sources:
   - name: "NIDDK: Prescription medications to treat overweight and obesity"
     url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
@@ -87,7 +87,7 @@ Possible side effects may include:
 
 - Vomiting
 
-- Diarrhea
+- Diarrhoea
 
 - Constipation
 

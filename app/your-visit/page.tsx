@@ -30,7 +30,7 @@ import {
 
 export const metadata: Metadata = pageMeta(
   "Plan your visit",
-  "What to bring, how to prepare, where to go inside Badr Al Samaa Royal Hospital, and how follow-ups work with Dr. James in Muscat.",
+  "What to bring, how to prepare, where to go inside Badr Al Samaa Royal Hospital, Al Ghubrah, and how your follow-up visits work with Dr. James.",
   "/your-visit/",
 );
 

@@ -30,7 +30,7 @@ import {
 export const metadata: Metadata = {
   ...pageMeta(
     "Health Library",
-    "Plain-language guides on the conditions Dr. James sees most, each one written and reviewed by him. Heart, sleep, gut health and more.",
+    "Plain-language health guides written and reviewed by Dr. James — covering diabetes, blood pressure, thyroid, liver, kidneys, sleep and gut health.",
     "/health-library/",
   ),
   alternates: {
