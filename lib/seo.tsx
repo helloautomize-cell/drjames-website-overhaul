@@ -83,6 +83,9 @@ export const physicianNode = {
   address,
   url: `${SITE_URL}${site.profileUrl}`,
   image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
+  // his personal profiles + the Google Maps listing; the Hospital node gets
+  // no sameAs — these are not the hospital's accounts
+  sameAs: [...site.social.map((s) => s.href), site.mapsPlaceUrl],
   workLocation: { "@id": `${SITE_URL}/#hospital` },
   affiliation: { "@id": `${SITE_URL}/#hospital` },
   knowsLanguage: site.languages,

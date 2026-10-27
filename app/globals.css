@@ -1529,6 +1529,90 @@ main dd a.nowrap {
   outline-offset: 3px;
   border-radius: 2px;
 }
+/* social profile links — footer icon row, contact card, about line.
+   Monochrome outline glyphs; petrol hover, gold hairline under labels. */
+.soc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 4px;
+}
+.soc a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: 6px;
+  border-radius: 8px;
+  color: rgba(19, 33, 58, 0.7);
+  text-decoration: none;
+  transition: color 150ms var(--ease);
+}
+.soc a .soc-tx {
+  border-bottom: 1px solid transparent;
+  transition: border-color 150ms var(--ease);
+}
+.soc a:hover,
+.soc a:focus-visible {
+  color: var(--color-primary);
+}
+.soc a:hover .soc-tx,
+.soc a:focus-visible .soc-tx {
+  border-bottom-color: var(--color-sand);
+}
+/* icon-only row on the footer's night ground: same tints as footer links */
+.foot .soc {
+  gap: 0;
+  margin-top: 6px;
+}
+.foot .soc a {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--on-dark-2);
+}
+.foot .soc a:hover,
+.foot .soc a:focus-visible {
+  color: var(--lagoon);
+}
+.foot .soc a:focus-visible {
+  outline-color: var(--lagoon);
+}
+/* quiet "Elsewhere" line at the end of the about career section */
+.ab-else {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 32px 0 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.ab-else a {
+  color: rgba(19, 33, 58, 0.7);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 150ms var(--ease),
+    border-color 150ms var(--ease);
+}
+.ab-else a:hover,
+.ab-else a:focus-visible {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-sand);
+}
+.ab-mid {
+  font-style: normal;
+  color: var(--color-sand);
+  padding-inline: 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .soc a,
+  .soc a .soc-tx,
+  .ab-else a {
+    transition: none;
+  }
+}
 @media (max-width: 900px) {
   .foot {
     grid-template-columns: 1fr 1fr;

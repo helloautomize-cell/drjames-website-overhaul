@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site-config";
+import { Icon } from "@/lib/icons";
 import { footerNav } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
 import { CookieSettingsLink } from "@/components/shell/CookieSettingsLink";
@@ -21,6 +22,22 @@ export function SiteFooter() {
           <span>Phone and WhatsApp</span>
           {site.phoneDisplay}
         </p>
+        <div className="fh">
+          <span>Follow</span>
+          <div className="soc soc-icons">
+            {site.social.map((s) => (
+              <a
+                key={s.id}
+                href={s.href}
+                target="_blank"
+                rel="me noopener noreferrer"
+                aria-label={`Dr. James on ${s.label} (opens in a new tab)`}
+              >
+                <Icon name={s.id} size={18} strokeWidth={1.5} />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="fcol">
         <b>Areas of Expertise</b>
