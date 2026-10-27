@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/chronic-obstructive-pulmonary-disease-copd/"
 related: [asthma-and-breathing, chest-infections-and-pneumonia]
 localSection: true
+cluster: 8
+role: "support"
+clusterOrder: 2
 ---
 
 ## Asthma and COPD: Similar Symptoms, Different Conditions

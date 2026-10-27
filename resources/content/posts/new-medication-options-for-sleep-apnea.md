@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/sleep-apnoea/"
 related: [sleep-apnea, weight-management]
 localSection: true
+cluster: 7
+role: "support"
+clusterOrder: 4
 ---
 
 ## Are Medications Now Available for Sleep Apnea?

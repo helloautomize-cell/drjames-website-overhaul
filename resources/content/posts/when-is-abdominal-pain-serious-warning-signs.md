@@ -47,6 +47,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/digestive-diseases/peptic-ulcers-stomach-ulcers"
 related: [digestive-problems]
 localSection: true
+cluster: 10
+role: "support"
+clusterOrder: 5
 ---
 
 ## When Should You Worry About Abdominal Pain?

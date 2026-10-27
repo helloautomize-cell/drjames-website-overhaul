@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { isPublished, type PostMeta } from "@/lib/content";
-import { dateMark, fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
+import { fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
@@ -8,9 +8,9 @@ import { Icon } from "@/lib/icons";
 const PAGE = 12;
 
 /**
- * The "All guides" ledger rows. Rows past the first page are server-rendered
- * but hidden behind data-extra so LibrarySearch and LibraryMore can reveal
- * them without a reload (crawlers use /health-library/page/n/).
+ * Guide ledger rows for the crawlable /health-library/page/n/ routes. Rows
+ * past the first page are server-rendered but hidden behind data-extra so
+ * LibraryMore can reveal them without a reload.
  */
 export function LibraryList({ posts }: { posts: PostMeta[] }) {
   return (
@@ -18,7 +18,6 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
       <div className="hl-rows" id="hl-list">
         {posts.map((p, i) => {
           const t = topicOf(p);
-          const mark = dateMark(p.date);
           const reviewed = isPublished(p) ? fmtDate(p.reviewedOn) : null;
           const extra = i >= PAGE;
           return (
@@ -29,30 +28,12 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
               data-q={searchText(p)}
               {...(extra ? { "data-extra": "", hidden: true } : {})}
             >
-              <span className="hl-date">
-                {mark ? (
-                  <>
-                    <b className="num">{mark.day}</b>
-                    <span>{mark.my}</span>
-                  </>
-                ) : (
-                  !isPublished(p) && <span className="draft-chip">Draft</span>
-                )}
-              </span>
               <span className="hl-thumb">
-                <GuideCover post={p} sizes="(max-width: 760px) 96px, 200px" />
+                <GuideCover post={p} sizes="(max-width: 760px) 120px, 220px" />
+                {!isPublished(p) && <span className="draft-chip">Draft</span>}
               </span>
               <span className="hl-txt">
                 <span className="hl-meta-top">
-                  {mark ? (
-                    <span className="hl-date-m num">
-                      {mark.day} {mark.my} ·{" "}
-                    </span>
-                  ) : !isPublished(p) ? (
-                    <span className="hl-date-m">
-                      <span className="draft-chip">Draft</span>{" "}
-                    </span>
-                  ) : null}
                   <span className="hl-topic">{t.label}</span>
                 </span>
                 <b>{p.heading}</b>

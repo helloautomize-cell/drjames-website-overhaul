@@ -55,6 +55,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd"
 related: [kidney-problems, diabetes-and-prediabetes, high-blood-pressure]
 localSection: true
+cluster: 4
+role: "pillar"
+clusterOrder: 0
 ---
 
 Kidney disease does not always announce itself with obvious symptoms. In many people, kidney function can decline for some time before they notice that anything is wrong. This is one reason warning signs such as persistent fatigue, swelling, changes in urination, or repeatedly foamy urine should not simply be dismissed.

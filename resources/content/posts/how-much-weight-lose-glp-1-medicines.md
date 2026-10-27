@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [weight-management, diabetes-and-prediabetes]
 localSection: true
+cluster: 6
+role: "support"
+clusterOrder: 2
 ---
 
 GLP-1 medicines reduce appetite, increase fullness and slow stomach emptying, helping many people eat less and lose weight. Social media often shows dramatic before-and-after stories, but results vary widely. Understanding realistic expectations helps you make an informed decision.

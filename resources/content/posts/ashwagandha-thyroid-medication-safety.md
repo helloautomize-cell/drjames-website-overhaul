@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/"
 related: [thyroid-disorders]
 localSection: true
+cluster: 3
+role: "support"
+clusterOrder: 2
 ---
 
 Ashwagandha is an herbal supplement from Ayurvedic tradition, often marketed for stress, sleep and energy. It is widely available in Oman and online. If you have a [thyroid condition](/conditions/thyroid-disorders/) or take thyroid medication, it is important to know that ashwagandha may affect thyroid hormone levels.

@@ -46,6 +46,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd"
 related: [kidney-problems, diabetes-and-prediabetes]
 localSection: true
+cluster: 4
+role: "support"
+clusterOrder: 1
 ---
 
 ## Can Kidney Disease Have Early Warning Signs?

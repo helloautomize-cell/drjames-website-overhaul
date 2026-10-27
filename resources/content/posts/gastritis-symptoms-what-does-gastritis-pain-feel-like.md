@@ -47,6 +47,9 @@ sources:
     url: "https://www.nhs.uk/conditions/indigestion/"
 related: [digestive-problems]
 localSection: true
+cluster: 10
+role: "support"
+clusterOrder: 2
 ---
 
 ## What Does Gastritis Pain Feel Like?

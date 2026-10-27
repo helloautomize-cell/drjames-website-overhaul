@@ -44,6 +44,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd"
 related: [kidney-problems]
 localSection: true
+cluster: 4
+role: "support"
+clusterOrder: 3
 ---
 
 ## Do Kidney Cleanses Really Detox Your Kidneys?

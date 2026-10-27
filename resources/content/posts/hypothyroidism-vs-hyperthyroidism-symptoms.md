@@ -59,6 +59,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism"
 related: [thyroid-disorders, diabetes-and-prediabetes]
 localSection: true
+cluster: 3
+role: "pillar"
+clusterOrder: 0
 ---
 
 Someone with hyperthyroidism may instead experience unexplained weight loss, heat intolerance, sweating, tremor, anxiety, a fast or irregular heartbeat and more frequent bowel movements. There is considerable overlap, however. For example, both conditions can cause fatigue, menstrual changes and difficulty concentrating. The symptoms alone cannot tell you which thyroid disorder you have. Blood tests such as TSH and free T4, with additional testing when appropriate, are used to investigate thyroid function.

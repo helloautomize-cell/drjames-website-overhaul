@@ -43,6 +43,9 @@ sources:
     url: "https://www.cdc.gov/high-blood-pressure/about/index.html"
 related: [high-blood-pressure]
 localSection: true
+cluster: 2
+role: "support"
+clusterOrder: 2
 ---
 
 A smartwatch can display a blood pressure figure, and sometimes that figure lands close to the real value. The cuff is still the tool doctors rely on, though. Most wearables do not measure pressure the way a cuff does. They estimate it from the pulse signal at your wrist, so the number depends on the device, how snugly it sits, and what you were doing when you checked.

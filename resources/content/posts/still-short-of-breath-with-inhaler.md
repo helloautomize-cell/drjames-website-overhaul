@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/conditions/asthma/"
 related: [asthma-and-breathing]
 localSection: true
+cluster: 8
+role: "support"
+clusterOrder: 4
 ---
 
 ## Why Am I Still Short of Breath After Using My Inhaler?

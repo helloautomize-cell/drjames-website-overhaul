@@ -47,6 +47,9 @@ sources:
     url: "https://www.nhs.uk/conditions/gallstones/"
 related: [digestive-problems]
 localSection: true
+cluster: 10
+role: "support"
+clusterOrder: 1
 ---
 
 ## What Can Cause Abdominal Pain?

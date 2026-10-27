@@ -45,6 +45,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management"
 related: [weight-management]
 localSection: true
+cluster: 9
+role: "support"
+clusterOrder: 3
 ---
 
 ## When Is It Time to Talk to a Doctor About Your Weight?

@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhlbi.nih.gov/health/sleep-apnea"
 related: [sleep-apnea]
 localSection: true
+cluster: 7
+role: "support"
+clusterOrder: 3
 ---
 
 ## Could Your Sleep Problems Be Sleep Apnea?

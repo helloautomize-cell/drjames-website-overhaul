@@ -43,6 +43,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
 related: [diabetes-and-prediabetes, weight-management]
 localSection: true
+cluster: 6
+role: "support"
+clusterOrder: 3
 ---
 
 GLP-1 medicines such as semaglutide and tirzepatide work partly by slowing stomach emptying and reducing appetite. These same effects cause the most common side effects, mainly digestive symptoms. Most are mild to moderate and improve over time, especially when doses are increased slowly.

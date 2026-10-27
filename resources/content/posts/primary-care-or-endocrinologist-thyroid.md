@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/conditions/overactive-thyroid-hyperthyroidism/"
 related: [thyroid-disorders]
 localSection: true
+cluster: 3
+role: "support"
+clusterOrder: 5
 ---
 
 When you are diagnosed with a thyroid problem, you may wonder whether you need a specialist. Primary care and internal medicine doctors manage many thyroid conditions well, while endocrinologists, who specialise in hormones, help with complex or difficult cases.

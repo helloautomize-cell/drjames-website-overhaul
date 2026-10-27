@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { LibraryTabs } from "@/components/page/LibraryTabs";
-import { LibraryList } from "@/components/page/LibraryList";
-import { LibraryMore } from "@/components/page/LibraryMore";
+import { ClCard, ClusterSection } from "@/components/page/ClusterGuides";
 import { publishedPostMeta } from "@/lib/content";
 import { conditionGroups } from "@/lib/conditions";
+import { clusterPosts } from "@/lib/clusters";
 import { sortNewest } from "@/lib/library";
 import {
   pageMeta,
@@ -45,8 +45,12 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
   const g = conditionGroups.find((x) => x.id === topic);
   if (!g) notFound();
   const all = publishedPostMeta();
-  const posts = sortNewest(all.filter((p) => p.topic === g.id));
-  if (!posts.length) notFound();
+  if (!all.some((p) => p.topic === g.id)) notFound();
+
+  // Whole clusters only: a cluster shows when its pillar belongs to the
+  // topic; standalone guides of the topic follow as normal cards.
+  const clusters = clusterPosts(all).filter((c) => c.pillar.topic === g.id);
+  const older = sortNewest(all.filter((p) => p.cluster == null && p.topic === g.id));
 
   const crumbs = [
     { label: "Home", href: "/" },
@@ -85,10 +89,22 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
 
       <LibraryTabs posts={all} active={g.id} />
 
-      <section className="container hl-all" aria-label={`${g.label} guides`}>
-        <LibraryList posts={posts} />
-        {posts.length > 12 && <LibraryMore />}
-      </section>
+      {clusters.map((c) => (
+        <ClusterSection key={c.n} cluster={c} />
+      ))}
+
+      {older.length > 0 && (
+        <section className="container cl-sec" aria-labelledby="hl-more-guides-h">
+          <div className="cl-head">
+            <h2 id="hl-more-guides-h">More guides from Dr. James</h2>
+          </div>
+          <div className="cl-grid">
+            {older.map((p) => (
+              <ClCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }

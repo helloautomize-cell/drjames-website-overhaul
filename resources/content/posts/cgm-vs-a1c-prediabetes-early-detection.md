@@ -44,6 +44,9 @@ sources:
     url: "https://diabetes.org/about-diabetes/prediabetes"
 related: [diabetes-and-prediabetes, preventive-check-ups]
 localSection: true
+cluster: 1
+role: "support"
+clusterOrder: 1
 ---
 
 Many patients now ask about continuous glucose monitors (CGMs) after seeing them on social media. Some companies sell these sensors to people without diabetes, and the marketing can make them sound like a better version of a blood test. They are not. A1C and CGMs measure related things, but they answer different questions, and the right choice depends on what you are trying to find out.

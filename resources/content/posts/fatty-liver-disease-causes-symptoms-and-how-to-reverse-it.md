@@ -55,6 +55,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash"
 related: [fatty-liver, diabetes-and-prediabetes, weight-management]
 localSection: true
+cluster: 5
+role: "pillar"
+clusterOrder: 0
 ---
 
 Improving diet, becoming more physically active, losing weight gradually when appropriate, and treating conditions such as diabetes and high blood pressure can all form part of treatment. However, there is no single approach that works for everyone. If significant fibrosis or cirrhosis has already developed, the situation is different and closer medical follow-up may be required. The first question, therefore, is not simply "How much fat is in my liver?" It is also "Is there any liver inflammation or scarring?"

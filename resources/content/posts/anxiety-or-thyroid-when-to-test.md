@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/underactive-thyroid-hypothyroidism/"
 related: [thyroid-disorders]
 localSection: true
+cluster: 3
+role: "support"
+clusterOrder: 4
 ---
 
 Anxiety and an overactive [thyroid](/conditions/thyroid-disorders/) can feel surprisingly similar. Both can cause a racing heart, restlessness, poor sleep and irritability. Many people wonder whether their anxiety is really a thyroid problem. Sometimes it is, but often it is not, and a simple blood test can help clarify.

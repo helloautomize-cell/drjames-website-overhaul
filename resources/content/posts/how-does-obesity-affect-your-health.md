@@ -47,6 +47,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management"
 related: [weight-management, diabetes-and-prediabetes, high-blood-pressure]
 localSection: true
+cluster: 9
+role: "support"
+clusterOrder: 5
 ---
 
 ## How Can Obesity Affect Your Health?

@@ -47,6 +47,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [diabetes-and-prediabetes, weight-management]
 localSection: true
+cluster: 6
+role: "pillar"
+clusterOrder: 0
 ---
 
 Clinical trials have shown average weight reductions of 10% or more in some treatment groups, but those figures are not guarantees for an individual patient. People with [type 2 diabetes](/conditions/diabetes-and-prediabetes/) may also lose less weight than people with obesity who do not have diabetes. Nausea, vomiting, diarrhoea, constipation and abdominal discomfort are among the most common side effects. For many patients, the bigger question is what happens over the long term. Weight can return after treatment is stopped, which is why GLP-1 therapy needs to be considered as part of an ongoing medical plan rather than a short-term injection course.

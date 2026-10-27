@@ -43,6 +43,9 @@ sources:
     url: "https://diabetes.org/about-diabetes/prediabetes"
 related: [diabetes-and-prediabetes]
 localSection: true
+cluster: 1
+role: "support"
+clusterOrder: 3
 ---
 
 Most people with [prediabetes](/conditions/diabetes-and-prediabetes/) feel completely normal. Energy is fine, weight has not changed much and thirst is nothing unusual. That is exactly why the condition slips past so many people. How you feel on an ordinary day says little about what your blood glucose is doing, and a blood test is the only way to find out.

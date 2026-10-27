@@ -47,6 +47,9 @@ sources:
     url: "https://www.cdc.gov/high-blood-pressure/about/index.html"
 related: [high-blood-pressure, heart-risk-assessment]
 localSection: true
+cluster: 2
+role: "support"
+clusterOrder: 1
 ---
 
 Ask most people with [high blood pressure](/conditions/high-blood-pressure/) how they feel and you will hear some version of "fine." That answer is the core of the problem. High blood pressure is usually silent, and it does its damage quietly in the heart, brain, kidneys and eyes for years before anyone connects it to a symptom. That is where the name "silent killer" comes from.

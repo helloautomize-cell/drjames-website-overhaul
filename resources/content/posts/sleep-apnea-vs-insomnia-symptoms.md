@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/insomnia/"
 related: [sleep-apnea]
 localSection: true
+cluster: 7
+role: "support"
+clusterOrder: 1
 ---
 
 ## Why Can Sleep Apnea and Insomnia Feel So Similar?

@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [diabetes-and-prediabetes, weight-management]
 localSection: true
+cluster: 6
+role: "support"
+clusterOrder: 1
 ---
 
 GLP-1 medicines are a group of treatments that mimic a natural gut hormone called glucagon-like peptide-1. They help lower blood sugar, slow stomach emptying and reduce appetite. Medicines such as semaglutide, and the dual GIP/GLP-1 medicine tirzepatide, are used for [type 2 diabetes](/conditions/diabetes-and-prediabetes/) and, in some formulations, for weight management. For years they were difficult to obtain and expensive. That is gradually changing.

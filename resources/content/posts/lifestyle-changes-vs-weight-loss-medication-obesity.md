@@ -45,6 +45,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
 related: [weight-management]
 localSection: true
+cluster: 9
+role: "support"
+clusterOrder: 2
 ---
 
 ## Is Lifestyle Change Enough to Treat Obesity?

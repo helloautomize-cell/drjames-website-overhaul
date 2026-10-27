@@ -45,6 +45,9 @@ sources:
     url: "https://www.cdc.gov/asthma/"
 related: [asthma-and-breathing, heart-risk-assessment]
 localSection: true
+cluster: 8
+role: "support"
+clusterOrder: 3
 ---
 
 ## What Does Shortness of Breath Mean?
