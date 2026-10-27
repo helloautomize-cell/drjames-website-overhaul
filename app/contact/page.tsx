@@ -119,6 +119,28 @@ export default async function ContactPage({
               </div>
               <div className="info-card">
                 <span className="ic">
+                  <Icon name="message" size={22} />
+                </span>
+                <b>Follow Dr. James</b>
+                <div className="soc">
+                  {site.social.map((s) => (
+                    <a
+                      key={s.id}
+                      href={s.href}
+                      target="_blank"
+                      rel="me noopener noreferrer"
+                      aria-label={`Dr. James on ${s.label} (opens in a new tab)`}
+                    >
+                      <Icon name={s.id} size={18} strokeWidth={1.5} />
+                      <span className="soc-tx">
+                        {s.handle ? `${s.label} ${s.handle}` : s.label}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="info-card">
+                <span className="ic">
                   <Icon name="clock" size={22} />
                 </span>
                 <b>Consultation hours</b>

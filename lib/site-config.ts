@@ -79,6 +79,14 @@ const HOURS_ROWS = SESSION_GROUPS.map((g) => ({
   closed: !g.sessions.length,
 }));
 
+/** A public social profile. `handle` renders after the label where present. */
+export interface SocialLink {
+  id: "linkedin" | "instagram" | "facebook";
+  label: "LinkedIn" | "Instagram" | "Facebook";
+  href: string;
+  handle?: string;
+}
+
 export const site = {
   name: "Dr. James Kumar Pallivathukkal",
   shortName: "Dr. James",
@@ -141,11 +149,36 @@ export const site = {
     plusCode: "HCP6+M8F",
   },
   mapsUrl: "https://maps.app.goo.gl/dNKkw9XcfZngPQG26",
+  /** Canonical Google Maps listing for structured-data sameAs; `mapsUrl` stays
+      the short share link used in visible links and share text. */
+  mapsPlaceUrl:
+    "https://www.google.com/maps/place/Dr+James+Pallivathukkal/@23.5865399,58.4108339,17z",
   phoneDisplay: "+968 9751 0975",
   phoneTel: "tel:+96897510975",
   whatsapp: "https://wa.me/96897510975",
   emailDisplay: "omanjamesp [at] gmail.com",
   email: "omanjamesp@gmail.com",
+  /** Public social profiles confirmed by the agency, 27 Oct 2026. Display order
+      everywhere: LinkedIn, Instagram, Facebook. There is no X, YouTube or
+      TikTok account — do not add placeholders for them. */
+  social: [
+    {
+      id: "linkedin",
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/dr-james-pallivathukkal-3b714b7b/",
+    },
+    {
+      id: "instagram",
+      label: "Instagram",
+      href: "https://www.instagram.com/pallivathukkaljames/",
+      handle: "@pallivathukkaljames",
+    },
+    {
+      id: "facebook",
+      label: "Facebook",
+      href: "https://www.facebook.com/james.pallivathukkal.9/",
+    },
+  ] as SocialLink[],
   sessions: CLINIC_SESSIONS,
   hours: HOURS,
   hoursShort: HOURS_SHORT,

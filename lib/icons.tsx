@@ -38,7 +38,10 @@ export type IconName =
   | "pause"
   | "play"
   | "chevron"
-  | "close";
+  | "close"
+  | "linkedin"
+  | "instagram"
+  | "facebook";
 
 export const iconPaths: Record<IconName, ReactNode> = {
   drop: (
@@ -216,6 +219,25 @@ export const iconPaths: Record<IconName, ReactNode> = {
   play: <path d="M9 5l10 7-10 7z" strokeLinejoin="round" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,
   chevron: <path d="M6 9l6 6 6-6" />,
+  linkedin: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M8 10.5V17" />
+      <path d="M8 7.3v.01" />
+      <path d="M12.4 17v-6.5" />
+      <path d="M12.4 13.8a3 3 0 0 1 6 0V17" />
+    </>
+  ),
+  instagram: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M17.2 6.8v.01" />
+    </>
+  ),
+  facebook: (
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  ),
 };
 
 export function Icon({

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
@@ -224,6 +225,25 @@ export default function AboutPage() {
                 </li>
               ))}
             </TimelineFill>
+            <p className="ab-else">
+              Elsewhere:
+              {site.social.map((s) => (
+                <Fragment key={s.id}>
+                  <i className="ab-mid" aria-hidden="true">
+                    ·
+                  </i>
+                  <a
+                    className="soc-l"
+                    href={s.href}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    aria-label={`Dr. James on ${s.label} (opens in a new tab)`}
+                  >
+                    {s.label}
+                  </a>
+                </Fragment>
+              ))}
+            </p>
           </div>
         </div>
       </Reveal>
