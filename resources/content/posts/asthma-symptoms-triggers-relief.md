@@ -54,6 +54,9 @@ sources:
     url: "https://www.cdc.gov/asthma/"
 related: [asthma-and-breathing, allergies, chest-infections-and-pneumonia]
 localSection: true
+cluster: 8
+role: "pillar"
+clusterOrder: 0
 ---
 
 Doctors diagnose [asthma](/conditions/asthma-and-breathing/) from your history, an examination and breathing tests such as spirometry. Most people are treated with an inhaler containing an anti-inflammatory corticosteroid, along with a plan for quick relief. If you can't finish a sentence, your lips look blue, or your reliever isn't working, get emergency care straight away.

@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/insomnia/"
 related: [sleep-apnea]
 localSection: true
+cluster: 7
+role: "support"
+clusterOrder: 5
 ---
 
 ## Where Should You Start With a Sleep Problem?

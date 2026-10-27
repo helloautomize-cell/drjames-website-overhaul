@@ -49,6 +49,9 @@ sources:
     url: "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)"
 related: [high-blood-pressure, heart-risk-assessment, diabetes-and-prediabetes, kidney-problems]
 localSection: true
+cluster: 2
+role: "pillar"
+clusterOrder: 0
 ---
 
 Risk can be influenced by age, genetics, excess weight, physical inactivity, high sodium intake, alcohol use, smoking, diabetes, kidney disease and certain medicines or medical conditions. Treatment depends on the individual. It may involve changes to diet and physical activity, weight management, reducing alcohol, stopping smoking, monitoring blood pressure at home and, when appropriate, prescription medication.

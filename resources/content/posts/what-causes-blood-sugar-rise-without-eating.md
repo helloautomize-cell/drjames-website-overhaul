@@ -44,6 +44,9 @@ sources:
     url: "https://www.who.int/news-room/fact-sheets/detail/diabetes"
 related: [diabetes-and-prediabetes]
 localSection: true
+cluster: 1
+role: "support"
+clusterOrder: 5
 ---
 
 Blood sugar is not only a after-meal story. Your liver keeps adding glucose to the bloodstream between meals and through the night, which is how your brain gets fuel while you sleep. Insulin acts as the brake on that process. So when a fasting reading comes back high, the question is usually which part of this system is out of step: the liver, the insulin response, a hormone or medicine, or the test itself.

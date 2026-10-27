@@ -49,6 +49,9 @@ sources:
     url: "https://www.who.int/news-room/fact-sheets/detail/diabetes"
 related: [diabetes-and-prediabetes, weight-management, high-blood-pressure, preventive-check-ups]
 localSection: true
+cluster: 1
+role: "pillar"
+clusterOrder: 0
 ---
 
 There is a common assumption about diabetes: if something is wrong with your blood sugar, you will probably feel it.

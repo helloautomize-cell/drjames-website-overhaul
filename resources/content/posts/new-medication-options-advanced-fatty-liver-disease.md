@@ -44,6 +44,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
 related: [fatty-liver]
 localSection: true
+cluster: 5
+role: "support"
+clusterOrder: 4
 ---
 
 ## Are There New Medicines for Fatty Liver Disease?

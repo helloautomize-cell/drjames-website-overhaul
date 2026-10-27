@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Live search over the server-rendered guide list: filters .hl-row elements
- * on their data-q haystack, reveals the empty state, and hides pagination
- * while a query is active. "/" focuses the field; Enter jumps to the list.
- * Without JS the input is inert and every first-page row stays visible.
+ * Live search over the server-rendered guide cards: while a query is active
+ * the cluster layout is hidden and matching guides show as a plain card
+ * grid; clearing the search restores the cluster view. "/" focuses the
+ * field; Enter jumps to the results. Without JS the input is inert and the
+ * full cluster layout stays visible.
  */
 export function LibrarySearch() {
   const ref = useRef<HTMLInputElement>(null);
@@ -27,18 +28,19 @@ export function LibrarySearch() {
 
   useEffect(() => {
     const needle = q.trim().toLowerCase();
-    const rows = document.querySelectorAll<HTMLElement>(".hl-row");
+    const clusters = document.getElementById("hl-clusters");
+    const results = document.getElementById("hl-results");
+    if (!clusters || !results) return;
     let shown = 0;
-    rows.forEach((r) => {
-      const match = !needle || (r.dataset.q ?? "").includes(needle);
-      const paged = !needle && r.hasAttribute("data-extra");
-      r.hidden = !match || paged;
-      if (!r.hidden) shown++;
+    results.querySelectorAll<HTMLElement>("[data-q]").forEach((c) => {
+      const match = !needle || (c.dataset.q ?? "").includes(needle);
+      c.hidden = !match;
+      if (match) shown++;
     });
+    clusters.hidden = !!needle;
+    results.hidden = !needle;
     const empty = document.getElementById("hl-empty");
     if (empty) empty.hidden = !(needle && shown === 0);
-    const more = document.getElementById("hl-more");
-    if (more) more.hidden = !!needle;
   }, [q]);
 
   return (
@@ -47,7 +49,7 @@ export function LibrarySearch() {
       role="search"
       onSubmit={(e) => {
         e.preventDefault();
-        document.getElementById("hl-list")?.scrollIntoView({ block: "start" });
+        document.getElementById("hl-results")?.scrollIntoView({ block: "start" });
       }}
     >
       <span className="hl-search-ic" aria-hidden="true">
@@ -63,7 +65,7 @@ export function LibrarySearch() {
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search guides"
         aria-label="Search guides"
-        aria-controls="hl-list"
+        aria-controls="hl-results"
       />
       <kbd aria-hidden="true">/</kbd>
     </form>

@@ -44,6 +44,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash"
 related: [fatty-liver, weight-management]
 localSection: true
+cluster: 5
+role: "support"
+clusterOrder: 3
 ---
 
 ## Can Fatty Liver Disease Be Reversed?

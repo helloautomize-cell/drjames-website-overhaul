@@ -48,6 +48,9 @@ sources:
     url: "https://www.nhs.uk/conditions/indigestion/"
 related: [digestive-problems, fatty-liver, kidney-problems]
 localSection: true
+cluster: 10
+role: "pillar"
+clusterOrder: 0
 ---
 
 Get urgent care if the pain is sudden and severe, or if it comes with fever, vomiting blood, black stools, a hard swollen belly, fainting, or pain moving into the chest. Gastritis is inflammation of the stomach lining. It typically causes a burning or gnawing ache in the upper middle abdomen, often with nausea or feeling full after a few bites. H. pylori infection, regular use of anti-inflammatory painkillers and alcohol are the usual culprits, and it generally responds well to treatment once the cause is found.

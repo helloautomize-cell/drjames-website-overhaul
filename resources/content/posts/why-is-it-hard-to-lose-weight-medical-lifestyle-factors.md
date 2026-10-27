@@ -45,6 +45,9 @@ sources:
     url: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight"
 related: [weight-management, diabetes-and-prediabetes]
 localSection: true
+cluster: 9
+role: "support"
+clusterOrder: 1
 ---
 
 ## Why Doesn't Weight Loss Always Happen as Expected?

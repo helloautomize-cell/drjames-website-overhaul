@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [weight-management, diabetes-and-prediabetes]
 localSection: true
+cluster: 6
+role: "support"
+clusterOrder: 5
 ---
 
 GLP-1 medicines help control appetite and blood sugar while you take them. They do not permanently change how your body regulates weight. Many people wonder what happens if they stop because of cost, side effects or reaching their goal.

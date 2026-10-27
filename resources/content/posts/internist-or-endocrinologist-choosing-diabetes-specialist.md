@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/diabetes/"
 related: [diabetes-and-prediabetes, preventive-check-ups]
 localSection: true
+cluster: 1
+role: "support"
+clusterOrder: 4
 ---
 
 Most people do not start by looking for a specialist. They start with a number on a lab report, a glucose reading that seemed off, or a parent who has just been diagnosed and now has a long list of questions. Then comes the practical problem: who should you actually see? For most adults with [diabetes](/conditions/diabetes-and-prediabetes/), an internist is a sound place to begin. An endocrinologist is a physician with additional training in hormones and metabolism, and there are clear situations where that training makes a real difference. Knowing which situation you are in can save you weeks of waiting.

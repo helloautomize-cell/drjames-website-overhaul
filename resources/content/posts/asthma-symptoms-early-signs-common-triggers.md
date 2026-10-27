@@ -45,6 +45,9 @@ sources:
     url: "https://www.cdc.gov/asthma/"
 related: [asthma-and-breathing, allergies]
 localSection: true
+cluster: 8
+role: "support"
+clusterOrder: 1
 ---
 
 ## What Does Asthma Feel Like?

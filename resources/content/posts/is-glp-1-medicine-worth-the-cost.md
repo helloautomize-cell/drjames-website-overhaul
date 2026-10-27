@@ -49,6 +49,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [weight-management, diabetes-and-prediabetes]
 localSection: true
+cluster: 6
+role: "support"
+clusterOrder: 4
 ---
 
 GLP-1 medicines can improve blood sugar, support significant weight loss and, in some patients, reduce cardiovascular risk. They can also be expensive and are often needed long term. Whether they are worth it depends on your health, goals, finances and alternatives.

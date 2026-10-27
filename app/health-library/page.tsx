@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Breadcrumbs } from "@/components/shell/Breadcrumbs";
 import { LibrarySearch } from "@/components/page/LibrarySearch";
 import { LibraryTabs } from "@/components/page/LibraryTabs";
-import { LibraryList } from "@/components/page/LibraryList";
-import { LibraryMore } from "@/components/page/LibraryMore";
-import { GuideCover } from "@/components/page/GuideCover";
-import { GuideCard } from "@/components/page/GuideCard";
+import { ClCard, ClusterSection } from "@/components/page/ClusterGuides";
 import { BookButton } from "@/components/BookButton";
-import { Icon } from "@/lib/icons";
-import { isPublished, publishedPostMeta, type PostMeta } from "@/lib/content";
-import { conditionGroups } from "@/lib/conditions";
-import { featuredPost, fmtDate, guideUrl, sortNewest, topicOf } from "@/lib/library";
-import { site } from "@/lib/site-config";
+import { publishedPostMeta } from "@/lib/content";
+import { clusterPosts } from "@/lib/clusters";
+import { sortNewest } from "@/lib/library";
 import { whatsappLink } from "@/lib/whatsapp";
 import { SITE_URL } from "@/lib/seo";
 import {
@@ -41,24 +35,10 @@ export const metadata: Metadata = {
 
 const crumbs = [{ label: "Home", href: "/" }, { label: "Health Library" }];
 
-/** "New" when the guide was published within the last 30 days. */
-const isNew = (p: PostMeta) =>
-  isPublished(p) && Date.now() - new Date(`${p.date}T00:00:00Z`).getTime() < 30 * 86400000;
-
 export default function LibraryPage() {
   const posts = publishedPostMeta();
-  const sorted = sortNewest(posts);
-  const feat = featuredPost(posts);
-  const rows = sorted.filter((p) => p.slug !== feat?.slug);
-  const featuredTopic = feat ? topicOf(feat) : null;
-  const featuredReviewed = feat && isPublished(feat) ? fmtDate(feat.reviewedOn) : null;
-  // Topic shelves only earn their place with a real catalogue (spec 3.5).
-  const shelves =
-    posts.length >= 8
-      ? conditionGroups
-          .map((g) => ({ g, items: sorted.filter((p) => p.topic === g.id).slice(0, 3) }))
-          .filter((s) => s.items.length >= 3)
-      : [];
+  const clusters = clusterPosts(posts);
+  const older = sortNewest(posts.filter((p) => p.cluster == null));
 
   return (
     <main id="main">
@@ -105,68 +85,39 @@ export default function LibraryPage() {
 
       {posts.length > 0 && <LibraryTabs posts={posts} active="all" />}
 
-      {feat && featuredTopic && (
-        <section className="hl-feat container" aria-label="Featured guide">
-          <Link className="hl-feat-img" href={guideUrl(feat.slug)} tabIndex={-1} aria-hidden="true">
-            <GuideCover post={feat} sizes="(max-width: 900px) 100vw, 660px" priority />
-            {!isPublished(feat) && <span className="draft-chip">Draft</span>}
-          </Link>
-          <div className="hl-feat-txt">
-            <span className="hl-feat-top">
-              <span className="hl-topic">{featuredTopic.label}</span>
-              {isNew(feat) && <span className="hl-new">New</span>}
-            </span>
-            <h2>
-              <Link href={guideUrl(feat.slug)}>{feat.heading}</Link>
-            </h2>
-            <p>{feat.standfirst}</p>
-            <span className="hl-feat-by">
-              <Image
-                src="/images/doctor/d04-headshot-160sq.jpg"
-                alt=""
-                width={24}
-                height={24}
-              />
-              {site.shortName}
-              {featuredReviewed ? ` · Reviewed ${featuredReviewed}` : ""} · {feat.readingMinutes}{" "}
-              min read
-            </span>
-            <Link className="cx-btn cx-btn-p" href={guideUrl(feat.slug)}>
-              Read the guide
-              <Icon name="arrow" size={18} />
-            </Link>
-          </div>
-        </section>
-      )}
+      <div id="hl-clusters">
+        {clusters.map((c) => (
+          <ClusterSection key={c.n} cluster={c} />
+        ))}
 
-      {sorted.length > 0 ? (
-        <section className="container hl-all" aria-labelledby="hl-all-h">
-          <h2 id="hl-all-h">All guides</h2>
-          <LibraryList posts={rows} />
-          {rows.length > 12 && <LibraryMore />}
-        </section>
-      ) : (
-        <section className="container hl-all" aria-labelledby="hl-all-h">
-          <h2 id="hl-all-h">All guides</h2>
-          <p className="sec-sub">
-            New guides are being written and reviewed by Dr. James. Check back soon.
-          </p>
-        </section>
-      )}
+        {older.length > 0 && (
+          <section className="container cl-sec" aria-labelledby="hl-more-guides-h">
+            <div className="cl-head">
+              <h2 id="hl-more-guides-h">More guides from Dr. James</h2>
+            </div>
+            <div className="cl-grid">
+              {older.map((p) => (
+                <ClCard key={p.slug} post={p} />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
 
-      {shelves.map(({ g, items }) => (
-        <section key={g.id} className="container hl-shelf" aria-labelledby={`hl-shelf-${g.id}`}>
-          <div className="hl-shelf-h">
-            <h3 id={`hl-shelf-${g.id}`}>{g.label}</h3>
-            <Link href={`/conditions/#g-${g.id}`}>See the condition page</Link>
-          </div>
-          <div className="gd-keep-grid">
-            {items.map((p) => (
-              <GuideCard key={p.slug} post={p} />
-            ))}
-          </div>
-        </section>
-      ))}
+      <section id="hl-results" className="container cl-sec" hidden aria-label="Search results">
+        <div className="cl-grid">
+          {posts.map((p) => (
+            <ClCard key={p.slug} post={p} />
+          ))}
+        </div>
+      </section>
+
+      <div className="container">
+        <div className="hl-empty" id="hl-empty" hidden>
+          <p>No guides match. Ask Dr. James at your next visit.</p>
+          <BookButton label="Book a consultation" />
+        </div>
+      </div>
 
       <div className="container hl-bandwrap">
         <div className="ctaband">

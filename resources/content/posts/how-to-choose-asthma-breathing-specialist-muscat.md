@@ -43,6 +43,9 @@ sources:
     url: "https://www.nhs.uk/conditions/asthma/"
 related: [asthma-and-breathing]
 localSection: true
+cluster: 8
+role: "support"
+clusterOrder: 5
 ---
 
 ## Finding the Right Asthma Specialist in Muscat

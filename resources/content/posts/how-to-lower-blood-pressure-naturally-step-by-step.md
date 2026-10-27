@@ -42,6 +42,9 @@ sources:
     url: "https://www.cdc.gov/high-blood-pressure/about/index.html"
 related: [high-blood-pressure, weight-management]
 localSection: true
+cluster: 2
+role: "support"
+clusterOrder: 3
 ---
 
 If your readings have come back higher than you would like, you probably want to know what you can change yourself. Quite a lot, as it turns out. Diet, activity, body weight, alcohol, smoking and sleep all push blood pressure up or down. For people already on medicine, the same habits can make treatment work better and protect the heart and kidneys over the long term.

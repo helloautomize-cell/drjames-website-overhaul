@@ -45,6 +45,9 @@ sources:
     url: "https://www.cdc.gov/high-blood-pressure/about/index.html"
 related: [high-blood-pressure]
 localSection: true
+cluster: 2
+role: "support"
+clusterOrder: 4
 ---
 
 A common scenario goes like this. The nurse wraps the cuff, the screen shows a number, and it is noticeably higher than the reading you took on your kitchen monitor that morning. So which one is correct? Usually, both are. The gap is one of the most common things patients ask about, and it tends to reveal something useful rather than a faulty machine.

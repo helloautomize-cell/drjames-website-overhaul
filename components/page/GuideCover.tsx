@@ -34,11 +34,11 @@ export function GuideCover({
             alt={post.imageAlt ?? ""}
             fill
             sizes={sizes}
-            quality={80}
             placeholder="blur"
             blurDataURL={BLUR}
             priority={priority}
-            style={{ objectFit: "cover", objectPosition: post.imageFocus }}
+            unoptimized
+            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
           />
         </>
       ) : (

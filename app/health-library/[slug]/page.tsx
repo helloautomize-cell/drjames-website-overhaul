@@ -9,6 +9,8 @@ import { GuideProgress } from "@/components/page/GuideProgress";
 import { GuideShare } from "@/components/page/GuideShare";
 import { GuideConditionCard } from "@/components/page/GuideConditionCard";
 import { GuideCard } from "@/components/page/GuideCard";
+import { ClCard } from "@/components/page/ClusterGuides";
+import { seriesMates } from "@/lib/clusters";
 import { QuestionsToAsk } from "@/components/page/QuestionsToAsk";
 import { ConditionRow } from "@/components/page/ConditionRow";
 import { ReviewerBox } from "@/components/page/ReviewerBox";
@@ -109,6 +111,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   )
     .sort((a, b) => Number(b.topic === doc.topic) - Number(a.topic === doc.topic))
     .slice(0, 2);
+
+  const series = seriesMates(doc, publishedPostMeta());
 
   const moreConditions = doc.related.slice(1);
 
@@ -305,6 +309,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                     const c = allConditions.find((x) => x.slug === slug2);
                     return c ? <ConditionRow key={slug2} condition={c} index={i} /> : null;
                   })}
+                </div>
+              </section>
+            )}
+
+            {series && series.length > 0 && (
+              <section className="gd-block gd-series" aria-labelledby="gd-series-h">
+                <h2 id="gd-series-h">More in this guide series</h2>
+                <div className="cl-grid">
+                  {series.map((p) => (
+                    <ClCard key={p.slug} post={p} />
+                  ))}
                 </div>
               </section>
             )}

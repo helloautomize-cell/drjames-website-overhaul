@@ -49,6 +49,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/weight-management"
 related: [weight-management, diabetes-and-prediabetes, high-blood-pressure, sleep-apnea]
 localSection: true
+cluster: 9
+role: "pillar"
+clusterOrder: 0
 ---
 
 There is no single treatment that works for everyone. A person's medical history, weight pattern, other health conditions, medications and treatment goals all matter when deciding how obesity should be managed.

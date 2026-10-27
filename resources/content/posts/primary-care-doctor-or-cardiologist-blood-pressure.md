@@ -45,6 +45,9 @@ sources:
     url: "https://www.cdc.gov/high-blood-pressure/about/index.html"
 related: [high-blood-pressure, heart-risk-assessment]
 localSection: true
+cluster: 2
+role: "support"
+clusterOrder: 5
 ---
 
 After a high reading, most patients ask the same follow-up question: who should be looking after this? For the majority of people, the answer is a primary care doctor or internist. They can confirm the diagnosis, start treatment, adjust medicines and check the kidneys, blood sugar and cholesterol. A cardiologist tends to join the team in more specific situations, such as pressure that won't settle on treatment or existing heart disease. Plenty of patients end up seeing both, each for a different part of the picture.

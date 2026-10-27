@@ -44,6 +44,9 @@ sources:
     url: "https://www.mayoclinic.org/drugs-supplements-melatonin/art-20363071"
 related: [sleep-apnea]
 localSection: true
+cluster: 7
+role: "support"
+clusterOrder: 2
 ---
 
 ## Is Taking Melatonin Every Night Safe?

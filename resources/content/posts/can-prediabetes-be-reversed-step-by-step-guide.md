@@ -47,6 +47,9 @@ sources:
     url: "https://diabetes.org/about-diabetes/prediabetes"
 related: [diabetes-and-prediabetes, weight-management]
 localSection: true
+cluster: 1
+role: "support"
+clusterOrder: 2
 ---
 
 A [prediabetes](/conditions/diabetes-and-prediabetes/) result can feel like a verdict, but it is closer to an early notice. Many people see their blood sugar return to the normal range after changes to activity, food, weight and sleep. The harder part is keeping those changes going long enough for the improvement to hold. Below is what tends to work, in the order most patients find easiest to start.

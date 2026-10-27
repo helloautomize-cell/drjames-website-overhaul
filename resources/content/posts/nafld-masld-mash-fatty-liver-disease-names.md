@@ -44,6 +44,9 @@ sources:
     url: "https://www.nhs.uk/conditions/non-alcoholic-fatty-liver-disease/"
 related: [fatty-liver]
 localSection: true
+cluster: 5
+role: "support"
+clusterOrder: 1
 ---
 
 ## Why Has Fatty Liver Disease Been Renamed?

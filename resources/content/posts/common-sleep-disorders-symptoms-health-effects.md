@@ -48,6 +48,9 @@ sources:
     url: "https://www.nhlbi.nih.gov/health/sleep-apnea"
 related: [sleep-apnea, weight-management, high-blood-pressure]
 localSection: true
+cluster: 7
+role: "pillar"
+clusterOrder: 0
 ---
 
 Long-term poor sleep is linked with high blood pressure, heart disease, type 2 diabetes, weight gain, low mood and road accidents. If sleep has been poor for several weeks and it's affecting your days, it's worth getting checked.

@@ -45,6 +45,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults"
 related: [digestive-problems]
 localSection: true
+cluster: 10
+role: "support"
+clusterOrder: 3
 ---
 
 ## Gastritis and Acid Reflux Are Not the Same

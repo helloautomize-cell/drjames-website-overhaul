@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/conditions/indigestion/"
 related: [digestive-problems]
 localSection: true
+cluster: 10
+role: "support"
+clusterOrder: 4
 ---
 
 ## How Is Gastritis Treated?

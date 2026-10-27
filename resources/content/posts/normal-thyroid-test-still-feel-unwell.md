@@ -45,6 +45,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/endocrine-diseases/hyperthyroidism"
 related: [thyroid-disorders]
 localSection: true
+cluster: 3
+role: "support"
+clusterOrder: 3
 ---
 
 It can be frustrating to feel tired, gain weight or feel anxious and then hear that your [thyroid](/conditions/thyroid-disorders/) test is normal. A normal result means your thyroid was working within the expected range when tested. It does not mean your symptoms are imaginary. It means the cause may lie elsewhere.

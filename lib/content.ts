@@ -120,6 +120,12 @@ const postFrontmatter = baseFrontmatter
     /** Condition slugs; the first is the guide's main condition. */
     related: z.array(z.string()).min(1).max(6),
     localSection: z.boolean().default(true),
+    /** Guide-series cluster number (1-10); null for standalone guides. */
+    cluster: z.number().int().min(1).max(10).nullable().default(null),
+    /** Role inside the cluster: the pillar guide or one of its supports. */
+    role: z.enum(["pillar", "support"]).nullable().default(null),
+    /** Position inside the cluster: 0 for the pillar, 1-5 for supports. */
+    clusterOrder: z.number().int().min(0).max(5).nullable().default(null),
   })
   .superRefine((v, ctx) => {
     if (v.image && !v.imageAlt) {

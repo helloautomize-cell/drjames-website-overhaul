@@ -44,6 +44,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash"
 related: [fatty-liver]
 localSection: true
+cluster: 5
+role: "support"
+clusterOrder: 2
 ---
 
 ## What Are ALT and AST?

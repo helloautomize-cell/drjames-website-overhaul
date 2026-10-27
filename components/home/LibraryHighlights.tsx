@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { isPublished, publishedPostMeta } from "@/lib/content";
-import { dateMark, featuredPost, guideUrl, sortNewest, topicOf } from "@/lib/library";
+import { featuredPost, fmtDate, guideUrl, sortNewest, topicOf } from "@/lib/library";
 import { GuideCover } from "@/components/page/GuideCover";
 import { Icon } from "@/lib/icons";
 
@@ -47,16 +47,18 @@ export function LibraryHighlights() {
           <div className="hl-home-items">
             {rest.map((p) => {
               const t = topicOf(p);
-              const m = dateMark(p.date);
+              const reviewed = isPublished(p) ? fmtDate(p.reviewedOn) : null;
               return (
                 <Link key={p.slug} className="hl-home-item" href={guideUrl(p.slug)}>
                   <span className="hl-meta-top">
-                    {m ? `${m.day} ${m.my} · ` : ""}
                     <span className="hl-topic">{t.label}</span>
                     {!isPublished(p) && <span className="draft-chip">Draft</span>}
                   </span>
                   <b>{p.heading}</b>
-                  <span className="hl-item-meta">{p.readingMinutes} min read</span>
+                  <span className="hl-item-meta">
+                    {reviewed ? `Reviewed ${reviewed} · ` : ""}
+                    {p.readingMinutes} min read
+                  </span>
                 </Link>
               );
             })}

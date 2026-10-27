@@ -45,6 +45,9 @@ sources:
     url: "https://www.nhs.uk/medicines/semaglutide/"
 related: [weight-management, diabetes-and-prediabetes]
 localSection: true
+cluster: 9
+role: "support"
+clusterOrder: 4
 ---
 
 ## Are Weight-Loss Injections Safe?

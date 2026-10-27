@@ -46,6 +46,9 @@ sources:
     url: "https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd"
 related: [kidney-problems, joint-pain-and-arthritis]
 localSection: true
+cluster: 4
+role: "support"
+clusterOrder: 2
 ---
 
 ## Which Painkiller Is Safest for Your Kidneys?
