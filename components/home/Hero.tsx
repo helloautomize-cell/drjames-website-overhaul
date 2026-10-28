@@ -42,7 +42,7 @@ export function Hero() {
     </span>
   );
   return (
-    <section className="hxo" aria-labelledby="hero-h" data-header="dark">
+    <section className="hxo" aria-labelledby="hero-h" data-header="dark" data-ga-location="hero">
       <div className="hxo-bg" aria-hidden="true" />
       <div className="container hxo-grid">
         <div>

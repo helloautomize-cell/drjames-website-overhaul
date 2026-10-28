@@ -10,7 +10,7 @@ import { analyticsAllowed } from "@/lib/consent";
  * No personal or health data is ever attached to events.
  */
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VE31QK70MB";
 
 declare global {
   interface Window {

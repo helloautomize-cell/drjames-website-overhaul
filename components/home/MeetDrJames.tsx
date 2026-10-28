@@ -276,7 +276,7 @@ export function MeetDrJames() {
                 </span>
               </div>
               <div className="btnrow">
-                <Link className="btn btn-p" href={site.bookUrl}>
+                <Link className="btn btn-p" href={site.bookUrl} data-ga="appointment">
                   Book a consultation
                 </Link>
                 <a

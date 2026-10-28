@@ -29,8 +29,8 @@ export function Dock() {
 
   const off = typing || pathname?.startsWith("/thank-you");
   return (
-    <nav className={`x-dock${off ? " x-off" : ""}`} aria-label="Quick actions">
-      <Link className="x-pri" href={site.bookUrl}>
+    <nav className={`x-dock${off ? " x-off" : ""}`} aria-label="Quick actions" data-ga-location="sticky">
+      <Link className="x-pri" href={site.bookUrl} data-ga="appointment">
         <Icon name="calendar" size={20} />
         Book
       </Link>

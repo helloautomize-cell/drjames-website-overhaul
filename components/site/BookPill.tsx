@@ -14,7 +14,11 @@ export function BookPill({
   className?: string;
 }) {
   return (
-    <Link className={`x-book${large ? " x-lg" : ""}${className ? ` ${className}` : ""}`} href={href}>
+    <Link
+      className={`x-book${large ? " x-lg" : ""}${className ? ` ${className}` : ""}`}
+      href={href}
+      data-ga="appointment"
+    >
       {label}
       <span className="x-arr">
         <svg

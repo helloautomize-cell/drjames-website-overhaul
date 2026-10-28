@@ -84,7 +84,7 @@ export function VisitBand() {
               </div>
             </div>
             <div className="btnrow" style={{ marginTop: 18 }}>
-              <Link className="btn btn-p" href={site.bookUrl}>
+              <Link className="btn btn-p" href={site.bookUrl} data-ga="appointment">
                 Book a consultation
               </Link>
               <a

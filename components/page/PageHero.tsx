@@ -39,7 +39,7 @@ export function PageHero({
   reviewed?: { lastReviewed: string | null };
 }) {
   return (
-    <div className={`pg-hero${img ? " has-img" : ""}`}>
+    <div className={`pg-hero${img ? " has-img" : ""}`} data-ga-location="hero">
       <div className="container">
         <Breadcrumbs items={crumbs} />
         <div className="pg-hero-row">

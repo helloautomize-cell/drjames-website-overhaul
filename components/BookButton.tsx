@@ -20,7 +20,11 @@ export function BookButton({
   className?: string;
 }) {
   return (
-    <Link className={`book${onDark ? " on-dark" : ""}${className ? ` ${className}` : ""}`} href={href}>
+    <Link
+      className={`book${onDark ? " on-dark" : ""}${className ? ` ${className}` : ""}`}
+      href={href}
+      data-ga="appointment"
+    >
       <span className="ic">
         <Icon name="calendar" size={22} strokeWidth={1.8} />
       </span>

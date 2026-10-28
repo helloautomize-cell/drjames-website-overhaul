@@ -35,17 +35,49 @@ export function Analytics() {
     pageView();
   }, [pathname]);
 
-  // Delegated click events — no markup changes needed anywhere.
+  // Delegated click events — one document listener, at most one event
+  // per click. Only page_path and link_location are sent; never the
+  // phone number, email, link text or any form data.
   useEffect(() => {
+    const social =
+      /facebook\.com|instagram\.com|linkedin\.com|twitter\.com|(?:\/\/|\.)x\.com|youtube\.com|tiktok\.com/i;
+    // CMS-content fallback only: whole-word CTA phrases.
+    const ctaText =
+      /\b(book appointment|book now|book a consultation|consult now|schedule)\b/i;
+
     const onClick = (e: MouseEvent) => {
       const a = (e.target as HTMLElement).closest?.("a[href]") as HTMLAnchorElement | null;
       if (!a) return;
       const href = a.getAttribute("href") ?? "";
-      if (href.startsWith("tel:")) track("call_click");
-      else if (/wa\.me|whatsapp/.test(href)) track("whatsapp_click");
-      else if (/maps\.app\.goo\.gl|google\.[a-z.]+\/maps|maps\?/.test(href))
-        track("directions_click");
-      else if (a.hash === "#book" || /#book\b/.test(href)) track("book_click");
+
+      let event: string | null = null;
+      if (a.dataset.ga === "appointment") event = "appointment_click";
+      else if (href.startsWith("tel:")) event = "phone_click";
+      else if (href.startsWith("mailto:")) event = "email_click";
+      else if (href.startsWith("whatsapp://") || /wa\.me\/\d|api\.whatsapp\.com/.test(href))
+        event = "whatsapp_click";
+      else if (/maps\.app\.goo\.gl|google\.[a-z.]+\/maps|maps\.google|goo\.gl\/maps|maps\?/.test(href))
+        event = "directions_click";
+      else if (a.hash === "#book" || /#book\b/.test(href)) event = "appointment_click";
+      else if (
+        !a.closest("nav") &&
+        !social.test(href) &&
+        !/ebook/i.test(href + (a.textContent ?? "")) &&
+        ctaText.test(a.textContent ?? "")
+      )
+        event = "appointment_click";
+      if (!event) return;
+
+      const linkLocation =
+        a.closest<HTMLElement>("[data-ga-location]")?.dataset.gaLocation ??
+        (a.closest("header")
+          ? "header"
+          : a.closest("footer")
+            ? "footer"
+            : a.closest("nav")
+              ? "nav"
+              : "body");
+      track(event, { page_path: window.location.pathname, link_location: linkLocation });
     };
     document.addEventListener("click", onClick, { capture: true });
     return () => document.removeEventListener("click", onClick, { capture: true });

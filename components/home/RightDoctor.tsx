@@ -123,7 +123,7 @@ export function RightDoctor() {
                 {site.roleShort}, {site.hospital}, Muscat
               </span>
             </div>
-            <Link className="fit-book" href={bookingUrl()}>
+            <Link className="fit-book" href={bookingUrl()} data-ga="appointment">
               Book a consultation
             </Link>
           </div>

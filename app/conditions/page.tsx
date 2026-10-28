@@ -153,7 +153,7 @@ export default function ConditionsPage() {
               <p>An internist&apos;s job is to work that out. Tell us what you notice, not what you think it is.</p>
               <div className="cx-band-btns">
                 <FinderButton>Use the symptom finder</FinderButton>
-                <Link className="cx-btn cx-btn-o" href={bookingUrl()}>
+                <Link className="cx-btn cx-btn-o" href={bookingUrl()} data-ga="appointment">
                   Book a consultation
                 </Link>
                 <a className="cx-btn cx-btn-o" href={whatsappLink()} target="_blank" rel="noopener noreferrer">

@@ -258,6 +258,7 @@ export function SiteHeader() {
                 <Link
                   className="btn btn-p"
                   href={site.bookUrl}
+                  data-ga="appointment"
                   onClick={() => setMobileOpen(false)}
                 >
                   Book

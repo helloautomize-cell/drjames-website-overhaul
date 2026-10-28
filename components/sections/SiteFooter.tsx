@@ -50,7 +50,7 @@ export function SiteFooter() {
       <div className="fcol">
         <b>Patients</b>
         {footerNav.patients.map((l) => (
-          <Link key={l.label} href={l.href}>
+          <Link key={l.label} href={l.href} data-ga={l.href === site.bookUrl ? "appointment" : undefined}>
             {l.label}
           </Link>
         ))}

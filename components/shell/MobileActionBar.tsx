@@ -57,8 +57,8 @@ export function MobileActionBar() {
   }
 
   return (
-    <div className={`abar${hidden ? " off" : ""}`} role="group" aria-label="Quick actions">
-      <Link className="barbtn" href={site.bookUrl}>
+    <div className={`abar${hidden ? " off" : ""}`} role="group" aria-label="Quick actions" data-ga-location="sticky">
+      <Link className="barbtn" href={site.bookUrl} data-ga="appointment">
         <Icon name="calendar" size={22} />
         Book Now
       </Link>
