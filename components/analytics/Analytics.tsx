@@ -1,37 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { loadGa, pageView, track } from "@/lib/analytics";
-import { CONSENT_EVENT, type ConsentState } from "@/lib/consent";
+import { pageView, track, updateConsent } from "@/lib/analytics";
+import { analyticsAllowed, CONSENT_EVENT, type ConsentState } from "@/lib/consent";
 
 /**
- * Loads GA4 after analytics consent and wires the delegated
- * click events from 7.4. Rendered once inside SiteChrome.
- * Without a GA id it stays completely inert — no scripts,
- * no listeners with side effects.
+ * Keeps the Consent Mode v2 analytics_storage signal in sync with the
+ * cookie banner and wires the delegated click events. The tag itself
+ * loads on every page via the root layout — cookieless pings until
+ * consent is granted. Rendered once inside SiteChrome.
  */
 export function Analytics() {
   const pathname = usePathname();
-  const firstPath = useRef(true);
 
-  // Load on existing consent; react to the banner's Accept.
+  // Re-apply a stored choice on load; then every banner decision
+  // (Accept, Decline, settings save) sends the matching update.
   useEffect(() => {
-    loadGa();
+    updateConsent(analyticsAllowed());
     const onConsent = (e: Event) => {
-      if ((e as CustomEvent<ConsentState>).detail?.analytics) loadGa();
+      updateConsent((e as CustomEvent<ConsentState>).detail?.analytics === true);
     };
     window.addEventListener(CONSENT_EVENT, onConsent);
     return () => window.removeEventListener(CONSENT_EVENT, onConsent);
   }, []);
 
-  // SPA navigations send a page_view once gtag exists. The initial
-  // view is already sent by loadGa(), so skip the first run.
+  // config runs with send_page_view:false — send the initial view and
+  // one per SPA navigation. Consent state decides if cookies attach.
   useEffect(() => {
-    if (firstPath.current) {
-      firstPath.current = false;
-      return;
-    }
     pageView();
   }, [pathname]);
 
