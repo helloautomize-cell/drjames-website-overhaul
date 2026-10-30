@@ -83,7 +83,7 @@ export default async function ConditionPage({
           ),
           medicalConditionNode(url, doc.heading, doc.description),
           faqPageNode(url, doc.faqs),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, url),
         ]}
       />
       <PageHero

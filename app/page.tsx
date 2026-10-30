@@ -23,6 +23,7 @@ import {
   physicianNode,
   hospitalNode,
   medicalClinicNode,
+  medicalWebPageNode,
   faqPageNode,
 } from "@/lib/seo";
 export const metadata: Metadata = pageMeta(
@@ -40,6 +41,12 @@ export default function Home() {
           physicianNode,
           hospitalNode,
           medicalClinicNode,
+          medicalWebPageNode(
+            "/",
+            `${site.name} · ${site.title} in Muscat`,
+            undefined,
+            "[CONFIRM]",
+          ),
           faqPageNode(
             "/",
             HOME_FAQS.filter((f) => !f.confirm).map(({ q, a }) => ({ q, a })),

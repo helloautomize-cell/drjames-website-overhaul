@@ -43,7 +43,7 @@ export default async function ContactPage({
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode("/contact/", "Contact and book an appointment", undefined, "[CONFIRM]"),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/contact/"),
         ]}
       />
       <PageHero

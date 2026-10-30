@@ -39,7 +39,7 @@ export default function ConditionsPage() {
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode("/conditions/", "Areas of Expertise", undefined, "[CONFIRM]"),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/conditions/"),
         ]}
       />
       <header className="cx-hero">

@@ -75,7 +75,7 @@ export default function LibraryPage() {
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode("/health-library/", "Health Library", undefined, "[CONFIRM]"),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/health-library/"),
         ]}
       />
 

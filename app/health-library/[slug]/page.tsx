@@ -144,7 +144,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               : {}),
           }),
           ...(doc.faqs.length ? [faqPageNode(url, doc.faqs)] : []),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, url),
         ]}
       />
       <GuideProgress />

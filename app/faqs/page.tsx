@@ -34,7 +34,7 @@ export default function FaqsPage() {
           medicalClinicNode,
           medicalWebPageNode("/faqs/", "FAQs", undefined, "[CONFIRM]"),
           faqPageNode("/faqs/", faqs),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/faqs/"),
         ]}
       />
       <PageHero

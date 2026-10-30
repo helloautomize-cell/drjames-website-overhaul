@@ -70,6 +70,26 @@ const openingHours = Object.entries(site.sessions).flatMap(([d, ss]) =>
   })),
 );
 
+/** Coordinates of the Google Maps pin embedded in site.mapsPlaceUrl. */
+const geo = {
+  "@type": "GeoCoordinates" as const,
+  latitude: 23.5865399,
+  longitude: 58.4108339,
+};
+
+// [CONFIRM: real consultation fee range] — no fee is published on the site; the
+// FAQ sends patients to the hospital billing desk. "$$" is the neutral
+// price-level indicator until the client supplies the actual range.
+const priceRange = "$$";
+
+/** The brand mark already shipped in /public; used for logo fields. */
+const logo = {
+  "@type": "ImageObject" as const,
+  url: `${SITE_URL}/icons/icon-512.png`,
+  width: 512,
+  height: 602,
+};
+
 export const physicianNode = {
   "@type": "Physician" as const,
   "@id": `${SITE_URL}/#dr-james`,
@@ -134,6 +154,8 @@ export const physicianNode = {
     url: `${SITE_URL}/contact/`,
     availableLanguage: site.languages,
   },
+  geo,
+  priceRange,
   openingHoursSpecification: openingHours,
 };
 
@@ -142,9 +164,20 @@ export const hospitalNode = {
   "@id": `${SITE_URL}/#hospital`,
   name: site.hospital,
   address,
-  telephone: site.phoneDisplay.replace(/\s/g, ""),
-  url: `${SITE_URL}${site.profileUrl}`,
+  // the hospital's own contact details and profiles, from its official site
+  // brhoman.com — Dr. James's phone and socials are his, not the hospital's
+  telephone: "+96822387777",
+  url: "https://brhoman.com/",
+  image: `${SITE_URL}/images/doctor/d01-hero-2400w.jpg`,
+  sameAs: [
+    "https://www.instagram.com/badralsamaaroyal",
+    "https://x.com/badr_royal",
+    "https://youtube.com/@badralsamaaroyal",
+    "https://www.facebook.com/share/p/Znejy5cQj13zP19n/",
+  ],
   hasMap: site.mapsUrl,
+  geo,
+  priceRange,
   openingHoursSpecification: openingHours,
 };
 
@@ -157,7 +190,11 @@ export const medicalClinicNode = {
   address,
   telephone: site.phoneDisplay.replace(/\s/g, ""),
   url: `${SITE_URL}/`,
-  image: `${SITE_URL}/images/doctor/d04-headshot.jpg`,
+  image: `${SITE_URL}/images/clinic/dr-james-consultation.jpg`,
+  logo,
+  sameAs: [site.mapsPlaceUrl],
+  geo,
+  priceRange,
   isPartOf: { "@id": `${SITE_URL}/#hospital` },
   employee: { "@id": `${SITE_URL}/#dr-james` },
   openingHoursSpecification: openingHours,
@@ -168,17 +205,19 @@ export const websiteNode = {
   "@id": `${SITE_URL}/#website`,
   url: `${SITE_URL}/`,
   name: site.name,
+  alternateName: site.shortName,
   publisher: { "@id": `${SITE_URL}/#dr-james` },
 };
 
-export const breadcrumbNode = (items: Crumb[]) => ({
+export const breadcrumbNode = (items: Crumb[], path: string) => ({
   "@type": "BreadcrumbList" as const,
-  "@id": `${SITE_URL}${items[items.length - 1]?.href ?? "/"}#breadcrumb`,
+  "@id": `${SITE_URL}${path}#breadcrumb`,
   itemListElement: items.map((c, i) => ({
     "@type": "ListItem" as const,
     position: i + 1,
     name: c.label,
-    item: c.href ? `${SITE_URL}${c.href}` : undefined,
+    // the last crumb is the current page — its item is the canonical URL
+    item: c.href ? `${SITE_URL}${c.href}` : `${SITE_URL}${path}`,
   })),
 });
 
@@ -243,9 +282,21 @@ export const blogPostingNode = (opts: {
   ...(realDate(opts.datePublished) ? { datePublished: opts.datePublished } : {}),
   ...(realDate(opts.dateModified) ? { dateModified: opts.dateModified } : {}),
   ...(realDate(opts.lastReviewed) ? { lastReviewed: opts.lastReviewed } : {}),
-  author: { "@id": `${SITE_URL}/#dr-james` },
+  // @id merges this with the canonical Physician node; name and url are
+  // inline so the Article fields resolve even without @id dereferencing
+  author: {
+    "@type": "Physician" as const,
+    "@id": `${SITE_URL}/#dr-james`,
+    name: site.name,
+    url: `${SITE_URL}${site.profileUrl}`,
+  },
   reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
-  publisher: { "@id": `${SITE_URL}/#dr-james` },
+  publisher: {
+    "@type": "MedicalClinic" as const,
+    "@id": `${SITE_URL}/#clinic`,
+    name: medicalClinicNode.name,
+    logo,
+  },
   isPartOf: { "@id": `${SITE_URL}/#website` },
   ...(opts.about ? { about: opts.about } : {}),
 });

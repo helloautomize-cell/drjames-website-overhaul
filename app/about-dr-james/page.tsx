@@ -66,7 +66,7 @@ export default function AboutPage() {
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode("/about-dr-james/", "About Dr. James", undefined, "[CONFIRM]"),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/about-dr-james/"),
         ]}
       />
 

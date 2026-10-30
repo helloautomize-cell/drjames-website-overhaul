@@ -72,7 +72,7 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
             undefined,
             "[CONFIRM]",
           ),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, `/health-library/topic/${g.id}/`),
         ]}
       />
 

@@ -68,7 +68,7 @@ export default function VisitPage() {
           medicalClinicNode,
           medicalWebPageNode("/your-visit/", "Plan your visit", undefined, "[CONFIRM]"),
           faqPageNode("/your-visit/", practical),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, "/your-visit/"),
         ]}
       />
       <div className="container">

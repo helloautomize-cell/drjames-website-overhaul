@@ -70,7 +70,7 @@ export default async function LibraryPageN({ params }: { params: Promise<{ n: st
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode(`/health-library/page/${num}/`, `Health Library, page ${num}`, undefined, "[CONFIRM]"),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, `/health-library/page/${num}/`),
         ]}
       />
       <section className="hl-hero hl-hero-t">

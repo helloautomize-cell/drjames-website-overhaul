@@ -40,7 +40,7 @@ export async function LegalPage({ slug }: { slug: string }) {
           hospitalNode,
           medicalClinicNode,
           medicalWebPageNode(`/${slug}/`, doc.heading, undefined, doc.lastReviewed),
-          breadcrumbNode(crumbs),
+          breadcrumbNode(crumbs, `/${slug}/`),
         ]}
       />
       <div className="pg-hero">
