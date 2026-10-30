@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { isPublished, type PostMeta } from "@/lib/content";
-import { fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
+import { fmtDate, guideUrl, topicOf } from "@/lib/library";
 import type { Cluster } from "@/lib/clusters";
 import { GuideCover } from "./GuideCover";
 import { Icon } from "@/lib/icons";
@@ -17,7 +17,7 @@ function metaLine(p: PostMeta): string {
  */
 export function ClCard({ post }: { post: PostMeta }) {
   return (
-    <Link className="cl-card" href={guideUrl(post.slug)} data-q={searchText(post)}>
+    <Link className="cl-card" href={guideUrl(post.slug)}>
       <span className="cl-card-img">
         <GuideCover
           post={post}

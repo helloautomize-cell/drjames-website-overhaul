@@ -21,6 +21,7 @@ export function GuideCover({
 }: {
   post: PostMeta;
   sizes: string;
+  /** preloads the cover — only for the one LCP candidate on a page */
   priority?: boolean;
 }) {
   const cond = mainCondition(post);
@@ -34,11 +35,11 @@ export function GuideCover({
             alt={post.imageAlt ?? ""}
             fill
             sizes={sizes}
+            quality={80}
             placeholder="blur"
             blurDataURL={BLUR}
-            priority={priority}
-            unoptimized
-            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+            preload={priority}
+            style={{ objectFit: "cover", objectPosition: post.imageFocus }}
           />
         </>
       ) : (

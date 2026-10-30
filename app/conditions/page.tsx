@@ -68,6 +68,8 @@ export default function ConditionsPage() {
               width={1800}
               height={1200}
               sizes="100vw"
+              preload
+              fetchPriority="high"
             />
           </div>
         </div>

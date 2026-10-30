@@ -64,10 +64,10 @@ gtag("consent","default",{analytics_storage:_c&&_c.analytics===true?"granted":"d
 gtag("js", new Date());
 gtag("config", "${GA_ID}", {send_page_view:false,anonymize_ip:true});
 `}</Script>
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
+        {/* The tag itself is injected by Analytics on first interaction (or
+            ~3.5s after load) so ~180KB of third-party JS never competes with
+            the LCP image and fonts. The stub above already queued consent
+            defaults, config and any events on dataLayer. */}
         <a href="#main" className="sr-only">
           Skip to content
         </a>

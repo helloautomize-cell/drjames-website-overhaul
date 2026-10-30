@@ -133,6 +133,8 @@ export default function VisitPage() {
               width={2400}
               height={1350}
               sizes="100vw"
+              preload
+              fetchPriority="high"
             />
           </div>
         </header>

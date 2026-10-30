@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { pageView, track, updateConsent } from "@/lib/analytics";
+import { GA_ID, pageView, track, updateConsent } from "@/lib/analytics";
 import { analyticsAllowed, CONSENT_EVENT, type ConsentState } from "@/lib/consent";
 
 /**
@@ -13,6 +13,43 @@ import { analyticsAllowed, CONSENT_EVENT, type ConsentState } from "@/lib/consen
  */
 export function Analytics() {
   const pathname = usePathname();
+
+  // Fetch gtag.js on first interaction, falling back to ~3.5s after the
+  // load event for visitors who never touch the page. Every gtag() call
+  // made meanwhile sits on dataLayer and is flushed once the tag lands.
+  useEffect(() => {
+    let done = false;
+    let timer = 0;
+    const load = () => {
+      if (done || !GA_ID) return;
+      done = true;
+      const s = document.createElement("script");
+      s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      s.async = true;
+      document.head.appendChild(s);
+    };
+    const events = ["pointerdown", "keydown", "touchstart", "scroll"] as const;
+    events.forEach((e) => window.addEventListener(e, load, { once: true, passive: true }));
+    // Fallback for visitors who never interact: a few seconds past load,
+    // then still only once the main thread is idle.
+    const arm = () => {
+      timer = window.setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          (window as Window & { requestIdleCallback: (cb: () => void, o?: { timeout: number }) => number })
+            .requestIdleCallback(load, { timeout: 5000 });
+        } else {
+          load();
+        }
+      }, 3500);
+    };
+    if (document.readyState === "complete") arm();
+    else window.addEventListener("load", arm, { once: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("load", arm);
+      events.forEach((e) => window.removeEventListener(e, load));
+    };
+  }, []);
 
   // Re-apply a stored choice on load; then every banner decision
   // (Accept, Decline, settings save) sends the matching update.

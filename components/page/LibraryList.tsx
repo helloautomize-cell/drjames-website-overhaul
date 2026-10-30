@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { isPublished, type PostMeta } from "@/lib/content";
-import { fmtDate, guideUrl, searchText, topicOf } from "@/lib/library";
+import { fmtDate, guideUrl, topicOf } from "@/lib/library";
 import { GuideCover } from "./GuideCover";
 import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
@@ -25,7 +25,6 @@ export function LibraryList({ posts }: { posts: PostMeta[] }) {
               key={p.slug}
               className="hl-row"
               href={guideUrl(p.slug)}
-              data-q={searchText(p)}
               {...(extra ? { "data-extra": "", hidden: true } : {})}
             >
               <span className="hl-thumb">

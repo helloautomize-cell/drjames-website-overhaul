@@ -5,9 +5,17 @@ import { LibrarySearch } from "@/components/page/LibrarySearch";
 import { LibraryTabs } from "@/components/page/LibraryTabs";
 import { ClCard, ClusterSection } from "@/components/page/ClusterGuides";
 import { BookButton } from "@/components/BookButton";
-import { publishedPostMeta } from "@/lib/content";
+import { isPublished, publishedPostMeta } from "@/lib/content";
 import { clusterPosts } from "@/lib/clusters";
-import { sortNewest } from "@/lib/library";
+import {
+  fmtDate,
+  guideUrl,
+  mainCondition,
+  searchText,
+  sortNewest,
+  topicOf,
+} from "@/lib/library";
+import type { SearchGuide } from "@/components/page/LibrarySearch";
 import { whatsappLink } from "@/lib/whatsapp";
 import { SITE_URL } from "@/lib/seo";
 import {
@@ -39,6 +47,24 @@ export default function LibraryPage() {
   const posts = publishedPostMeta();
   const clusters = clusterPosts(posts);
   const older = sortNewest(posts.filter((p) => p.cluster == null));
+  // Flat, display-ready card data for the client-side search. Keeping the
+  // real card markup out of the client bundle; the fields mirror ClCard.
+  const searchItems: SearchGuide[] = posts.map((p) => {
+    const t = topicOf(p);
+    const reviewed = isPublished(p) ? fmtDate(p.reviewedOn) : null;
+    return {
+      href: guideUrl(p.slug),
+      heading: p.heading,
+      img: p.image,
+      imgAlt: p.imageAlt ?? "",
+      imgFocus: p.imageFocus,
+      icon: mainCondition(p)?.icon ?? t.icon,
+      topicLabel: t.label,
+      meta: `${reviewed ? `Reviewed ${reviewed} · ` : ""}${p.readingMinutes} min read`,
+      q: searchText(p),
+      draft: !isPublished(p),
+    };
+  });
 
   return (
     <main id="main">
@@ -68,7 +94,7 @@ export default function LibraryPage() {
                 Plain-language guides on the conditions Dr. James sees most, each one written
                 and reviewed by him.
               </p>
-              <LibrarySearch />
+              <LibrarySearch items={searchItems} />
             </div>
           </div>
           <div className="ph-band">
@@ -78,6 +104,8 @@ export default function LibraryPage() {
               width={1800}
               height={1200}
               sizes="100vw"
+              preload
+              fetchPriority="high"
             />
           </div>
         </div>
@@ -104,13 +132,16 @@ export default function LibraryPage() {
         )}
       </div>
 
-      <section id="hl-results" className="container cl-sec" hidden aria-label="Search results">
-        <div className="cl-grid">
-          {posts.map((p) => (
-            <ClCard key={p.slug} post={p} />
-          ))}
-        </div>
-      </section>
+      {/* Search results render client-side into this shell on first query —
+          SSR'ing the grid again here duplicated ~60 cards and their covers in
+          the HTML, and Chrome ignores loading="lazy" inside hidden subtrees,
+          so every cover fetched at page load and starved the LCP image. */}
+      <section
+        id="hl-results"
+        className="container cl-sec"
+        hidden
+        aria-label="Search results"
+      />
 
       <div className="container">
         <div className="hl-empty" id="hl-empty" hidden>

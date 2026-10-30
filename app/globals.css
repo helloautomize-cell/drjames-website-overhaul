@@ -10195,3 +10195,18 @@ main > .sec:not(.x-night) {
   margin: 0 auto 14px;
   display: block;
 }
+
+/* ---------- offscreen rendering hints ----------
+ * Sections below the first screen skip style/layout/paint until they get
+ * near the viewport — cheaper first paint on long pages (LCP render delay).
+ * `auto` in contain-intrinsic-block-size remembers the real height after the
+ * first render, so only the very first approach uses the estimate.
+ * Scoped to section/article so nav (.hl-tabs, .yv-chips), the fixed guide
+ * progress bar and small container wrappers keep normal rendering.
+ */
+#main > * + :is(section, article),
+.cl-sec,
+.gd-block {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 700px;
+}
