@@ -3836,7 +3836,7 @@ html {
     --nav-clear: 88px; /* 10px + 60px capsule + 18px gap */
   }
   body {
-    padding-bottom: 96px;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
 }
 /* no JS: conditions section shows the joined end state, plain flow */
@@ -6492,7 +6492,7 @@ main > .sec:not(.x-night) {
 }
 /* ---------- all-guides rows ---------- */
 .hl-all {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 .hl-all > h2 {
   font: 400 36px/1.15 var(--serif);
@@ -6641,7 +6641,7 @@ main > .sec:not(.x-night) {
   text-underline-offset: 4px;
 }
 .hl-bandwrap {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 /* ---------- guide-series clusters ---------- */
 .cl-sec {
@@ -7469,7 +7469,7 @@ main > .sec:not(.x-night) {
   border-radius: 16px;
 }
 .gd-close {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 /* ---------- home section ---------- */
 .hl-sec-h {
@@ -7631,7 +7631,7 @@ main > .sec:not(.x-night) {
     scroll-padding-inline: 16px;
   }
   .hl-all {
-    padding-bottom: 72px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
   .hl-all > h2 {
     font-size: 30px;
@@ -7736,7 +7736,7 @@ main > .sec:not(.x-night) {
     display: grid;
   }
   .gd-close {
-    padding-bottom: 72px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
   .hl-sec-h {
     flex-direction: column;
