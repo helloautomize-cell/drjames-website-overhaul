@@ -51,7 +51,7 @@ export function FinderButton({ children }: { children: React.ReactNode }) {
 }
 
 /** Sticky group index with scroll-spy; horizontal chip bar below 1100px. */
-export function GroupIndex({ groups }: { groups: { id: string; label: string; count: number }[] }) {
+export function GroupIndex({ groups }: { groups: { id: string; label: string }[] }) {
   const [active, setActive] = useState(groups[0]?.id);
 
   useEffect(() => {
@@ -80,7 +80,6 @@ export function GroupIndex({ groups }: { groups: { id: string; label: string; co
             aria-current={g.id === active ? "true" : undefined}
           >
             <span>{g.label}</span>
-            <small>{g.count}</small>
           </a>
         ))}
       </nav>

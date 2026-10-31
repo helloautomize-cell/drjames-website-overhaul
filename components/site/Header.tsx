@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { site } from "@/lib/site-config";
-import { conditionGroups, allConditions, conditionUrl } from "@/lib/conditions";
+import { conditionGroups, conditionUrl } from "@/lib/conditions";
 import { whatsappLink } from "@/lib/whatsapp";
 import { LogoMark } from "@/components/brand/Logo";
 import { Badge } from "@/components/Badge";
@@ -246,7 +246,7 @@ export function Header({ readNext }: { readNext: Record<string, ReadNext> }) {
                     <h3>{g.label}</h3>
                     <p>{g.intro}</p>
                     <Link className="x-all" href={site.conditionsUrl} onClick={closeNow}>
-                      All {allConditions.length} areas of expertise →
+                      All areas of expertise →
                     </Link>
                   </div>
                 </div>

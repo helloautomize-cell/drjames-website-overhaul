@@ -25,11 +25,9 @@ const crumbs = [
   { label: "Areas of Expertise" },
 ];
 
-const countLabel = (n: number) => `${n} topic${n === 1 ? "" : "s"}`;
-
 export default function ConditionsPage() {
   const [feature, ...ledger] = conditionGroups;
-  const index = conditionGroups.map((g) => ({ id: g.id, label: g.label, count: g.conditions.length }));
+  const index = conditionGroups.map((g) => ({ id: g.id, label: g.label }));
   return (
     <main id="main">
       <JsonLd
@@ -91,7 +89,6 @@ export default function ConditionsPage() {
                   <h2 id={`g-${feature.id}-h`}>{feature.label}</h2>
                   <p>{feature.intro}</p>
                 </div>
-                <span className="cx-count">{countLabel(feature.conditions.length)}</span>
               </div>
               <div className="cx-tiles">
                 {feature.conditions.map((c, i) =>
@@ -139,7 +136,6 @@ export default function ConditionsPage() {
                 <span className="cx-gnum">0{gi + 2}</span>
                 <div className="cx-group-h">
                   <h2 id={`g-${g.id}-h`}>{g.label}</h2>
-                  <span className="cx-count">{countLabel(g.conditions.length)}</span>
                 </div>
                 <p>{g.intro}</p>
                 <Reveal as="div" className="cx-rows cx-reveal" threshold={0.1}>

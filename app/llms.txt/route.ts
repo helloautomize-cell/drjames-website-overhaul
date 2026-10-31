@@ -26,7 +26,7 @@ export function GET() {
     "",
     `- [Home](${SITE_URL}/): overview of Dr. James's practice and how to book`,
     `- [About Dr. James](${SITE_URL}/about-dr-james/): training, credentials, career timeline`,
-    `- [Conditions](${SITE_URL}/conditions/): the ${conditionMeta().length} conditions he treats`,
+    `- [Conditions](${SITE_URL}/conditions/): the areas of internal medicine he looks after`,
     `- [Plan your visit](${SITE_URL}/your-visit/): what to bring, directions, first-visit steps`,
     `- [FAQs](${SITE_URL}/faqs/): practical questions about appointments`,
     `- [Health Library](${SITE_URL}/health-library/): plain-language guides written and reviewed by Dr. James`,

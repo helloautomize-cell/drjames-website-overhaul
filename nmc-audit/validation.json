@@ -1,0 +1,13 @@
+{
+  "findings": 13,
+  "counts": {
+    "HIGH": 5,
+    "MEDIUM": 8
+  },
+  "csv_matches_register": true,
+  "report_findings_match_register": true,
+  "all_finding_urls_use_preview": true,
+  "preview_responses": 24,
+  "excluded_domain_capture_files_removed": true,
+  "site_code_and_content_modified_by_audit": false
+}

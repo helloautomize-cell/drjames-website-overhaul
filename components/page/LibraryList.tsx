@@ -8,9 +8,7 @@ import { Icon } from "@/lib/icons";
 const PAGE = 12;
 
 /**
- * Guide ledger rows for the crawlable /health-library/page/n/ routes. Rows
- * past the first page are server-rendered but hidden behind data-extra so
- * LibraryMore can reveal them without a reload.
+ * Guide ledger rows for the crawlable /health-library/page/n/ routes.
  */
 export function LibraryList({ posts }: { posts: PostMeta[] }) {
   return (

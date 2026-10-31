@@ -81,32 +81,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-
-export function CookieDemo() {
-  return (
-    <div className="cookie-demo">
-      <div className="cookie" role="dialog" aria-label="Cookie choices">
-        <b>Cookies on this site</b>
-        <p>
-          We use essential cookies to run the site. With your permission we also use
-          analytics to improve it. No ads, no health data.
-        </p>
-        <div className="btns">
-          <button className="btn btn-p" type="button">
-            Accept
-          </button>
-          <button className="btn btn-s" type="button">
-            Decline
-          </button>
-          <a className="link" href="#">
-            Settings
-          </a>
-        </div>
-      </div>
-      <p className="spec">
-        Small glass card, bottom left on desktop, above the mobile bar on phones.
-        Analytics load only after Accept.
-      </p>
-    </div>
-  );
-}

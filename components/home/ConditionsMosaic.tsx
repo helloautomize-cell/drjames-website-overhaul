@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { allConditions, conditionUrl } from "@/lib/conditions";
+import { conditionUrl } from "@/lib/conditions";
 import { Reveal } from "@/components/site/Reveal";
 import { Badge } from "@/components/Badge";
 import type { BadgeName } from "@/lib/badge-glyphs";
-
-const N = allConditions.length;
 
 /**
  * Eight body-system cards. Lab tag set is locked by the style guide:
@@ -111,7 +109,7 @@ export function ConditionsMosaic() {
         <div className="cond-foot">
           <span>Looked after together by one specialist internist</span>
           <Link className="lnk" href="/conditions/">
-            All {N} areas of expertise →
+            All areas of expertise →
           </Link>
         </div>
       </div>

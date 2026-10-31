@@ -20,6 +20,9 @@ export interface ConditionGroup {
   conditions: Condition[];
 }
 
+/** No counts of conditions, areas or topics anywhere on the site
+    (client request, 31 Oct 2026) — not in links, headings, meta, schema
+    or llms.txt. The group numbers (01…) stay; the total never appears. */
 export const conditionGroups: ConditionGroup[] = [
   {
     id: "diabetes-metabolism",

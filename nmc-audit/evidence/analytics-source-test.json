@@ -1,0 +1,54 @@
+{
+  "test": "Isolated VM with synthetic inputs; no requests or form submissions",
+  "scriptsInjected": [
+    "https://www.googletagmanager.com/gtag/js?id=G-AUDIT-TEST"
+  ],
+  "eventsBeforeWithdrawal": 4,
+  "eventsAfterWithdrawal": 6,
+  "withdrawalStopsEvents": false,
+  "events": [
+    [
+      "js",
+      "2026-10-26T14:44:07.172Z"
+    ],
+    [
+      "consent",
+      "default",
+      {
+        "analytics_storage": "granted",
+        "ad_storage": "denied",
+        "ad_user_data": "denied",
+        "ad_personalization": "denied"
+      }
+    ],
+    [
+      "config",
+      "G-AUDIT-TEST",
+      {
+        "send_page_view": false,
+        "anonymize_ip": true
+      }
+    ],
+    [
+      "event",
+      "page_view",
+      {
+        "page_location": "https://audit.invalid/conditions/diabetes-and-prediabetes/?utm_source=AUDIT_SYNTHETIC_VALUE",
+        "page_path": "/conditions/diabetes-and-prediabetes/"
+      }
+    ],
+    [
+      "event",
+      "page_view",
+      {
+        "page_location": "https://audit.invalid/conditions/diabetes-and-prediabetes/?utm_source=AUDIT_SYNTHETIC_VALUE",
+        "page_path": "/conditions/diabetes-and-prediabetes/"
+      }
+    ],
+    [
+      "event",
+      "call_click",
+      {}
+    ]
+  ]
+}
