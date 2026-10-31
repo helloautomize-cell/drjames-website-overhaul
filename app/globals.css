@@ -6942,7 +6942,7 @@ main > .sec:not(.x-night) {
   display: grid;
   grid-template-columns: 220px minmax(0, 66ch) minmax(0, 1fr);
   column-gap: 56px;
-  padding: 72px 0 96px;
+  padding-block: 72px 96px;
   align-items: start;
 }
 .gd-side {
@@ -7659,7 +7659,7 @@ main > .sec:not(.x-night) {
   }
   .gd-grid {
     grid-template-columns: 1fr;
-    padding: 48px 0 72px;
+    padding-block: 48px 72px;
   }
   .gd-side {
     display: none;
