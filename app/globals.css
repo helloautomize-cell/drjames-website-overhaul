@@ -6643,7 +6643,7 @@ main > .sec:not(.x-night) {
 }
 /* ---------- guide-series clusters ---------- */
 .cl-sec {
-  padding: 56px 0 8px;
+  padding-block: 56px 8px;
 }
 .cl-head {
   display: flex;
@@ -6783,7 +6783,7 @@ main > .sec:not(.x-night) {
 }
 @media (max-width: 699px) {
   .cl-sec {
-    padding: 44px 0 4px;
+    padding-block: 44px 4px;
   }
   .cl-head {
     margin-bottom: 20px;
