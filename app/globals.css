@@ -193,6 +193,7 @@ h3 {
   white-space: nowrap;
   border: 0;
 }
+/* Gutter lives here. Never use the padding shorthand on an element that also has .container; use padding-block. */
 .container {
   max-width: 1280px;
   margin-inline: auto;
@@ -3835,7 +3836,7 @@ html {
     --nav-clear: 88px; /* 10px + 60px capsule + 18px gap */
   }
   body {
-    padding-bottom: 96px;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
 }
 /* no JS: conditions section shows the joined end state, plain flow */
@@ -6375,6 +6376,7 @@ main > .sec:not(.x-night) {
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: clamp(16px, 4vw, 40px);
   scrollbar-width: none;
 }
 .hl-tabs ul::-webkit-scrollbar {
@@ -6490,7 +6492,7 @@ main > .sec:not(.x-night) {
 }
 /* ---------- all-guides rows ---------- */
 .hl-all {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 .hl-all > h2 {
   font: 400 36px/1.15 var(--serif);
@@ -6639,11 +6641,11 @@ main > .sec:not(.x-night) {
   text-underline-offset: 4px;
 }
 .hl-bandwrap {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 /* ---------- guide-series clusters ---------- */
 .cl-sec {
-  padding: 56px 0 8px;
+  padding-block: 56px 8px;
 }
 .cl-head {
   display: flex;
@@ -6783,7 +6785,7 @@ main > .sec:not(.x-night) {
 }
 @media (max-width: 699px) {
   .cl-sec {
-    padding: 44px 0 4px;
+    padding-block: 44px 4px;
   }
   .cl-head {
     margin-bottom: 20px;
@@ -6942,7 +6944,7 @@ main > .sec:not(.x-night) {
   display: grid;
   grid-template-columns: 220px minmax(0, 66ch) minmax(0, 1fr);
   column-gap: 56px;
-  padding: 72px 0 96px;
+  padding-block: 72px 96px;
   align-items: start;
 }
 .gd-side {
@@ -7467,7 +7469,7 @@ main > .sec:not(.x-night) {
   border-radius: 16px;
 }
 .gd-close {
-  padding-bottom: 96px;
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 /* ---------- home section ---------- */
 .hl-sec-h {
@@ -7626,9 +7628,10 @@ main > .sec:not(.x-night) {
   }
   .hl-tabs ul {
     padding-inline: 16px;
+    scroll-padding-inline: 16px;
   }
   .hl-all {
-    padding-bottom: 72px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
   .hl-all > h2 {
     font-size: 30px;
@@ -7659,7 +7662,7 @@ main > .sec:not(.x-night) {
   }
   .gd-grid {
     grid-template-columns: 1fr;
-    padding: 48px 0 72px;
+    padding-block: 48px 72px;
   }
   .gd-side {
     display: none;
@@ -7733,7 +7736,7 @@ main > .sec:not(.x-night) {
     display: grid;
   }
   .gd-close {
-    padding-bottom: 72px;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
   }
   .hl-sec-h {
     flex-direction: column;
