@@ -193,6 +193,7 @@ h3 {
   white-space: nowrap;
   border: 0;
 }
+/* Gutter lives here. Never use the padding shorthand on an element that also has .container; use padding-block. */
 .container {
   max-width: 1280px;
   margin-inline: auto;
