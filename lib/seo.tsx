@@ -77,11 +77,6 @@ const geo = {
   longitude: 58.4108339,
 };
 
-// [CONFIRM: real consultation fee range] — no fee is published on the site; the
-// FAQ sends patients to the hospital billing desk. "$$" is the neutral
-// price-level indicator until the client supplies the actual range.
-const priceRange = "$$";
-
 /** The brand mark already shipped in /public; used for logo fields. */
 const logo = {
   "@type": "ImageObject" as const,
@@ -155,7 +150,6 @@ export const physicianNode = {
     availableLanguage: site.languages,
   },
   geo,
-  priceRange,
   openingHoursSpecification: openingHours,
 };
 
@@ -177,7 +171,6 @@ export const hospitalNode = {
   ],
   hasMap: site.mapsUrl,
   geo,
-  priceRange,
   openingHoursSpecification: openingHours,
 };
 
@@ -194,7 +187,6 @@ export const medicalClinicNode = {
   logo,
   sameAs: [site.mapsPlaceUrl],
   geo,
-  priceRange,
   isPartOf: { "@id": `${SITE_URL}/#hospital` },
   employee: { "@id": `${SITE_URL}/#dr-james` },
   openingHoursSpecification: openingHours,
@@ -233,9 +225,10 @@ export const medicalWebPageNode = (
   name,
   isPartOf: { "@id": `${SITE_URL}/#website` },
   about: about ?? { "@id": `${SITE_URL}/#dr-james` },
-  reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
-  // omit rather than ship a "[CONFIRM]" marker into structured data
-  ...(lastReviewed.includes("[CONFIRM") ? {} : { lastReviewed }),
+  // review attribution is emitted only when a real review date is recorded
+  ...(realDate(lastReviewed)
+    ? { reviewedBy: { "@id": `${SITE_URL}/#dr-james` }, lastReviewed }
+    : {}),
 });
 
 export const medicalConditionNode = (url: string, name: string, description: string) => ({
@@ -281,7 +274,10 @@ export const blogPostingNode = (opts: {
   ...(opts.image ? { image: `${SITE_URL}${opts.image}` } : {}),
   ...(realDate(opts.datePublished) ? { datePublished: opts.datePublished } : {}),
   ...(realDate(opts.dateModified) ? { dateModified: opts.dateModified } : {}),
-  ...(realDate(opts.lastReviewed) ? { lastReviewed: opts.lastReviewed } : {}),
+  // review attribution is emitted only when a real review date is recorded
+  ...(realDate(opts.lastReviewed)
+    ? { lastReviewed: opts.lastReviewed, reviewedBy: { "@id": `${SITE_URL}/#dr-james` } }
+    : {}),
   // @id merges this with the canonical Physician node; name and url are
   // inline so the Article fields resolve even without @id dereferencing
   author: {
@@ -290,7 +286,6 @@ export const blogPostingNode = (opts: {
     name: site.name,
     url: `${SITE_URL}${site.profileUrl}`,
   },
-  reviewedBy: { "@id": `${SITE_URL}/#dr-james` },
   publisher: {
     "@type": "MedicalClinic" as const,
     "@id": `${SITE_URL}/#clinic`,
