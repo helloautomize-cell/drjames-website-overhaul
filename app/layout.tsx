@@ -6,8 +6,6 @@ import { readNextByGroup } from "@/lib/read-next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VE31QK70MB";
-
 // variable font — one woff2 for all weights+italics instead of four files
 const newsreader = Newsreader({
   variable: "--font-serif",
@@ -36,6 +34,9 @@ export const metadata: Metadata = {
     process.env.SITE_INDEXABLE === "true"
       ? { index: true, follow: true }
       : { index: false, follow: false },
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -50,24 +51,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${newsreader.variable} ${inter.variable}`}
     >
       <body>
-        {/* GA4 with Consent Mode v2 (advanced): the denied-by-default
-            consent state is set before gtag.js loads, so every page sends
-            cookieless pings until the visitor allows analytics. A stored
-            banner choice is applied via the same default. Ad signals
-            stay denied; send_page_view is off — page_view is sent by
-            Analytics after the consent state is applied. */}
+        {/* GA4 with Consent Mode v2: only the dataLayer stub and the
+            denied-by-default consent state live here — no tag, no config,
+            no measurement. gtag.js loads only after the visitor allows
+            optional analytics (components/analytics/Analytics.tsx), and
+            every event dispatch re-checks consent so a withdrawal stops
+            measurement and clears GA cookies. Ad signals stay denied. */}
         <Script id="ga4-consent" strategy="beforeInteractive">{`
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 var _c=null;try{_c=JSON.parse(window.localStorage.getItem("dj-consent-v1"));}catch(e){}
 gtag("consent","default",{analytics_storage:_c&&_c.analytics===true?"granted":"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
 gtag("js", new Date());
-gtag("config", "${GA_ID}", {send_page_view:false,anonymize_ip:true});
 `}</Script>
         {/* The tag itself is injected by Analytics on first interaction (or
-            ~3.5s after load) so ~180KB of third-party JS never competes with
-            the LCP image and fonts. The stub above already queued consent
-            defaults, config and any events on dataLayer. */}
+            ~3.5s after load) once consent is granted, so ~180KB of
+            third-party JS never competes with the LCP image and fonts —
+            and never loads at all for visitors who decline. */}
         <a href="#main" className="sr-only">
           Skip to content
         </a>
