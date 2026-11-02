@@ -156,6 +156,5 @@ You may also find these guides helpful: [Are Weight-Loss Injections Safe? Benefi
 
 The choice between lifestyle changes and weight-loss medication is not always an either-or decision. Lifestyle habits remain central to obesity management, while medication can provide additional support for people who meet appropriate criteria or have difficulty achieving sufficient weight loss through lifestyle measures alone. A medical evaluation can help determine whether lifestyle treatment, medication, or a combination of both is the most appropriate approach for your health and long-term goals.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

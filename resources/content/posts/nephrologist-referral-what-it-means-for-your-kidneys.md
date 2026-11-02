@@ -135,6 +135,5 @@ You may also find these guides helpful: [Primary Care Doctor or Nephrologist? Wh
 
 A referral to a nephrologist can sound alarming, but it does not necessarily mean that your kidneys are failing or that you have advanced disease. Often, the goal is to understand an abnormal finding, identify its cause, and determine whether monitoring or treatment is needed. If your doctor recommends a nephrology consultation, consider it an important step toward understanding and protecting your kidney health.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -98,4 +98,3 @@ You may also find these guides helpful: [Smartwatch or Cuff? Which Blood Pressur
 
 A cardiology referral does not automatically mean the condition is severe. Staying with a primary care doctor does not mean you are getting less attention. What matters is how your readings respond to treatment and what other health conditions you have. If you are in Muscat and unsure which route suits you, your internist can help you decide and arrange a referral if one is needed.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

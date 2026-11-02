@@ -22,7 +22,7 @@ const ROWS: { id: string; stmt: string; line: string; href?: string; finder?: bo
   {
     id: "capsule",
     stmt: "You take five or more medicines.",
-    line: "A review so your medicines work together, with nothing doubled up and nothing missed.",
+    line: "A medicines review checks for duplication, interactions and suitability.",
     href: "/contact/?reason=medicines-review",
   },
   {
@@ -34,7 +34,7 @@ const ROWS: { id: string; stmt: string; line: string; href?: string; finder?: bo
   {
     id: "pulse",
     stmt: "You want a check-up planned around your own risks.",
-    line: "Chosen after a consultation, based on your history, so no test is wasted.",
+    line: "Tests are selected after a consultation, based on your history.",
     href: "/conditions/preventive-check-ups/",
   },
   {

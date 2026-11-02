@@ -158,6 +158,5 @@ You may also find these guides helpful: [Gastritis Symptoms: What Does Gastritis
 
 Gastritis and acid reflux can feel similar, but they involve different parts and processes within the digestive system. Gastritis primarily affects the stomach lining, while acid reflux involves stomach contents moving back into the esophagus. If symptoms continue, repeatedly return, or interfere with your daily life, a medical evaluation can help determine the actual cause and guide appropriate treatment. Avoid assuming that every episode of upper abdominal or chest discomfort is simply "acidity."
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

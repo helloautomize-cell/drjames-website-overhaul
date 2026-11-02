@@ -109,6 +109,5 @@ You may also find these guides helpful: [Why Is My Blood Pressure Different at H
 
 ## Final Thoughts
 
-Lifestyle changes are worth making even when medicine is needed, because they protect the heart and blood vessels either way. If you are in Muscat and want your readings and habits reviewed together, Dr. James Pallivathukkal, an Internal Medicine specialist, can help you work out a realistic plan.
+Lifestyle changes are worth making even when medicine is needed, because they protect the heart and blood vessels either way.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

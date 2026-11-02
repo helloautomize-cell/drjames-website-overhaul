@@ -116,6 +116,5 @@ You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 M
 
 ## Final Thoughts
 
-There is no universal answer to whether a GLP-1 medicine is worth it. The best decision balances health benefits, finances and your ability to continue treatment. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients make informed choices about medical [weight management](/conditions/weight-management/).
+There is no universal answer to whether a GLP-1 medicine is worth it. The best decision balances health benefits, finances and your ability to continue treatment.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

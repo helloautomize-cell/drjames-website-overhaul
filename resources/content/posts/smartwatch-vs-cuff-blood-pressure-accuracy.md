@@ -102,4 +102,3 @@ You may also find these guides helpful: [Why Is My Blood Pressure Different at H
 
 Wearables have helped many people start paying attention to their heart health, and that counts for something. The best results come from pairing the watch with careful cuff readings and an honest conversation with a clinician. For patients in Muscat who track their pressure at home, a written log often tells a clearer story at a consultation than a screenshot does.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

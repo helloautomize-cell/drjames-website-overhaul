@@ -315,7 +315,7 @@ In Oman, go to the nearest emergency department. Don't wait to see whether it pa
 
 :::
 
-### Book an appointment if:
+### See a doctor if:
 
 You have wheezing, a lingering cough or breathlessness that nobody has looked into. Or you're using your reliever more than advised, waking at night with symptoms, or finding that asthma limits your work, exercise or daily routine. The same goes if you've needed steroid tablets or an emergency visit, still feel short of breath despite your inhalers, aren't sure your technique is right, are pregnant or planning a pregnancy, or you're over 40 with new symptoms, particularly if you've smoked.
 
@@ -351,6 +351,5 @@ Myth: "No wheeze means no asthma." Some people only ever cough, or feel tight or
 
 For one person, asthma is a minor nuisance that shows up with the odd cold. For another, it shapes sleep, work and how far they feel they can walk. In most cases, though, it can be brought under good control with an accurate diagnosis, the right inhaler used properly, some attention to triggers and regular check-ins.
 
-If your symptoms have never been properly assessed, or your asthma still feels unpredictable despite treatment, it's worth booking a consultation. An internal medicine review in Muscat can confirm what's behind your breathing symptoms, rule out other causes, and leave you with a clear plan you can actually follow.
+If your symptoms have never been properly assessed, or your asthma still feels unpredictable despite treatment, it's worth having them reviewed by a doctor. An assessment can look at what may be behind the symptoms and what treatment changes could help.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

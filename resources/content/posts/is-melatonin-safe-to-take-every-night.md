@@ -127,6 +127,5 @@ You may also find these guides helpful: [Sleep Apnea or Insomnia? Why the Sympto
 
 Melatonin can be useful in certain situations, but long-term nightly use deserves thoughtful consideration. Recent preliminary research has raised questions about a possible relationship between prolonged melatonin use and cardiovascular outcomes, but it does not establish that melatonin causes heart failure. If you rely on melatonin regularly, especially because of ongoing insomnia, discuss your sleep difficulties and supplement use with a healthcare professional. The goal is not simply to treat sleeplessness but to understand and address what may be causing it.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

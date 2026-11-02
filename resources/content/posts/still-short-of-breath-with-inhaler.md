@@ -140,6 +140,5 @@ You may also find these guides helpful: [What Are the Symptoms of Asthma? Early 
 
 Being short of breath despite using an inhaler is a reason to reassess the situation, not simply to take more medication. The cause may be uncontrolled asthma, inhaler technique, ongoing triggers, or an entirely different medical condition. If breathlessness keeps returning or is getting worse, speak with a healthcare professional for a proper evaluation. If breathing becomes severe or rapidly deteriorates, seek urgent medical care.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

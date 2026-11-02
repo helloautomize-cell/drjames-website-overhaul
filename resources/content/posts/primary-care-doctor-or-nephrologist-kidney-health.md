@@ -133,6 +133,5 @@ You may also find these guides helpful: [Is a Nephrologist Referral Bad News? Wh
 
 Your primary care doctor is often the right starting point for evaluating kidney health. If testing reveals a persistent, complex, or worsening kidney problem, a nephrologist can provide specialised assessment and management. Rather than choosing one doctor over the other, think of kidney care as a coordinated process designed to identify problems early and protect kidney function over time.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

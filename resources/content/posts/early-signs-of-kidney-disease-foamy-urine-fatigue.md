@@ -121,6 +121,5 @@ You may also find these guides helpful: [Primary Care Doctor or Nephrologist? Wh
 
 Foamy urine and persistent fatigue do not automatically mean you have kidney disease, but recurring or unexplained symptoms should not be ignored. [Kidney problems](/conditions/kidney-problems/) can develop quietly, making appropriate medical evaluation important. If you notice persistent urinary changes, swelling, or unexplained fatigue, speak with a healthcare professional about whether kidney function testing is appropriate.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

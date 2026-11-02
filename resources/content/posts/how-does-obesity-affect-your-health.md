@@ -138,6 +138,5 @@ You may also find these guides helpful: [Why Is It So Hard to Lose Weight? Medic
 
 Obesity can influence many aspects of health, including blood sugar, heart health, sleep, liver function, and mobility. However, the risks are not identical for everyone, and obesity does not determine a person's health on its own. If you are concerned about your weight or have related health problems, a medical evaluation can help identify your individual risks and guide an appropriate treatment plan. The goal is sustainable improvement in health and quality of life, not simply a lower number on the scale.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

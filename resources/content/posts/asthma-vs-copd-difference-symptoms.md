@@ -150,6 +150,5 @@ You may also find these guides helpful: [What Are the Symptoms of Asthma? Early 
 
 Asthma and COPD can look similar at first because both may cause coughing, wheezing, and shortness of breath. The key difference is the underlying pattern of airway and lung disease. Asthma often involves variable airway narrowing, while COPD generally causes persistent airflow limitation. If you regularly experience breathing problems, getting an accurate diagnosis is more useful than trying to determine the condition yourself. A medical evaluation and appropriate lung function testing can help guide the right treatment.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -135,6 +135,5 @@ You may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Dis
 
 Newer medicines have expanded treatment options for selected patients with advanced fatty liver disease, particularly those with MASH and significant fibrosis. However, these treatments are not suitable for everyone. Understanding your diagnosis and the degree of liver scarring is essential before deciding whether medication is appropriate. If you have been diagnosed with advanced fatty liver disease, discuss your test results and treatment options with a qualified healthcare professional rather than starting supplements or medications on your own.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

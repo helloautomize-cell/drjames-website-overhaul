@@ -106,6 +106,5 @@ You may also find these guides helpful: [Ashwagandha and Thyroid Medication: Is 
 
 ## Final Thoughts
 
-Thyroid problems are common and very manageable once diagnosed. If your symptoms match either pattern, a simple blood test can give answers. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, diagnoses and manages thyroid conditions.
+Thyroid problems are common and very manageable once diagnosed. If your symptoms match either pattern, a simple blood test can give answers.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

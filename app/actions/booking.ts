@@ -181,40 +181,40 @@ export async function requestAppointment(
     };
   }
 
+  if (!resend) {
+    // Email delivery is not configured: fail neutrally and point the
+    // visitor at phone/WhatsApp. Never log submitted values — a generic
+    // operational line only, no personal data in server logs.
+    console.warn("[booking] email delivery not configured; request not emailed");
+    return {
+      ok: false,
+      fatal: true,
+      errors: [
+        {
+          field: "submit",
+          message: "The request could not be sent. Please book by phone or WhatsApp instead.",
+        },
+      ],
+      values: flatten(parsed.values, formData),
+    };
+  }
+
   const receivedAt = muscatNow();
   const mail = buildBookingEmail(
     { ...parsed.values, consentAt: receivedAt },
     receivedAt,
   );
 
-  if (!resend) {
-    // No keys configured (local dev): log the request instead of sending.
-    console.warn("[booking] RESEND_API_KEY not set, request not emailed.\n" + mail.text);
-  } else {
-    try {
-      const { error } = await resend.emails.send({
-        from: `Dr. James website <${FROM}>`,
-        to: [BOOKING_INBOX],
-        subject: mail.subject,
-        text: mail.text,
-        html: mail.html,
-      });
-      if (error) {
-        console.error("[booking] resend error", error);
-        return {
-          ok: false,
-          fatal: true,
-          errors: [
-            {
-              field: "submit",
-              message: "The request could not be sent. Please book by phone or WhatsApp instead.",
-            },
-          ],
-          values: flatten(parsed.values, formData),
-        };
-      }
-    } catch (err) {
-      console.error("[booking] send failed", err);
+  try {
+    const { error } = await resend.emails.send({
+      from: `Dr. James website <${FROM}>`,
+      to: [BOOKING_INBOX],
+      subject: mail.subject,
+      text: mail.text,
+      html: mail.html,
+    });
+    if (error) {
+      console.error("[booking] resend error", error);
       return {
         ok: false,
         fatal: true,
@@ -227,6 +227,19 @@ export async function requestAppointment(
         values: flatten(parsed.values, formData),
       };
     }
+  } catch (err) {
+    console.error("[booking] send failed", err);
+    return {
+      ok: false,
+      fatal: true,
+      errors: [
+        {
+          field: "submit",
+          message: "The request could not be sent. Please book by phone or WhatsApp instead.",
+        },
+      ],
+      values: flatten(parsed.values, formData),
+    };
   }
 
   redirect("/thank-you/");

@@ -142,6 +142,5 @@ You may also find these guides helpful: [Sleep Apnea or Insomnia? Why the Sympto
 
 If you think you may have sleep apnea, you do not need to diagnose yourself. Start by discussing your symptoms with a doctor. A careful medical history, risk assessment, and appropriate sleep testing can help determine whether repeated breathing disturbances are affecting your sleep. Identifying the problem is the first step toward choosing treatment that can improve sleep quality, daytime alertness, and overall health.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -86,7 +86,7 @@ The first visit goes better with a little preparation. Bring your recent HbA1c a
 
 Finding the right doctor in Muscat depends partly on how your care is organized. Check whether your insurance or the local referral process requires a referral before you can see an endocrinologist. When you compare options, it is reasonable to ask how a doctor handles diabetes alongside other conditions, how they coordinate with endocrinology or diabetes education, and how often they review their patients.
 
-Dr. James Pallivathukkal practices as an Internal Medicine specialist in Muscat, with diabetes and metabolic health forming part of his adult care. If you are not sure which specialist fits your situation, a consultation is a practical way to find out.
+If you are not sure which specialist fits your situation, an internal medicine assessment is a reasonable first step; referral to a sub-specialist can follow if needed.
 
 ## When Should You Seek Urgent Care?
 
@@ -102,4 +102,3 @@ You may also find these guides helpful: [What Causes Blood Sugar to Rise When Yo
 
 Either specialist can provide good care. The deciding factors are the type of diabetes you have, how it responds to treatment, and whether complications or other hormone problems are involved. Diabetes is managed over years, so continuity matters. A doctor who knows your history and follows up reliably often serves you better than any title does.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

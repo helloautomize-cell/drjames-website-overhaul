@@ -111,4 +111,3 @@ You may also find these guides helpful: [Can Prediabetes Be Reversed? A Step-by-
 
 A high number without eating deserves attention, but it rarely means the worst. Most causes can be identified, and many improve once the underlying driver is addressed. Keep a clear record, test under proper conditions, and bring the full picture to your doctor.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

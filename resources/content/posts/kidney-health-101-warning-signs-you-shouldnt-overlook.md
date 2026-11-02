@@ -480,4 +480,3 @@ The right approach is to look at the complete picture and, when appropriate, use
 
 For people at higher risk, particularly those living with diabetes or high blood pressure, regular monitoring can be especially important because kidney problems may develop quietly.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -666,4 +666,3 @@ There is no need to panic over the word "fatty." But there is also little benefi
 
 The right approach is to understand the cause, assess the liver properly and work on the metabolic factors that can be changed.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

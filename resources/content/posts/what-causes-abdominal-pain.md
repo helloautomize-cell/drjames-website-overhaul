@@ -158,6 +158,5 @@ You may also find these guides helpful: [When Is Abdominal Pain Serious? Warning
 
 Abdominal pain is a symptom rather than a diagnosis, and its cause cannot always be determined from location alone. Paying attention to when the pain occurs, how it changes, and which other symptoms accompany it can provide useful information for your doctor. If pain is severe, worsening, persistent, or associated with warning signs such as bleeding or fainting, seek medical attention promptly rather than trying to manage it at home.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

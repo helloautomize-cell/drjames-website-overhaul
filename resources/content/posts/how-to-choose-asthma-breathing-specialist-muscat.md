@@ -138,6 +138,5 @@ You may also find these guides helpful: [What Are the Symptoms of Asthma? Early 
 
 Choosing an asthma and breathing specialist in Muscat is about more than finding the nearest clinic. Look for relevant specialist training, appropriate professional licensing, experience with respiratory conditions, access to suitable diagnostic testing, and a doctor who takes time to understand and explain your symptoms. The right evaluation can help distinguish asthma from other causes of breathing difficulty and support a treatment plan suited to your individual needs.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

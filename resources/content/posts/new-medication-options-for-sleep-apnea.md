@@ -136,6 +136,5 @@ You may also find these guides helpful: [Think You Might Have Sleep Apnea? A Ste
 
 New medication options are expanding the way doctors can approach obstructive sleep apnea, particularly for adults with obesity. Tirzepatide represents an important development, but it is not a universal replacement for CPAP or other established treatments. If you have symptoms of sleep apnea, the first step is an appropriate evaluation and diagnosis. From there, your doctor can help determine whether medication, PAP therapy, an oral appliance, weight management, or a combination of approaches makes the most sense for you.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

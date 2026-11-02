@@ -108,6 +108,5 @@ You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 M
 
 ## Final Thoughts
 
-Greater access to GLP-1 medicines is good news for many patients, but safe use still depends on proper assessment and follow-up. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients decide whether GLP-1 treatment suits them and monitors them safely.
+Greater access to GLP-1 medicines is good news for many patients, but safe use still depends on proper assessment and follow-up.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

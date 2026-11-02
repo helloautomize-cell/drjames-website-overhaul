@@ -162,6 +162,5 @@ You may also find these guides helpful: [What Causes Abdominal Pain? Common Caus
 
 Most abdominal pain is not an emergency, but certain patterns and accompanying symptoms can signal a more serious problem. Severe or worsening pain, digestive bleeding, persistent vomiting, fainting, significant swelling, or other concerning symptoms should prompt medical attention rather than waiting for the problem to resolve. Even when pain is mild, recurring or persistent symptoms deserve evaluation. Understanding the warning signs can help you know when abdominal pain needs more than home care.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -4,14 +4,14 @@ title: "Thyroid problems checked and treated in Muscat"
 updated: "2026-10-16"
 description: "Underactive and overactive thyroid care with Dr. James in Muscat. Simple blood tests, a clear explanation of TSH results, and steady follow-up."
 heading: "Thyroid disorders"
-intro: "The thyroid is a small gland in the neck that sets the body's speed. When it runs slow or fast, it can cause tiredness, weight change, hair loss and palpitations. A simple blood test gives the answer, and treatment is usually straightforward."
+intro: "The thyroid is a small gland in the neck that sets the body's speed. When it runs slow or fast, it can cause tiredness, weight change, hair loss and palpitations. Blood tests help assess thyroid function; interpretation depends on symptoms, medicines and other findings."
 badge: thyroid
 emergency: false
 faqs:
   - q: "What do TSH, T3 and T4 mean?"
     a: "TSH is the signal from your brain telling the thyroid how hard to work. T4 and T3 are the hormones the thyroid makes. A high TSH usually means the gland is underactive; a low TSH suggests it is overactive. Dr. James reads all three together, never one number alone."
   - q: "Will I need thyroid medicine for life?"
-    a: "An underactive thyroid usually needs a daily hormone tablet long-term, which is safe and works well. An overactive thyroid sometimes settles after a course of treatment. Your situation is reviewed at each visit so the dose stays right."
+    a: "An underactive thyroid usually needs a daily hormone tablet long-term. The dose needs monitoring: too much can cause palpitations and other problems, while too little may leave symptoms unresolved. An overactive thyroid sometimes settles after a course of treatment, and its options and risks should be discussed individually. Your situation is reviewed at each visit so the dose stays right."
   - q: "My TSH is slightly high but I feel fine. Do I need treatment?"
     a: "Maybe not. A mildly raised TSH with normal hormone levels is called subclinical hypothyroidism, and sometimes only monitoring is needed. Whether to treat depends on the exact numbers, your symptoms, your age and whether pregnancy is planned."
   - q: "Can thyroid problems cause weight gain and hair loss?"
@@ -35,6 +35,8 @@ related: [diabetes-and-prediabetes, weight-management, high-cholesterol, anaemia
 Dr. James asks about your symptoms, medicines, supplements and family history, then examines your neck, pulse, skin and reflexes. He reviews your thyroid function tests (the blood tests TSH, T4 and T3) and may repeat them or add an antibody test to find the cause.
 
 If a lump or nodule is suspected, an ultrasound may be arranged. He then explains in plain words whether the gland is underactive, overactive, or simply needs watching.
+
+Underactive thyroid is often treated with thyroid hormone replacement. The dose needs monitoring: too much can cause palpitations and other problems, while too little may leave symptoms unresolved. The need for treatment and response vary. Overactive thyroid has different treatment options and risks, which should be discussed individually.
 
 ## How to prepare
 

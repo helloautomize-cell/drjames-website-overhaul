@@ -590,8 +590,6 @@ It is not a prediction that you will definitely develop diabetes.
 
 The earlier you understand what your numbers mean, the more useful that information can become.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).
-
 ## Which guides go deeper on this topic?
 
 - [CGM or A1C: Which Test Actually Catches Prediabetes Early?](/health-library/cgm-vs-a1c-prediabetes-early-detection/)

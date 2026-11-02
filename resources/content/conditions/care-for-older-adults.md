@@ -9,7 +9,7 @@ badge: elderly-care
 emergency: true
 faqs:
   - q: "Why see an internist instead of separate specialists?"
-    a: "Specialists each treat one organ, but older adults need someone watching how the treatments combine. An internist holds the full list: sugar, pressure, kidneys, joints, sleep and medicines together, so nothing is added that clashes with something else."
+    a: "Specialists each treat one organ, but older adults need someone watching how the treatments combine. An internist holds the full list: sugar, pressure, kidneys, joints, sleep and medicines together. A medicines review helps assess possible interactions and duplication across the treatment plan."
   - q: "My parent takes many tablets. Can the list be cut down?"
     a: "Often, yes. A structured medicines review checks each drug for benefit, dose, duplication and interactions. Some medicines that suited a patient years ago can safely be reduced or stopped. This is done carefully, one change at a time."
   - q: "Is confusion in an older person always dementia?"

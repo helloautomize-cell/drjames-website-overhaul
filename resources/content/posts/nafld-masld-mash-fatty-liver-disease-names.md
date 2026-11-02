@@ -121,6 +121,5 @@ You may also find these guides helpful: [Elevated Liver Enzymes on a Routine Blo
 
 The shift from NAFLD to MASLD and MASH can seem confusing, but the new terminology provides a clearer way to describe fatty liver disease and its relationship with metabolic health. If you have been told that you have fatty liver, understanding which term applies to your condition can help you have a more informed discussion with your doctor about liver health, risk factors, and appropriate follow-up.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

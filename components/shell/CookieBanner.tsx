@@ -49,8 +49,9 @@ export function CookieBanner() {
       <div className="cookie">
         <b>Cookies on this site</b>
         <p>
-          We use essential cookies to run the site. With your permission we also
-          use analytics to improve it. No ads, no health data.
+          We use essential storage to run the site. If you choose optional
+          analytics, it helps us understand website use. You can decline or
+          change your choice in Cookie settings.
         </p>
         {settings ? (
           <label className="consent-row">
@@ -59,7 +60,7 @@ export function CookieBanner() {
               checked={analytics}
               onChange={(e) => setAnalytics(e.target.checked)}
             />
-            <span>Allow anonymous analytics</span>
+            <span>Allow optional analytics</span>
           </label>
         ) : null}
         <div className="btns">

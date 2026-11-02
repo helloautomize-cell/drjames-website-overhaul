@@ -126,6 +126,5 @@ You may also find these guides helpful: [Normal Thyroid Test but Still Feeling U
 
 ## Final Thoughts
 
-If your anxiety feels physical and comes with other changes, it is worth checking your thyroid. Either way, effective help is available. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, assesses patients with anxiety-like and thyroid symptoms.
+If your anxiety feels physical and comes with other changes, it is worth checking your thyroid. Either way, effective help is available.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

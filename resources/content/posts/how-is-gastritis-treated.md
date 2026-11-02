@@ -140,6 +140,5 @@ You may also find these guides helpful: [Gastritis Symptoms: What Does Gastritis
 
 Gastritis can often be managed effectively once the underlying cause is identified. Treatment may involve addressing H. pylori infection, reviewing medications, reducing stomach irritation, or using acid-reducing medicines when appropriate. Lifestyle changes can support recovery and help control symptoms, but they should not replace medical evaluation when symptoms persist. If your stomach pain keeps returning or you develop warning signs such as bleeding, severe pain, vomiting, or unexplained weight loss, seek professional medical advice.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

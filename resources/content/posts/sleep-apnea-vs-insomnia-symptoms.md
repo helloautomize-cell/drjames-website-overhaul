@@ -156,6 +156,5 @@ You may also find these guides helpful: [Think You Might Have Sleep Apnea? A Ste
 
 Insomnia and sleep apnea can look similar from the outside because both can leave you tired, irritable, and unable to concentrate. The important difference is what is causing the disrupted sleep. Difficulty falling or staying asleep may suggest insomnia, while snoring, gasping, breathing pauses, and significant daytime sleepiness can point toward sleep apnea. If your sleep problems continue, a medical evaluation can help identify the underlying cause and guide appropriate treatment.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

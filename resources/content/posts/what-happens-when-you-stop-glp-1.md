@@ -104,8 +104,7 @@ You may also find these guides helpful: [How Much Weight Can You Lose on GLP-1 M
 
 ## Final Thoughts
 
-GLP-1 medicines work best as part of a long-term plan. If you plan to stop, preparing ahead and staying in touch with your doctor can protect your progress. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, supports patients through starting, maintaining and stopping weight-loss treatment.
+GLP-1 medicines work best as part of a long-term plan. If you plan to stop, preparing ahead and staying in touch with your doctor can protect your progress.
 
 If weight is part of the picture, our [weight management](/conditions/weight-management/) page explains the support available.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

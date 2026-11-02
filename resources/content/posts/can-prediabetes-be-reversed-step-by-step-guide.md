@@ -100,7 +100,7 @@ For some people at higher risk, doctors may discuss medication alongside lifesty
 
 :::emergency
 
-[Book an appointment](/contact/) soon if you notice increased thirst, passing urine more often than usual, unexplained weight loss, blurred vision or wounds that are slow to heal. Seek urgent care if very high blood sugar is accompanied by vomiting, confusion, severe weakness, difficulty breathing or severe abdominal pain.
+See a doctor soon if you notice increased thirst, passing urine more often than usual, unexplained weight loss, blurred vision or wounds that are slow to heal. Seek urgent care if very high blood sugar is accompanied by vomiting, confusion, severe weakness, difficulty breathing or severe abdominal pain.
 
 :::
 

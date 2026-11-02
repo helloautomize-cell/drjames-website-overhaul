@@ -15,7 +15,6 @@ import { QuestionsToAsk } from "@/components/page/QuestionsToAsk";
 import { ConditionRow } from "@/components/page/ConditionRow";
 import { ReviewerBox } from "@/components/page/ReviewerBox";
 import { FaqBlock } from "@/components/page/FaqBlock";
-import { BookButton } from "@/components/BookButton";
 import { Icon } from "@/lib/icons";
 import {
   IS_PROD,
@@ -36,8 +35,6 @@ import {
 } from "@/lib/library";
 import { site } from "@/lib/site-config";
 import { SITE_URL } from "@/lib/seo";
-import { whatsappLink } from "@/lib/whatsapp";
-import { bookingUrl, reasonForSlug } from "@/lib/booking-context";
 import {
   pageMeta,
   JsonLd,
@@ -170,7 +167,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               />
               <span className="gd-who">
                 <b>
-                  Written and reviewed by{" "}
+                  {isPublished(doc) ? "Written and reviewed by " : "Written by "}
                   <Link href={site.profileUrl}>{site.name}</Link>, {site.title}
                 </b>
                 <small className="num">
@@ -250,16 +247,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                       <Icon name="arrow" size={18} />
                     </span>
                   </Link>
-                  <Link className="cx-row" href={bookingUrl(reasonForSlug(main.slug))}>
-                    <span className="cx-row-ic" aria-hidden="true">
-                      <Icon name="calendar" size={24} />
-                    </span>
-                    <b>Book a consultation</b>
-                    <span className="cx-row-d">By appointment only</span>
-                    <span className="cx-row-go" aria-hidden="true">
-                      <Icon name="arrow" size={18} />
-                    </span>
-                  </Link>
                 </div>
               </section>
             )}
@@ -299,7 +286,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </section>
             )}
 
-            <ReviewerBox lastReviewed={doc.reviewedOn} />
+            {isPublished(doc) ? <ReviewerBox lastReviewed={doc.reviewedOn} /> : null}
 
             {moreConditions.length > 0 && (
               <section className="gd-block gd-related" aria-labelledby="gd-related-h">
@@ -336,30 +323,6 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             )}
 
             <GuideConditionCard slug={doc.related[0]} className="gd-condcard-m" />
-          </div>
-        </div>
-
-        <div className="container gd-close">
-          <div className="ctaband">
-            <h3>
-              Talk to Dr. James about <em className="acc">{topic.label.toLowerCase()}</em>
-            </h3>
-            <p>Book a consultation at {site.hospital}.</p>
-            <div className="btns">
-              <BookButton
-                onDark
-                label="Book appointment"
-                href={bookingUrl(reasonForSlug(doc.related[0]))}
-              />
-              <a
-                className="btn wa-btn"
-                href={whatsappLink(topic.label)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
-            </div>
           </div>
         </div>
       </article>

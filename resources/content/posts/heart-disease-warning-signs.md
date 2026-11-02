@@ -97,6 +97,6 @@ The warning signs matter most when the background risk is there. The main driver
 
 A heart risk assessment puts your numbers together: blood pressure, cholesterol profile, sugar or HbA1c, kidney function, weight and waist, plus your family history and habits. An ECG heart tracing is added when indicated. The result is a plain answer about your risk and which changes would protect you most.
 
-If you recognise yourself in the quiet signs, or you have never had your numbers measured, [book a consultation](/contact/).
+If you recognise yourself in the quiet signs, or you have never had your numbers measured, have your numbers checked.
 
 You may also find these guides helpful: [Why High Blood Pressure Has No Symptoms: The Silent Killer](/health-library/why-high-blood-pressure-has-no-symptoms-silent-killer/) and [How to Lower Blood Pressure Naturally: A Step-by-Step Guide](/health-library/how-to-lower-blood-pressure-naturally-step-by-step/). See what the visit covers on the [heart risk assessment](/conditions/heart-risk-assessment/) page. It is far better to hear "your heart is fine" than to guess.

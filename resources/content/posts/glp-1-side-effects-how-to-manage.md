@@ -126,8 +126,7 @@ You may also find these guides helpful: [GLP-1 Medicines: Why They Are Becoming 
 
 ## Final Thoughts
 
-Most people can manage GLP-1 side effects with simple changes and close follow-up. Knowing the warning signs keeps treatment safe. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, monitors patients on GLP-1 medicines and adjusts treatment as needed.
+Most people can manage GLP-1 side effects with simple changes and close follow-up. Knowing the warning signs keeps treatment safe.
 
 If you are also keeping an eye on blood sugar, our page on [diabetes and prediabetes](/conditions/diabetes-and-prediabetes/) explains the care available.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

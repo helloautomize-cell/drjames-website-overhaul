@@ -142,6 +142,5 @@ You may also find these guides helpful: [Lifestyle Changes vs Weight-Loss Medica
 
 Losing weight can be challenging because body weight is influenced by biological, medical, behavioural, and environmental factors. If your efforts are not producing the results you expected, that does not automatically mean you are doing something wrong. Reviewing your diet, activity, sleep, medications, and overall health with a healthcare professional can help identify factors that may be making weight management more difficult and guide a safer, more individualized approach.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

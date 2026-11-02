@@ -15,7 +15,7 @@ faqs:
   - q: "I only cough. Could that still be asthma?"
     a: "Yes. A form called cough-variant asthma causes a persistent dry cough without obvious wheeze. Post-nasal drip and acid reflux cause similar coughs, so the visit sorts out which one you have before treatment starts."
   - q: "Is my inhaler safe to use every day?"
-    a: "Preventer inhalers used daily are designed for exactly that, and untreated asthma is far riskier than the medicine. If you are reaching for your reliever often, your control needs a review, because the preventer plan is likely too weak."
+    a: "Preventer inhalers help many people control asthma when used as prescribed. Depending on the inhaler, side effects can include a sore mouth, hoarseness or tremor. Technique, dose and monitoring matter, and control varies. Do not change treatment without medical advice."
   - q: "What are my asthma triggers likely to be?"
     a: "Common ones are dust, air conditioning, smoke, perfumes, pets, weather changes, exercise and chest colds. Keeping a short note of when symptoms flare helps identify yours, and some people benefit from allergy assessment."
 related: [allergies, chest-infections-and-pneumonia, sleep-apnea, fevers-and-infections]
@@ -35,6 +35,8 @@ relatedPost: sleep-disorders
 Dr. James asks about the pattern: when symptoms started, what triggers them, night symptoms, smoke and dust exposure, and your medicines. He listens to your chest and may arrange spirometry (a breathing test) or a chest X-ray when needed.
 
 The goal is a clear label for the problem: asthma, allergy-driven cough, post-viral cough, reflux-related cough or something else. Each has a different fix, so the label matters more than a quick prescription.
+
+Preventer inhalers help many people control asthma when used as prescribed. Depending on the inhaler, side effects can include a sore mouth, hoarseness or tremor. Technique, dose and monitoring matter, and control varies. Do not change treatment without medical advice.
 
 ## How to prepare
 

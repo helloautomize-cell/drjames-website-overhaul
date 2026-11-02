@@ -98,4 +98,3 @@ For patients in Muscat, a mismatch between home and clinic numbers is a good rea
 
 If you want help getting your readings under control, our page on [high blood pressure](/conditions/high-blood-pressure/) explains how it is managed.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

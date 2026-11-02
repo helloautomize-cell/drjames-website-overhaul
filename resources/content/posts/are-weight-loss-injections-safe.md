@@ -148,6 +148,5 @@ You may also find these guides helpful: [Lifestyle Changes vs Weight-Loss Medica
 
 Weight-loss injections can be an effective medical option for some people, but calling them completely “safe” would be misleading. Every medication has potential benefits, side effects, and situations in which it may not be appropriate. Before starting a weight-loss injection, discuss your medical history, current medications, health goals, and potential risks with a qualified healthcare professional. The safest treatment is one selected and monitored specifically for you.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

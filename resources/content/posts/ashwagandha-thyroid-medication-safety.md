@@ -88,6 +88,5 @@ You may also find these guides helpful: [Normal Thyroid Test but Still Feeling U
 
 ## Final Thoughts
 
-Ashwagandha may suit some people, but it is not automatically safe for those with thyroid conditions. A quick conversation with your doctor can prevent avoidable problems. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, advises patients on thyroid care and supplement safety.
+Ashwagandha may suit some people, but it is not automatically safe for those with thyroid conditions. A quick conversation with your doctor can prevent avoidable problems.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

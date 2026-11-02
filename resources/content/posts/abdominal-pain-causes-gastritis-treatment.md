@@ -371,6 +371,6 @@ Fact: The occasional antacid is usually harmless. Needing them most days for wee
 
 ## Final Thoughts
 
-Most abdominal pain has a cause that can be managed, and gastritis usually improves well once its trigger is identified. The hard part is that very different conditions can feel alike, and a few of them can't wait. Noticing where the pain is, how it behaves and what comes with it will help you decide whether to watch and wait, [book an appointment](/contact/), or get help now.
+Most abdominal pain has a cause that can be managed, and gastritis usually improves well once its trigger is identified. The hard part is that very different conditions can feel alike, and a few of them can't wait. Noticing where the pain is, how it behaves and what comes with it will help you decide whether to watch and wait, see a doctor, or get help now.
 
 If you've been living with ongoing stomach pain, indigestion or suspected gastritis in Muscat, seeing an Internal Medicine Specialist can help pin down the cause and arrange the right tests. It also means your treatment is planned around your wider health, including conditions like diabetes, high blood pressure or heart disease, which can change how abdominal problems show up.

@@ -112,4 +112,3 @@ You may also find these guides helpful: [CGM or A1C: Which Test Actually Catches
 
 Feeling well is a good sign, but it cannot tell you what your glucose is doing. A simple test can, and finding prediabetes early leaves more room to influence its course. If you are unsure whether you need testing, a short conversation with your doctor will usually settle the question.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -109,6 +109,4 @@ Seek urgent care if you develop confusion, drowsiness, persistent vomiting, seve
 
 :::
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).
-
 You may also find these guides helpful: [Can Prediabetes Be Reversed? A Step-by-Step Guide](/health-library/can-prediabetes-be-reversed-step-by-step-guide/), [Prediabetes and Feeling Fine: Myths, Warning Signs and When to Worry](/health-library/feel-fine-with-prediabetes-myths-warning-signs/), [Internist or Endocrinologist? Choosing a Diabetes Specialist](/health-library/internist-or-endocrinologist-choosing-diabetes-specialist/).

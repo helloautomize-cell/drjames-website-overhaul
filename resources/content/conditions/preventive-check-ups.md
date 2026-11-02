@@ -2,9 +2,9 @@
 kind: condition
 title: "Preventive health check-ups in Muscat"
 updated: "2026-10-16"
-description: "Health check-ups planned by Dr. James in Muscat after a consultation, not a fixed package — the right tests for your age and risks, nothing wasted."
+description: "Health check-ups planned by Dr. James in Muscat after a consultation, not a fixed package — tests selected for your age, symptoms and risk factors."
 heading: "Preventive check-ups"
-intro: "A good check-up is not a long list of tests; it is the right tests for you. Dr. James plans each check-up after a consultation, based on your age, family history and habits, so nothing is repeated or wasted."
+intro: "A check-up starts with a consultation. Tests are selected according to your age, family history, symptoms and other risk factors."
 badge: checkup
 emergency: false
 faqs:
@@ -33,7 +33,7 @@ related: [heart-risk-assessment, diabetes-and-prediabetes, high-cholesterol, car
 
 The consultation comes first. Dr. James asks about your history, family history, diet, activity, sleep, smoking and alcohol, then examines you: pressure, weight, waist, heart and chest.
 
-Only then are tests chosen. Each check-up is planned by Dr. James after a consultation, based on your conditions and symptoms, so no test is repeated or wasted. When results return, you sit down again and go through them in plain language: what is normal, what needs watching, and what needs action.
+Only then are tests chosen. Each check-up is planned by Dr. James after a consultation, based on your conditions and symptoms. When results return, you sit down again and go through them in plain language: what is normal, what needs watching, and what needs action.
 
 ## How to prepare
 

@@ -162,6 +162,5 @@ You may also find these guides helpful: [What Are the Symptoms of Asthma? Early 
 
 Shortness of breath is a symptom, not a diagnosis. While becoming breathless after strenuous exercise can be normal, unexplained, persistent, or worsening breathing difficulty should be evaluated by a healthcare professional. The cause may involve the lungs, heart, blood, medications, or other health conditions. If breathing becomes suddenly severe or is accompanied by chest pain, fainting, confusion, or other serious symptoms, seek emergency medical care immediately.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

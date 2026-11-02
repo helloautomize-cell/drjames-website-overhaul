@@ -15,7 +15,7 @@ faqs:
   - q: "Does sleep apnea really affect my health?"
     a: "Yes, and seriously. Untreated apnea raises blood pressure, worsens diabetes, and is linked to heart rhythm problems and stroke. It also makes driving and machinery unsafe through daytime sleepiness. Treating it improves energy, pressure and sugar control."
   - q: "Will I have to sleep with a machine forever?"
-    a: "Treatment depends on severity. Mild apnea often improves with weight loss, side-sleeping and avoiding alcohol before bed. Moderate to severe apnea usually needs a CPAP machine, which keeps the airway open. The plan follows the sleep study results."
+    a: "Treatment depends on severity. Mild apnea often improves with weight loss, side-sleeping and avoiding alcohol before bed. Moderate to severe apnea usually needs a CPAP machine, which helps keep the airway open during sleep. Mask discomfort, nasal dryness, skin irritation or air leakage can occur. Suitability, comfort and response vary, and follow-up may be needed. The plan follows the sleep study results."
   - q: "I cannot sleep but do not snore. Is that different?"
     a: "Yes. Insomnia is difficulty falling or staying asleep and has different causes: stress, caffeine, irregular hours, thyroid problems, low mood or certain medicines. The assessment finds which applies and treats that cause rather than masking it."
 related: [weight-management, high-blood-pressure, diabetes-and-prediabetes, heart-risk-assessment]
@@ -35,6 +35,8 @@ relatedPost: sleep-disorders
 Dr. James asks about your sleep pattern, what your partner has noticed, caffeine, alcohol, shift work, and your medicines. He examines your weight, neck, nose and throat, checks your blood pressure, and screens for related problems like thyroid disease.
 
 When apnea is suspected, a sleep study is arranged to measure breathing, oxygen and sleep stages. The result decides the treatment: lifestyle measures alone, a sleep device, or a referral for specialist review.
+
+CPAP helps keep the airway open during sleep. Mask discomfort, nasal dryness, skin irritation or air leakage can occur. Suitability, comfort and response vary, and follow-up may be needed.
 
 ## How to prepare
 

@@ -121,6 +121,5 @@ You may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Dis
 
 Fatty liver disease is not something you should simply ignore, but it also does not mean that liver damage is inevitable. Improving metabolic health through sustainable lifestyle changes and appropriate medical care can help protect the liver. If you have been diagnosed with fatty liver, speak with your doctor about your individual risk, whether fibrosis needs assessment, and the most appropriate plan for long-term liver health.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

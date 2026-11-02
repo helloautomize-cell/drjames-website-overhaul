@@ -158,6 +158,5 @@ You may also find these guides helpful: [Asthma vs COPD: What Is the Difference 
 
 Asthma symptoms are not always obvious, especially when they occur only occasionally. Recurrent wheezing, coughing, chest tightness, or shortness of breath can be important clues, even if you feel normal between episodes. Identifying triggers and getting an appropriate medical evaluation can help determine whether asthma is responsible for your symptoms. If breathing becomes severely difficult or symptoms worsen rapidly, seek urgent medical care rather than waiting for them to improve.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

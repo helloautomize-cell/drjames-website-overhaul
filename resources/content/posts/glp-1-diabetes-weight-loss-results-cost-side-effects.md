@@ -584,4 +584,3 @@ Affordability deserves particular attention. A medicine that works but cannot re
 
 If you are considering a GLP-1 medicine, discuss your medical history, current medications, expected benefits, possible side effects and long-term cost with a qualified doctor before starting treatment.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

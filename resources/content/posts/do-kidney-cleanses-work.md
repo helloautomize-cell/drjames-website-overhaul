@@ -117,6 +117,5 @@ You may also find these guides helpful: [Early Signs of Kidney Disease: Why Foam
 
 Kidney cleanses may sound appealing, but there is no need to “flush” healthy kidneys with special teas, juices, or supplements. Your kidneys already perform their filtering role continuously. Rather than relying on detox products, focus on proven health habits and appropriate medical monitoring. If you are concerned about your kidney function, proper blood and urine testing is far more useful than a commercial cleanse.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

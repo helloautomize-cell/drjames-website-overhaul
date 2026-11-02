@@ -127,8 +127,7 @@ You may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Dis
 
 An elevated ALT or AST result is a finding, not a diagnosis. While abnormal liver enzymes can sometimes indicate liver injury, they can also occur for other reasons. The most useful next step is to have the results interpreted in the context of your overall health, medications, symptoms, and other tests. If your liver enzymes remain elevated, appropriate evaluation can help identify the cause and determine whether further monitoring or treatment is needed.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
 If a test result points toward your liver, our page on [fatty liver disease](/conditions/fatty-liver/) explains how it is assessed and managed.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -14,7 +14,7 @@ We collect the smallest amount of information needed to respond to you:
 
 - **Appointment request form:** your name, mobile number, age, the reason for your visit chosen from a short list, your preferred date and time of day, and whether the patient is under 18 (with guardian details where needed).
 - **Contact details you send us** by WhatsApp, phone or email when you get in touch.
-- **Analytics data** only if you accept analytics cookies: pages visited, approximate device and browser information, and how you arrived at the site. This is anonymous and never includes health information.
+- **Analytics data:** If enabled with your permission, optional analytics collects limited technical and usage information. It is not used for advertising. Appointment-form fields are not included in our custom analytics events.
 
 The appointment form deliberately does not ask for medical details. Health information is a special category under Omani law, so we ask you not to include medical details in the form. Dr. James will ask about your health at your visit.
 

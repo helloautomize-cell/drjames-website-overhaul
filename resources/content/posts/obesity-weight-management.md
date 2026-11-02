@@ -616,4 +616,3 @@ If you are concerned about obesity, repeated weight regain or related conditions
 
 For patients in Muscat, weight management can be approached as part of overall metabolic and adult healthcare rather than as a separate issue.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

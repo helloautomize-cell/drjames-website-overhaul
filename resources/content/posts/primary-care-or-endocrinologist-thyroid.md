@@ -106,6 +106,5 @@ You may also find these guides helpful: [Normal Thyroid Test but Still Feeling U
 
 ## Final Thoughts
 
-You do not always need a specialist for a [thyroid condition](/conditions/thyroid-disorders/). The right doctor depends on your diagnosis and treatment response. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, manages thyroid conditions and coordinates specialist referral when needed.
+You do not always need a specialist for a [thyroid condition](/conditions/thyroid-disorders/). The right doctor depends on your diagnosis and treatment response.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

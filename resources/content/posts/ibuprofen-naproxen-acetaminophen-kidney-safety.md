@@ -123,6 +123,5 @@ You may also find these guides helpful: [Early Signs of Kidney Disease: Why Foam
 
 There is no single painkiller that is automatically safe for everyone. Ibuprofen and naproxen require particular caution because NSAIDs can affect kidney function, while acetaminophen has important dosing and liver-safety considerations. Your kidney function, other medical conditions, medications, and how long you need pain relief all matter. If you have kidney disease or regularly need pain medication, speak with your doctor before choosing a treatment.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

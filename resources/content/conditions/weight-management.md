@@ -13,7 +13,7 @@ faqs:
   - q: "How much weight do I need to lose to help my health?"
     a: "Less than most people think. Losing 5 to 10 percent of your body weight already improves sugar, blood pressure, cholesterol and fatty liver. Small, steady losses that stay off beat fast losses that come back."
   - q: "Are weight-loss injections available?"
-    a: "Weight treatment is decided person by person after an examination. Dr. James will tell you honestly whether a medicine suits your situation, and it is always combined with food, activity and sleep changes, never instead of them."
+    a: "Weight treatment is decided person by person after an examination. Weight-loss medicines are suitable for some people, not everyone. Benefits, contraindications and side effects depend on the medicine; gastrointestinal symptoms and other adverse effects can occur. Results vary and monitoring is needed. Any medicine is combined with food, activity and sleep changes, never instead of them."
   - q: "I have knee pain. How can I exercise?"
     a: "Joint pain is common with extra weight and does not stop you. Low-impact options like walking in a pool, cycling, or short frequent walks protect your knees while the weight comes down, which then eases the pain itself."
   - q: "Will I have to give up rice and bread?"
@@ -33,7 +33,9 @@ related: [diabetes-and-prediabetes, thyroid-disorders, fatty-liver, high-cholest
 
 Dr. James takes a careful history: when the weight changed, your eating pattern, sleep, activity, stress, medicines and previous attempts. He measures weight, waist and blood pressure, and may check your thyroid, sugar and liver tests, because weight is often a symptom as much as a cause.
 
-You then agree a realistic target and the first changes to make. Dr. James decides the right tests and treatment for you after examining you, so any medicine is chosen for your situation, not by trend.
+You then agree a realistic target and the first changes to make.
+
+Weight-loss medicines are suitable for some people, not everyone. Benefits, contraindications and side effects depend on the medicine; gastrointestinal symptoms and other adverse effects can occur. Results vary and monitoring is needed. Any medicine is combined with food, activity and sleep changes, never instead of them.
 
 ## How to prepare
 

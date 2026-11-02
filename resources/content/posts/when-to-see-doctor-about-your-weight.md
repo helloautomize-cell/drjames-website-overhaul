@@ -146,6 +146,5 @@ You may also find these guides helpful: [Why Is It So Hard to Lose Weight? Medic
 
 Knowing when to seek medical help for weight management can be just as important as knowing what to eat or how much to exercise. If you have persistent difficulty losing weight, repeated weight regain, or health problems associated with excess weight, a medical evaluation can help identify factors that may be making weight management difficult. The goal is not simply to reach a number on the scale, but to develop a safe, realistic approach that supports your overall health.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

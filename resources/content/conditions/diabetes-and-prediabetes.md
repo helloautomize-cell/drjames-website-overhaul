@@ -11,7 +11,7 @@ faqs:
   - q: "Can prediabetes go back to normal?"
     a: "Often, yes. Prediabetes means your sugar is higher than normal but not yet in the diabetes range. Weight loss, regular activity and small food changes can bring it back to normal for many people. Dr. James will tell you honestly where you stand and what to change first."
   - q: "Will I need insulin straight away?"
-    a: "Not usually. Most people with type 2 diabetes start with food, activity and tablets. Insulin is added only when the body needs it. Dr. James decides the right tests and treatment for you after examining you."
+    a: "Not usually. Treatment may include lifestyle measures, tablets or insulin, depending on assessment. Some diabetes medicines, including insulin, can cause low blood sugar; other risks depend on the medicine. Targets and response vary, and doses need monitoring."
   - q: "How often should I have blood tests?"
     a: "It depends on your control and your treatment. Many people have a sugar control test called HbA1c every three to six months, plus yearly kidney, cholesterol and eye checks. Your schedule is set at your visit, not by a fixed rule."
   - q: "Do I have to stop eating rice and sweets completely?"
@@ -34,7 +34,9 @@ related: [high-cholesterol, weight-management, high-blood-pressure, kidney-probl
 
 Dr. James listens first: how long the problem has been there, your family history, your routine and the medicines you already take. He examines you, checks your feet, weight and blood pressure, and reviews your old reports. He may ask for a fasting sugar, HbA1c (a three-month average of your blood sugar), kidney function, cholesterol and a urine test for protein.
 
-He then explains what the numbers mean in plain language and agrees targets with you. Dr. James decides the right tests and treatment for you after examining you, so nothing is prescribed or repeated without a reason.
+He then explains what the numbers mean in plain language and agrees targets with you.
+
+Treatment may include lifestyle measures, tablets or insulin, depending on assessment. Some diabetes medicines, including insulin, can cause low blood sugar; other risks depend on the medicine. Targets and response vary, and doses need monitoring.
 
 ## How to prepare
 
@@ -45,4 +47,4 @@ He then explains what the numbers mean in plain language and agrees targets with
 
 ## After your visit
 
-You leave with a written plan: the target numbers, the medicines if needed, food and activity changes, and when to come back. Between visits, WhatsApp or a call handles small questions. Kidney, eye and cholesterol checks are scheduled on time so nothing is missed.
+You leave with a written plan: the target numbers, the medicines if needed, food and activity changes, and when to come back. Between visits, WhatsApp or a call handles small questions. Kidney, eye and cholesterol checks are arranged according to your clinical needs.

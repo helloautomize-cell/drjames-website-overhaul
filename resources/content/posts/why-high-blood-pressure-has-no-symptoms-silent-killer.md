@@ -110,10 +110,10 @@ If your doctor prescribes medicine, keep taking it as directed. Many people stop
 
 ## When Should You See a Doctor?
 
-[Book an appointment](/contact/) if you have never had your pressure measured. Book one if repeated readings are at or above 130/80 mmHg, a threshold many current guidelines use to define raised pressure. Book one if you have diabetes or kidney disease and have not had a recent check. Readings above 180/120 mmHg, or any of the symptoms listed above, need prompt medical attention.
+If you have not had a recent blood pressure measurement, ask a healthcare professional when to check it. Repeated elevated readings should be assessed. Very high readings or symptoms such as chest pain, severe breathlessness or new neurological symptoms need urgent medical assessment rather than a routine booking.
 
 You may also find these guides helpful: [Primary Care Doctor or Cardiologist for Blood Pressure?](/health-library/primary-care-doctor-or-cardiologist-blood-pressure/), [Why Is My Blood Pressure Different at Home Than at the Doctor's Office?](/health-library/why-is-my-blood-pressure-different-at-home-than-doctor/), [How to Lower Blood Pressure Naturally: A Step-by-Step Guide](/health-library/how-to-lower-blood-pressure-naturally-step-by-step/).
 
 ## Final Thoughts
 
-A blood pressure check takes a few minutes and costs very little, yet it is the only reliable way to catch hypertension during its silent years. If you live in Muscat and your readings have been worrying you, Dr. James Pallivathukkal can review them with you and plan the next steps.
+A blood pressure check takes a few minutes and costs very little, yet it is the only reliable way to catch hypertension during its silent years. Keep a record of readings and discuss the pattern with a qualified healthcare professional.

@@ -2,9 +2,9 @@
 kind: condition
 title: "Anaemia and low iron checks in Muscat"
 updated: "2026-10-16"
-description: "Anaemia found and explained by Dr. James in Muscat. Why your haemoglobin is low matters more than the number itself, and how the cause is treated."
+description: "Anaemia assessment with Dr. James in Muscat. Why your haemoglobin is low matters more than the number itself, and how possible causes are investigated."
 heading: "Anaemia"
-intro: "Anaemia means your blood carries less oxygen than it should, leaving you tired, breathless on effort or pale. The number matters, but the reason behind it matters more, and Dr. James always finds the cause before treating."
+intro: "Anaemia means the blood carries less oxygen than usual. Assessment looks for possible causes and guides treatment; further investigation or referral may be needed."
 badge: anaemia
 emergency: false
 faqs:
@@ -13,7 +13,7 @@ faqs:
   - q: "Is anaemia always an iron problem?"
     a: "No. Iron deficiency is the commonest cause, but low B12 or folate, thyroid problems, chronic illness, kidney disease and inherited conditions like thalassemia trait (common in this region) all cause anaemia. Each needs a different treatment."
   - q: "Should I just take iron tablets?"
-    a: "Not before the cause is known. If iron deficiency is confirmed, tablets help, but the reason for the deficiency matters too: diet, heavy periods, or hidden gut blood loss. Treating without finding the cause can hide something important."
+    a: "Not before the cause is known. Iron tablets may help when iron deficiency is confirmed, but they can cause nausea, abdominal discomfort, constipation or dark stools, and can interact with other medicines. The reason for the deficiency matters too: diet, heavy periods, or hidden gut blood loss. Response varies; follow-up blood tests check progress and investigation of the cause may still be needed."
   - q: "What is thalassemia trait?"
     a: "It is an inherited blood variant common in the Gulf, South Asia and the Mediterranean. Trait carriers are usually healthy but have small red cells that look like iron deficiency on reports. Knowing your trait status prevents years of unnecessary iron."
   - q: "How long until iron treatment works?"
@@ -33,7 +33,9 @@ related: [thyroid-disorders, digestive-problems, kidney-problems, preventive-che
 
 Dr. James asks about diet, periods, gut symptoms, previous blood counts and family blood conditions, then examines for pallor and other clues. Your blood count is reviewed properly: not just haemoglobin but cell size and pattern, which point toward the cause.
 
-Further tests are chosen by the pattern: ferritin for iron stores, B12 and folate, thyroid function, or screening for thalassemia trait. Treatment follows the cause, and hidden blood loss is ruled out when the pattern demands it.
+Further tests are chosen by the pattern: ferritin for iron stores, B12 and folate, thyroid function, or screening for thalassemia trait. Treatment follows the cause, and possible hidden blood loss is investigated when indicated.
+
+Iron tablets may help when iron deficiency is confirmed. They can cause nausea, abdominal discomfort, constipation or dark stools, and can interact with other medicines. Response varies; follow-up blood tests check progress and investigation of the cause may still be needed.
 
 ## How to prepare
 
@@ -43,4 +45,4 @@ Further tests are chosen by the pattern: ferritin for iron stores, B12 and folat
 
 ## After your visit
 
-You leave knowing the type of anaemia and why it happened, not just that it exists. Treatment and its expected timeline are explained, a recheck date is set, and anything suggesting hidden blood loss is investigated rather than watched.
+The findings, likely causes, treatment options and follow-up plan are discussed. Further tests or referral may be needed if the cause remains uncertain.

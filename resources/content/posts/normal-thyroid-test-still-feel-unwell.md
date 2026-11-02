@@ -122,6 +122,5 @@ You may also find these guides helpful: [Is Your Anxiety Actually Your Thyroid? 
 
 ## Final Thoughts
 
-Your symptoms are real and worth investigating. A thoughtful review can uncover the cause and guide treatment. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients get to the root of persistent symptoms.
+Your symptoms are real and worth investigating. A thoughtful review can uncover the cause and guide treatment.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

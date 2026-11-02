@@ -26,8 +26,8 @@ const PRINCIPLES: { badge: BadgeName; title: string; line: string; means: string
   {
     badge: "tests-reason",
     title: "Tests with a reason",
-    line: "Only the tests your situation needs, explained before they are done.",
-    means: "What it means for you: no wasted tests.",
+    line: "Tests are selected according to the clinical assessment.",
+    means: "What it means for you: tests follow your clinical assessment.",
   },
   {
     badge: "plain-words",

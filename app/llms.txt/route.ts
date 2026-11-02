@@ -29,7 +29,7 @@ export function GET() {
     `- [Conditions](${SITE_URL}/conditions/): the areas of internal medicine he looks after`,
     `- [Plan your visit](${SITE_URL}/your-visit/): what to bring, directions, first-visit steps`,
     `- [FAQs](${SITE_URL}/faqs/): practical questions about appointments`,
-    `- [Health Library](${SITE_URL}/health-library/): plain-language guides written and reviewed by Dr. James`,
+    `- [Health Library](${SITE_URL}/health-library/): plain-language health guides medically reviewed by Dr. James`,
     `- [Contact & booking](${SITE_URL}/contact/): appointment request form`,
     "",
     "## Conditions treated",

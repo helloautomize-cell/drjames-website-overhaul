@@ -265,7 +265,7 @@ Try to eat dinner a few hours before bed, particularly if reflux bothers you. Ke
 
 ## When should you see a doctor?
 
-[Book an appointment](/contact/) if:
+See a doctor if:
 
 - Your sleep has been poor for more than a few weeks and it's affecting your days
 

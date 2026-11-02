@@ -156,6 +156,5 @@ You may also find these guides helpful: [Sleep Apnea or Insomnia? Why the Sympto
 
 There is no single doctor who is right for every sleep problem. For many people, a primary care or internal medicine doctor is the appropriate first step because sleep difficulties can be connected to medications, medical conditions, lifestyle, or other health concerns. A sleep specialist can provide more focused evaluation when symptoms suggest a sleep disorder or when problems persist despite initial care. The most important step is not choosing the “right” specialist immediately, it is getting persistent sleep problems properly evaluated.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

@@ -555,4 +555,3 @@ And if the thyroid tests are normal, that information is useful too. It allows t
 
 If you have persistent symptoms or concerns about your thyroid function, discuss them with a qualified physician.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

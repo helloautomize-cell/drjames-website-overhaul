@@ -141,6 +141,5 @@ You may also find these guides helpful: [NAFLD, MASLD, MASH: Why Fatty Liver Dis
 
 A fatty liver diagnosis does not automatically mean you need a liver specialist. For many people, primary care or internal medicine is an appropriate place to begin evaluation and management. The important question is whether there are signs of liver injury or fibrosis that require more specialised assessment. Your doctor can review your risk factors and test results and determine whether monitoring, lifestyle-focused management, further testing, or referral to a liver specialist is appropriate.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

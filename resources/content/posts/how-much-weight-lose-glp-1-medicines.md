@@ -106,6 +106,5 @@ You may also find these guides helpful: [GLP-1 Medicines: Why They Are Becoming 
 
 ## Final Thoughts
 
-GLP-1 medicines can deliver meaningful weight loss, but they work best as part of a broader plan. Realistic expectations make long-term success more likely. Dr. James Pallivathukkal, an internal medicine doctor in Muscat, supports patients through medical [weight management](/conditions/weight-management/).
+Response to GLP-1 treatment varies. Discuss expected benefits, risks, monitoring and what happens if treatment stops with a qualified healthcare professional.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

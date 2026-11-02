@@ -152,6 +152,5 @@ You may also find these guides helpful: [Gastritis vs Acid Reflux: What Is the D
 
 Gastritis can cause burning or aching discomfort in the upper abdomen, but the symptoms are not always specific. Where the pain occurs and how it feels can provide useful clues, but they cannot establish the diagnosis by themselves. If stomach pain is persistent, recurrent, or accompanied by warning signs such as bleeding, vomiting, weight loss, or severe pain, medical evaluation is important. Identifying the underlying cause allows treatment to be directed at the actual problem rather than simply masking the symptoms.
 
-Dr. James Pallivathukkal, an internal medicine doctor in Muscat, helps patients with this and related health concerns. This article is for general information and does not replace personal medical advice.
+This article is for general information and does not replace personal medical advice.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).

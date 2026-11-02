@@ -634,4 +634,3 @@ For someone with diabetes, kidney disease, obesity or several chronic conditions
 
 Patients in Muscat and across Oman who have persistent high readings can discuss their blood pressure with an Internal Medicine physician and determine whether monitoring, lifestyle changes, medication or further investigation is appropriate.
 
-If you would like to talk about this with a doctor in Muscat, you can [book an appointment](/contact/).
