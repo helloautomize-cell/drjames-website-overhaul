@@ -75,6 +75,12 @@ gtag("js", new Date());
         {/* Speed Insights only exists on Vercel — skip elsewhere so
             local/preview serves no 404 script. */}
         {process.env.VERCEL ? <SpeedInsights /> : null}
+        {/* Vercel Web Analytics: cookieless, no personal data, counts every
+            visit regardless of the cookie banner. GA4 stays consent-based. */}
+        <Script id="vercel-web-analytics" strategy="afterInteractive">
+          {`window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};`}
+        </Script>
+        <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
       </body>
     </html>
   );
