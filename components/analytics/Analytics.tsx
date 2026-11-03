@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { GA_ID, loadGa, pageType, pageView, track, updateConsent } from "@/lib/analytics";
-import { analyticsAllowed, CONSENT_EVENT, readConsent, type ConsentState } from "@/lib/consent";
+import { CONSENT_EVENT, readConsent, type ConsentState } from "@/lib/consent";
 
 /**
  * Keeps the Consent Mode v2 analytics_storage signal in sync with the
@@ -55,7 +55,7 @@ export function Analytics() {
   // (Accept, Decline, settings save) sends the matching update. Granting
   // consent starts the tag and measures the current view.
   useEffect(() => {
-    updateConsent(analyticsAllowed());
+    updateConsent(readConsent()?.analytics !== false);
     const onConsent = (e: Event) => {
       const allow = (e as CustomEvent<ConsentState>).detail?.analytics === true;
       updateConsent(allow);

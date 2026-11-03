@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 var _c=null;try{_c=JSON.parse(window.localStorage.getItem("dj-consent-v1"));}catch(e){}
-gtag("consent","default",{analytics_storage:_c&&_c.analytics===true?"granted":"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("consent","default",{analytics_storage:_c&&_c.analytics===false?"denied":"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
 gtag("js", new Date());
 `}</Script>
         {/* The tag itself is injected by Analytics on first interaction (or

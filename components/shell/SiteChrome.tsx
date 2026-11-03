@@ -10,10 +10,6 @@ import type { ReadNext } from "@/lib/read-next";
 
 /* Rendered nothing until needed — keep them out of the initial hydration
    pass so first paint and LCP aren't queued behind their evaluation. */
-const CookieBanner = dynamic(
-  () => import("@/components/shell/CookieBanner").then((m) => m.CookieBanner),
-  { ssr: false },
-);
 const Analytics = dynamic(() => import("@/components/analytics/Analytics").then((m) => m.Analytics), {
   ssr: false,
 });
@@ -37,7 +33,6 @@ export function SiteChrome({
         <SiteFooter />
       </div>
       <Dock />
-      <CookieBanner />
       <Analytics />
     </FinderProvider>
   );

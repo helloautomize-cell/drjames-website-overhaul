@@ -3,7 +3,6 @@ import { site } from "@/lib/site-config";
 import { Icon } from "@/lib/icons";
 import { footerNav } from "@/lib/nav";
 import { LogoHorizontal } from "@/components/brand/Logo";
-import { CookieSettingsLink } from "@/components/shell/CookieSettingsLink";
 
 export function SiteFooter() {
   return (
@@ -62,7 +61,6 @@ export function SiteFooter() {
             {l.label}
           </Link>
         ))}
-        <CookieSettingsLink />
       </div>
       <div className="fbase">
         © {new Date().getFullYear()} {site.name}. Health information on this site is for
