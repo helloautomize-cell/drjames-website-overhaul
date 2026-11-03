@@ -42,6 +42,10 @@ export function loadGa() {
   s.async = true;
   document.head.appendChild(s);
   window.gtag("config", GA_ID, { send_page_view: false, anonymize_ip: true });
+  // Views before the tag loaded had no destination; send the current one now.
+  if (!declined()) {
+    window.gtag("event", "page_view", { page_type: pageType(), page_location: cleanLocation() });
+  }
 }
 
 /** Coarse page type — the only location signal sent to GA. */
@@ -86,6 +90,7 @@ export function track(event: string, params: Record<string, string | number | bo
 export function pageView() {
   if (
     typeof window === "undefined" ||
+    !loaded ||
     declined() ||
     typeof window.gtag !== "function"
   )
