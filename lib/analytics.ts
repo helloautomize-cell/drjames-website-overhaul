@@ -10,9 +10,14 @@
  * coarse page type. No personal or health data is ever attached to events.
  */
 
-import { analyticsAllowed } from "@/lib/consent";
+import { readConsent } from "@/lib/consent";
 
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+/** True only when the visitor explicitly declined analytics. */
+function declined() {
+  return readConsent()?.analytics === false;
+}
+
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-VE31QK70MB";
 
 declare global {
   interface Window {
@@ -23,7 +28,11 @@ declare global {
 
 let loaded = false;
 
-/** Fetch gtag.js and configure the tag — call only while consent is granted. */
+/**
+ * Fetch gtag.js and configure the tag. Consent Mode v2 advanced: the tag
+ * loads for everyone; until the visitor accepts, analytics_storage stays
+ * denied so hits are cookieless. An explicit decline disables the tag.
+ */
 export function loadGa() {
   if (loaded || !GA_ID || typeof window === "undefined" || typeof window.gtag !== "function")
     return;
@@ -67,7 +76,7 @@ function cleanLocation(): string {
 export function track(event: string, params: Record<string, string | number | boolean> = {}) {
   if (
     typeof window === "undefined" ||
-    !analyticsAllowed() ||
+    declined() ||
     typeof window.gtag !== "function"
   )
     return;
@@ -77,7 +86,7 @@ export function track(event: string, params: Record<string, string | number | bo
 export function pageView() {
   if (
     typeof window === "undefined" ||
-    !analyticsAllowed() ||
+    declined() ||
     typeof window.gtag !== "function"
   )
     return;
@@ -109,7 +118,7 @@ function clearGaCookies() {
  */
 export function updateConsent(analytics: boolean) {
   if (typeof window === "undefined") return;
-  if (GA_ID) (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = !analytics;
+  if (GA_ID) (window as unknown as Record<string, boolean>)[`ga-disable-${GA_ID}`] = declined();
   if (typeof window.gtag === "function") {
     window.gtag("consent", "update", {
       analytics_storage: analytics ? "granted" : "denied",

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { GA_ID, loadGa, pageType, pageView, track, updateConsent } from "@/lib/analytics";
-import { analyticsAllowed, CONSENT_EVENT, type ConsentState } from "@/lib/consent";
+import { analyticsAllowed, CONSENT_EVENT, readConsent, type ConsentState } from "@/lib/consent";
 
 /**
  * Keeps the Consent Mode v2 analytics_storage signal in sync with the
@@ -20,7 +20,7 @@ export function Analytics() {
   // gtag() call made meanwhile sits on dataLayer and flushes once the
   // tag lands.
   useEffect(() => {
-    if (!GA_ID || !analyticsAllowed()) return;
+    if (!GA_ID || readConsent()?.analytics === false) return;
     let done = false;
     let timer = 0;
     const load = () => {
@@ -59,10 +59,7 @@ export function Analytics() {
     const onConsent = (e: Event) => {
       const allow = (e as CustomEvent<ConsentState>).detail?.analytics === true;
       updateConsent(allow);
-      if (allow) {
-        loadGa();
-        pageView();
-      }
+      if (allow) loadGa();
     };
     window.addEventListener(CONSENT_EVENT, onConsent);
     return () => window.removeEventListener(CONSENT_EVENT, onConsent);
